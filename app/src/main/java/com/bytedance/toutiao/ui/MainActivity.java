@@ -3,10 +3,7 @@ package com.bytedance.toutiao.ui;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -14,24 +11,14 @@ import android.widget.Toast;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.base.NormalViewModel;
-import com.bytedance.toutiao.bean.Resource;
-import com.bytedance.toutiao.bean.User;
-import com.bytedance.toutiao.bean.basebean.ResponseModel;
 import com.bytedance.toutiao.databinding.ActivityMainBinding;
 
-import com.bytedance.toutiao.retrofit.RetrofitApiService;
-import com.bytedance.toutiao.retrofit.RetrofitManager;
-import com.bytedance.toutiao.ui.fragment.FragmentFour;
-import com.bytedance.toutiao.ui.fragment.FragmentOne;
-import com.bytedance.toutiao.ui.fragment.FragmentThree;
-import com.bytedance.toutiao.ui.fragment.FragmentTwo;
-import com.bytedance.toutiao.utils.ToastUtils;
+import com.bytedance.toutiao.ui.fragment.FragmentUser;
+import com.bytedance.toutiao.ui.fragment.FragmentHome;
+import com.bytedance.toutiao.ui.fragment.FragmentMessage;
+import com.bytedance.toutiao.ui.fragment.FragmenVideo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import io.reactivex.Observable;
 
 public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBinding> {
     private static final int FRAGMENT_ONE = 0;
@@ -40,10 +27,10 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
     private static final int FRAGMENT_FOUR = 3;
     private int index;
     private int currentTabIndex = 0;
-    FragmentOne fragment_one;
-    FragmentTwo fragment_two;
-    FragmentThree fragment_three;
-    FragmentFour fragment_four;
+    FragmentHome fragment_one;
+    FragmenVideo fragment_two;
+    FragmentMessage fragment_three;
+    FragmentUser fragment_four;
     private RelativeLayout[] mTabs;
     private FragmentManager manager;
     private ArrayList<Fragment> list_fragment = new ArrayList<Fragment>();
@@ -66,18 +53,18 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                 switch (v.getId()) {
                     case R.id.framLayout:
                         Toast.makeText(MainActivity.this, " clicked ", Toast.LENGTH_LONG).show();
-                    case R.id.relative_tab_1:
-                        switchFragment(R.id.relative_tab_1);
+                    case R.id.relative_tab_home:
+                        switchFragment(R.id.relative_tab_home);
                         break;
-                    case R.id.relative_tab_2:
+                    case R.id.relative_tab_video:
                         Toast.makeText(MainActivity.this, " create ", Toast.LENGTH_LONG).show();
-                        switchFragment(R.id.relative_tab_2);
+                        switchFragment(R.id.relative_tab_video);
                         break;
-                    case R.id.relative_tab_3:
-                        switchFragment(R.id.relative_tab_3);
+                    case R.id.relative_tab_message:
+                        switchFragment(R.id.relative_tab_message);
                         break;
-                    case R.id.relative_tab_4:
-                        switchFragment(R.id.relative_tab_4);
+                    case R.id.relative_tab_user:
+                        switchFragment(R.id.relative_tab_user);
                 }
             }
         });
@@ -89,19 +76,19 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
     private void initFragment() {
         manager = getSupportFragmentManager();
         mTabs = new RelativeLayout[4];
-        mTabs[0] = binding.relativeTab1;
-        mTabs[1] = binding.relativeTab2;
-        mTabs[2] = binding.relativeTab3;
-        mTabs[3] = binding.relativeTab4;
-        fragment_one = FragmentOne.newFragment(1);
-        fragment_two = FragmentTwo.newFragment(2);
-        fragment_three = FragmentThree.newFragment(3);
-        fragment_four = FragmentFour.newFragment(4);
+        mTabs[0] = binding.relativeTabHome;
+        mTabs[1] = binding.relativeTabVideo;
+        mTabs[2] = binding.relativeTabMessage;
+        mTabs[3] = binding.relativeTabUser;
+        fragment_one = FragmentHome.newFragment(1);
+        fragment_two = FragmenVideo.newFragment(2);
+        fragment_three = FragmentMessage.newFragment(3);
+        fragment_four = FragmentUser.newFragment(4);
         list_fragment.add(fragment_one);
         list_fragment.add(fragment_two);
         list_fragment.add(fragment_three);
         list_fragment.add(fragment_four);
-        switchFragment(R.id.relative_tab_1);
+        switchFragment(R.id.relative_tab_home);
         Toast.makeText(MainActivity.this, " create ", Toast.LENGTH_LONG).show();
     }
 
@@ -132,16 +119,16 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
         }
         ft.commitAllowingStateLoss();
         switch (id) {
-            case R.id.relative_tab_1://首页
+            case R.id.relative_tab_home://首页
                 index = FRAGMENT_ONE;
                 break;
-            case R.id.relative_tab_2:
+            case R.id.relative_tab_video:
                 index = FRAGMENT_TWO;
                 break;
-            case R.id.relative_tab_3:
+            case R.id.relative_tab_message:
                 index = FRAGMENT_THREE;
                 break;
-            case R.id.relative_tab_4:
+            case R.id.relative_tab_user:
                 index = FRAGMENT_FOUR;
                 break;
         }

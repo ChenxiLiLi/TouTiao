@@ -29,13 +29,13 @@
         <LinearLayout
             android:id="@+id/linear_bottom"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_45"
+            android:layout_height="@dimen/dp_70"
             android:layout_alignParentBottom="true"
             android:background="#f9f9f9"
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/relative_tab_1"
+                android:id="@+id/relative_tab_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -46,13 +46,13 @@
 
 
                 <ImageView
-                    android:id="@+id/icon_0"
+                    android:id="@+id/icon_home"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_one" />
+                    android:src="@drawable/tab_hmoe" />
 
                 <TextView
                     style="@style/textStyle_tab"
-                    android:layout_below="@+id/icon_0"
+                    android:layout_below="@+id/icon_home"
                     android:text="首页" />
 
 
@@ -60,7 +60,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/relative_tab_2"
+                android:id="@+id/relative_tab_video"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -71,19 +71,43 @@
 
 
                 <ImageView
-                    android:id="@+id/icon_5"
+                    android:id="@+id/icon_video"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_two" />
+                    android:src="@drawable/tab_video" />
 
                 <TextView
                     style="@style/textStyle_tab"
-                    android:layout_below="@+id/icon_5"
+                    android:layout_below="@+id/icon_video"
                     android:text="视频" />
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_tab_3"
+                android:id="@+id/relative_tab_publish"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:tag="0">
+
+
+                <ImageView
+                    android:id="@+id/publish"
+                    style="@style/imageStyle_tab"
+                    android:src="@mipmap/publish" />
+
+                <TextView
+                    style="@style/textStyle_tab"
+                    android:layout_below="@+id/publish"
+                    android:text="发布" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_tab_message"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -94,19 +118,19 @@
 
 
                 <ImageView
-                    android:id="@+id/icon_3"
+                    android:id="@+id/icon_message"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_three" />
+                    android:src="@drawable/tab_message" />
 
                 <TextView
                     style="@style/textStyle_tab"
-                    android:layout_below="@+id/icon_3"
+                    android:layout_below="@+id/icon_message"
                     android:text="消息" />
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_tab_4"
+                android:id="@+id/relative_tab_user"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -117,13 +141,13 @@
 
 
                 <ImageView
-                    android:id="@+id/icon_4"
+                    android:id="@+id/icon_user"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_three" />
+                    android:src="@drawable/tab_user" />
 
                 <TextView
                     style="@style/textStyle_tab"
-                    android:layout_below="@+id/icon_4"
+                    android:layout_below="@+id/icon_user"
                     android:text="我的" />
 
             </RelativeLayout>

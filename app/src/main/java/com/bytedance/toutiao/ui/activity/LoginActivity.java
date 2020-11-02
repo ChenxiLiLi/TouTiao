@@ -1,11 +1,9 @@
 package com.bytedance.toutiao.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
+
 import androidx.lifecycle.Observer;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -15,10 +13,8 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.User;
-import com.bytedance.toutiao.bean.basebean.ResponseModel;
+
 import com.bytedance.toutiao.databinding.ActivityLoginBinding;
-import com.bytedance.toutiao.retrofit.RetrofitApiService;
-import com.bytedance.toutiao.retrofit.RetrofitManager;
 import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.viewmodel.LoginViewModel;
 
@@ -35,7 +31,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
     @Override
     protected void processLogic() {
-
+        binding.setViewModel(mViewModel);
     }
 
     @Override
@@ -44,6 +40,10 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
+                    case R.id.tv_register :
+                        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.btn_login:
                         login();
                         break;
@@ -68,12 +68,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
     }
     private void login(){
-        String userName = binding.etUsername.getText().toString();
-        String password = binding.etPassword.getText().toString();
-        HashMap<String, String> map = new HashMap<>();
-        map.put("username", "learnabout");
-        map.put("password", "123456");
-        mViewModel.login(map)
+        mViewModel.login()
                 .observe(LoginActivity.this, new Observer<Resource<User>>() {
                     @Override
                     public void onChanged(Resource<User> userResource) {
@@ -86,4 +81,5 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                 });
 
     }
+
 }

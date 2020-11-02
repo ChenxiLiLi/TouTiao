@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
+import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
@@ -54,7 +55,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
 
     @Override
     protected void processLogic() {
-//        initFragment();
+        initFragment();
     }
 
     @Override
@@ -66,7 +67,6 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                     case R.id.framLayout:
                         Toast.makeText(MainActivity.this, " clicked ", Toast.LENGTH_LONG).show();
                     case R.id.relative_tab_1:
-                        ToastUtils.showToast("clicked");
                         switchFragment(R.id.relative_tab_1);
                         break;
                     case R.id.relative_tab_2:

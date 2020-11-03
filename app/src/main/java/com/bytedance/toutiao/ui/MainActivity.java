@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
 
     public void switchFragment(int id) {
         FragmentTransaction ft = manager.beginTransaction();
-        //fragment切换带动画
+        //fragment切换带动画dddddd
 //        ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,
 //                android.R.anim.fade_in, android.R.anim.fade_out);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(id);

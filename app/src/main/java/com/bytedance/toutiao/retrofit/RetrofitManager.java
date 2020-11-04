@@ -42,7 +42,7 @@ public class RetrofitManager {
 
     private RetrofitManager() {
         cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(AppUtils.getApplication()));
-        //如果后端没有提供退出登录接口，还可以通过以下主动清理
+        //清理cookie
 //        cookieJar.clear();
 //        cookieJar.clearSession();
         initOkHttpClient();
@@ -72,12 +72,12 @@ public class RetrofitManager {
 
 
     private void initRetrofit() {
-        String baseUrl = "https://www.wanandroid.com/";
-        if (BuildConfig.BUILD_TYPE.equals("debug")) {
-            baseUrl = Const.DEFAULT_SERVER_DEBUG;
-        } else {
-            baseUrl = Const.DEFAULT_SERVER_RELEASE;
-        }
+        String baseUrl = "https://yapi.baidu.com/";
+//        if (BuildConfig.BUILD_TYPE.equals("debug")) {
+//            baseUrl = Const.DEFAULT_SERVER_DEBUG;
+//        } else {
+//            baseUrl = Const.DEFAULT_SERVER_RELEASE;
+//        }
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)

@@ -54,11 +54,12 @@ public class Resource<T> {
 
     public static <T> Resource<T> response(ResponseModel<T> data) {
         if (data != null) {
+            Log.e("data", "no null");
             if (data.isSuccess()) {
                 return new Resource<>(SUCCESS, data.getData(), null);
             }
             return new Resource<>(FAIL, null, data.getErrorMsg());
-        }
+        }else Log.e("data", " null");
         return new Resource<>(ERROR, null, null);
     }
 

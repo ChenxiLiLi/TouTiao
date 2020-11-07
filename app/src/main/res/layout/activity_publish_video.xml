@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/publish_video_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:background="@color/titleGrey">
+
+            <ImageView
+                android:id="@+id/icon_publish_video_return"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:src="@mipmap/back"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/save_video"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_45"
+                android:background="#EFEFEF"
+                android:layout_gravity="bottom"
+                android:text="保存"
+                android:textSize="@dimen/dp_20"
+                android:gravity="center"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
+
+            <Button
+                android:id="@+id/publish_video"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_45"
+                android:background="#5290FF"
+                android:layout_gravity="bottom"
+                android:text="发布"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_20"
+                android:onClick="@{onClickListener}"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/publish_event"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"
+                android:text="事件:"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_event"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请选择事件"
+                android:text="@={viewModel.event}"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColorHint"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/publish_node"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"
+                android:text="节点:"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_node"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请选择节点"
+                android:text="@={viewModel.node}"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColorHint"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/publish_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"
+                android:text="标题:"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入标题"
+                android:text="@={viewModel.title}"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColorHint"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/publish_newvideo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"
+                android:text="视频:"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_video"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请选择节点"
+                android:text="@={viewModel.event}"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColorHint"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/publish_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="match_parent"
+                android:text="内容:"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="添加文字..."
+                android:text="@={viewModel.event}"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColorHint"/>/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

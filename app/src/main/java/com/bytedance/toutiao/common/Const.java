@@ -7,6 +7,6 @@ package com.bytedance.toutiao.common;
  */
 public class Const {
     //域名
-    public static final String DEFAULT_SERVER_DEBUG = "https://www.wanandroid.com/";
-    public static final String DEFAULT_SERVER_RELEASE = "https://www.wanandroid.com/";
+    public static final String DEFAULT_SERVER_DEBUG = "https://yapi.baidu.com/";
+    public static final String DEFAULT_SERVER_RELEASE = "https://yapi.baidu.com/";
 }

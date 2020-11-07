@@ -18,7 +18,7 @@ import retrofit2.http.POST;
  */
 public interface RetrofitApiService {
 
-    @POST("user/login")
+    @POST("mock/7451/byte/dance/v1.0/base/login")
     @FormUrlEncoded
     Observable<ResponseModel<User>> login(@FieldMap HashMap<String, String> map);
 }

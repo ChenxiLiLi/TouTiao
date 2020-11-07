@@ -42,18 +42,18 @@
                 android:gravity="center"
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
-                android:tag="0">
+                android:tag="0"> 
 
 
                 <ImageView
                     android:id="@+id/icon_home"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_hmoe" />
+                    android:src="@drawable/tab_hmoe"/>
 
                 <TextView
                     style="@style/textStyle_tab"
                     android:layout_below="@+id/icon_home"
-                    android:text="首页" />
+                    android:text="首页"/>
 
 
             </RelativeLayout>

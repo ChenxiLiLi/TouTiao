@@ -72,7 +72,7 @@ public class RetrofitManager {
 
 
     private void initRetrofit() {
-        String baseUrl = "https://www.wanandroid.com/";
+        String baseUrl = "https://yapi.baidu.com/";
         if (BuildConfig.BUILD_TYPE.equals("debug")) {
             baseUrl = Const.DEFAULT_SERVER_DEBUG;
         } else {

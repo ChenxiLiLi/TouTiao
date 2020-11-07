@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_private"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_70"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/dp_7">
+            <RelativeLayout
+            android:id="@+id/message_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="tag_private">
+
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_60"
+                android:src="@mipmap/message_photo01" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/message_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/dp_5"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:tag="tag_private"
+                tools:ignore="DuplicateIds">
+
+                <TextView
+                    android:id="@+id/text_message_petname"
+                    style="@style/textStyle_tab"
+                    android:textSize="@dimen/dp_20"
+                    android:layout_alignParentLeft="true"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:text="我是用户昵称" />
+
+                <TextView
+                    style="@style/textStyle_tab"
+                    android:textSize="@dimen/dp_15"
+                    android:layout_below="@+id/text_message_petname"
+                    android:layout_alignParentLeft="true"
+                    android:singleLine="true"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="我是消息：你好呀，我很喜欢你的创作，很高兴认识你" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:tag="tag_private">
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/dp_7"
+        >
+        <RelativeLayout
+            android:id="@+id/message_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="tag_private"
+            tools:ignore="DuplicateIds">
+
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_60"
+                android:src="@mipmap/message_photo01" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp_5"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="tag_private">
+
+            <TextView
+                android:id="@+id/text_message_petname2"
+                style="@style/textStyle_tab"
+                android:textSize="@dimen/dp_20"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:text="我是用户昵称" />
+
+            <TextView
+                style="@style/textStyle_tab"
+                android:textSize="@dimen/dp_15"
+                android:layout_below="@+id/text_message_petname2"
+                android:layout_alignParentLeft="true"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="我是消息：你好呀，我很喜欢你的创作，很高兴认识你" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/message_end"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="tag_private">
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

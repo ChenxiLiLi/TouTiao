@@ -45,9 +45,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                         startActivity(intent);
                         break;
                     case R.id.btn_login:
-                        Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent1);
-//                        login();
+                        login();
                         break;
                 }
             }
@@ -75,7 +73,10 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                     @Override
                     public void onChanged(Resource<User> userResource) {
                         Log.e("Login main", userResource.state + "");
-                        if(userResource.state == 1 ){
+                        Log.e("Login error", userResource.errorMsg + "");
+                        if(userResource.data != null)
+                        Log.e("Login error", userResource.data.getId() + "");
+                        if(userResource.state == 1){
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                         }

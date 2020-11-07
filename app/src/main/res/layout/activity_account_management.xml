@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/account_management"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/theme_manage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:background="#EFEFEF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text="帐号管理"/>
+
+            <ImageView
+                android:id="@+id/icon_management_return"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:src="@mipmap/back"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/management"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/management_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="sssss"
+                    android:textSize="@dimen/sp_20"/>
+            </RelativeLayout>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"/>
+
+            <RelativeLayout
+                android:id="@+id/management_change_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_20"
+                    android:text="修改密码"/>
+            </RelativeLayout>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"/>
+
+            <RelativeLayout
+                android:id="@+id/management_change_user"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_20"
+                    android:text="切换账号"/>
+            </RelativeLayout>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1"/>
+
+            <RelativeLayout
+                android:id="@+id/management_loginout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_20"
+                    android:text="退出登录"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

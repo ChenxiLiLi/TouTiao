@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/user_infomation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/theme_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text="个人信息"
+                android:background="#EFEFEF"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:src="@mipmap/back"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ava"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:text="头像"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/pic_atav"
+                    android:layout_width="@dimen/dp_60"
+                    android:layout_height="@dimen/dp_60"
+                    android:src="@mipmap/show_psw_press"/>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/right"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/my_username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:text="昵称"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="sssss"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/right"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/my_sex"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:text="昵称"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="女"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/right"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/my_tel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:text="绑定手机"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="13611111111"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/right"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/my_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:text="绑定邮箱"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="sssss@123.com"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/right"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/my_user"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:text="简介"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="**********"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/right"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

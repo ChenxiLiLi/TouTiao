@@ -106,7 +106,7 @@ public abstract class BaseFragment<VM extends BaseViewModel, VDB extends ViewDat
         public void onError(Throwable throwable) {
 //            if (!NetWorkUtils.isNetworkConnected(getContext())) {
 //                ToastUtils.showToast(getContext().getResources().getString(R.string.result_network_error));
-//                return;
+//                back;
 //            }
 //
 //            if (throwable instanceof ConnectException) {

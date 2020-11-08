@@ -59,4 +59,12 @@ dependencies {
 
     //管理cookieJar的
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    //recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //tablayout
+    implementation 'com.google.android.material:material:1.2.1'
+
+
 }

@@ -45,7 +45,9 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                         startActivity(intent);
                         break;
                     case R.id.btn_login:
-                        login();
+                        Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent1);
+//                        login();
                         break;
                 }
             }

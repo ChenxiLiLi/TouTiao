@@ -16,7 +16,7 @@ import com.bytedance.toutiao.databinding.ActivityMainBinding;
 import com.bytedance.toutiao.ui.fragment.FragmentUser;
 import com.bytedance.toutiao.ui.fragment.FragmentHome;
 import com.bytedance.toutiao.ui.fragment.FragmentMessage;
-import com.bytedance.toutiao.ui.fragment.FragmenVideo;
+import com.bytedance.toutiao.ui.fragment.video.FragmenVideo;
 
 import java.util.ArrayList;
 

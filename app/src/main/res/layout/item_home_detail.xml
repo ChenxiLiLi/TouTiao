@@ -20,7 +20,7 @@
             android:id="@+id/news_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="头条是一个新闻软件"
+            android:text="拜登3大承诺释放重磅信号！特朗普却为何成人类“公敌”？"
             android:textColor="@color/textColor"
             android:textSize="@dimen/sp_17"
             android:layout_marginTop="@dimen/dp_13"

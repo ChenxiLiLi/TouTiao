@@ -18,6 +18,10 @@
         </activity>
         <activity android:name=".ui.activity.PostDetailActivity"></activity>
         <activity android:name=".ui.activity.TopicSquareActivity"></activity>
+        <activity android:name=".ui.activity.EventSimilarActivity"></activity>
+        <activity android:name=".ui.activity.PostDetailActivity"></activity>
+        <activity android:name=".ui.activity.TopicSquareActivity"></activity>
+        <activity android:name=".ui.activity.EventTimelineActivity" />
         <activity android:name=".ui.activity.VideoDetailActivity" />
         <activity android:name=".ui.activity.PublishVideoActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />

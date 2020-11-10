@@ -23,8 +23,8 @@
             android:id="@+id/framLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/linear_bottom"
-            />
+            android:layout_above="@+id/linear_bottom">
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/linear_bottom"
@@ -42,18 +42,18 @@
                 android:gravity="center"
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
-                android:tag="0">
+                android:tag="0"> 
 
 
                 <ImageView
                     android:id="@+id/icon_home"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_hmoe" />
+                    android:src="@drawable/tab_hmoe"/>
 
                 <TextView
                     style="@style/textStyle_tab"
                     android:layout_below="@+id/icon_home"
-                    android:text="首页" />
+                    android:text="首页"/>
 
 
             </RelativeLayout>
@@ -120,11 +120,16 @@
                 <ImageView
                     android:id="@+id/icon_message"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_message" />
+                    android:src="@drawable/tab_message"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true"/>
 
                 <TextView
+                    android:id="@+id/text_message"
                     style="@style/textStyle_tab"
                     android:layout_below="@+id/icon_message"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true"
                     android:text="消息" />
 
             </RelativeLayout>

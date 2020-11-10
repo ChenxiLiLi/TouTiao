@@ -1,20 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativelayout_message"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <data>
-
-    </data>
-
-    <RelativeLayout
+    <FrameLayout
+        android:id="@+id/framLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linear_bottom">
+        <TabHost
+            android:id="@+id/tabhost_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="o three"
-            android:textSize="@dimen/sp_16"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
-</layout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </FrameLayout>
+            </LinearLayout>
+
+        </TabHost>
+    </FrameLayout>
+
+<!--<RelativeLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="@dimen/dp_70"-->
+<!--    android:layout_alignParentBottom="true">-->
+
+
+    <LinearLayout
+        android:id="@+id/linear_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:layout_alignParentBottom="true"
+        android:background="#f9f9f9"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/relative_tab_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="0">
+
+
+            <ImageView
+                android:id="@+id/icon_home"
+                style="@style/imageStyle_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tab_hmoe" />
+
+            <TextView
+                style="@style/textStyle_tab"
+                android:layout_below="@+id/icon_home"
+                android:text="首页" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relative_tab_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="1">
+
+
+            <ImageView
+                android:id="@+id/icon_video"
+                style="@style/imageStyle_tab"
+                android:src="@drawable/tab_video" />
+
+            <TextView
+                style="@style/textStyle_tab"
+                android:layout_below="@+id/icon_video"
+                android:text="视频" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_tab_publish"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="0">
+
+
+            <ImageView
+                android:id="@+id/publish"
+                style="@style/imageStyle_tab"
+                android:src="@mipmap/publish" />
+
+            <TextView
+                style="@style/textStyle_tab"
+                android:layout_below="@+id/publish"
+                android:text="发布" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_tab_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="2">
+
+
+            <ImageView
+                android:id="@+id/icon_message"
+                style="@style/imageStyle_tab"
+                android:src="@drawable/tab_message" />
+
+            <TextView
+                style="@style/textStyle_tab"
+                android:layout_below="@+id/icon_message"
+                android:text="消息" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_tab_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="3">
+
+
+            <ImageView
+                android:id="@+id/icon_user"
+                style="@style/imageStyle_tab"
+                android:src="@drawable/tab_user" />
+
+            <TextView
+                style="@style/textStyle_tab"
+                android:layout_below="@+id/icon_user"
+                android:text="我的" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+<!--</RelativeLayout>-->
+
+</RelativeLayout>

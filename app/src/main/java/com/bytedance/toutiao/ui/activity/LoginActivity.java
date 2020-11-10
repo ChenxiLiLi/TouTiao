@@ -64,9 +64,9 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
 
     private void login(){
-        if(mViewModel.userName.get().equals(""))
+        if(mViewModel.userName.get() == null || "".equals(mViewModel.userName.get()))
             ToastUtils.showToast("请输入用户名");
-        else if(mViewModel.password.get().equals(""))
+        else if(mViewModel.password.get() == null || "".equals(mViewModel.password.get()))
             ToastUtils.showToast("请输入密码");
         else {
             mViewModel.login()

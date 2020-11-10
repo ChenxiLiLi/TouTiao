@@ -35,7 +35,6 @@ public class LoginViewModel extends BaseViewModel<RepositoryImpl> {
         HashMap<String, String> map = new HashMap<>();
         map.put("username", userName.get());
         map.put("password", password.get());
-        Log.e("username", userName.get());
         return getRepository().login(map);
 
     }

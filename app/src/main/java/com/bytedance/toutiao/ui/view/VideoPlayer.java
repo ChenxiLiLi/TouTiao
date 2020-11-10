@@ -161,6 +161,11 @@ public class VideoPlayer {
             if (onStateChangeListener != null) {
                 onStateChangeListener.onPause();
             }
+        } else{
+            start();
+            if(onStateChangeListener != null){
+                onStateChangeListener.onRenderingStart();
+            }
         }
     }
 

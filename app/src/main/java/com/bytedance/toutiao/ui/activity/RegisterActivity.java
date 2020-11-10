@@ -48,11 +48,11 @@ public class RegisterActivity extends BaseActivity<RegisterViewModel, ActivityRe
     }
 
     public void register(){
-        if(mViewModel.userName.get().equals(""))
+        if(mViewModel.userName.get() == null)
             ToastUtils.showToast("请输入用户名");
-        else if(mViewModel.password.get().equals(""))
+        else if(mViewModel.password.get() == null)
             ToastUtils.showToast("请输入密码");
-        else if(mViewModel.confirmPassword.get().equals(""))
+        else if(mViewModel.confirmPassword.get() == null)
             ToastUtils.showToast("请确认密码");
         else if(!mViewModel.password.get().equals(mViewModel.confirmPassword.get()))
             ToastUtils.showToast("密码不一致");

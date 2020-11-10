@@ -19,4 +19,9 @@ public class RepositoryImpl extends BaseModel {
         MutableLiveData<Resource<User>> liveData = new MutableLiveData<>();
         return observe(getApiService().login(map), liveData);
     }
+    public MutableLiveData<Resource<User>> register(HashMap<String, String> map) {
+        MutableLiveData<Resource<User>> liveData = new MutableLiveData<>();
+        return observe(getApiService().register(map), liveData);
+    }
+
 }

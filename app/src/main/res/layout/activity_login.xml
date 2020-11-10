@@ -75,6 +75,7 @@
                     android:layout_width="@dimen/dp_30"
                     android:layout_height="@dimen/dp_30"
                     android:padding="@dimen/dp_6"
+                    android:onClick="@{onClickListener}"
                     android:src="@mipmap/clean_edit"
                                          />
             </LinearLayout>
@@ -113,13 +114,6 @@
                     android:textColorHint="@color/textColorHint"
                     android:textSize="@dimen/sp_16" />
 
-                <ImageView
-                    android:id="@+id/iv_swich_passwrod"
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
-                    android:padding="@dimen/dp_6"
-                    android:src="@mipmap/show_psw_press"
-                     />
             </LinearLayout>
 
             <RelativeLayout

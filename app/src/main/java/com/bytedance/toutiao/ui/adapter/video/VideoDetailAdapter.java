@@ -1,24 +1,31 @@
 package com.bytedance.toutiao.ui.adapter.video;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.ui.activity.TopicSquareActivity;
 import com.bytedance.toutiao.ui.view.VideoLoadingProgressbar;
 import com.bytedance.toutiao.ui.view.VideoPlayer;
 import com.bytedance.toutiao.ui.view.media.VideoPlayAdapter;
+
+import java.io.IOException;
 
 public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.ViewHolder> {
 
@@ -26,15 +33,30 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
 
     private int mCurrentPosition;
     private ViewHolder mCurrentHolder;
-
+    private Resources resources;
     private VideoPlayer videoPlayer;
     private TextureView textureView;
+    private String videoID;
+    private int resid ;
 
-    public VideoDetailAdapter(Context mContext) {
+    public VideoDetailAdapter(Context mContext, Resources resources, String videoID) {
         this.mContext = mContext;
         videoPlayer = new VideoPlayer();
         textureView = new TextureView(mContext);
         videoPlayer.setTextureView(textureView);
+        this.resources = resources;
+        this.videoID = videoID;
+        switch (videoID){
+            case "3":
+                resid = R.mipmap.local_pic3;
+                break;
+            case "2":
+                resid = R.mipmap.local_pic2;
+                break;
+            case "1":
+                resid = R.mipmap.local_pic1;
+                break;
+        }
     }
 
     @NonNull
@@ -47,8 +69,20 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RequestOptions options = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE);
-        Glide.with(mContext).load("https://tx2.a.yximgs.com/upic/2020/04/24/20/BMjAyMDA0MjQyMDExMDRfNTkzMzMzMzJfMjczMzU3NDA0ODVfMV8z_B26385cd47079260e711ba54cdf65b594.jpg").apply(options).into(holder.ivCover);
-
+        Glide.with(mContext).load(resid).apply(options).into(holder.ivCover);
+        holder.ivComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, TopicSquareActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
+        holder.flVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                videoPlayer.pause();
+            }
+        });
     }
 
     @Override
@@ -100,12 +134,21 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
             }
         });
         if (textureView.getParent() != mCurrentHolder.flVideo) {
+            //已经添加过就移除
             if (textureView.getParent() != null) {
                 ((FrameLayout) textureView.getParent()).removeView(textureView);
             }
             mCurrentHolder.flVideo.addView(textureView);
         }
-        videoPlayer.setDataSource("https://txmov2.a.yximgs.com/bs2/newWatermark/MjczMzU3NDA0ODU_zh_3.mp4");
+        //加载assets文件夹下的视频资源
+        AssetFileDescriptor afd = null;
+        try {
+            afd = resources.getAssets().openFd("local_video" + videoID +".mp4");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        videoPlayer.setDataSource(afd);
+//        videoPlayer.setDataSource("https://txmov2.a.yximgs.com/bs2/newWatermark/MjczMzU3NDA0ODU_zh_3.mp4");
         videoPlayer.prepare();
     }
 
@@ -118,12 +161,16 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
         private FrameLayout flVideo;
         private ImageView ivCover;
         private VideoLoadingProgressbar pbLoading;
+        private TextView btnEvent;
+        private ImageView ivComment;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             flVideo = itemView.findViewById(R.id.flVideo);
             ivCover = itemView.findViewById(R.id.ivCover);
             pbLoading = itemView.findViewById(R.id.pbLoading);
+            btnEvent = itemView.findViewById(R.id.tv_main);
+            ivComment = itemView.findViewById(R.id.iv_comment);
         }
     }
 }

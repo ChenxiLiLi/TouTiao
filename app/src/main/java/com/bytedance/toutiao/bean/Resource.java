@@ -15,16 +15,13 @@ public class Resource<T> {
     public static final int SUCCESS = 1;
     public static final int ERROR = 2;
     public static final int FAIL = 3;
-    public static final int PROGRESS = 4;//注意只有下载文件和上传图片时才会有
     public int state;
 
     public String errorMsg;
     public T data;
     public Throwable error;
 
-    //这里和文件和进度有关了
-    public int precent;//文件下载百分比
-    public long total;//文件总大小
+
 
     public Resource(int state, T data, String errorMsg) {
         this.state = state;
@@ -35,12 +32,6 @@ public class Resource<T> {
     public Resource(int state, Throwable error) {
         this.state = state;
         this.error = error;
-    }
-
-    public Resource(int state, int precent, long total) {
-        this.state = state;
-        this.precent = precent;
-        this.total = total;
     }
 
 
@@ -72,9 +63,7 @@ public class Resource<T> {
         return new Resource<>(ERROR, t);
     }
 
-    public static <T> Resource<T> progress(int precent, long total) {
-        return new Resource<>(PROGRESS, precent, total);
-    }
+
 
     public void handler(OnHandleCallback<T> callback) {
         switch (state) {
@@ -89,9 +78,6 @@ public class Resource<T> {
                 break;
             case ERROR:
                 callback.onError(error);
-                break;
-            case PROGRESS:
-                callback.onProgress(precent,total);
                 break;
         }
 

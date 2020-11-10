@@ -57,7 +57,6 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                         switchFragment(R.id.relative_tab_home);
                         break;
                     case R.id.relative_tab_video:
-                        Toast.makeText(MainActivity.this, " create ", Toast.LENGTH_LONG).show();
                         switchFragment(R.id.relative_tab_video);
                         break;
                     case R.id.relative_tab_message:
@@ -89,16 +88,14 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
         list_fragment.add(fragment_three);
         list_fragment.add(fragment_four);
         switchFragment(R.id.relative_tab_home);
-        Toast.makeText(MainActivity.this, " create ", Toast.LENGTH_LONG).show();
     }
 
 
     public void switchFragment(int id) {
         FragmentTransaction ft = manager.beginTransaction();
-        //fragment切换带动画dddddd
-//        ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,
-//                android.R.anim.fade_in, android.R.anim.fade_out);
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(id);
+        //fragment切换带动画
+        ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+        RelativeLayout relativeLayout =  findViewById(id);
         String tag = (String) relativeLayout.getTag();
         Fragment f = manager.findFragmentByTag(tag);
         if (f == null) {

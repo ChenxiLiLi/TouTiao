@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_avater"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:src="@mipmap/avater"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_toRightOf="@+id/iv_avater"
+            android:layout_marginTop="@dimen/sp_20"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_height="wrap_content"
+            android:text="咔咔咔"
+            android:textColor="@color/dark"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_avater"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:text="不会吧不会吧不会真有人想结婚吧"
+            />
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/iv_avater"
+            android:layout_below="@+id/tv_content"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:src="@mipmap/like_white"/>
+
+        <TextView
+            android:id="@+id/tv_like_num"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_below="@id/tv_content"
+            android:layout_toRightOf="@id/iv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="574"/>
+
+        <View
+            android:layout_marginTop="@dimen/dp_2"
+            android:background="@color/textColorHint"
+            android:layout_below="@id/tv_like_num"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"/>
+
+    </RelativeLayout>
+
+</layout>

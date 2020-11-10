@@ -21,4 +21,10 @@ public interface RetrofitApiService {
     @POST("mock/7451/byte/dance/v1.0/base/login")
     @FormUrlEncoded
     Observable<ResponseModel<User>> login(@FieldMap HashMap<String, String> map);
+
+    @POST("mock/7451/byte/dance/v1.0/base/register")
+    @FormUrlEncoded
+    Observable<ResponseModel<User>> register(@FieldMap HashMap<String, String> map);
+
+
 }

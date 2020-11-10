@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityMainBinding;
 
+import com.bytedance.toutiao.ui.activity.EventTimelineActivity;
 import com.bytedance.toutiao.ui.fragment.FragmentUser;
 import com.bytedance.toutiao.ui.fragment.FragmentHome;
 import com.bytedance.toutiao.ui.fragment.FragmentMessage;
@@ -59,8 +61,13 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                     case R.id.relative_tab_video:
                         switchFragment(R.id.relative_tab_video);
                         break;
-                    case R.id.relative_tab_message:
-                        switchFragment(R.id.relative_tab_message);
+                    case R.id.text_message:
+                        Toast.makeText(MainActivity.this, " 进入事件时间轴界面 ", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent();
+                        intent.setClass(MainActivity.this, EventTimelineActivity.class);
+                        startActivity(intent);
+
+                        //switchFragment(R.id.relative_tab_message);
                         break;
                     case R.id.relative_tab_user:
                         switchFragment(R.id.relative_tab_user);

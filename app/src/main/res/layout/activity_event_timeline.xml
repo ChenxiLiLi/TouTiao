@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="text"
+            type="String"/>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.EventTimelineActivity">
+
+
+    <LinearLayout
+        android:id="@+id/event_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_65"
+        android:background="#02000000"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/imageStyle_tab"
+            android:src="@mipmap/left_arrow"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="1">
+        </RelativeLayout>
+
+        <TextView
+            android:text="南昌杀妻抛尸案"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_22">
+        </TextView>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            android:tag="1">
+        </RelativeLayout>
+        <ImageView
+            style="@style/imageStyle_tab"
+            android:src="@mipmap/empty_collect"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"
+            />
+    </LinearLayout>
+
+        <View
+            android:id="@+id/line_event_timeline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="#D0000000"
+            android:layout_below="@+id/event_top"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/event_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/event_buttom"
+        android:layout_below="@+id/line_event_timeline"
+        android:scrollbars="vertical"/>
+
+    <TextView
+        android:id="@+id/event_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:background="#1D000000"
+        android:onClick="@{onClickListener}"
+        android:clickable="true"
+        android:text="相似事件"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/dp_22"
+        android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</layout>

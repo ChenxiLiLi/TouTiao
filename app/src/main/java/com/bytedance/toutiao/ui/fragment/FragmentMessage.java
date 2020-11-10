@@ -18,7 +18,7 @@ import com.bytedance.toutiao.base.BaseFragment;
  * Time : 15:56
  * Author : 刘朝阳
  */
-public class FragmentMessage extends BaseFragment implements TabHost.OnTabChangeListener {
+public class FragmentMessage extends BaseFragment{
 
     int index;
 
@@ -30,7 +30,7 @@ public class FragmentMessage extends BaseFragment implements TabHost.OnTabChange
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_message;
+        return R.layout.activity_event_timeline;
     }
 
     @Override
@@ -48,27 +48,27 @@ public class FragmentMessage extends BaseFragment implements TabHost.OnTabChange
 
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        RelativeLayout layout = null;
-        layout = (RelativeLayout) inflater.inflate(R.layout.fragment_message,null);
-        TabHost tabHost =(TabHost) layout.findViewById(R.id.tabhost_message);
-        tabHost.getTabContentView();
-        tabHost.setup();
-
-        tabHost.addTab(tabHost.newTabSpec("tag_message_private").setIndicator("私信").setContent(R.id.tab_private));
-        tabHost.addTab(tabHost.newTabSpec(null).setIndicator("评论"));
-        tabHost.addTab(tabHost.newTabSpec(null).setIndicator("赞和粉"));
-
-        tabHost.setCurrentTab(0);
-        tabHost.setOnTabChangedListener(this);
-        return layout;
-
-    }
-
-    @Override
-    public void onTabChanged(String s) {
-
-    }
+//    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+//        RelativeLayout layout = null;
+//        layout = (RelativeLayout) inflater.inflate(R.layout.fragment_message,null);
+//        TabHost tabHost =(TabHost) layout.findViewById(R.id.tabhost_message);
+//        tabHost.getTabContentView();
+//        tabHost.setup();
+//
+//        tabHost.addTab(tabHost.newTabSpec("tag_message_private").setIndicator("私信").setContent(R.id.tab_private));
+//        tabHost.addTab(tabHost.newTabSpec(null).setIndicator("评论"));
+//        tabHost.addTab(tabHost.newTabSpec(null).setIndicator("赞和粉"));
+//
+//        tabHost.setCurrentTab(0);
+//        tabHost.setOnTabChangedListener(this);
+//        return layout;
+//
+//    }
+//
+//    @Override
+//    public void onTabChanged(String s) {
+//
+//    }
 }

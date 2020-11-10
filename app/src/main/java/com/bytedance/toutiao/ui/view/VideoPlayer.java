@@ -1,5 +1,6 @@
 package com.bytedance.toutiao.ui.view;
 
+import android.content.res.AssetFileDescriptor;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -106,9 +107,9 @@ public class VideoPlayer {
     /**
      * play url
      */
-    public void setDataSource(String url) {
+    public void setDataSource(AssetFileDescriptor afd) {
         try {
-            mediaPlayer.setDataSource(url);
+            mediaPlayer.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
         } catch (IOException e) {
             e.printStackTrace();
         }

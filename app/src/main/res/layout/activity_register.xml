@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.bytedance.toutiao.viewmodel.LoginViewModel" />
+            type="com.bytedance.toutiao.viewmodel.RegisterViewModel" />
         <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
@@ -75,9 +75,11 @@
                         />
 
                     <ImageView
+                        android:id="@+id/iv_clear_username"
                         android:layout_width="@dimen/dp_30"
                         android:layout_height="@dimen/dp_30"
                         android:padding="@dimen/dp_6"
+                        android:onClick="@{onClickListener}"
                         android:src="@mipmap/clean_edit"
                         />
                 </LinearLayout>
@@ -141,14 +143,14 @@
                         android:background="@color/textColorHint" />
 
                     <EditText
-                        android:id="@+id/et_confirmpassword"
+                        android:id="@+id/et_confirm_password"
                         android:layout_width="@dimen/dp_0"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@null"
                         android:hint="请确认密码"
                         android:inputType="textPassword"
-                        android:text="@={viewModel.password}"
+                        android:text="@={viewModel.confirmPassword}"
                         android:textColor="@color/textColor"
                         android:textColorHint="@color/textColorHint"
                         android:textSize="@dimen/sp_16" />
@@ -164,7 +166,7 @@
                     android:padding="@dimen/dp_6">
 
                     <Button
-                        android:id="@+id/btn_login"
+                        android:id="@+id/btn_register"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_60"
                         android:background="?selectableItemBackground"

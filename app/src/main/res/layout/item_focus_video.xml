@@ -7,13 +7,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="@dimen/dp_400"
         android:background="@color/dark">
 
         <ImageView
+            android:id="@+id/iv_local_pic2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/video_pic1"/>
+            android:src="@mipmap/local_pic2"/>
 
         <LinearLayout
             android:id="@+id/layout_text"
@@ -21,8 +22,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_above="@id/layout_love"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_5"
             >
 
             <TextView
@@ -33,7 +34,8 @@
                 android:text="@浙江观察"/>
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/tv_content"
+                android:layout_marginTop="@dimen/dp_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
@@ -47,12 +49,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true">
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_toLeftOf="@+id/layout_comment"
+            >
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
                 android:layout_gravity="center"
                 android:src="@mipmap/heart"/>
 
@@ -67,13 +70,38 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layout_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_gravity="center"
+                android:src="@mipmap/comment"/>
+
+            <TextView
+                android:id="@+id/tv_comment_num"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="356"/>
+
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/iv_avater"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp_10"
             android:layout_below="@id/layout_text"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="5dp"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginBottom="@dimen/dp_5"
             android:src="@mipmap/avater"/>
 
     </RelativeLayout>

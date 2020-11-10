@@ -26,8 +26,6 @@ public class LoginViewModel extends BaseViewModel<RepositoryImpl> {
     public final ObservableField<String> userName = new ObservableField<>("");
     //密码的绑定
     public ObservableField<String> password = new ObservableField<>("");
-    //用户名清除按钮的显示隐藏绑定
-
 
     public LoginViewModel(@NonNull Application application) {
         super(application);

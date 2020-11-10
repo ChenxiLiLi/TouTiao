@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.base.BaseActivity;
+import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.databinding.ActivityVideoDetailBinding;
 import com.bytedance.toutiao.ui.adapter.video.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.fragment.video.FragmentVideoDetail;
 import com.bytedance.toutiao.ui.fragment.video.FragmentVideoEvent;
@@ -15,7 +19,7 @@ import com.bytedance.toutiao.ui.fragment.video.FragmentVideoNode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoDetailActivity extends AppCompatActivity {
+public class VideoDetailActivity extends BaseActivity<NormalViewModel, ActivityVideoDetailBinding> {
 
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentVideoEvent fragmentVideoEvent;
@@ -25,13 +29,18 @@ public class VideoDetailActivity extends AppCompatActivity {
     private VideoFragmentAdapter videoFragmentAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_detail);
+    protected int getContentViewId() {
+        return R.layout.activity_video_detail;
+    }
+
+    @Override
+    protected void processLogic() {
+        Intent intent = getIntent();
+        String videoID = intent.getStringExtra("videoID");
 
         fragmentVideoEvent = FragmentVideoEvent.newFragment();
-        fragmentVideoDetail = FragmentVideoDetail.newFragment();
-        fragmentVideoNode = FragmentVideoNode.newFragment();
+        fragmentVideoDetail = new FragmentVideoDetail(videoID);
+        fragmentVideoNode = new FragmentVideoNode(videoID);
 
         fragments.add(fragmentVideoEvent);
         fragments.add(fragmentVideoDetail);
@@ -43,4 +52,11 @@ public class VideoDetailActivity extends AppCompatActivity {
         viewPager.setAdapter(videoFragmentAdapter);
         viewPager.setCurrentItem(1);
     }
+
+    @Override
+    protected void setListener() {
+
+    }
+
+
 }

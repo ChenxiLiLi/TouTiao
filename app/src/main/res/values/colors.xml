@@ -8,4 +8,7 @@
     <color name="textColor">#202020</color>
     <color name="titleGrey">#EFEFEF</color>
     <color name="dark">#000000</color>
+    <color name="textBlue">#2E81C9</color>
+    <color name="textGrey">#24282C</color>
+    <color name="textBackGround">#B3D1F0</color>
 </resources>

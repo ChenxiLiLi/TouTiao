@@ -12,11 +12,12 @@ public class FragmentVideoDetail extends BaseFragment {
 
     private VideoPlayRecyclerView mRvVideo;
     private VideoDetailAdapter adapter;
+    private String videoID;
 
-    public static FragmentVideoDetail newFragment(){
-        FragmentVideoDetail fragmentVideoDetail = new FragmentVideoDetail();
-        return fragmentVideoDetail;
+    public FragmentVideoDetail(String videoID) {
+        this.videoID = videoID;
     }
+
 
     @Override
     protected int getContentViewId() {
@@ -47,7 +48,7 @@ public class FragmentVideoDetail extends BaseFragment {
     private void initView() {
 
         mRvVideo = mContentView.findViewById(R.id.rv_video_detail);
-        adapter = new VideoDetailAdapter(getActivity());
+        adapter = new VideoDetailAdapter(getActivity(), getResources(),videoID);
         mRvVideo.setAdapter(adapter);
     }
 }

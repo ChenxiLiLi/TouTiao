@@ -16,7 +16,7 @@ import com.bytedance.toutiao.databinding.ActivityMainBinding;
 import com.bytedance.toutiao.ui.fragment.FragmentUser;
 import com.bytedance.toutiao.ui.fragment.FragmentHome;
 import com.bytedance.toutiao.ui.fragment.FragmentMessage;
-import com.bytedance.toutiao.ui.fragment.video.FragmenVideo;
+import com.bytedance.toutiao.ui.fragment.video.FragmentVideo;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
     private int index;
     private int currentTabIndex = 0;
     FragmentHome fragment_one;
-    FragmenVideo fragment_two;
+    FragmentVideo fragment_two;
     FragmentMessage fragment_three;
     FragmentUser fragment_four;
     private RelativeLayout[] mTabs;
@@ -80,7 +80,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
         mTabs[2] = binding.relativeTabMessage;
         mTabs[3] = binding.relativeTabUser;
         fragment_one = FragmentHome.newFragment(1);
-        fragment_two = FragmenVideo.newFragment(2);
+        fragment_two = FragmentVideo.newFragment(2);
         fragment_three = FragmentMessage.newFragment(3);
         fragment_four = FragmentUser.newFragment(4);
         list_fragment.add(fragment_one);

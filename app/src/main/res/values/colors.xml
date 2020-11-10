@@ -11,4 +11,5 @@
     <color name="textBlue">#2E81C9</color>
     <color name="textGrey">#24282C</color>
     <color name="textBackGround">#B3D1F0</color>
+    <color name="newsColor">#9A9A9A</color>
 </resources>

@@ -1,0 +1,85 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/news"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/dp_13"
+            android:src="@mipmap/avater"/>
+
+        <TextView
+            android:id="@+id/news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拜登3大承诺释放重磅信号！特朗普却为何成人类“公敌”？"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/sp_17"
+            android:layout_marginTop="@dimen/dp_13"
+            android:minLines="2"
+            android:layout_toRightOf="@id/news"/>
+
+        <TextView
+            android:id="@+id/news_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="软件"
+            android:textColor="@color/newsColor"
+            android:textSize="@dimen/sp_17"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_toRightOf="@id/news"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_below="@id/news_title"/>
+
+        <TextView
+            android:id="@+id/news_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10月23日"
+            android:textColor="@color/newsColor"
+            android:textSize="@dimen/sp_17"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_toRightOf="@id/news_tag"
+            android:layout_below="@id/news_title"/>
+
+        <TextView
+            android:id="@+id/news_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="阅读 7.5万"
+            android:textColor="@color/newsColor"
+            android:textSize="@dimen/sp_17"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_toLeftOf="@id/news_like"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_below="@id/news_title"/>
+
+        <TextView
+            android:id="@+id/news_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赞 156"
+            android:textColor="@color/newsColor"
+            android:textSize="@dimen/sp_17"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_below="@id/news_title"/>
+
+        <View
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/textColorHint"
+            android:layout_below="@id/news_like"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"/>
+    </RelativeLayout>
+
+</layout>

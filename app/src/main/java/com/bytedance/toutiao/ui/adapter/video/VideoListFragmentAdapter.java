@@ -9,13 +9,13 @@ import java.util.List;
 
 public class VideoListFragmentAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
-    String[] strings = new String[]{"关注", "视频", "同城"};
+    String[] strings;
 
 
-    public VideoListFragmentAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragmentList) {
+    public VideoListFragmentAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragmentList,String[] strings) {
         super(fm, behavior);
         this.fragmentList = fragmentList;
-
+        this.strings = strings;
     }
 
     @NonNull

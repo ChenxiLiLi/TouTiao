@@ -61,16 +61,12 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                     case R.id.relative_tab_video:
                         switchFragment(R.id.relative_tab_video);
                         break;
-                    case R.id.text_message:
-                        Toast.makeText(MainActivity.this, " 进入事件时间轴界面 ", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent();
-                        intent.setClass(MainActivity.this, EventTimelineActivity.class);
-                        startActivity(intent);
-
-                        //switchFragment(R.id.relative_tab_message);
+                    case R.id.relative_tab_message:
+                        switchFragment(R.id.relative_tab_message);
                         break;
                     case R.id.relative_tab_user:
                         switchFragment(R.id.relative_tab_user);
+                        break;
                 }
             }
         });

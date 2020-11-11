@@ -25,6 +25,7 @@ public class FragmentVideo extends BaseFragment {
 
     private List<Fragment> fragments = new ArrayList<>();
     private ViewPager viewPager;
+    private String[] strings  = new String[]{"关注", "视频", "同城"};
 
     public static FragmentVideo newFragment(int index){
         FragmentVideo fragmentVideo = new FragmentVideo();
@@ -55,7 +56,7 @@ public class FragmentVideo extends BaseFragment {
         //获取viewpager
         viewPager = mContentView.findViewById(R.id.view_pager);
         //创建适配器
-        VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getFragmentManager(),0,fragments );
+        VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getFragmentManager(),0,fragments,strings );
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(1);

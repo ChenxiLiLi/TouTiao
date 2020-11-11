@@ -26,9 +26,7 @@ public class EventTimelineActivity extends BaseActivity<TestViewModel, ActivityE
     private RecyclerView recyclerView;
     private EventTimelineAdapter eventTimelineAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private ViewPager viewPager;
-    private EventSimilarAdapter eventSimilarAdapter;
-    private Fragment fragment;
+
 
     private void initevents() {
         for(int i=0;i<1;i++) {
@@ -55,8 +53,6 @@ public class EventTimelineActivity extends BaseActivity<TestViewModel, ActivityE
         recyclerView.setLayoutManager(linearLayoutManager);
         eventTimelineAdapter = new EventTimelineAdapter(eventList, EventTimelineActivity.this);
         recyclerView.setAdapter(eventTimelineAdapter);
-
-
         //viewPager.setCurrentItem(1);
 
 

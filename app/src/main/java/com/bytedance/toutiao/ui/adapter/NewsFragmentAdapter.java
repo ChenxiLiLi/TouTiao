@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.adapter.video;
+package com.bytedance.toutiao.ui.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -7,15 +7,15 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-public class VideoListFragmentAdapter extends FragmentPagerAdapter {
+public class NewsFragmentAdapter extends FragmentPagerAdapter {
+
     private List<Fragment> fragmentList;
-    String[] strings;
 
 
-    public VideoListFragmentAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragmentList,String[] strings) {
+    public NewsFragmentAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragmentList) {
         super(fm, behavior);
         this.fragmentList = fragmentList;
-        this.strings = strings;
+
     }
 
     @NonNull
@@ -27,11 +27,6 @@ public class VideoListFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return fragmentList.size();
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position){
-        return strings[position];
     }
 
 }

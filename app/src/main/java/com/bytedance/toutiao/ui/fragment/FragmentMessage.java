@@ -9,9 +9,19 @@ import android.widget.RelativeLayout;
 import android.widget.TabHost;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
+import com.bytedance.toutiao.ui.adapter.video.VideoListFragmentAdapter;
+import com.bytedance.toutiao.ui.fragment.video.FragmentCityVideo;
+import com.bytedance.toutiao.ui.fragment.video.FragmentFocusVideo;
+import com.bytedance.toutiao.ui.fragment.video.FragmentRecommentVideo;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Data : 2020/10/28
@@ -22,6 +32,10 @@ public class FragmentMessage extends BaseFragment{
 
     int index;
 
+    private List<Fragment> fragments = new ArrayList<>();
+    private ViewPager viewPager;
+    private String[] strings  = new String[]{"私聊", "评论", "关注"};
+
     public static FragmentMessage newFragment(int index){
         FragmentMessage fragmentMessage = new FragmentMessage();
         fragmentMessage.index = index;
@@ -30,11 +44,30 @@ public class FragmentMessage extends BaseFragment{
 
     @Override
     protected int getContentViewId() {
-        return R.layout.activity_event_timeline;
+        return R.layout.fragment_message;
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
+        TabLayout mTabLayout = mContentView.findViewById(R.id.tab_layout);
+        // 添加 tab item
+        mTabLayout.addTab(mTabLayout.newTab().setText("TAB1"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("TAB2"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("TAB3"));
+        //创建三个fragment
+        FragmentMessageDetail fragmentFocusVideo = new FragmentMessageDetail();
+        FragmentMessageDetail fragmentRecommentVideo = new FragmentMessageDetail();
+        FragmentMessageDetail fragmentCityVideo = new FragmentMessageDetail();
+
+        fragments.add(fragmentFocusVideo);
+        fragments.add(fragmentRecommentVideo);
+        fragments.add(fragmentCityVideo);
+        //获取viewpager
+        viewPager = mContentView.findViewById(R.id.view_pager);
+        //创建适配器
+        VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getFragmentManager(),0,fragments,strings );
+        viewPager.setAdapter(myAdapter);
+        mTabLayout.setupWithViewPager(viewPager);
 
     }
 
@@ -48,27 +81,4 @@ public class FragmentMessage extends BaseFragment{
 
     }
 
-//    @Nullable
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-//        RelativeLayout layout = null;
-//        layout = (RelativeLayout) inflater.inflate(R.layout.fragment_message,null);
-//        TabHost tabHost =(TabHost) layout.findViewById(R.id.tabhost_message);
-//        tabHost.getTabContentView();
-//        tabHost.setup();
-//
-//        tabHost.addTab(tabHost.newTabSpec("tag_message_private").setIndicator("私信").setContent(R.id.tab_private));
-//        tabHost.addTab(tabHost.newTabSpec(null).setIndicator("评论"));
-//        tabHost.addTab(tabHost.newTabSpec(null).setIndicator("赞和粉"));
-//
-//        tabHost.setCurrentTab(0);
-//        tabHost.setOnTabChangedListener(this);
-//        return layout;
-//
-//    }
-//
-//    @Override
-//    public void onTabChanged(String s) {
-//
-//    }
 }

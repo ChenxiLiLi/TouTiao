@@ -25,7 +25,7 @@ public class LoginViewModel extends BaseViewModel<RepositoryImpl> {
     //用户名的绑定
     public final ObservableField<String> userName = new ObservableField<>("");
     //密码的绑定
-    public ObservableField<String> password = new ObservableField<>("");
+    public final ObservableField<String> password = new ObservableField<>("");
 
     public LoginViewModel(@NonNull Application application) {
         super(application);

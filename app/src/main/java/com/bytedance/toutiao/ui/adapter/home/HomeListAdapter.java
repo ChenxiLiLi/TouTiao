@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.ui.activity.NewsDetailActivity;
 
 public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHolder> {
 
@@ -31,7 +32,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, NewsDetailActivity.class);
                 context.startActivity(intent);
             }
         });

@@ -14,8 +14,6 @@ import com.bytedance.toutiao.utils.AppUtils;
  */
 public class MyApplication extends Application {
     private static MyApplication context;
-    private static User loginUser;
-
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -31,23 +29,6 @@ public class MyApplication extends Application {
         AppUtils.initContext(this);
 
 
-    }
-
-    public static User getLoginUser() {
-        if (loginUser == null) {
-//            loginUser = PreferenceUtil.getByClass("user", User.class);
-        }
-        return loginUser;
-    }
-
-    public static void updateUser(User user) {
-//        PreferenceUtil.putByClass("user", user);
-        loginUser = user;
-    }
-
-    public static void logOut() {
-        loginUser = null;
-//        PreferenceUtil.clearByClass(User.class);
     }
 
 

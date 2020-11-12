@@ -9,7 +9,7 @@ import android.util.Log;
  * Author : 刘朝阳
  */
 public class AppUtils {
-    private static Context mContext;
+    public static Context mContext;
 
     private AppUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");

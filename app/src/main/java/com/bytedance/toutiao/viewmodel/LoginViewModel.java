@@ -2,6 +2,7 @@ package com.bytedance.toutiao.viewmodel;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
@@ -12,6 +13,8 @@ import com.bytedance.toutiao.base.BaseViewModel;
 import com.bytedance.toutiao.base.RepositoryImpl;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.User;
+import com.bytedance.toutiao.utils.AppUtils;
+import com.bytedance.toutiao.utils.ToastUtils;
 
 import java.util.HashMap;
 

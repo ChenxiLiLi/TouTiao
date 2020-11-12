@@ -38,7 +38,7 @@ public abstract class BaseFragment<VM extends BaseViewModel, VDB extends ViewDat
     protected abstract void processLogic(Bundle savedInstanceState);
 
     //所有监听放这里
-    protected abstract void setListener();
+    protected abstract void setListener( );
 
 
     protected VM mViewModel;

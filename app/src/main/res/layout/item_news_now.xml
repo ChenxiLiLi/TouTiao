@@ -9,10 +9,23 @@
         android:id="@+id/sl_wedview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <WebView
-            android:id="@+id/wv_content"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></WebView>
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="加载中"/>
+
+            <WebView
+                android:id="@+id/wv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></WebView>
+        </RelativeLayout>
+
     </com.bytedance.toutiao.ui.view.MyScrollview>
 
 

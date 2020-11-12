@@ -15,10 +15,12 @@ import static com.bytedance.toutiao.retrofit.RetrofitManager.getApiService;
  * Author : 刘朝阳
  */
 public class RepositoryImpl extends BaseModel {
+
     public MutableLiveData<Resource<User>> login(HashMap<String, String> map) {
         MutableLiveData<Resource<User>> liveData = new MutableLiveData<>();
         return observe(getApiService().login(map), liveData);
     }
+
     public MutableLiveData<Resource<User>> register(HashMap<String, String> map) {
         MutableLiveData<Resource<User>> liveData = new MutableLiveData<>();
         return observe(getApiService().register(map), liveData);

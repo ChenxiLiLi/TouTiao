@@ -23,6 +23,8 @@ import com.bytedance.toutiao.ui.adapter.home.NewsNowAdapter;
 import com.bytedance.toutiao.ui.view.MyScrollview;
 import com.bytedance.toutiao.utils.ToastUtils;
 
+import static com.bytedance.toutiao.MyApplication.getContext;
+
 public class FragmentNewNow extends BaseFragment {
 
     private WebView mWvContent;

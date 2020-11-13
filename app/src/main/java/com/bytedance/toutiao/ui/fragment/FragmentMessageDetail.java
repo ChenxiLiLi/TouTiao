@@ -11,6 +11,8 @@ import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.ui.adapter.MessageDetailAdapter;
 import com.bytedance.toutiao.ui.adapter.PostDetailAdapter;
 
+import static com.bytedance.toutiao.MyApplication.getContext;
+
 public class FragmentMessageDetail extends BaseFragment
 {
 

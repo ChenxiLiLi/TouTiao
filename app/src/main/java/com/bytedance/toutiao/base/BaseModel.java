@@ -28,8 +28,6 @@ public abstract class BaseModel {
     public ArrayList<String> onNetTags;
 
 
-
-
     public void setObjectLifecycleTransformer(LifecycleTransformer objectLifecycleTransformer) {
         this.objectLifecycleTransformer = objectLifecycleTransformer;
     }
@@ -43,13 +41,11 @@ public abstract class BaseModel {
                 .doOnSubscribe(new Consumer() {
                     @Override
                     public void accept(Object disposable1) throws Exception {
-                        Log.e("one", "accept");
                     }
                 })
                 .doFinally(new Action() {
                     @Override
                     public void run() throws Exception {
-                        Log.e("run", "accept");
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -57,11 +53,8 @@ public abstract class BaseModel {
                 .subscribe(new Consumer() {
                     @Override
                     public void accept(Object o) throws Exception {
-                        Resource<Object> resource = Resource.response((ResponseModel<Object>) o);
                         liveData.postValue((T) Resource.response((ResponseModel<Object>) o));
-//                        User user = (User) resource.data;
-//                        Log.e("subscribe", user.getId() + "" );
-//                        Log.e("subscribe", resource.errorMsg);
+
                     }
                 }, new Consumer() {
                     @Override

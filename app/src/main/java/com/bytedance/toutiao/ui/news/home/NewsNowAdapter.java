@@ -9,6 +9,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,29 +40,18 @@ public class NewsNowAdapter extends RecyclerView.Adapter<NewsNowAdapter.ViewHold
         holder.mWvContent.loadUrl("https://www.toutiao.com/a6886776124567880196/");
 
 
-
-        holder.scrollView.setScrollViewListener(new MyScrollview.IScrollChangedListener() {
-            @Override
-            public void onScrolledToBottom() {
-                ToastUtils.showToast("toBottom");
-            }
-
-            @Override
-            public void onScrolledToTop() {
-
-            }
-        });
-
         WebSettings settings = holder.mWvContent.getSettings();
         settings.setJavaScriptEnabled(true);
         holder.mWvContent.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                holder.textView.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
+                holder.ivLoading.setVisibility(View.GONE);
+                holder.layoutBottom.setVisibility(View.VISIBLE);
             }
         });
 
@@ -82,14 +73,14 @@ public class NewsNowAdapter extends RecyclerView.Adapter<NewsNowAdapter.ViewHold
     class ViewHolder extends RecyclerView.ViewHolder{
 
         private WebView mWvContent;
-        private MyScrollview scrollView;
-        private TextView textView;
+        private ImageView ivLoading;
+        private LinearLayout layoutBottom;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv_loading);
             mWvContent = itemView.findViewById(R.id.wv_content);
-            scrollView = itemView.findViewById(R.id.sl_wedview);
+            ivLoading = itemView.findViewById(R.id.iv_loading);
+            layoutBottom = itemView.findViewById(R.id.ll_comment);
         }
     }
 }

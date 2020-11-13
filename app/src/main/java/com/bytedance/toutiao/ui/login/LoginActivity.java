@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 
 import com.bytedance.toutiao.R;
@@ -31,8 +32,6 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
     protected void processLogic() {
 
         binding.setViewModel(mViewModel);
-
-
         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
         mViewModel.userName.set(sp.getString("username", null));
         mViewModel.password.set(sp.getString("password", null));
@@ -78,7 +77,9 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                                         .putString("username", mViewModel.userName.get())
                                         .putString("password", mViewModel.password.get())
                                         .apply();
-                                ToastUtils.showToast("登录成功");
+                                Log.e("main", userResource.data.getUsername());
+                                mViewModel.insertUser(userResource.data);
+                                mViewModel.getUser(userResource.data.getId());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

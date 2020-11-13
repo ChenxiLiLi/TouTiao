@@ -5,28 +5,85 @@
 
     </data>
 
-    <com.bytedance.toutiao.ui.view.MyScrollview
-        android:id="@+id/sl_wedview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/tv_loading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="加载中"/>
+            <ImageView
+                android:id="@+id/iv_loading"
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_200"
+                android:layout_centerInParent="true"
+
+                android:src="@mipmap/logo"/>
 
             <WebView
                 android:id="@+id/wv_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></WebView>
-        </RelativeLayout>
 
-    </com.bytedance.toutiao.ui.view.MyScrollview>
+            <LinearLayout
+                android:id="@+id/ll_comment"
+                android:background="@color/colorAccent"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="视频好看吗？快来评论吧~"
+                    android:paddingLeft="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_13"
+                    android:paddingBottom="@dimen/dp_13"
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/sp_15" />
+
+                <ImageView
+                    android:id="@+id/iv_comment"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/comment"/>
+
+                <TextView
+                    android:id="@+id/tv_comment_num"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dark"
+                    android:text="3.8万"/>
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:id="@+id/iv_love"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/heart"/>
+
+                <TextView
+                    android:id="@+id/tv_love_num"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dark"
+                    android:text="176"/>
+                <ImageView
+                    android:id="@+id/iv_share"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/share"/>
+
+
+            </LinearLayout>
+        </RelativeLayout>
 
 
 </layout>

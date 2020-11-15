@@ -37,19 +37,34 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, VideoDetailActivity.class);
-                intent.putExtra("videoID", videoModels.get(position).getVideoID());
-                context.startActivity(intent);
+
+        if(videoModels.size() != 0) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, VideoDetailActivity.class);
+                    intent.putExtra("videoID", videoModels.get(position).getVideoId());
+                    context.startActivity(intent);
+                }
+            });
+
+            switch (videoModels.get(position).getVideoId()) {
+                case "3":
+                    holder.localPic.setImageResource(R.mipmap.local_pic3);
+                    break;
+                case "2":
+                    holder.localPic.setImageResource(R.mipmap.local_pic2);
+                    break;
+                case "1":
+                    holder.localPic.setImageResource(R.mipmap.local_pic1);
+                    break;
             }
-        });
-        holder.localPic.setImageResource(videoModels.get(position).getImgId());
-        holder.tvPublisherName.setText(videoModels.get(position).getAuthorName());
-        holder.tvContent.setText(videoModels.get(position).getContent());
-        holder.tvLoveNum.setText(videoModels.get(position).getLoveNum());
-        holder.tvCommentNum.setText(videoModels.get(position).getCommentNum());
+
+            holder.tvPublisherName.setText(videoModels.get(position).getAuthorName());
+            holder.tvContent.setText(videoModels.get(position).getContent());
+            holder.tvLoveNum.setText(videoModels.get(position).getLoveNum());
+            holder.tvCommentNum.setText(videoModels.get(position).getCommentNum());
+        }
     }
 
     @Override

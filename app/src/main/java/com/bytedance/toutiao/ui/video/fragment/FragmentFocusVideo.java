@@ -54,7 +54,7 @@ public class FragmentFocusVideo extends BaseFragment {
         VideoModel videoModel3 = new VideoModel();
         VideoModel videoModel4 = new VideoModel();
 
-        videoModel1.setVideoID("1");
+        videoModel1.setVideoId("1");
         videoModel1.setAuthorName("@四川观察");
         videoModel1.setImgId(R.mipmap.local_pic1);
         videoModel1.setVideoUrl("local_video1.mp4");
@@ -62,7 +62,7 @@ public class FragmentFocusVideo extends BaseFragment {
         videoModel1.setCommentNum("233");
         videoModel1.setLoveNum("1.7w");
 
-        videoModel2.setVideoID("2");
+        videoModel2.setVideoId("2");
         videoModel2.setAuthorName("@北京警方");
         videoModel2.setImgId(R.mipmap.local_pic2);
         videoModel2.setVideoUrl("local_video2.mp4");
@@ -70,7 +70,7 @@ public class FragmentFocusVideo extends BaseFragment {
         videoModel2.setCommentNum("2333");
         videoModel2.setLoveNum("7.7w");
 
-        videoModel3.setVideoID("3");
+        videoModel3.setVideoId("3");
         videoModel3.setAuthorName("@新疆媒体");
         videoModel3.setImgId(R.mipmap.local_pic3);
         videoModel3.setVideoUrl("local_video3.mp4");
@@ -78,7 +78,7 @@ public class FragmentFocusVideo extends BaseFragment {
         videoModel3.setCommentNum("233");
         videoModel3.setLoveNum("1.7w");
 
-        videoModel4.setVideoID("1");
+        videoModel4.setVideoId("1");
         videoModel4.setAuthorName("@四川观察");
         videoModel4.setImgId(R.mipmap.local_pic1);
         videoModel4.setVideoUrl("local_video1.mp4");

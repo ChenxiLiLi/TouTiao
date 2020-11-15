@@ -4,7 +4,10 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.room.Room;
+
 import com.bytedance.toutiao.bean.User;
+import com.bytedance.toutiao.room.AppDatabase;
 import com.bytedance.toutiao.utils.AppUtils;
 
 /**
@@ -14,6 +17,7 @@ import com.bytedance.toutiao.utils.AppUtils;
  */
 public class MyApplication extends Application {
     private static MyApplication context;
+    private static AppDatabase db;
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -22,15 +26,22 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //捕获崩溃日志，位置在外部存储的LianSou
-//        CrashHandler crashHandler = CrashHandler.getInstance();
-//        crashHandler.init(getApplicationContext());
+
         context = this;
         AppUtils.initContext(this);
-
+        initDb();
 
     }
 
+    private void initDb() {
+        // 这里初始化room
+        db = Room.databaseBuilder(this,
+                AppDatabase.class, "database-name").build();
+    }
+
+    public static AppDatabase getDb() {
+        return db;
+    }
 
     public static Context getContext() {
         return context;

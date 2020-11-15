@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Base">
-        <activity android:name=".ui.message.Activity.MessageChatActivity"></activity>
         <activity android:name=".ui.news.NewsDetailActivity"></activity>
         <activity android:name=".ui.video.activity.PostDetailActivity"></activity>
         <activity android:name=".ui.video.activity.TopicSquareActivity"></activity>
@@ -22,7 +21,7 @@
         <activity android:name=".ui.video.activity.VideoDetailActivity" />
         <activity android:name=".ui.event.PublishVideoActivity" />
         <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name=".ui.news.HomeDetailActivity"></activity>
+        <activity android:name=".ui.news.HomeDetailActivity" />
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.MainActivity" />
     </application>
 
 </manifest>

@@ -1,8 +1,14 @@
 package com.bytedance.toutiao.ui.news;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,14 +21,11 @@ import com.bytedance.toutiao.ui.view.MyScrollview;
 public class FragmentNewNow extends BaseFragment {
 
     private WebView mWvContent;
-    private String url;
-    private MyScrollview scrollView;
-    private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
-    private NewsNowAdapter newsNowAdapter;
+    private ImageView ivLoading;
+    private LinearLayout layoutBottom;
 
     public FragmentNewNow(String url) {
-        this.url = url;
+
     }
 
     @Override
@@ -32,15 +35,33 @@ public class FragmentNewNow extends BaseFragment {
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        recyclerView = mContentView.findViewById(R.id.rv_news_now);
+        mWvContent = mContentView.findViewById(R.id.wv_content);
 
-        linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        mWvContent.loadUrl("https://www.toutiao.com/a6886776124567880196/");
 
-        newsNowAdapter = new NewsNowAdapter(getContext());
+        ivLoading = mContentView.findViewById(R.id.iv_loading);
+        layoutBottom = mContentView.findViewById(R.id.ll_comment);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(newsNowAdapter);
+        WebSettings settings = mWvContent.getSettings();
+        settings.setJavaScriptEnabled(true);
+        mWvContent.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
 
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                ivLoading.setVisibility(View.GONE);
+                layoutBottom.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mWvContent.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+            }
+        });
 
 
 

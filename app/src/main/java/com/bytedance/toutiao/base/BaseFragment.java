@@ -38,7 +38,7 @@ public abstract class BaseFragment<VM extends BaseViewModel, VDB extends ViewDat
     protected abstract void processLogic(Bundle savedInstanceState);
 
     //所有监听放这里
-    protected abstract void setListener();
+    protected abstract void setListener( );
 
 
     protected VM mViewModel;
@@ -64,24 +64,25 @@ public abstract class BaseFragment<VM extends BaseViewModel, VDB extends ViewDat
                 parent.removeView(mContentView);
             }
         }
+
         return mContentView;
     }
 
 
-//    public void createViewModel() {
-//        if (mViewModel == null) {
-//            Class modelClass;
-//            Type type = getClass().getGenericSuperclass();
-//            if (type instanceof ParameterizedType) {
-//                modelClass = (Class) ((ParameterizedType) type).getActualTypeArguments()[0];
-//            } else {
-//                //如果没有指定泛型参数，则默认使用BaseViewModel
-//                modelClass = BaseViewModel.class;
-//            }
-//            mViewModel = (VM) ViewModelProviders.of(this).get(modelClass);
-//            mViewModel.setObjectLifecycleTransformer(bindToLifecycle());
-//        }
-//    }
+    public void createViewModel() {
+        if (mViewModel == null) {
+            Class modelClass;
+            Type type = getClass().getGenericSuperclass();
+            if (type instanceof ParameterizedType) {
+                modelClass = (Class) ((ParameterizedType) type).getActualTypeArguments()[0];
+            } else {
+                //如果没有指定泛型参数，则默认使用BaseViewModel
+                modelClass = BaseViewModel.class;
+            }
+            mViewModel = (VM) ViewModelProviders.of(this).get(modelClass);
+            mViewModel.setObjectLifecycleTransformer(bindToLifecycle());
+        }
+    }
 
 
 
@@ -127,9 +128,7 @@ public abstract class BaseFragment<VM extends BaseViewModel, VDB extends ViewDat
 
         @Override
         public void onCompleted() {
-//            if (dialog != null && dialog.isShowing()) {
-//                dialog.dismiss();
-//            }
+
         }
 
         @Override
@@ -139,13 +138,4 @@ public abstract class BaseFragment<VM extends BaseViewModel, VDB extends ViewDat
     }
 
 
-    //快速获取textView 或 EditText上文字内容
-    public String getStringByUI(View view) {
-        if (view instanceof EditText) {
-            return ((EditText) view).getText().toString().trim();
-        } else if (view instanceof TextView) {
-            return ((TextView) view).getText().toString().trim();
-        }
-        return "";
-    }
 }

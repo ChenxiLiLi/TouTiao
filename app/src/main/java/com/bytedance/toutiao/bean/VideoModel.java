@@ -1,15 +1,15 @@
 package com.bytedance.toutiao.bean;
 
 public class VideoModel {
-    public String getVideoID() {
-        return videoID;
+    public String getVideoId() {
+        return videoId;
     }
 
-    public void setVideoID(String videoID) {
-        this.videoID = videoID;
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 
-    private String videoID;
+    private String videoId;
     private String videoUrl;
     private String authorId;
     private String authorName;

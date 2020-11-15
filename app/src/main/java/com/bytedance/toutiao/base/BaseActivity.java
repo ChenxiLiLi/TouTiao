@@ -40,6 +40,7 @@ public abstract class BaseActivity<VM extends BaseViewModel, VDB extends ViewDat
         binding.setLifecycleOwner(this);
 //        创建ViewModel;
         createViewModel();
+
         processLogic();
         setListener();
     }

@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -14,11 +13,10 @@ import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityMainBinding;
 
-import com.bytedance.toutiao.ui.activity.EventTimelineActivity;
-import com.bytedance.toutiao.ui.fragment.FragmentUser;
-import com.bytedance.toutiao.ui.fragment.FragmentHome;
-import com.bytedance.toutiao.ui.fragment.FragmentMessage;
-import com.bytedance.toutiao.ui.fragment.video.FragmentVideo;
+import com.bytedance.toutiao.ui.user.FragmentUser;
+import com.bytedance.toutiao.ui.news.FragmentHome;
+import com.bytedance.toutiao.ui.message.FragmentMessage;
+import com.bytedance.toutiao.ui.video.fragment.FragmentVideo;
 
 import java.util.ArrayList;
 
@@ -49,6 +47,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
 
     @Override
     protected void setListener(){
+
         binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +97,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
         FragmentTransaction ft = manager.beginTransaction();
         //fragment切换带动画
         ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+
         RelativeLayout relativeLayout =  findViewById(id);
         String tag = (String) relativeLayout.getTag();
         Fragment f = manager.findFragmentByTag(tag);

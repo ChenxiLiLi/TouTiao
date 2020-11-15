@@ -1,29 +1,15 @@
 package com.bytedance.toutiao.ui.fragment;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
+import android.view.View;;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.ui.adapter.home.NewsNowAdapter;
+import com.bytedance.toutiao.ui.news.home.NewsNowAdapter;
 import com.bytedance.toutiao.ui.view.MyScrollview;
-import com.bytedance.toutiao.utils.ToastUtils;
-
-import static com.bytedance.toutiao.MyApplication.getContext;
 
 public class FragmentNewNow extends BaseFragment {
 

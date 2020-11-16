@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/iv_avater"
+        android:layout_width="@dimen/dp_34"
+        android:layout_height="@dimen/dp_34"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:src="@mipmap/avater"
+        />
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_0"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/textColorHint"
+            android:text="抬棺副指挥"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这个也太好看了吧"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginTop="@dimen/dp_5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/dp_12">
+
+        <ImageView
+
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:src="@mipmap/heart"/>
+
+        <TextView
+            android:id="@+id/tv_likecount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="89"/>
+    </LinearLayout>
+</LinearLayout>

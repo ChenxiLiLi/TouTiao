@@ -17,8 +17,17 @@ public class VideoModel {
     private String title;
     private String content;
     private String commentNum;
-    private String event;
+    private String eventName;
     private String loveNum;
+    private String eventId;
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
 
     public int getImgId() {
         return imgId;
@@ -86,12 +95,12 @@ public class VideoModel {
         this.commentNum = commentNum;
     }
 
-    public String getEvent() {
-        return event;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     public String getLoveNum() {

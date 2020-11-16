@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="text"
+            type="String"/>
 
-    <RelativeLayout
-        android:id="@+id/chat_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/message_left_avater"
-            android:layout_width="@dimen/dp_50"
-            android:layout_height="@dimen/dp_40"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="@dimen/dp_10"
-            android:src="@mipmap/avater"/>
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener"/>
+
+    </data>
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
         <RelativeLayout
+            android:id="@+id/chat_left"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/message_left_avater"
-            android:layout_toLeftOf="@+id/chat_left_brand"
-            android:layout_centerVertical="true">
-            <TextView
-                android:id="@+id/text_chat_left"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/message_left_avater"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_40"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="@dimen/dp_10"
+                android:src="@mipmap/avater"/>
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/chat_left"
-                android:text="你好啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"/></RelativeLayout>
-        <View
-            android:id="@+id/chat_left_brand"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-    <RelativeLayout
+                android:layout_toRightOf="@+id/message_left_avater"
+                android:layout_toLeftOf="@+id/chat_left_brand"
+                android:layout_centerVertical="true">
+                <TextView
+                    android:id="@+id/text_chat_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/chat_left"
+                    android:text="你好啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"/></RelativeLayout>
+            <View
+                android:id="@+id/chat_left_brand"
+                android:layout_width="@dimen/dp_70"
+                android:layout_height="@dimen/dp_70"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+        <RelativeLayout
         android:id="@+id/chat_right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -70,4 +80,5 @@
             android:layout_width="@dimen/dp_70"
             android:layout_height="@dimen/dp_50" />
     </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+</layout>

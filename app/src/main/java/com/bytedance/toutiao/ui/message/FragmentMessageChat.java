@@ -41,12 +41,5 @@ public class FragmentMessageChat extends BaseFragment
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.item_detial:
-                Toast.makeText( null, "进入聊天界面", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(null, MessageChatActivity.class);
-                startActivity(intent);
-                break;
-        }
     }
 }

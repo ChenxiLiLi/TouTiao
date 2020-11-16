@@ -2,17 +2,20 @@ package com.bytedance.toutiao.ui.message.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageChatModel;
+import com.bytedance.toutiao.ui.MainActivity;
 
 import java.util.List;
 
@@ -35,28 +38,29 @@ public class MessageChatAdapt extends RecyclerView.Adapter <MessageChatAdapt.Vie
     @Override
     public void onBindViewHolder(@NonNull MessageChatAdapt.ViewHolder holder, int position) {
         MessageChatModel msg = msglist.get(position);
-//        switch (msg.getType()){
-//            case MessageChatModel.TYPE_SENT:
-//                holder.rightLayout.setVisibility(View.VISIBLE);
-//                holder.leftLayout.setVisibility(View.GONE);
-//                holder.rightmsg.setText(msg.getContent());
-//                break;
-//            case MessageChatModel.TYPE_RECEIVED:
-//                holder.leftLayout.setVisibility(View.VISIBLE);
-//                holder.rightLayout.setVisibility(View.GONE);
-//                holder.leftmsg.setText(msg.getContent());
-//                break;
-//        }
-        if (msg.getType() == MessageChatModel.TYPE_SENT){
-            holder.rightLayout.setVisibility(View.VISIBLE);
-            holder.leftLayout.setVisibility(View.GONE);
-            holder.rightmsg.setText(msg.getContent());
-        } else
-            if(msg.getType() == MessageChatModel.TYPE_RECEIVED){
-            holder.leftLayout.setVisibility(View.VISIBLE);
-            holder.rightLayout.setVisibility(View.GONE);
-            holder.leftmsg.setText(msg.getContent());
+        switch (msg.getType()){
+            case MessageChatModel.TYPE_SENT:
+                holder.rightLayout.setVisibility(View.VISIBLE);
+                holder.leftLayout.setVisibility(View.GONE);
+                holder.rightmsg.setText(msg.getContent());
+                break;
+            case MessageChatModel.TYPE_RECEIVED:
+                holder.leftLayout.setVisibility(View.VISIBLE);
+                holder.rightLayout.setVisibility(View.GONE);
+                holder.leftmsg.setText(msg.getContent());
+                break;
         }
+
+//        if (msg.getType() == MessageChatModel.TYPE_SENT){
+//            holder.rightLayout.setVisibility(View.VISIBLE);
+//            holder.leftLayout.setVisibility(View.GONE);
+//            holder.rightmsg.setText(msg.getContent());
+//        }else
+//            if(msg.getType() == MessageChatModel.TYPE_RECEIVED){
+//            holder.leftLayout.setVisibility(View.VISIBLE);
+//            holder.rightLayout.setVisibility(View.GONE);
+//            holder.leftmsg.setText(msg.getContent());
+//        }
     }
 
     @Override

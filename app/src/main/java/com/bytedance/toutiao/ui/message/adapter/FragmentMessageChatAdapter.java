@@ -33,10 +33,15 @@ public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMes
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.findViewById(R.id.item_detial);
-                Toast.makeText(context, "进入聊天界面", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(context, MessageChatActivity.class);
-                context.startActivity(intent);
+                switch (view.getId()) {
+                    case R.id.item_detial:
+                        Toast.makeText(context, "进入私聊界面", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(context, MessageChatActivity.class);
+                        context.startActivity(intent);
+                        break;
+                }
+                //view.findViewById(R.id.item_detial);
+
 
             }
         });

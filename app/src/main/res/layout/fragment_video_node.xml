@@ -6,17 +6,30 @@
     </data>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         >
 
-        <com.bytedance.toutiao.ui.view.media.VideoPlayRecyclerView
-            android:id="@+id/rv_video_detail"
+        <TextView
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:text="死者母亲发声"
+            android:gravity="center"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/sp_20"/>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    </RelativeLayout>
+        <com.bytedance.toutiao.ui.view.NoScrollViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 </layout>
 

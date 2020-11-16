@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.user.activity.MyPublishActivity">
+
+    <data>
+        <variable
+            name="text"
+            type="String" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/theme_publish"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text="我的发布"
+                android:background="#EFEFEF"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:src="@mipmap/back"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/tag_publish"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_below="@+id/theme_publish"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mypub_tab_0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:tag="0"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="草稿箱"
+                android:textSize="@dimen/sp_15"/>
+
+            <TextView
+                android:id="@+id/mypub_tab_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:tag="1"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="待审核"
+                android:textSize="@dimen/sp_15"/>
+
+            <TextView
+                android:id="@+id/mypub_tab_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:tag="2"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="未通过"
+                android:textSize="@dimen/sp_15"/>
+
+            <TextView
+                android:id="@+id/mypub_tab_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:tag="3"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="已发布"
+                android:textSize="@dimen/sp_15"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_my_publish"
+            android:layout_below="@+id/tag_publish"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+    </RelativeLayout>
+</layout>

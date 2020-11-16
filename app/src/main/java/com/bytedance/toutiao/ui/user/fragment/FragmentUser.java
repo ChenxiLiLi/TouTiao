@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.user;
+package com.bytedance.toutiao.ui.user.fragment;
 
 import android.os.Bundle;
 import android.view.View;

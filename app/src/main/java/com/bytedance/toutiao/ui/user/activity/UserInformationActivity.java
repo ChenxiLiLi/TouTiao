@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.user;
+package com.bytedance.toutiao.ui.user.activity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -6,9 +6,10 @@ import android.text.TextWatcher;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
-import com.bytedance.toutiao.databinding.ActivityAccountManagementBinding;
+import com.bytedance.toutiao.databinding.ActivityUserInformationBinding;
 
-public class AccountManagementActivity extends BaseActivity<NormalViewModel, ActivityAccountManagementBinding> implements TextWatcher {
+public class UserInformationActivity extends BaseActivity<NormalViewModel, ActivityUserInformationBinding> implements TextWatcher {
+
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -26,7 +27,7 @@ public class AccountManagementActivity extends BaseActivity<NormalViewModel, Act
 
     @Override
     protected int getContentViewId() {
-        return R.layout.activity_account_management;
+        return R.layout.activity_user_information;
     }
 
     @Override

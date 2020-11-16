@@ -53,6 +53,7 @@ public abstract class BaseModel {
                 .subscribe(new Consumer() {
                     @Override
                     public void accept(Object o) throws Exception {
+
                         liveData.postValue((T) Resource.response((ResponseModel<Object>) o));
 
                     }

@@ -12,4 +12,5 @@
     <color name="textGrey">#24282C</color>
     <color name="textBackGround">#B3D1F0</color>
     <color name="newsColor">#9A9A9A</color>
+    <color name="transparent">#00000000</color>
 </resources>

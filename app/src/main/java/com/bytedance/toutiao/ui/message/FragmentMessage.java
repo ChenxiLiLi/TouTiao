@@ -46,13 +46,13 @@ public class FragmentMessage extends BaseFragment{
         mTabLayout.addTab(mTabLayout.newTab().setText("TAB2"));
         mTabLayout.addTab(mTabLayout.newTab().setText("TAB3"));
         //创建三个fragment
-        FragmentMessageDetail fragmentFocusVideo = new FragmentMessageDetail();
-        FragmentMessageDetail fragmentRecommentVideo = new FragmentMessageDetail();
-        FragmentMessageDetail fragmentCityVideo = new FragmentMessageDetail();
+        FragmentMessageChat fragmentMessageChat = new FragmentMessageChat();
+        FragmentMessageComment fragmentMessageComment = new FragmentMessageComment();
+        FragmentMessageFocus fragmentMessageFocus = new FragmentMessageFocus();
 
-        fragments.add(fragmentFocusVideo);
-        fragments.add(fragmentRecommentVideo);
-        fragments.add(fragmentCityVideo);
+        fragments.add(fragmentMessageChat);
+        fragments.add(fragmentMessageComment);
+        fragments.add(fragmentMessageFocus);
         //获取viewpager
         viewPager = mContentView.findViewById(R.id.view_pager);
         //创建适配器
@@ -64,8 +64,7 @@ public class FragmentMessage extends BaseFragment{
 
     @Override
     protected void setListener() {
-
-    }
+                }
 
     @Override
     public void onClick(View v) {

@@ -2,6 +2,7 @@ package com.bytedance.toutiao.retrofit;
 
 import android.provider.MediaStore;
 
+import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
@@ -33,5 +34,8 @@ public interface RetrofitApiService {
 
     @GET("mock/7451/byte/dance/v1.0/getRecommentVideos")
     Observable<ResponseModel<List<VideoModel>>> getRecommentVideos();
+    //信息界面评论列表数据接口
+    @GET("/byte/dance/v1.0/message/comment/items")
+    Observable<ResponseModel<List<MessageCommentModel>>> getMsgComments();
 
 }

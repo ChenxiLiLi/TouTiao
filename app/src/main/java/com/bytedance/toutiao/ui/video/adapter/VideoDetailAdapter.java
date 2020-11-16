@@ -20,6 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.ui.video.activity.TopicSquareActivity;
+import com.bytedance.toutiao.ui.view.CommentDialog;
 import com.bytedance.toutiao.ui.view.VideoLoadingProgressbar;
 import com.bytedance.toutiao.ui.view.VideoPlayer;
 import com.bytedance.toutiao.ui.view.media.VideoPlayAdapter;
@@ -37,6 +38,29 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     private TextureView textureView;
     private String videoID;
     private int resid ;
+    private View.OnClickListener listener;
+
+    public VideoDetailAdapter(Context mContext, Resources resources, String videoID, View.OnClickListener listener) {
+        this.listener = listener;
+        this.mContext = mContext;
+        videoPlayer = new VideoPlayer();
+        textureView = new TextureView(mContext);
+        videoPlayer.setTextureView(textureView);
+        this.resources = resources;
+        this.videoID = videoID;
+        switch (videoID){
+            case "3":
+                resid = R.mipmap.local_pic3;
+                break;
+            case "2":
+                resid = R.mipmap.local_pic2;
+                break;
+            case "1":
+                resid = R.mipmap.local_pic1;
+                break;
+        }
+    }
+
 
     public VideoDetailAdapter(Context mContext, Resources resources, String videoID) {
         this.mContext = mContext;
@@ -69,13 +93,15 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RequestOptions options = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE);
         Glide.with(mContext).load(resid).apply(options).into(holder.ivCover);
-        holder.ivComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, TopicSquareActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
+//        holder.ivComment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+////                Intent intent = new Intent(mContext, TopicSquareActivity.class);
+////                mContext.startActivity(intent);
+//            }
+//        });
+        holder.ivComment.setOnClickListener(listener);
         holder.flVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,6 +181,9 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
         videoPlayer.release();
     }
 
+    public void stop(){videoPlayer.stop();}
+
+    public void pause(){videoPlayer.pause();}
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private FrameLayout flVideo;

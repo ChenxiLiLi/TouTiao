@@ -103,11 +103,10 @@ public class MyPublishActivity extends BaseActivity<NormalViewModel, ActivityMyP
             if (fragment.getTag() != null) {
                 if (fragment.getTag().equals(tag)) {
                     ft.show(fragment);
-                    //点亮tab标签
-                    mTabs[i].setTextColor(9);
+                    mTabs[i].setEnabled(true);
                 } else {
                     ft.hide(fragment);
-                    //点掉tab标签
+                    mTabs[i].setEnabled(false);
                 }
             }
         }

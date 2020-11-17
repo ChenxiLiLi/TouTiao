@@ -22,13 +22,24 @@ import java.util.List;
 public class HomeNewsViewModel extends BaseViewModel<RepositoryImpl> {
 
 
+    private String TAG = "HomeNewsViewModel";
+
     public HomeNewsViewModel(@NonNull Application application) {
         super(application);
     }
 
     public LiveData<Resource<List<NewsModel>>> listNews(String type){
         if (type == null || type.trim().length() == 0) {
-            //Log.e
+            Log.e(TAG, "type is null || type is ''");
+        }
+        //类型，1：主资讯列表，2：关注资讯列表，3：同城资讯列表
+        switch (type) {
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
         }
         return null;
     }

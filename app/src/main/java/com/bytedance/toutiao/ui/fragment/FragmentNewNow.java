@@ -1,7 +1,7 @@
 package com.bytedance.toutiao.ui.fragment;
 
 import android.os.Bundle;
-import android.view.View;;
+import android.view.View;
 import android.webkit.WebView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,16 +31,6 @@ public class FragmentNewNow extends BaseFragment {
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        recyclerView = mContentView.findViewById(R.id.rv_news_now);
-
-        linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-
-        newsNowAdapter = new NewsNowAdapter(getContext());
-
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(newsNowAdapter);
-
-
 
 
     }

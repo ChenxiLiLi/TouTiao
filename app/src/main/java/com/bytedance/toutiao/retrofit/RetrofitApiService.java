@@ -14,6 +14,8 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Data : 2020/10/29
@@ -33,16 +35,10 @@ public interface RetrofitApiService {
     @GET("mock/7451/byte/dance/v1.0/getRecommentVideos")
     Observable<ResponseModel<List<VideoModel>>> getRecommentVideos();
 
-    @GET("mock/7451/byte/dance/v1.0/home/news/s")
-    Observable<ResponseModel<List<NewsModel>>> listNews();
-
-    @GET("mock/7451/byte/dance/v1.0/home/news/follow/{id}")
-    Observable<ResponseModel<List<NewsModel>>> followNews(String id);
-
-    @GET("mock/7451/byte/dance/v1.0/home/news/samecity/{id}")
-    Observable<ResponseModel<List<NewsModel>>> sameCityNews(String id);
+    @GET("mock/7451/byte/dance/v1.0/home/news/list")
+    Observable<ResponseModel<List<NewsModel>>> listNews(@Query("type") String type);
 
     @GET("mock/7451/byte/dance/v1.0/home/news/detail/{id}")
-    Observable<ResponseModel<NewsModel>> newsDetail(String id);
+    Observable<ResponseModel<NewsModel>> newsDetail(@Path("id") String id);
 
 }

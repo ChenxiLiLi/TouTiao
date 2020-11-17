@@ -35,28 +35,16 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getRecommentVideos(), liveData);
     }
 
-    //获取全部资讯列表
-    public MutableLiveData<Resource<List<NewsModel>>> listNews() {
+    //获取资讯列表
+    public MutableLiveData<Resource<List<NewsModel>>> listNews(String type) {
         MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().listNews(), liveData);
-    }
-
-    //获取关注资讯列表
-    public MutableLiveData<Resource<List<NewsModel>>> followNews() {
-        MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().followNews(), liveData);
-    }
-
-    //获取同城资讯列表
-    public MutableLiveData<Resource<List<NewsModel>>> sameCityNews() {
-        MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().sameCityNews(), liveData);
+        return observe(getApiService().listNews(type), liveData);
     }
 
     //获取单条资讯详情
-    public MutableLiveData<Resource<NewsModel>> newsDetail() {
+    public MutableLiveData<Resource<NewsModel>> newsDetail(String id) {
         MutableLiveData<Resource<NewsModel>> liveData = new MutableLiveData<>();
-        return observe(getApiService().newsDetail(), liveData);
+        return observe(getApiService().newsDetail(id), liveData);
     }
 
 }

@@ -19,6 +19,8 @@ public class EventTimelineAdapter extends RecyclerView.Adapter<EventTimelineAdap
     private List<EventOutside> eventOutsides;
     private Context context;
 
+
+
     public EventTimelineAdapter(List<EventOutside> eventOutsides, Context context) {
         this.eventOutsides = eventOutsides;
         this.context = context;

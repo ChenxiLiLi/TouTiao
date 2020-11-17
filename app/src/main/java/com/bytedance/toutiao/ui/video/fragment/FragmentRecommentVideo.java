@@ -8,9 +8,7 @@ import android.widget.Toast;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bytedance.toutiao.R;
@@ -46,7 +44,6 @@ public class FragmentRecommentVideo extends BaseFragment<RecommentVideoViewModel
         initData();
         binding.setViewModel(mViewModel);
         gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-
         binding.rvVideo.setLayoutManager(gridLayoutManager);
         videoListAdapter = new VideoListAdapter(getActivity(),videoModels);
         binding.rvVideo.setAdapter(videoListAdapter);
@@ -104,7 +101,6 @@ public class FragmentRecommentVideo extends BaseFragment<RecommentVideoViewModel
 
     private void initData(){
         {
-
             VideoModel videoModel1 = new VideoModel();
             VideoModel videoModel2 = new VideoModel();
             VideoModel videoModel3 = new VideoModel();

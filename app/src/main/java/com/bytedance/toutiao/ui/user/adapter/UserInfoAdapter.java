@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.ui.news.NewsDetailActivity;
+import com.bytedance.toutiao.ui.news.activity.NewsDetailActivity;
 
 public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.ViewHolder> {
 

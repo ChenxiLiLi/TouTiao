@@ -24,7 +24,7 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private FragmentMessageCommentAdapter fragmentMessageCommentAdapter;
-    private List<MessageCommentModel> messageCommentModels = new ArrayList<>();
+    private List<MessageCommentModel> messageCommentModels = new ArrayList<MessageCommentModel>();
 
     @Override
     protected int getContentViewId() {
@@ -36,16 +36,15 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
 
         mViewModel = ViewModelProviders.of(getActivity()).get(MessageCommentViewModel.class);
         recyclerView = mContentView.findViewById(R.id.rv_message_detail);
-        fragmentMessageCommentAdapter = new FragmentMessageCommentAdapter(getContext());
+        fragmentMessageCommentAdapter = new FragmentMessageCommentAdapter(getContext(),messageCommentModels);
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(fragmentMessageCommentAdapter);
-
+        recyclerView.setLayoutManager(linearLayoutManager);
         mViewModel.getMsgComment().observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 Log.e("message", listResource.state+ "");
-                messageCommentModels = listResource.data;
+                //messageCommentModels = listResource.data;
                 initData();
                 fragmentMessageCommentAdapter.notifyDataSetChanged();
             }
@@ -55,8 +54,12 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
 
     }
     private void initData(){
-        MessageCommentModel messageCommentModel = new MessageCommentModel();
-        messageCommentModels.add(messageCommentModel);
+        MessageCommentModel msgcomm1 = new MessageCommentModel("用户名1","评论内容～","2月30日 19:00");
+        messageCommentModels.add(msgcomm1);
+        MessageCommentModel msgcomm2 = new MessageCommentModel("用户名2","评论内容～","2月30日 19:00");
+        messageCommentModels.add(msgcomm2);
+        MessageCommentModel msgcomm3 = new MessageCommentModel("用户名3","评论内容～","2月30日 19:00");
+        messageCommentModels.add(msgcomm3);
     }
 
     @Override

@@ -9,6 +9,23 @@ public class MessageCommentModel {
     private String msgCommentDate;
     private String msgCommentNewsType;
 
+    public MessageCommentModel(String msgCommentId, String msgCommentUserId, String msgCommentUserName, String msgCommentUserAvater, String msgCommentContent, String msgCommentDate, String msgCommentNewsType, String msgCommentNewsId) {
+        this.msgCommentId = msgCommentId;
+        this.msgCommentUserId = msgCommentUserId;
+        this.msgCommentUserName = msgCommentUserName;
+        this.msgCommentUserAvater = msgCommentUserAvater;
+        this.msgCommentContent = msgCommentContent;
+        this.msgCommentDate = msgCommentDate;
+        this.msgCommentNewsType = msgCommentNewsType;
+        this.msgCommentNewsId = msgCommentNewsId;
+    }
+
+    public MessageCommentModel(String msgCommentUserName, String msgCommentContent, String msgCommentDate) {
+        this.msgCommentUserName = msgCommentUserName;
+        this.msgCommentContent = msgCommentContent;
+        this.msgCommentDate = msgCommentDate;
+    }
+
     public String getMsgCommentId() {
         return msgCommentId;
     }

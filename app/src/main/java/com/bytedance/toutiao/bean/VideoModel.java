@@ -8,17 +8,27 @@ public class VideoModel {
     public void setVideoId(String videoId) {
         this.videoId = videoId;
     }
-
+    //视频id
     private String videoId;
+    //视频路径
     private String videoUrl;
+    //作者id
     private String authorId;
+    //作者用户名
     private String authorName;
+    //封面图片路径
     private String picUrl;
+    //标题
     private String title;
+    //文字内容描述
     private String content;
+    //评论数量
     private String commentNum;
+    //事件名
     private String eventName;
+    //爱心数
     private String loveNum;
+    //事件id
     private String eventId;
 
     public String getEventId() {

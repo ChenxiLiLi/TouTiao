@@ -1,6 +1,6 @@
 package com.bytedance.toutiao.retrofit;
 
-
+import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.NewsModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
@@ -40,5 +40,8 @@ public interface RetrofitApiService {
 
     @GET("mock/7451/byte/dance/v1.0/home/news/detail/{id}")
     Observable<ResponseModel<NewsModel>> newsDetail(@Path("id") String id);
+    //信息界面评论列表数据接口
+    @GET("mock/7451/byte/dance/v1.0/message/comment/items")
+    Observable<ResponseModel<List<MessageCommentModel>>> getMsgComments();
 
 }

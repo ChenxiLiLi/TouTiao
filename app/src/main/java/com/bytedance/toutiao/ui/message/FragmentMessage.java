@@ -59,8 +59,9 @@ public class FragmentMessage extends BaseFragment{
         VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getFragmentManager(),0,fragments,strings );
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
+        viewPager.setId(fragments.get(2).hashCode());
 
-    }
+        }
 
     @Override
     protected void setListener() {

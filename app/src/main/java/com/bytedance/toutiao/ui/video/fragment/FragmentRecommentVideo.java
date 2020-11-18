@@ -17,12 +17,12 @@ import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.FragmentRecommentVideoBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoListAdapter;
-import com.bytedance.toutiao.viewmodel.RecommentVideoViewModel;
+import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentRecommentVideo extends BaseFragment<RecommentVideoViewModel, FragmentRecommentVideoBinding> {
+public class FragmentRecommentVideo extends BaseFragment<VideoViewModel, FragmentRecommentVideoBinding> {
     private RecyclerView recyclerView;
     private GridLayoutManager gridLayoutManager;
     private VideoListAdapter videoListAdapter;
@@ -40,7 +40,7 @@ public class FragmentRecommentVideo extends BaseFragment<RecommentVideoViewModel
     @Override
     protected void processLogic(Bundle savedInstanceState) {
 
-        mViewModel = ViewModelProviders.of(getActivity()).get(RecommentVideoViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(VideoViewModel.class);
         initData();
         binding.setViewModel(mViewModel);
         gridLayoutManager = new GridLayoutManager(getActivity(), 2);
@@ -151,7 +151,6 @@ public class FragmentRecommentVideo extends BaseFragment<RecommentVideoViewModel
         mViewModel.getRecommentVideo().observe(getActivity(), new Observer<Resource<List<VideoModel>>>() {
             @Override
             public void onChanged(Resource<List<VideoModel>> listResource) {
-                Log.e("recomment", listResource.data.size() +"");
                 videoModels.addAll(listResource.data);
                 videoListAdapter.notifyDataSetChanged();
 //                binding.rvVideo.setAdapter(videoListAdapter);
@@ -163,7 +162,6 @@ public class FragmentRecommentVideo extends BaseFragment<RecommentVideoViewModel
         mViewModel.getRecommentVideo().observe(getActivity(), new Observer<Resource<List<VideoModel>>>() {
             @Override
             public void onChanged(Resource<List<VideoModel>> listResource) {
-                Log.e("recomment", listResource.data.size() +"");
                 videoModels.clear();
                 videoModels.addAll(listResource.data);
                 videoListAdapter.notifyDataSetChanged();

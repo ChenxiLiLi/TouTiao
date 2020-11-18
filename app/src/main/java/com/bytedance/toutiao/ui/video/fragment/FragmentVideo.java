@@ -60,6 +60,7 @@ public class FragmentVideo extends BaseFragment {
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(1);
+        viewPager.setId(fragments.get(1).hashCode());
     }
 
     @Override

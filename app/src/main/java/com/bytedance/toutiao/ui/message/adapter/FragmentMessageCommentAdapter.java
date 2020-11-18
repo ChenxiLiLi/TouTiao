@@ -4,59 +4,63 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
+import com.bytedance.toutiao.databinding.ItemMessageCommentBinding;
+import com.bytedance.toutiao.databinding.ItemVideoDetailBinding;
+import com.bytedance.toutiao.ui.video.adapter.VideoDetailAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentMessageCommentAdapter extends RecyclerView.Adapter<FragmentMessageCommentAdapter.ViewHolder> {
     private Context context;
-    private List<MessageCommentModel> messageCommentList;
-
-    public FragmentMessageCommentAdapter(Context context, List<MessageCommentModel> messageCommentList) {
+    private List<MessageCommentModel> messageCommentModels ;
+    public FragmentMessageCommentAdapter(Context context, List<MessageCommentModel> messageCommentModels) {
         this.context = context;
-        this.messageCommentList = messageCommentList;
+        this.messageCommentModels = messageCommentModels;
     }
 
     @NonNull
     @Override
     public FragmentMessageCommentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_message_comment, parent, false);
-        return new FragmentMessageCommentAdapter.ViewHolder(view);
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_message_comment, parent, false);
+        FragmentMessageCommentAdapter.ViewHolder myHolder = new FragmentMessageCommentAdapter.ViewHolder(binding.getRoot());
+        myHolder.setBinding(binding);
+        return myHolder;
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull FragmentMessageCommentAdapter.ViewHolder holder, int position) {
-        MessageCommentModel messageComment = messageCommentList.get(position);
-        holder.msgCommentUserName.setText(messageComment.getMsgCommentUserName());
-        holder.msgCommentContent.setText(messageComment.getMsgCommentContent());
-        holder.msgCommentDate.setText(messageComment.getMsgCommentDate());
+        ItemMessageCommentBinding binding = (ItemMessageCommentBinding) holder.getBinding();
+        binding.tvName.setText(messageCommentModels.get(position).getMsgCommentUserName());
+        binding.tvContent.setText(messageCommentModels.get(position).getMsgCommentContent());
     }
 
     @Override
     public int getItemCount() {
-        //return 6;
-        return messageCommentList.size();
+        return messageCommentModels.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        //private ImageView msgCommentAvater;
-        private TextView msgCommentUserName;
-        private TextView msgCommentContent;
-        private TextView msgCommentDate;
-        //private ImageView msgCommentEventIv;
+        ViewDataBinding binding;
+        public ViewDataBinding getBinding(){
+            return binding;
+        }
+
+        public void setBinding(ViewDataBinding binding){
+            this.binding = binding;
+        }
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //msgCommentAvater = itemView.findViewById(R.id.comm_avater);
-            msgCommentUserName = itemView.findViewById(R.id.comm_name);
-            msgCommentContent = itemView.findViewById(R.id.comm_content);
-            msgCommentDate = itemView.findViewById(R.id.comm_time);
-            //msgCommentEventIv = itemView.findViewById(R.id.comm_event);
         }
     }
 }

@@ -9,9 +9,15 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bytedance.toutiao.utils.ToastUtils;
 
 /**
  * 视频播放上下滑动切换控件
@@ -23,6 +29,7 @@ public class VideoPlayRecyclerView extends FrameLayout {
     private static final float TEXT_SIZE = 12; // 提示文字大小
     private static final float TEXT_MARGIN = 150; // 提示文字和 RecyclerView 的间距
 
+    private OnScrollListener onScrollListener;
     private RecyclerView recyclerView;
     private TextView tvTip;
     private PagerLayoutManager layoutManager;
@@ -60,6 +67,30 @@ public class VideoPlayRecyclerView extends FrameLayout {
         addView(recyclerView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         layoutManager = new PagerLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                //当前RecyclerView显示出来的最后一个的item的position
+                int lastPosition = -1;
+
+                //当前状态为停止滑动状态SCROLL_STATE_IDLE时
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                    if (layoutManager instanceof LinearLayoutManager) {
+                        //通过LayoutManager找到当前显示的最后的item的position
+                        lastPosition = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
+                    }
+                    //时判断界面显示的最后item的position是否等于itemCount总数-1也就是最后一个item的position
+                    //如果相等则说明已经滑动到最后了
+                    if (lastPosition == recyclerView.getLayoutManager().getItemCount() - 1) {
+                        onScrollListener.addMoreVideo();
+                    }
+
+                }
+            }
+        });
+
     }
 
     public RecyclerView getRecyclerView() {
@@ -98,6 +129,15 @@ public class VideoPlayRecyclerView extends FrameLayout {
         return super.onInterceptTouchEvent(ev);
     }
 
+    public interface OnScrollListener {
+        void addMoreVideo();
+        void replaceVideo();
+    }
+
+    public void setOnScrollListener(OnScrollListener onScrollListener){
+        this.onScrollListener = onScrollListener;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if (mDownY == -1) {
@@ -110,16 +150,19 @@ public class VideoPlayRecyclerView extends FrameLayout {
             case MotionEvent.ACTION_MOVE:
                 float deltaY = ev.getRawY() - mDownY;
                 if (deltaY > 0 && !recyclerView.canScrollVertically(-1)) {
-                    tvTip.setText("没有更多作品啦");
+                    tvTip.setText("加载中");
+                    onScrollListener.replaceVideo();
                     tvTip.setY(deltaY / DRAG_RATE - TEXT_MARGIN);
                     recyclerView.setY(deltaY / DRAG_RATE);
                     isPulling = true;
-                } else if (deltaY < 0 && !recyclerView.canScrollVertically(1)) {
-                    tvTip.setText("已经到底啦");
-                    tvTip.setY(getHeight() + deltaY / DRAG_RATE + TEXT_MARGIN);
-                    recyclerView.setY(deltaY / DRAG_RATE);
-                    isPulling = true;
                 }
+//                else if (deltaY < 0 && !recyclerView.canScrollVertically(1)) {
+//                    tvTip.setText("已经到底啦");
+//                    onScrollListener.addMoreVideo();
+//                    tvTip.setY(getHeight() + deltaY / DRAG_RATE + TEXT_MARGIN);
+//                    recyclerView.setY(deltaY / DRAG_RATE);
+//                    isPulling = true;
+//                }
                 mLastY = ev.getRawY();
                 break;
             default:

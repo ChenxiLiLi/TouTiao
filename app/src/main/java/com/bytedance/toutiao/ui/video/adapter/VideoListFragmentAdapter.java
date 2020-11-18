@@ -34,4 +34,6 @@ public class VideoListFragmentAdapter extends FragmentPagerAdapter {
         return strings[position];
     }
 
+
+
 }

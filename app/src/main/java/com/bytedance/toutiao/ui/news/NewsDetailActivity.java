@@ -29,7 +29,7 @@ public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNe
 
     @Override
     protected void processLogic() {
-        fragmentVideoEvent = new FragmentVideoEvent();
+        fragmentVideoEvent = new FragmentVideoEvent("1");
         fragmentNewNow = new FragmentNewNow("https://www.toutiao.com/a6886776124567880196/");
         fragmentNewNode = new FragmentNewNow("https://www.toutiao.com/a6886739872703316488/");
 

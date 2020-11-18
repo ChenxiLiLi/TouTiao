@@ -13,12 +13,12 @@ import com.bytedance.toutiao.bean.VideoModel;
 
 import java.util.List;
 
-public class RecommentVideoViewModel extends BaseViewModel<RepositoryImpl> {
+public class VideoViewModel extends BaseViewModel<RepositoryImpl> {
 
     //
 
 
-    public RecommentVideoViewModel(@NonNull Application application) {
+    public VideoViewModel(@NonNull Application application) {
         super(application);
     }
 

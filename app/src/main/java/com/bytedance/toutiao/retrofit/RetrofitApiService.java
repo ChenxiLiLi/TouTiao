@@ -35,7 +35,7 @@ public interface RetrofitApiService {
     @GET("mock/7451/byte/dance/v1.0/getRecommentVideos")
     Observable<ResponseModel<List<VideoModel>>> getRecommentVideos();
     //信息界面评论列表数据接口
-    @GET("/byte/dance/v1.0/message/comment/items")
+    @GET("mock/7451/byte/dance/v1.0/message/comment/items")
     Observable<ResponseModel<List<MessageCommentModel>>> getMsgComments();
 
 }

@@ -33,10 +33,10 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
+        initData();
         mViewModel = ViewModelProviders.of(getActivity()).get(MessageCommentViewModel.class);
         recyclerView = mContentView.findViewById(R.id.rv_message_detail);
-        fragmentMessageCommentAdapter = new FragmentMessageCommentAdapter(getContext());
+        fragmentMessageCommentAdapter = new FragmentMessageCommentAdapter(getContext(), messageCommentModels);
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(fragmentMessageCommentAdapter);
@@ -44,9 +44,9 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
         mViewModel.getMsgComment().observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
-                Log.e("message", listResource.state+ "");
-                messageCommentModels = listResource.data;
-                initData();
+                Log.e("message", listResource.data.size()+ "");
+                messageCommentModels.addAll(listResource.data);
+//                initData();
                 fragmentMessageCommentAdapter.notifyDataSetChanged();
             }
         });
@@ -56,6 +56,8 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
     }
     private void initData(){
         MessageCommentModel messageCommentModel = new MessageCommentModel();
+        messageCommentModel.setMsgCommentContent("你爱我是谁");
+        messageCommentModel.setMsgCommentUserName("天外来物");
         messageCommentModels.add(messageCommentModel);
     }
 

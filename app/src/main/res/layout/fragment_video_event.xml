@@ -30,23 +30,12 @@
             android:background="#02000000"
             android:orientation="horizontal">
 
-            <ImageView
-                style="@style/imageStyle_tab"
-                android:src="@mipmap/left_arrow"
-                android:layout_margin="@dimen/dp_20"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-
-
             <TextView
+                android:id="@+id/tv_title"
                 android:text="南昌杀妻抛尸案"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="6"
+                android:layout_weight="16"
                 android:gravity="center"
                 android:singleLine="true"
                 android:textStyle="bold"
@@ -82,17 +71,30 @@
             android:background="#D0000000"
             android:layout_below="@+id/event_top"/>
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/event_id"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_above="@+id/event_buttom"
             android:layout_below="@+id/line_event_timeline"
-            android:scrollbars="vertical"/>
+
+            >
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.bytedance.toutiao.ui.view.NoScrollViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/event_buttom"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_55"
             android:background="#1D000000"

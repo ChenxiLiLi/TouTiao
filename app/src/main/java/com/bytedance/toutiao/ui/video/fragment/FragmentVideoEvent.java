@@ -2,58 +2,67 @@ package com.bytedance.toutiao.ui.video.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.bean.EventOutside;
+import com.bytedance.toutiao.databinding.FragmentVideoBinding;
+import com.bytedance.toutiao.databinding.FragmentVideoEventBinding;
 import com.bytedance.toutiao.ui.event.EventSimilarActivity;
-import com.bytedance.toutiao.ui.event.event.EventTimelineAdapter;
+import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
+import com.bytedance.toutiao.ui.view.NoScrollViewPager;
+import com.bytedance.toutiao.viewmodel.VideoViewModel;
+import com.google.android.material.tabs.TabLayout;
+
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentVideoEvent extends BaseFragment {
-    private List<EventOutside> eventList= new ArrayList<EventOutside>();
-    private RecyclerView recyclerView;
-    private EventTimelineAdapter eventTimelineAdapter;
-    private LinearLayoutManager linearLayoutManager;
-
-
-    private void initevents() {
-        for(int i=0;i<1;i++) {
-            EventOutside event1 = new EventOutside("南昌女子被未婚夫杀害", "2020.9.10", R.mipmap.right_arrow);
-            eventList.add(event1);
-            EventOutside event2 = new EventOutside("死者母亲发声", "2020.9.27", R.mipmap.right_arrow);
-            eventList.add(event2);
-            EventOutside event3 = new EventOutside("死者闺蜜发声", "2020.9.28", R.mipmap.right_arrow);
-            eventList.add(event3);
-        }
+public class FragmentVideoEvent extends BaseFragment<VideoViewModel, FragmentVideoEventBinding> {
+    private String eventId;
+    private String title = "";
+    private List<Fragment> fragments = new ArrayList<>();
+    private NoScrollViewPager viewPager;
+    private String[] strings  = new String[]{"资讯", "视频"};
+    public FragmentVideoEvent(String eventId) {
+        this.eventId = eventId;
     }
-
-    public static FragmentVideoEvent newFragment(){
-        FragmentVideoEvent fragmentVideoEvent = new FragmentVideoEvent();
-        return fragmentVideoEvent;
-    }
-
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_video_event;
     }
 
+    public void setData(String eventId, String title){
+        this.eventId = eventId;
+        this.title = title;
+        binding.tvTitle.setText(title);
+    }
+
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        initevents();
-        recyclerView = mContentView.findViewById(R.id.event_id);
-        linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        eventTimelineAdapter = new EventTimelineAdapter(eventList, getContext());
-        recyclerView.setAdapter(eventTimelineAdapter);
+        TabLayout mTabLayout = mContentView.findViewById(R.id.tab_layout);
+        // 添加 tab item
+        mTabLayout.addTab(mTabLayout.newTab().setText("TAB1"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("TAB2"));
+
+        FragmentEventInfo fragmentEventInfo = new FragmentEventInfo();
+        FragmentEventVideo fragmentEventVideo = new FragmentEventVideo();
+
+        fragments.add(fragmentEventInfo);
+        fragments.add(fragmentEventVideo);
+
+        //获取viewpager
+        viewPager = mContentView.findViewById(R.id.view_pager);
+        //创建适配器
+        VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getFragmentManager(),0,fragments,strings );
+        viewPager.setAdapter(myAdapter);
+        mTabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -71,6 +80,9 @@ public class FragmentVideoEvent extends BaseFragment {
             }
         });
     }
+
+
+
 
     @Override
     public void onClick(View view) {

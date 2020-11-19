@@ -47,4 +47,6 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().newsDetail(id), liveData);
     }
 
+
+
 }

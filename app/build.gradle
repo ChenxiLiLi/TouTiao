@@ -77,5 +77,6 @@ dependencies {
     //tablayout
     implementation 'com.google.android.material:material:1.2.1'
 
-
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
 }

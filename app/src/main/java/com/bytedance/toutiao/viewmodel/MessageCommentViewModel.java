@@ -1,6 +1,7 @@
 package com.bytedance.toutiao.viewmodel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -12,12 +13,15 @@ import com.bytedance.toutiao.bean.Resource;
 
 import java.util.List;
 
+/*
 public class MessageCommentViewModel extends BaseViewModel<RepositoryImpl> {
     public MessageCommentViewModel(@NonNull Application application) {
         super(application);
     }
     public LiveData<Resource<List<MessageCommentModel>>> getMsgComment(){
-        //return getRepository().getMsgComments();
-        return null;
+
+        Log.e("message", "getMsgComment");
+        return getRepository().getMsgComments();
     }
 }
+*/

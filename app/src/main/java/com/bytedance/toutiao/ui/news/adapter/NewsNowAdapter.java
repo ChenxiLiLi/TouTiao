@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 
+/**
+ * author: Mr.Chen
+ */
 public class NewsNowAdapter extends RecyclerView.Adapter<NewsNowAdapter.ViewHolder> {
 
     private Context context;

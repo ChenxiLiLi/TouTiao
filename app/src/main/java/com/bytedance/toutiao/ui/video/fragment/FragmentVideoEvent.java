@@ -19,7 +19,6 @@ import com.bytedance.toutiao.ui.view.NoScrollViewPager;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
 import com.google.android.material.tabs.TabLayout;
 
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;

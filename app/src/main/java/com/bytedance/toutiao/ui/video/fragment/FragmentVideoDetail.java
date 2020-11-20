@@ -18,7 +18,6 @@ import com.bytedance.toutiao.ui.view.CommentDialog;
 import com.bytedance.toutiao.ui.view.media.VideoPlayRecyclerView;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;

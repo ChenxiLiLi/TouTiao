@@ -86,7 +86,15 @@ public class Resource<T> {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Resource{" +
+                "state=" + state +
+                ", errorMsg='" + errorMsg + '\'' +
+                ", data=" + data +
+                ", error=" + error +
+                '}';
+    }
 //    public void handler(OnHandleCallback<T> callback, SmartRefreshLayout smartRefreshLayout) {
 //        switch (state) {
 //            case LOADING:

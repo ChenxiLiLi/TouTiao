@@ -13,7 +13,6 @@ import com.bytedance.toutiao.bean.Resource;
 
 import java.util.List;
 
-/*
 public class MessageCommentViewModel extends BaseViewModel<RepositoryImpl> {
     public MessageCommentViewModel(@NonNull Application application) {
         super(application);
@@ -24,4 +23,3 @@ public class MessageCommentViewModel extends BaseViewModel<RepositoryImpl> {
         return getRepository().getMsgComments();
     }
 }
-*/

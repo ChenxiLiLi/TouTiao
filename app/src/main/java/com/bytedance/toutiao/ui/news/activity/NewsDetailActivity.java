@@ -4,16 +4,15 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityNewsDetailBinding;
 import com.bytedance.toutiao.ui.fragment.FragmentNewNow;
+import com.bytedance.toutiao.ui.news.adapter.NewsFragmentAdapter;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNewsDetail;
-import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoNode;
+import com.bytedance.toutiao.viewmodel.NewsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * author: Mr.Chen
  */
-public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNewsDetailBinding> {
+public class NewsDetailActivity extends BaseActivity<NewsViewModel, ActivityNewsDetailBinding> {
 
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentVideoEvent fragmentVideoEvent;

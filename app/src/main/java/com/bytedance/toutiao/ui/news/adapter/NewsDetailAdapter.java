@@ -1,7 +1,9 @@
 package com.bytedance.toutiao.ui.news.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +18,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.bean.NewsModel;
+import com.bytedance.toutiao.bean.VideoModel;
+
+import java.util.List;
 
 /**
  * author: Mr.Chen
  */
-public class NewsNowAdapter extends RecyclerView.Adapter<NewsNowAdapter.ViewHolder> {
+public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.ViewHolder> {
 
     private Context context;
+    private NewsModel newsModel;
 
-    public NewsNowAdapter(Context context) {
+    public NewsDetailAdapter(Context context, NewsModel newsModel) {
         this.context = context;
+        this.newsModel = newsModel;
     }
 
     @NonNull
@@ -37,32 +45,6 @@ public class NewsNowAdapter extends RecyclerView.Adapter<NewsNowAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.mWvContent.loadUrl("https://www.toutiao.com/a6886776124567880196/");
-
-
-        WebSettings settings = holder.mWvContent.getSettings();
-        settings.setJavaScriptEnabled(true);
-        holder.mWvContent.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                holder.ivLoading.setVisibility(View.GONE);
-                holder.layoutBottom.setVisibility(View.VISIBLE);
-            }
-        });
-
-        holder.mWvContent.setWebChromeClient(new WebChromeClient(){
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-            }
-        });
-
-
-
     }
 
     @Override
@@ -72,13 +54,13 @@ public class NewsNowAdapter extends RecyclerView.Adapter<NewsNowAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private WebView mWvContent;
+        private WebView webView;
         private ImageView ivLoading;
         private LinearLayout layoutBottom;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mWvContent = itemView.findViewById(R.id.wv_content);
+            webView = itemView.findViewById(R.id.wv_content);
             ivLoading = itemView.findViewById(R.id.iv_loading);
             layoutBottom = itemView.findViewById(R.id.ll_comment);
         }

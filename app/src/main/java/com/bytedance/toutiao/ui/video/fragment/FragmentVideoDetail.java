@@ -150,7 +150,4 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
     }
 
 
-
-
-
 }

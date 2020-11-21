@@ -38,30 +38,11 @@
                 android:layout_weight="16"
                 android:gravity="center"
                 android:singleLine="true"
+                android:textColor="@color/dark"
                 android:textStyle="bold"
                 android:textSize="@dimen/dp_22">
             </TextView>
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"
-                android:tag="1">
-            </RelativeLayout>
-            <ImageView
-                style="@style/imageStyle_tab"
-                android:src="@mipmap/empty_collect"
-                android:layout_width="0dp"
-                android:layout_margin="@dimen/dp_20"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"
-                />
         </LinearLayout>
 
         <View

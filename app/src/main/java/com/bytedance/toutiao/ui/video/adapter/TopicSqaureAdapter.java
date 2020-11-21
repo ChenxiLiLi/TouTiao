@@ -2,6 +2,7 @@ package com.bytedance.toutiao.ui.video.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,77 +10,88 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.bean.ParcablePostData;
+import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.TopicCommentModel;
+import com.bytedance.toutiao.databinding.ItemPostDetailBinding;
+import com.bytedance.toutiao.databinding.ItemTopicSquareBinding;
 import com.bytedance.toutiao.ui.video.activity.PostDetailActivity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TopicSqaureAdapter extends RecyclerView.Adapter<TopicSqaureAdapter.ViewHolder>{
 
-    private List<TopicCommentModel> topicCommentModels;
+    private List<PostDetailModel> postDetailModels;
     private Context context;
 
-    public TopicSqaureAdapter(List<TopicCommentModel> topicCommentModels, Context context) {
-        this.topicCommentModels = topicCommentModels;
+    public TopicSqaureAdapter(List<PostDetailModel> postDetailModels, Context context) {
+        this.postDetailModels = postDetailModels;
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_topic_square, parent, false);
-        return new ViewHolder(view);
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_topic_square, parent, false);
+        TopicSqaureAdapter.ViewHolder myHolder = new TopicSqaureAdapter.ViewHolder(binding.getRoot());
+        myHolder.setBinding(binding);
+        return myHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Listener listener = new Listener();
-        holder.tvComment.setOnClickListener(listener);
-        holder.ivComment.setOnClickListener(listener);
+        final ItemTopicSquareBinding binding = (ItemTopicSquareBinding) holder.getBinding();
+        final PostDetailModel postDetailModel = postDetailModels.get(position);
+        binding.tvUserName.setText(postDetailModel.getAuthorName());
+        binding.tvContent.setText(postDetailModel.getContent());
+        binding.tvCommentNum.setText(postDetailModel.getCommentNum());
+        binding.tvLoveNum.setText(postDetailModel.getLoveNum());
+        binding.tvPosition.setText(postDetailModel.getPosition());
+
+        binding.ivComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toPostDetail = new Intent();
+                toPostDetail.setClass(context,PostDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("postDetail", new ParcablePostData(postDetailModel));
+                toPostDetail.putExtras(bundle);
+                context.startActivity(toPostDetail);
+            }
+        });
     }
 
-    class Listener implements View.OnClickListener{
 
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(context, PostDetailActivity.class);
-            context.startActivity(intent);
-        }
-    }
 
 
 
     @Override
     public int getItemCount() {
-        return 3;
+        return postDetailModels.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tvUserName;
-        private TextView tvComment;
-        private ImageView ivLove;
-        private ImageView ivComment;
-        private ImageView ivCollect;
-        private ImageView ivShare;
-        private TextView tvLoveNum;
-        private TextView tvCommentNum;
-        private TextView tvCollectNum;
+        ViewDataBinding binding;
+
+        public ViewDataBinding getBinding() {
+            return binding;
+        }
+
+        public void setBinding(ViewDataBinding binding) {
+            this.binding = binding;
+        }
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUserName = itemView.findViewById(R.id.tv_user_name);
-            tvComment = itemView.findViewById(R.id.tv_content);
-            ivLove = itemView.findViewById(R.id.iv_love);
-            ivComment = itemView.findViewById(R.id.iv_comment);
-            ivCollect = itemView.findViewById(R.id.iv_collect);
-            ivShare = itemView.findViewById(R.id.iv_share);
-            tvLoveNum = itemView.findViewById(R.id.tv_love_num);
-            tvCommentNum = itemView.findViewById(R.id.tv_comment_num);
-            tvCollectNum = itemView.findViewById(R.id.tv_collect_num);
+
         }
     }
 }

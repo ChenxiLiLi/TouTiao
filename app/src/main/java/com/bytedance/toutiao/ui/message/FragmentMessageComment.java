@@ -44,9 +44,7 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
         mViewModel.getMsgComment().observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
-                Log.e("message", listResource.data.size()+ "");
                 messageCommentModels.addAll(listResource.data);
-//                initData();
                 fragmentMessageCommentAdapter.notifyDataSetChanged();
             }
         });

@@ -2,6 +2,7 @@ package com.bytedance.toutiao.retrofit;
 
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.NewsModel;
+import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -43,5 +45,10 @@ public interface RetrofitApiService {
     //信息界面评论列表数据接口
     @GET("mock/7451/byte/dance/v1.0/message/comment/items")
     Observable<ResponseModel<List<MessageCommentModel>>> getMsgComments();
+
+    //获取话题广场帖子
+    @POST("mock/7451/byte/dance/v1.0/getPostDetailByEventId")
+    @FormUrlEncoded
+    Observable<ResponseModel<List<PostDetailModel>>> getPostsByEventId(@Field("eventId") String eventId);
 
 }

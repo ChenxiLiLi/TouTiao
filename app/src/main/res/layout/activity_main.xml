@@ -48,7 +48,7 @@
                 <ImageView
                     android:id="@+id/icon_home"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_hmoe"/>
+                    android:src="@drawable/tab_home"/>
 
                 <TextView
                     style="@style/textStyle_tab"
@@ -120,16 +120,12 @@
                 <ImageView
                     android:id="@+id/icon_message"
                     style="@style/imageStyle_tab"
-                    android:src="@drawable/tab_message"
-                    android:onClick="@{onClickListener}"
-                    android:clickable="true"/>
+                    android:src="@drawable/tab_message" />
 
                 <TextView
                     android:id="@+id/text_message"
                     style="@style/textStyle_tab"
                     android:layout_below="@+id/icon_message"
-                    android:onClick="@{onClickListener}"
-                    android:clickable="true"
                     android:text="消息" />
 
             </RelativeLayout>

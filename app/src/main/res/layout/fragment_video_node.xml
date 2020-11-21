@@ -42,6 +42,7 @@
             <TextView
                 android:id="@+id/tv_title"
                 android:text="南昌杀妻抛尸案"
+                android:textColor="@color/dark"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="8"
@@ -51,18 +52,6 @@
                 android:textSize="@dimen/dp_22">
             </TextView>
 
-
-            <ImageView
-                style="@style/imageStyle_tab"
-                android:src="@mipmap/empty_collect"
-                android:layout_width="0dp"
-                android:layout_margin="@dimen/dp_20"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"
-                />
         </LinearLayout>
 
         <View

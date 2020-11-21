@@ -8,17 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.ui.message.MessageDetailAdapter;
+import com.bytedance.toutiao.ui.message.adapter.FragmentMessageFocusAdapter;
 
-import static com.bytedance.toutiao.MyApplication.getContext;
-
-public class FragmentMessageDetail extends BaseFragment
-{
-
+public class FragmentMessageFocus extends BaseFragment {
     private RecyclerView recyclerView;
-    private MessageDetailAdapter messageDetailAdapter;
     private LinearLayoutManager linearLayoutManager;
-
+    private FragmentMessageFocusAdapter fragmentMessageFocusAdapter;
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_message_detail;
@@ -26,13 +21,11 @@ public class FragmentMessageDetail extends BaseFragment
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
         recyclerView = mContentView.findViewById(R.id.rv_message_detail);
-        messageDetailAdapter = new MessageDetailAdapter(getContext());
+        fragmentMessageFocusAdapter = new FragmentMessageFocusAdapter(getContext());
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(messageDetailAdapter);
-
+        recyclerView.setAdapter(fragmentMessageFocusAdapter);
     }
 
     @Override

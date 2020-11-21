@@ -2,11 +2,9 @@ package com.bytedance.toutiao.viewmodel;
 
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
-import androidx.databinding.ObservableInt;
 import androidx.lifecycle.LiveData;
 
 import com.bytedance.toutiao.MyApplication;
@@ -14,16 +12,12 @@ import com.bytedance.toutiao.base.BaseViewModel;
 import com.bytedance.toutiao.base.RepositoryImpl;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.User;
-import com.bytedance.toutiao.utils.AppUtils;
-import com.bytedance.toutiao.utils.ToastUtils;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;

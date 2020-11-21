@@ -9,6 +9,7 @@ import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityNewsDetailBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
+import com.bytedance.toutiao.ui.video.fragment.FragmentVideoNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNe
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentVideoEvent fragmentVideoEvent;
     private FragmentNewNow fragmentNewNow;
-    private FragmentNewNow fragmentNewNode;
+    private FragmentVideoNode fragmentNewNode;
     private ViewPager viewPager;
     private VideoFragmentAdapter videoFragmentAdapter;
 
@@ -31,7 +32,7 @@ public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNe
     protected void processLogic() {
         fragmentVideoEvent = new FragmentVideoEvent("1");
         fragmentNewNow = new FragmentNewNow("https://www.toutiao.com/a6886776124567880196/");
-        fragmentNewNode = new FragmentNewNow("https://www.toutiao.com/a6886739872703316488/");
+        fragmentNewNode = new FragmentVideoNode("1");
 
         fragments.add(fragmentVideoEvent);
         fragments.add(fragmentNewNow);

@@ -46,7 +46,6 @@
                     android:textColor="@color/textBlue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="福州市"/>
 
             </LinearLayout>
@@ -126,25 +125,6 @@
                 android:textSize="@dimen/sp_16"
                 android:layout_marginLeft="@dimen/dp_10"/>
 
-            <ImageView
-                android:id="@+id/iv_collect"
-                android:layout_toRightOf="@id/iv_comment"
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginLeft="@dimen/dp_60"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/empty_collect"/>
-
-            <TextView
-                android:id="@+id/tv_collect_num"
-                android:layout_toRightOf="@id/iv_collect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="30"
-                android:layout_centerVertical="true"
-                android:textSize="@dimen/sp_16"
-                android:layout_marginLeft="@dimen/dp_10"/>
 
             <ImageView
                 android:id="@+id/iv_share"
@@ -157,6 +137,10 @@
 
         </RelativeLayout>
 
+        <View
+            android:background="@color/dark"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"/>
 
     </LinearLayout>
 

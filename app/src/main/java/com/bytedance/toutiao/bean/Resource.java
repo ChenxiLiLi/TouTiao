@@ -34,7 +34,6 @@ public class Resource<T> {
         this.error = error;
     }
 
-
     public static <T> Resource<T> loading(String showMsg) {
         return new Resource<>(LOADING, null, showMsg);
     }
@@ -47,6 +46,7 @@ public class Resource<T> {
         if (data != null) {
             Log.e("data", "no null");
             if (data.isSuccess()) {
+                Log.e("success", "success");
                 return new Resource<>(SUCCESS, data.getData(), null);
             }
             return new Resource<>(FAIL, null, data.getErrorMsg());

@@ -3,13 +3,14 @@
 
     <RelativeLayout
         android:background="@drawable/shape_top_round_white"
+        android:windowSoftInputMode="adjustResize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_above="@id/et_comment">
+            android:layout_above="@id/sl_comment">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -34,26 +35,34 @@
 
         </LinearLayout>
 
-
-
-        <EditText
-            android:id="@+id/et_comment"
-            android:hint="评论"
-            android:layout_width="@dimen/dp_300"
+        <ScrollView
+            android:id="@+id/sl_comment"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"/>
-
+            android:fillViewport="true">
+            <EditText
+                android:id="@+id/et_comment"
+                android:hint="评论"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_width="@dimen/dp_300"
+                android:layout_height="wrap_content"
+                />
+        </ScrollView>
         <Button
+            android:layout_toRightOf="@id/sl_comment"
+            android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_30"
             android:layout_marginBottom="@dimen/dp_10"
             android:layout_marginLeft="@dimen/dp_10"
-            android:layout_toRightOf="@+id/et_comment"
-            android:layout_alignParentBottom="true"
             android:background="@color/textBlue"
             android:text="发送"
             android:textColor="@color/colorAccent"
             />
+
+
     </RelativeLayout>
 
 

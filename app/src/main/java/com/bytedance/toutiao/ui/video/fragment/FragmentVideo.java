@@ -2,6 +2,7 @@ package com.bytedance.toutiao.ui.video.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -9,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
+import com.bytedance.toutiao.utils.ToastUtils;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -66,6 +68,15 @@ public class FragmentVideo extends BaseFragment {
     @Override
     protected void setListener() {
 
+
+
+        ImageView imageView = mContentView.findViewById(R.id.iv_search);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showToast("sfsdfsd");
+            }
+        });
     }
 
     @Override

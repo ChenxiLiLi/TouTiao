@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.ui.news.home.NewsNowAdapter;
+import com.bytedance.toutiao.ui.news.adapter.NewsNowAdapter;
 import com.bytedance.toutiao.ui.view.MyScrollview;
 
 public class FragmentNewNow extends BaseFragment {

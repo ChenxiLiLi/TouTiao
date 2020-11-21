@@ -18,6 +18,7 @@ public class MessageCommentViewModel extends BaseViewModel<RepositoryImpl> {
         super(application);
     }
     public LiveData<Resource<List<MessageCommentModel>>> getMsgComment(){
+
         Log.e("message", "getMsgComment");
         return getRepository().getMsgComments();
     }

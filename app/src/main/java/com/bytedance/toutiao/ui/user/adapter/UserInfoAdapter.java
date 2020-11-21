@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.ui.news.NewsDetailActivity;
+import com.bytedance.toutiao.ui.news.activity.NewsDetailActivity;
 
 public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.ViewHolder> {
 
@@ -23,7 +23,7 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.ViewHo
     @NonNull
     @Override
     public UserInfoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_home_detail, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_news_detail, parent, false);
         return new ViewHolder(view);
     }
 

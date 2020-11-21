@@ -18,7 +18,6 @@ public class VideoViewModel extends BaseViewModel<RepositoryImpl> {
 
     //
 
-
     public VideoViewModel(@NonNull Application application) {
         super(application);
     }

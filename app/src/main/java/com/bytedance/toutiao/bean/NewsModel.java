@@ -2,20 +2,26 @@ package com.bytedance.toutiao.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class NewsModel implements Serializable {
     private String id;
     private String title;
     private String picUrl;
+    private String newsUrl;
+    private String content;
     private String tag;
     private Long readNum;
     private Long likeNum;
-    private String publishUser;
-    private Date publishTime;
-    private String content;
+    private Long commentNum;
+    private String cityId;
     private String eventId;
+    private String remark;
+    private String publishUser;
+    private String publishTime;
+    private String lastUser;
+    private Date lastTime;
     private Integer deleteFlag;
-
 
     public String getId() {
         return id;
@@ -39,6 +45,22 @@ public class NewsModel implements Serializable {
 
     public void setPicUrl(String picUrl) {
         this.picUrl = picUrl;
+    }
+
+    public String getNewsUrl() {
+        return newsUrl;
+    }
+
+    public void setNewsUrl(String newsUrl) {
+        this.newsUrl = newsUrl;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getTag() {
@@ -65,28 +87,20 @@ public class NewsModel implements Serializable {
         this.likeNum = likeNum;
     }
 
-    public String getPublishUser() {
-        return publishUser;
+    public Long getCommentNum() {
+        return commentNum;
     }
 
-    public void setPublishUser(String publishUser) {
-        this.publishUser = publishUser;
+    public void setCommentNum(Long commentNum) {
+        this.commentNum = commentNum;
     }
 
-    public Date getPublishTime() {
-        return publishTime;
+    public String getCityId() {
+        return cityId;
     }
 
-    public void setPublishTime(Date publishTime) {
-        this.publishTime = publishTime;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setCityId(String cityId) {
+        this.cityId = cityId;
     }
 
     public String getEventId() {
@@ -95,6 +109,46 @@ public class NewsModel implements Serializable {
 
     public void setEventId(String eventId) {
         this.eventId = eventId;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getPublishUser() {
+        return publishUser;
+    }
+
+    public void setPublishUser(String publishUser) {
+        this.publishUser = publishUser;
+    }
+
+    public String getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(String publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public String getLastUser() {
+        return lastUser;
+    }
+
+    public void setLastUser(String lastUser) {
+        this.lastUser = lastUser;
+    }
+
+    public Date getLastTime() {
+        return lastTime;
+    }
+
+    public void setLastTime(Date lastTime) {
+        this.lastTime = lastTime;
     }
 
     public Integer getDeleteFlag() {
@@ -106,18 +160,42 @@ public class NewsModel implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof NewsModel)) return false;
+        NewsModel newsModel = (NewsModel) o;
+        return id.equals(newsModel.id) &&
+                Objects.equals(publishUser, newsModel.publishUser) &&
+                Objects.equals(publishTime, newsModel.publishTime) &&
+                Objects.equals(lastUser, newsModel.lastUser) &&
+                Objects.equals(lastTime, newsModel.lastTime) &&
+                Objects.equals(deleteFlag, newsModel.deleteFlag);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
     public String toString() {
         return "NewsModel{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", picUrl='" + picUrl + '\'' +
+                ", newsUrl='" + newsUrl + '\'' +
+                ", content='" + content + '\'' +
                 ", tag='" + tag + '\'' +
                 ", readNum=" + readNum +
                 ", likeNum=" + likeNum +
+                ", commentNum=" + commentNum +
+                ", cityId='" + cityId + '\'' +
+                ", eventId='" + eventId + '\'' +
+                ", remark='" + remark + '\'' +
                 ", publishUser='" + publishUser + '\'' +
                 ", publishTime=" + publishTime +
-                ", content='" + content + '\'' +
-                ", eventId='" + eventId + '\'' +
+                ", lastUser='" + lastUser + '\'' +
+                ", lastTime=" + lastTime +
                 ", deleteFlag=" + deleteFlag +
                 '}';
     }

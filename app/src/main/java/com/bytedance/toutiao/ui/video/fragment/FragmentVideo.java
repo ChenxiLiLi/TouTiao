@@ -9,6 +9,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
+import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.databinding.FragmentVideoBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.bytedance.toutiao.utils.ToastUtils;
 import com.google.android.material.tabs.TabLayout;
@@ -21,7 +23,7 @@ import java.util.List;
  * Time : 15:56
  * Author : 刘朝阳
  */
-public class FragmentVideo extends BaseFragment {
+public class FragmentVideo extends BaseFragment<NormalViewModel, FragmentVideoBinding> {
 
     int index;
 

@@ -49,8 +49,6 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
             }
         });
 
-
-
     }
     private void initData(){
         MessageCommentModel messageCommentModel = new MessageCommentModel();

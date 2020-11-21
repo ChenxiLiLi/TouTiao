@@ -1,5 +1,7 @@
 package com.bytedance.toutiao.ui.news.activity;
 
+import android.view.View;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -7,6 +9,7 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityNewsDetailBinding;
+import com.bytedance.toutiao.ui.fragment.FragmentNewNow;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNewsDetail;
 import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
@@ -55,4 +58,6 @@ public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNe
     protected void setListener() {
 
     }
+
+
 }

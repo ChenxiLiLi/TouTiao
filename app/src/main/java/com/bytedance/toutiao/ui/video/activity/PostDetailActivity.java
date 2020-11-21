@@ -48,8 +48,6 @@ public class PostDetailActivity extends BaseActivity<VideoViewModel, ActivityPos
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(postDetailAdapter);
 
-
-
     }
 
     @Override

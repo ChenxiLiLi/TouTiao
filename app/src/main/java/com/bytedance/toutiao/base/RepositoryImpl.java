@@ -63,11 +63,4 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getPostsByEventId(eventId), liveData);
     }
 
-
-    //获取信息模块评论列表
-    public MutableLiveData<Resource<List<MessageCommentModel>>> getMsgComments() {
-        MutableLiveData<Resource<List<MessageCommentModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().getMsgComments(), liveData);
-    }
-
 }

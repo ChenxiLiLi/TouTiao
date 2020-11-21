@@ -2,14 +2,12 @@ package com.bytedance.toutiao.ui.news.activity;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityNewsDetailBinding;
+import com.bytedance.toutiao.ui.news.adapter.NewsFragmentAdapter;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNewsDetail;
-import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
-import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
+import com.bytedance.toutiao.viewmodel.NewsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +15,13 @@ import java.util.List;
 /**
  * author: Mr.Chen
  */
-public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNewsDetailBinding> {
+public class NewsDetailActivity extends BaseActivity<NewsViewModel, ActivityNewsDetailBinding> {
 
-    private List<Fragment> fragments = new ArrayList<>();
-    private FragmentVideoEvent fragmentVideoEvent;
-    private FragmentNewsDetail fragmentNewNow;
-    private FragmentNewsDetail fragmentNewNode;
+
     private ViewPager viewPager;
-    private VideoFragmentAdapter videoFragmentAdapter;
+    private FragmentNewsDetail fragmentNewsDetail;
+    private NewsFragmentAdapter newsFragmentAdapter;
+    List<Fragment> fragmentList = new ArrayList<>();
 
     @Override
     protected int getContentViewId() {
@@ -33,21 +30,13 @@ public class NewsDetailActivity extends BaseActivity<NormalViewModel, ActivityNe
 
     @Override
     protected void processLogic() {
-        fragmentVideoEvent = new FragmentVideoEvent("1");
-        fragmentNewNow = new FragmentNewsDetail("https://www.toutiao.com/a6886776124567880196/");
-        fragmentNewNode = new FragmentNewsDetail("https://www.toutiao.com/a6886739872703316488/");
 
-        fragments.add(fragmentVideoEvent);
-        fragments.add(fragmentNewNow);
-        fragments.add(fragmentNewNode);
-
-
+        fragmentNewsDetail = new FragmentNewsDetail();
+        fragmentList.add(fragmentNewsDetail);
+        newsFragmentAdapter = new NewsFragmentAdapter(getSupportFragmentManager(), 0, fragmentList);
         viewPager = findViewById(R.id.news_detail_view_pager);
-        videoFragmentAdapter = new VideoFragmentAdapter(getSupportFragmentManager(), 0, fragments);
-
-        viewPager.setAdapter(videoFragmentAdapter);
+        viewPager.setAdapter(newsFragmentAdapter);
         viewPager.setCurrentItem(1);
-
     }
 
     @Override

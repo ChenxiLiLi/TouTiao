@@ -26,7 +26,6 @@
         </activity>
         <activity android:name=".ui.event.PublishVideoActivity" />
         <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name=".ui.news.activity.NewsActivity" />
         <activity android:name=".ui.login.LoginActivity">
 
         </activity>

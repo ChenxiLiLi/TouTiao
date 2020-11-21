@@ -7,8 +7,6 @@ import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityNewsDetailBinding;
 import com.bytedance.toutiao.ui.news.adapter.NewsFragmentAdapter;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNewsDetail;
-import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
-import com.bytedance.toutiao.ui.video.fragment.FragmentVideoNode;
 import com.bytedance.toutiao.viewmodel.NewsViewModel;
 
 import java.util.ArrayList;

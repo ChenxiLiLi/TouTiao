@@ -85,7 +85,7 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
             @Override
             public void onChanged(Resource<NewsModel> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
+                if (listResource.state != 1) {
                     newsModel = listResource.data;
                 }
             }

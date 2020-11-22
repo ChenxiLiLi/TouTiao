@@ -1,5 +1,7 @@
 package com.bytedance.toutiao.ui.news.activity;
 
+import android.content.Intent;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.bytedance.toutiao.R;
@@ -33,8 +35,10 @@ public class NewsDetailActivity extends BaseActivity<NewsViewModel, ActivityNews
 
     @Override
     protected void processLogic() {
+        Intent intent = getIntent();
+        String newsId = intent.getStringExtra("newsId");
         fragmentVideoEvent = new FragmentVideoEvent("1");
-        fragmentNewsDetail = new FragmentNewsDetail();
+        fragmentNewsDetail = new FragmentNewsDetail(newsId);
         fragmentNewNode = new FragmentVideoNode("1");
 
         fragments.add(fragmentVideoEvent);

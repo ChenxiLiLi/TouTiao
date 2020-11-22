@@ -36,9 +36,6 @@ import java.util.List;
 public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNewsDetailBinding> {
 
     private List<NewsModel> newsModels = new ArrayList<>();
-    private WebView webView;
-    private ImageView ivLoading;
-    private LinearLayout layoutBottom;
     private String newsId;
     private NewsDetailAdapter newsDetailAdapter;
 
@@ -56,18 +53,7 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(NewsViewModel.class);
         getNewsDetail(newsId);
-        newsDetailAdapter = new NewsDetailAdapter(getActivity(), getResources(), newsModels);
-        ivLoading = mContentView.findViewById(R.id.iv_loading);
-        layoutBottom = mContentView.findViewById(R.id.ll_comment);
 
-        webView = mContentView.findViewById(R.id.wv_content);
-        webView.setWebViewClient(new WebViewClient());
-
-        WebSettings settings = webView.getSettings();
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setSupportZoom(true);
-        settings.setJavaScriptEnabled(true);
     }
 
     @Override
@@ -92,9 +78,15 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
 
                 if (listResource.state == 1) {
                     newsModels.add(listResource.data);
-                    webView.loadUrl(listResource.data.getNewsUrl());
+                    binding.wvContent.loadUrl(listResource.data.getNewsUrl());
+                    binding.wvContent.setWebViewClient(new WebViewClient());
+
+                    WebSettings settings = binding.wvContent.getSettings();
+                    settings.setUseWideViewPort(true);
+                    settings.setLoadWithOverviewMode(true);
+                    settings.setSupportZoom(true);
+                    settings.setJavaScriptEnabled(true);
                 }
-                newsDetailAdapter.notifyDataSetChanged();
             }
         });
     }

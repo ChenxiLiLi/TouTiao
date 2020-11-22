@@ -15,11 +15,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme.Base">
         <activity android:name=".ui.video.activity.PostPublishActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.message.Activity.MessageChatActivity"></activity>
         <activity android:name=".ui.news.activity.NewsDetailActivity"></activity>
@@ -35,7 +31,11 @@
 
         </activity>
         <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

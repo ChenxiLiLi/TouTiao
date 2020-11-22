@@ -41,12 +41,12 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull NewsListAdapter.ViewHolder holder, final int position) {
 
-        if(newsModels.size() != 0) {
+        if(newsModels != null && !newsModels.isEmpty()) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, NewsDetailActivity.class);
-                    intent.putExtra("id", newsModels.get(position).getId());
+                    intent.putExtra("newsId", newsModels.get(position).getId());
                     context.startActivity(intent);
                 }
             });

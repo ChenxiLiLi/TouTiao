@@ -1,5 +1,6 @@
 package com.bytedance.toutiao.ui.news.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +20,14 @@ import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.bean.NewsModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.FragmentNewsDetailBinding;
+import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.ui.news.adapter.NewsDetailAdapter;
+import com.bytedance.toutiao.ui.view.CommentDialog;
+import com.bytedance.toutiao.ui.view.media.NestRecyclerView;
 import com.bytedance.toutiao.viewmodel.NewsViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -27,11 +35,16 @@ import com.bytedance.toutiao.viewmodel.NewsViewModel;
  */
 public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNewsDetailBinding> {
 
-    private NewsModel newsModel;
+    private List<NewsModel> newsModels = new ArrayList<>();
     private WebView webView;
     private ImageView ivLoading;
     private LinearLayout layoutBottom;
-    public FragmentNewsDetail(){
+    private String newsId;
+    private NewsDetailAdapter newsDetailAdapter;
+
+
+    public FragmentNewsDetail(String newsId){
+        this.newsId = newsId;
     }
 
     @Override
@@ -42,32 +55,19 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(NewsViewModel.class);
-        getNewsDetail();
-        webView = mContentView.findViewById(R.id.wv_content);
-
-        webView.loadUrl("https://www.toutiao.com/a6896066770323538446/");
+        getNewsDetail(newsId);
+        newsDetailAdapter = new NewsDetailAdapter(getActivity(), getResources(), newsModels);
         ivLoading = mContentView.findViewById(R.id.iv_loading);
         layoutBottom = mContentView.findViewById(R.id.ll_comment);
 
+        webView = mContentView.findViewById(R.id.wv_content);
+        webView.setWebViewClient(new WebViewClient());
+
         WebSettings settings = webView.getSettings();
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setSupportZoom(true);
         settings.setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                ivLoading.setVisibility(View.GONE);
-                layoutBottom.setVisibility(View.VISIBLE);
-            }
-        });
-
-        webView.setWebChromeClient(new WebChromeClient(){
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-            }
-        });
     }
 
     @Override
@@ -80,19 +80,23 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
 
     }
 
-    private NewsModel getNewsDetail() {
-        mViewModel.newsDetail("1").observe(getActivity(), new Observer<Resource<NewsModel>>() {
+    private void getNewsDetail(String id) {
+
+
+        System.out.println("请求的参数id是"+ id);
+
+        mViewModel.newsDetail(id).observe(getActivity(), new Observer<Resource<NewsModel>>() {
             @Override
             public void onChanged(Resource<NewsModel> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
-                    newsModel = listResource.data;
+
+                if (listResource.state == 1) {
+                    newsModels.add(listResource.data);
+                    webView.loadUrl(listResource.data.getNewsUrl());
                 }
+                newsDetailAdapter.notifyDataSetChanged();
             }
         });
-
-        Log.w("send: {}",  "发送了获取详情的请求");
-        return newsModel;
     }
 
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rv_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.video.activity.PostPublishActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_weight="1"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:src="@mipmap/back"/>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/sp_20"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发布帖子"/>
+            <Button
+                android:layout_weight="1"
+                android:text="发布"
+                android:background="@color/textBlue"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <EditText
+            android:layout_below="@id/ll_title"
+            android:id="@+id/et_content"
+            android:hint="请输入内容"
+            android:gravity="top"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_image"
+            android:layout_marginTop="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:layout_below="@id/et_content"/>
+
+    </RelativeLayout>
+</layout>

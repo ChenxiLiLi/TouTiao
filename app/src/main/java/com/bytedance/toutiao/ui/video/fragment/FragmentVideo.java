@@ -2,13 +2,17 @@ package com.bytedance.toutiao.ui.video.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
+import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.databinding.FragmentVideoBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
+import com.bytedance.toutiao.utils.ToastUtils;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -19,7 +23,7 @@ import java.util.List;
  * Time : 15:56
  * Author : 刘朝阳
  */
-public class FragmentVideo extends BaseFragment {
+public class FragmentVideo extends BaseFragment<NormalViewModel, FragmentVideoBinding> {
 
     int index;
 
@@ -60,11 +64,21 @@ public class FragmentVideo extends BaseFragment {
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(1);
+        viewPager.setId(fragments.get(1).hashCode());
     }
 
     @Override
     protected void setListener() {
 
+
+
+        ImageView imageView = mContentView.findViewById(R.id.iv_search);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showToast("sfsdfsd");
+            }
+        });
     }
 
     @Override

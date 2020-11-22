@@ -33,6 +33,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
         binding.setViewModel(mViewModel);
         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(sp.getString("username", null) == null)
         mViewModel.userName.set(sp.getString("username", null));
         mViewModel.password.set(sp.getString("password", null));
     }

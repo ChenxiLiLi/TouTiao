@@ -8,6 +8,7 @@ import android.content.Intent;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.ActivityVideoDetailBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoDetail;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class VideoDetailActivity extends BaseActivity<NormalViewModel, ActivityVideoDetailBinding> {
 
-    private List<Fragment> fragments = new ArrayList<>();
+    public List<Fragment> fragments = new ArrayList<>();
     private FragmentVideoEvent fragmentVideoEvent;
     private FragmentVideoDetail fragmentVideoDetail;
     private FragmentVideoNode fragmentVideoNode;
@@ -35,8 +36,7 @@ public class VideoDetailActivity extends BaseActivity<NormalViewModel, ActivityV
     protected void processLogic() {
         Intent intent = getIntent();
         String videoID = intent.getStringExtra("videoID");
-
-        fragmentVideoEvent = FragmentVideoEvent.newFragment();
+        fragmentVideoEvent = new FragmentVideoEvent(videoID);
         fragmentVideoDetail = new FragmentVideoDetail(videoID);
         fragmentVideoNode = new FragmentVideoNode(videoID);
 
@@ -46,7 +46,6 @@ public class VideoDetailActivity extends BaseActivity<NormalViewModel, ActivityV
 
         viewPager = findViewById(R.id.video_detail_view_pager);
         videoFragmentAdapter = new VideoFragmentAdapter(getSupportFragmentManager(), 0, fragments);
-
         viewPager.setAdapter(videoFragmentAdapter);
         viewPager.setCurrentItem(1);
     }

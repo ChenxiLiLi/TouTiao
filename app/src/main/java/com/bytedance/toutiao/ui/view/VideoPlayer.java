@@ -199,6 +199,8 @@ public class VideoPlayer {
         this.onStateChangeListener = onStateChangeListener;
     }
 
+
+
     public interface OnStateChangeListener {
         void onReset();
 

@@ -12,6 +12,8 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:layout_above="@id/layout_comment"
+            android:layout_below="@+id/layout_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -31,13 +33,14 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/layout_title"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <ImageButton
-                android:id="@+id/ibBack"
+                android:id="@+id/ib_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_5"
@@ -52,6 +55,7 @@
                 android:layout_gravity="center"
                 android:src="@mipmap/avater"/>
             <TextView
+                android:id="@+id/tv_author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="滑板鞋"
@@ -60,12 +64,14 @@
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"/>
             <Button
+                android:id="@+id/btn_focus"
                 android:layout_width="@dimen/dp_68"
                 android:layout_height="@dimen/dp_34"
                 android:layout_marginLeft="@dimen/dp_40"
                 android:layout_gravity="center"
                 android:background="@mipmap/btn_login"
-                android:text="关注"/>
+                android:text="关注"
+                android:textColor="@color/colorAccent"/>
         </LinearLayout>
 
         <View
@@ -80,12 +86,14 @@
             android:background="@drawable/gradient_video_bottom" />
 
         <LinearLayout
-            android:id="@+id/tvComment"
+            android:id="@+id/layout_comment"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/dark"
             android:orientation="horizontal">
             <TextView
+                android:id="@+id/tv_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -96,7 +104,21 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="#80ffffff"
                 android:textSize="@dimen/sp_15" />
+            <ImageView
+                android:id="@+id/iv_love"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_gravity="center"
+                android:src="@drawable/video_love"/>
 
+            <TextView
+                android:id="@+id/tv_love_num"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:text="176"/>
             <ImageView
                 android:id="@+id/iv_comment"
                 android:layout_width="@dimen/dp_30"
@@ -113,21 +135,7 @@
                 android:textColor="@color/colorAccent"
                 android:text="3.8万"/>
 
-            <ImageView
-                android:layout_marginLeft="@dimen/dp_10"
-                android:id="@+id/iv_love"
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30"
-                android:layout_gravity="center"
-                android:src="@mipmap/heart"/>
 
-            <TextView
-                android:id="@+id/tv_love_num"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:text="176"/>
             <ImageView
                 android:id="@+id/iv_share"
                 android:layout_marginLeft="@dimen/dp_10"
@@ -144,7 +152,7 @@
             android:id="@+id/rlLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/tvComment">
+            android:layout_above="@id/layout_comment">
 
             <View
                 android:id="@+id/viewLine"
@@ -162,6 +170,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/layout_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/rlLine"
@@ -176,13 +185,20 @@
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/tv_main"
+                    android:autoLink="all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="南京杀妻抛尸案 ："
+                    android:text="南京杀妻抛尸案"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/sp_16"
                     android:textStyle="bold" />
 
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="："
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_tile"
@@ -194,10 +210,12 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/tv_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
                 android:text="10月22日，南昌新建区警方通报一起杀妻抛尸案，嫌疑男子
-王某龙已于17日被控制，案件因琐事发生口角引发，死者易某的母亲告诉记者，女儿是去年瞒着..."
+王某龙已于17日被控制，案件因琐事发生口角引发."
                 android:textColor="@color/colorAccent"/>
         </LinearLayout>
     </RelativeLayout>

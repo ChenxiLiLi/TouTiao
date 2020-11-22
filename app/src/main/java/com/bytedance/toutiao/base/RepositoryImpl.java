@@ -1,8 +1,13 @@
 package com.bytedance.toutiao.base;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 
+import com.bytedance.toutiao.bean.CommentModel;
 import com.bytedance.toutiao.bean.MessageCommentModel;
+import com.bytedance.toutiao.bean.NewsModel;
+import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
@@ -40,6 +45,23 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getMsgComments(), liveData);
     }
 
+    //获取资讯列表
+    public MutableLiveData<Resource<List<NewsModel>>> listNews(String type) {
+        MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().listNews(type), liveData);
+    }
+
+    //获取单条资讯详情
+    public MutableLiveData<Resource<NewsModel>> newsDetail(String id) {
+        MutableLiveData<Resource<NewsModel>> liveData = new MutableLiveData<>();
+        return observe(getApiService().newsDetail(id), liveData);
+    }
+
+    //获取帖子
+    public MutableLiveData<Resource<List<PostDetailModel>>> getPostByEventId(String eventId) {
+        MutableLiveData<Resource<List<PostDetailModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getPostsByEventId(eventId), liveData);
+    }
 
 
 }

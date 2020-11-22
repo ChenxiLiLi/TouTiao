@@ -3,6 +3,10 @@
 
     <data>
 
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <RelativeLayout

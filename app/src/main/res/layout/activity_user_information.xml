@@ -35,234 +35,226 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/info"
+            android:id="@+id/ava"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
 
-            <LinearLayout
-                android:id="@+id/ava"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:orientation="horizontal"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="头像"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="@dimen/dp_100"
-                    android:layout_height="match_parent"
-                    android:text="头像"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/pic_atav"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:src="@mipmap/avater"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/pic_atav"
-                    android:layout_width="@dimen/dp_60"
-                    android:layout_height="@dimen/dp_60"
-                    android:src="@mipmap/show_psw_press"/>
-
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_40"
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="match_parent"
-                    android:gravity="center">
+                    android:src="@mipmap/right"/>
 
-                    <ImageView
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/right"/>
+            </RelativeLayout>
+        </LinearLayout>
 
-                </RelativeLayout>
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/my_username"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
 
-            <LinearLayout
-                android:id="@+id/my_username"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:orientation="horizontal"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="昵称"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="@dimen/dp_100"
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="sssss"
+                android:textSize="@dimen/sp_20"
+                android:gravity="right|center"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="match_parent"
-                    android:text="昵称"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="center"/>
+                    android:src="@mipmap/right"/>
 
-                <TextView
-                    android:id="@+id/text_username"
-                    android:layout_width="wrap_content"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_sex"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="性别"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/text_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="女"
+                android:textSize="@dimen/sp_20"
+                android:gravity="right|center"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="sssss"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="right|center"/>
+                    android:src="@mipmap/right"/>
 
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_40"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_tel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="绑定手机"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/text_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="13611111111"
+                android:textSize="@dimen/sp_20"
+                android:gravity="right|center"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="match_parent"
-                    android:gravity="center">
+                    android:src="@mipmap/right"/>
 
-                    <ImageView
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/right"/>
+            </RelativeLayout>
+        </LinearLayout>
 
-                </RelativeLayout>
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/my_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
 
-            <LinearLayout
-                android:id="@+id/my_sex"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:orientation="horizontal"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="绑定邮箱"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="@dimen/dp_100"
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="sssss@123.com"
+                android:textSize="@dimen/sp_20"
+                android:gravity="right|center"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="match_parent"
-                    android:text="昵称"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="center"/>
+                    android:src="@mipmap/right"/>
 
-                <TextView
-                    android:id="@+id/text_sex"
-                    android:layout_width="wrap_content"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_user"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="简介"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/text_user"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="**********"
+                android:textSize="@dimen/sp_20"
+                android:gravity="right|center"/>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="女"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="right|center"/>
-
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_40"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/right"/>
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/my_tel"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:orientation="horizontal"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="@dimen/dp_100"
-                    android:layout_height="match_parent"
-                    android:text="绑定手机"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:id="@+id/text_tel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="13611111111"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="right|center"/>
-
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_40"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/right"/>
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/my_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:orientation="horizontal"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="@dimen/dp_100"
-                    android:layout_height="match_parent"
-                    android:text="绑定邮箱"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:id="@+id/text_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="sssss@123.com"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="right|center"/>
-
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_40"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/right"/>
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/my_user"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:orientation="horizontal"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="@dimen/dp_100"
-                    android:layout_height="match_parent"
-                    android:text="简介"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:id="@+id/text_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="**********"
-                    android:textSize="@dimen/sp_20"
-                    android:gravity="right|center"/>
-
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_40"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/right"/>
-
-                </RelativeLayout>
-            </LinearLayout>
+                    android:src="@mipmap/right"/>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </layout>

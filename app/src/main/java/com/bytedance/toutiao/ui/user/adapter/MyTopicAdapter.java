@@ -21,19 +21,19 @@ public class MyTopicAdapter extends RecyclerView.Adapter<MyTopicAdapter.ViewHold
 
     @NonNull
     @Override
-    public MyTopicAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_my_topic, parent,false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_my_topic, parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyTopicAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 3;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

@@ -20,9 +20,9 @@ public class FocusUserAdapter extends RecyclerView.Adapter<FocusUserAdapter.View
 
     @NonNull
     @Override
-    public FocusUserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_focus_user, parent, false);
-        return new FocusUserAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override

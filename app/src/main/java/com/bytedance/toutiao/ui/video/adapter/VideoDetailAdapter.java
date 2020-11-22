@@ -84,6 +84,7 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         binding = (ItemVideoDetailBinding) holder.getBinding();
         VideoModel videoModel = videoModels.get(position);
+
         binding.tvMain.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         switch (videoModel.getVideoId()){
             case "3":

@@ -43,22 +43,22 @@
         <EditText
             android:layout_below="@id/ll_title"
             android:id="@+id/et_content"
-            android:background="@drawable/edittext_bg"
             android:hint="请输入内容"
             android:gravity="top"
+            android:background="@null"
             android:layout_marginLeft="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginRight="@dimen/dp_20"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_150"/>
+            android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_image"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_100"
             android:layout_marginLeft="@dimen/dp_20"
             android:layout_marginRight="@dimen/dp_20"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1000dp"
             android:layout_below="@id/et_content"/>
 
     </RelativeLayout>

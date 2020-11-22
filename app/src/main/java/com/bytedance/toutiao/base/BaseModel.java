@@ -53,14 +53,12 @@ public abstract class BaseModel {
                 .subscribe(new Consumer() {
                     @Override
                     public void accept(Object o) throws Exception {
-                        Log.e("message", "livedata");
                         liveData.postValue((T) Resource.response((ResponseModel<Object>) o));
 
                     }
                 }, new Consumer() {
                     @Override
                     public void accept(Object throwable) throws Exception {
-                        Log.e("message", "error");
                         liveData.postValue((T) Resource.error((Throwable) throwable));
                     }
                 });

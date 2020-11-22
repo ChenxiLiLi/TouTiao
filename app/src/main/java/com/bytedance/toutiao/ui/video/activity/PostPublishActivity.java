@@ -27,6 +27,7 @@ import java.util.List;
 public class PostPublishActivity extends BaseActivity<NormalViewModel, ActivityPostPublishBinding>{
     private List<ImageModel> list = new ArrayList<>();
     private PostPublishAdapter postPublishAdapter;
+    private ImageModel addPic;
     @Override
     protected int getContentViewId() {
         return R.layout.activity_post_publish;
@@ -35,7 +36,7 @@ public class PostPublishActivity extends BaseActivity<NormalViewModel, ActivityP
     @Override
     protected void processLogic() {
 
-        ImageModel addPic = new ImageModel();
+        addPic = new ImageModel();
         addPic.setRsId(R.drawable.add_pic);
         list.add(addPic);
         postPublishAdapter = new PostPublishAdapter(this, list);
@@ -79,7 +80,19 @@ public class PostPublishActivity extends BaseActivity<NormalViewModel, ActivityP
                     //将照片显示在 ivImage上
                     ImageModel imageModel = new ImageModel();
                     imageModel.setFilePath(filePath);
-                    list.add(imageModel);
+                    if(list.size() == 1) {
+                        list.clear();
+                        list.add(imageModel);
+                        list.add(addPic);
+                    }else if(list.size() == 9){
+                        list.remove(list.size() - 1);
+                        list.add(imageModel);
+                    }
+                    else {
+                        list.remove(list.size() - 1);
+                        list.add(imageModel);
+                        list.add(addPic);
+                    }
                     postPublishAdapter.notifyDataSetChanged();
 
 //                    Glide.with(this).load(filePath).apply(requestOptions1).into(ivImage);

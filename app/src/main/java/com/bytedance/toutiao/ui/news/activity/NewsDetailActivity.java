@@ -1,15 +1,12 @@
 package com.bytedance.toutiao.ui.news.activity;
 
-import android.view.View;
-
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityNewsDetailBinding;
-import com.bytedance.toutiao.ui.fragment.FragmentNewNow;
-import com.bytedance.toutiao.ui.news.adapter.NewsFragmentAdapter;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNewsDetail;
+import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoNode;
 import com.bytedance.toutiao.viewmodel.NewsViewModel;
@@ -24,7 +21,7 @@ public class NewsDetailActivity extends BaseActivity<NewsViewModel, ActivityNews
 
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentVideoEvent fragmentVideoEvent;
-    private FragmentNewNow fragmentNewNow;
+    private FragmentNewsDetail fragmentNewsDetail;
     private FragmentVideoNode fragmentNewNode;
     private ViewPager viewPager;
     private VideoFragmentAdapter videoFragmentAdapter;
@@ -37,12 +34,12 @@ public class NewsDetailActivity extends BaseActivity<NewsViewModel, ActivityNews
     @Override
     protected void processLogic() {
         fragmentVideoEvent = new FragmentVideoEvent("1");
-        fragmentNewNow = new FragmentNewNow("https://www.toutiao.com/a6886776124567880196/");
+        fragmentNewsDetail = new FragmentNewsDetail();
         fragmentNewNode = new FragmentVideoNode("1");
 
-        fragments.add(fragmentVideoEvent);
-        fragments.add(fragmentNewNow);
-        fragments.add(fragmentNewNode);
+//        fragments.add(fragmentVideoEvent);
+//        fragments.add(fragmentNewsDetail);
+//        fragments.add(fragmentNewNode);
 
 
         viewPager = findViewById(R.id.news_detail_view_pager);

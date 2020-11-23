@@ -6,6 +6,7 @@ import com.bytedance.toutiao.bean.NewsModel;
 import com.bytedance.toutiao.bean.SearchCityModel;
 import com.bytedance.toutiao.bean.SearchFriendModel;
 import com.bytedance.toutiao.bean.SearchHotModel;
+import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -64,5 +66,10 @@ public interface RetrofitApiService {
     //搜索界面好友榜列表
     @GET("mock/7451/byte/dance/v1.0/search/friend/items")
     Observable<ResponseModel<List<SearchFriendModel>>> getSearchFriend();
+
+    //获取话题广场帖子
+    @POST("mock/7451/byte/dance/v1.0/getPostDetailByEventId")
+    @FormUrlEncoded
+    Observable<ResponseModel<List<PostDetailModel>>> getPostsByEventId(@Field("eventId") String eventId);
 
 }

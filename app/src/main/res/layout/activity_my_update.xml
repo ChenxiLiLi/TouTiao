@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/user_infomation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/theme_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text="修改个人信息"
+                android:background="@color/titleGrey"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="match_parent"
+                android:src="@mipmap/back"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/my_username"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="昵称"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_username"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="sssss"
+                android:textSize="@dimen/sp_20"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_sex"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="性别"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <RadioGroup
+                android:id="@+id/rg_sex"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/sex_male"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="match_parent"
+                    android:text="男"
+                    android:textSize="@dimen/sp_20"/>
+
+                <RadioButton
+                    android:id="@+id/sex_female"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="match_parent"
+                    android:text="女"
+                    android:textSize="@dimen/sp_20"/>
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_user"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_60"
+                android:text="简介"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/text_user"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="**********"
+                android:textSize="@dimen/sp_20"
+                android:gravity="top"
+                android:minLines="4"
+                android:maxLines="6"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/my_update_save"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:background="@color/titleGrey"
+            android:gravity="center"
+            android:text="保存"
+            android:textSize="@dimen/sp_20"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"/>
+    </LinearLayout>
+</layout>

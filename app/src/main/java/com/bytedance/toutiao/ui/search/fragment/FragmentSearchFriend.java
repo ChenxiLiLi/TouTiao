@@ -19,6 +19,8 @@ import com.bytedance.toutiao.viewmodel.SearchFriendViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.bytedance.toutiao.MyApplication.getContext;
+
 public class FragmentSearchFriend extends BaseFragment {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;

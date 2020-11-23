@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.TextureView;
@@ -38,7 +39,6 @@ import java.util.List;
 public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.ViewHolder> {
 
     private Context mContext;
-
     private int mCurrentPosition;
     private ViewHolder mCurrentHolder;
     private List<VideoModel> videoModels;
@@ -48,7 +48,7 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     private TextureView textureView;
     private int resid ;
     private Listener listener;
-
+    private boolean isLove = false;
 
     public VideoDetailAdapter(Context mContext, Resources resources, List<VideoModel> videoModels) {
         this.mContext = mContext;
@@ -63,7 +63,7 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
         @Override
         void onClick(View view);
 
-        void refresh(String eventId, String title);
+        void refresh(VideoModel videoModel);
 
     }
 
@@ -84,6 +84,8 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         binding = (ItemVideoDetailBinding) holder.getBinding();
         VideoModel videoModel = videoModels.get(position);
+
+        binding.tvMain.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
         switch (videoModel.getVideoId()){
             case "3":
                 resid = R.mipmap.local_pic3;
@@ -97,17 +99,15 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
         }
         RequestOptions options = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE);
         Glide.with(mContext).load(resid).apply(options).into(binding.ivCover);
-//        holder.ivComment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-////                Intent intent = new Intent(mContext, TopicSquareActivity.class);
-////                mContext.startActivity(intent);
-//            }
-//        });
+        binding.tvMain.setText(videoModel.getEventName());
+        binding.tvTile.setText(videoModel.getTitle());
         binding.tvAuthorName.setText(videoModel.getAuthorName());
         binding.tvContent.setText(videoModel.getContent());
+        binding.tvCommentNum.setText(videoModel.getCommentNum());
+        binding.tvLoveNum.setText(videoModel.getLoveNum());
         binding.ivComment.setOnClickListener(listener);
+        binding.tvComment.setOnClickListener(listener);
+        binding.ibBack.setOnClickListener(listener);
         binding.flVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,6 +122,29 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
             }
         });
 
+        binding.tvMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, TopicSquareActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
+
+        binding.ivLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isLove){
+                    binding.ivLove.setSelected(false);
+                    isLove = false;
+                }
+                else{
+                    binding.ivLove.setSelected(true);
+                    isLove = true;
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -131,7 +154,7 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
 
     @Override
     public void onPageSelected(int itemPosition, View itemView) {
-        listener.refresh("1", "sfd");
+        listener.refresh(videoModels.get(itemPosition));
         mCurrentPosition = itemPosition;
         mCurrentHolder = new ViewHolder(itemView);
         playVideo();

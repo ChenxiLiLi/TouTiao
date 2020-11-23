@@ -21,6 +21,8 @@ import com.bytedance.toutiao.viewmodel.SearchHotViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.bytedance.toutiao.MyApplication.getContext;
+
 public class FragmentSearchHot extends BaseFragment {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;

@@ -1,10 +1,13 @@
 package com.bytedance.toutiao.base;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.MsgFocusModel;
 import com.bytedance.toutiao.bean.NewsModel;
+import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.SearchCityModel;
 import com.bytedance.toutiao.bean.SearchFriendModel;
@@ -45,6 +48,7 @@ public class RepositoryImpl extends BaseModel {
         MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
         return observe(getApiService().listNews(type), liveData);
     }
+
     //获取单条资讯详情
     public MutableLiveData<Resource<NewsModel>> newsDetail(String id) {
         MutableLiveData<Resource<NewsModel>> liveData = new MutableLiveData<>();
@@ -79,6 +83,13 @@ public class RepositoryImpl extends BaseModel {
     public MutableLiveData<Resource<List<SearchFriendModel>>> getSearchFriend() {
         MutableLiveData<Resource<List<SearchFriendModel>>> liveData = new MutableLiveData<>();
         return observe(getApiService().getSearchFriend(), liveData);
+    }
+
+
+    //获取帖子
+    public MutableLiveData<Resource<List<PostDetailModel>>> getPostByEventId(String eventId) {
+        MutableLiveData<Resource<List<PostDetailModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getPostsByEventId(eventId), liveData);
     }
 
 

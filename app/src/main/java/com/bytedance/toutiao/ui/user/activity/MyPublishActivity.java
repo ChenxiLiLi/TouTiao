@@ -17,12 +17,6 @@ import com.bytedance.toutiao.ui.user.fragment.FragmentMyPublish;
 import java.util.ArrayList;
 
 public class MyPublishActivity extends BaseActivity<NormalViewModel, ActivityMyPublishBinding> {
-    private static final int FRAGMENT_ONE = 0;
-    private static final int FRAGMENT_TWO = 1;
-    private static final int FRAGMENT_THREE = 2;
-    private static final int FRAGMENT_FOUR = 3;
-
-    private int index;
     FragmentMyPublish fragment1;
     FragmentMyPublish fragment2;
     FragmentMyPublish fragment3;
@@ -103,11 +97,10 @@ public class MyPublishActivity extends BaseActivity<NormalViewModel, ActivityMyP
             if (fragment.getTag() != null) {
                 if (fragment.getTag().equals(tag)) {
                     ft.show(fragment);
-                    //点亮tab标签
-                    mTabs[i].setTextColor(9);
+                    mTabs[i].setEnabled(false);
                 } else {
                     ft.hide(fragment);
-                    //点掉tab标签
+                    mTabs[i].setEnabled(true);
                 }
             }
         }

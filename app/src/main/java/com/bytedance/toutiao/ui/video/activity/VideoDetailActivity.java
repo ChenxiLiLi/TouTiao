@@ -8,6 +8,7 @@ import android.content.Intent;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.ActivityVideoDetailBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideoDetail;
@@ -35,7 +36,6 @@ public class VideoDetailActivity extends BaseActivity<NormalViewModel, ActivityV
     protected void processLogic() {
         Intent intent = getIntent();
         String videoID = intent.getStringExtra("videoID");
-
         fragmentVideoEvent = new FragmentVideoEvent(videoID);
         fragmentVideoDetail = new FragmentVideoDetail(videoID);
         fragmentVideoNode = new FragmentVideoNode(videoID);

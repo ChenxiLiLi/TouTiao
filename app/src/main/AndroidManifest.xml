@@ -16,17 +16,14 @@
         android:theme="@style/AppTheme.Base">
         <activity android:name=".ui.search.SearchActivity"></activity>
         <activity android:name=".ui.message.Activity.MessageChatActivity"></activity>
-        <activity android:name=".ui.news.NewsDetailActivity"></activity>
         <activity android:name=".ui.video.activity.PostDetailActivity"></activity>
         <activity android:name=".ui.video.activity.TopicSquareActivity"></activity>
         <activity android:name=".ui.event.EventSimilarActivity"></activity>
         <activity android:name=".ui.event.EventTimelineActivity" />
         <activity android:name=".ui.video.activity.VideoDetailActivity" >
-
         </activity>
         <activity android:name=".ui.event.PublishVideoActivity" />
         <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name=".ui.news.HomeDetailActivity" />
         <activity android:name=".ui.login.LoginActivity">
 
         </activity>

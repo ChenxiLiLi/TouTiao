@@ -40,9 +40,6 @@ public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMes
                         context.startActivity(intent);
                         break;
                 }
-                //view.findViewById(R.id.item_detial);
-
-
             }
         });
     }

@@ -12,6 +12,8 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:layout_above="@id/layout_comment"
+            android:layout_below="@+id/layout_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -31,13 +33,14 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/layout_title"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <ImageButton
-                android:id="@+id/ibBack"
+                android:id="@+id/ib_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_5"
@@ -101,7 +104,21 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="#80ffffff"
                 android:textSize="@dimen/sp_15" />
+            <ImageView
+                android:id="@+id/iv_love"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_gravity="center"
+                android:src="@drawable/video_love"/>
 
+            <TextView
+                android:id="@+id/tv_love_num"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:text="176"/>
             <ImageView
                 android:id="@+id/iv_comment"
                 android:layout_width="@dimen/dp_30"
@@ -118,21 +135,7 @@
                 android:textColor="@color/colorAccent"
                 android:text="3.8万"/>
 
-            <ImageView
-                android:layout_marginLeft="@dimen/dp_10"
-                android:id="@+id/iv_love"
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30"
-                android:layout_gravity="center"
-                android:src="@mipmap/heart"/>
 
-            <TextView
-                android:id="@+id/tv_love_num"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:text="176"/>
             <ImageView
                 android:id="@+id/iv_share"
                 android:layout_marginLeft="@dimen/dp_10"
@@ -167,6 +170,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/layout_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/rlLine"
@@ -184,11 +188,17 @@
                     android:autoLink="all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="南京杀妻抛尸案 ："
+                    android:text="南京杀妻抛尸案"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/sp_16"
                     android:textStyle="bold" />
 
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="："
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_tile"

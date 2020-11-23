@@ -7,7 +7,9 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityMyCollectionBinding;
+import com.bytedance.toutiao.ui.user.adapter.CollectionAdapter;
 import com.bytedance.toutiao.ui.user.adapter.HistoryAdapter;
+import com.bytedance.toutiao.ui.user.fragment.FragmentMyTopic;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUserInfo;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUserVideo;
 import com.google.android.material.tabs.TabLayout;
@@ -19,12 +21,13 @@ public class MyCollectionActivity extends BaseActivity<NormalViewModel, Activity
 
     private FragmentUserInfo fragment_info;
     private FragmentUserVideo fragment_video;
-    private HistoryAdapter historyAdapter;
+    private FragmentMyTopic fragment_topic;
+    private CollectionAdapter collectionAdapter;
     private ViewPager viewPager;
 
     @Override
     protected int getContentViewId() {
-        return R.layout.activity_my_history;
+        return R.layout.activity_my_collection;
     }
 
     @Override
@@ -33,15 +36,18 @@ public class MyCollectionActivity extends BaseActivity<NormalViewModel, Activity
         // 添加 tab item
         mTabLayout.addTab(mTabLayout.newTab().setText("资讯"));
         mTabLayout.addTab(mTabLayout.newTab().setText("视频"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("话题"));
 
         fragment_info = new FragmentUserInfo();
         fragment_video = new FragmentUserVideo();
+        fragment_topic = new FragmentMyTopic();
         List<Fragment> fragmentList = new ArrayList<Fragment>();
         fragmentList.add(fragment_info);
         fragmentList.add(fragment_video);
-        historyAdapter = new HistoryAdapter(getSupportFragmentManager(),0,fragmentList );
+        fragmentList.add(fragment_topic);
+        collectionAdapter = new CollectionAdapter(getSupportFragmentManager(),0,fragmentList );
         viewPager = binding.viewPager;
-        viewPager.setAdapter(historyAdapter);
+        viewPager.setAdapter(collectionAdapter);
         mTabLayout.setupWithViewPager(viewPager);
     }
 

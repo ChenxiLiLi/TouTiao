@@ -53,6 +53,7 @@
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
                 android:gravity="center"
+                android:textColor="@color/color_mypublish_tab"
                 android:text="草稿箱"
                 android:textSize="@dimen/sp_15"/>
 
@@ -65,6 +66,7 @@
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
                 android:gravity="center"
+                android:textColor="@color/color_mypublish_tab"
                 android:text="待审核"
                 android:textSize="@dimen/sp_15"/>
 
@@ -77,6 +79,7 @@
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
                 android:gravity="center"
+                android:textColor="@color/color_mypublish_tab"
                 android:text="未通过"
                 android:textSize="@dimen/sp_15"/>
 
@@ -89,6 +92,7 @@
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
                 android:gravity="center"
+                android:textColor="@color/color_mypublish_tab"
                 android:text="已发布"
                 android:textSize="@dimen/sp_15"/>
         </LinearLayout>

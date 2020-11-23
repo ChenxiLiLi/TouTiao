@@ -1,9 +1,13 @@
 package com.bytedance.toutiao.ui.view;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,10 +31,9 @@ public class CommentDialog extends BaseBottomSheetDialog {
     RecyclerView recyclerView;
     TextView tvTitle;
     private CommentAdapter commentAdapter;
-    private ArrayList<CommentModel> datas = new ArrayList<>();
     private View view;
-    private int[] likeArray = new int[]{4919, 334, 121, 423, 221, 23};
-    private String[] commentArray = new String[]{"我就说左脚踩右脚可以上天你们还不信！", "全是评论点赞，没人关注吗", "哈哈哈哈", "像谁，没看出来", "你这西安话真好听"};
+    private EditText etComment;
+    private LinearLayout layoutComment;
 
     @Nullable
     @Override
@@ -38,8 +41,19 @@ public class CommentDialog extends BaseBottomSheetDialog {
         view = inflater.inflate(R.layout.dialog_comment, container);
         recyclerView = view.findViewById(R.id.rv_comment);
         tvTitle = view.findViewById(R.id.tv_tile);
+        etComment = view.findViewById(R.id.et_comment);
+        layoutComment = view.findViewById(R.id.layout_comment);
         init();
-
+//        etComment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//        Rect outRect = new Rect();
+//        getActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
+//        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
+//        params.height = outRect.bottom - outRect.top;
         return view;
     }
 

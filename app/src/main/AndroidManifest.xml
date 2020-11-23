@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme.Base">
-
+        <activity android:name=".ui.search.SearchActivity"></activity>
         <activity android:name=".ui.message.Activity.MessageChatActivity"></activity>
         <activity android:name=".ui.news.NewsDetailActivity"></activity>
         <activity android:name=".ui.video.activity.PostDetailActivity"></activity>

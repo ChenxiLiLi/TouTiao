@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.message;
+package com.bytedance.toutiao.ui.message.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -43,15 +43,11 @@ public class FragmentMessageComment extends BaseFragment<MessageCommentViewModel
         mViewModel.getMsgComment().observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
-                Log.e("message", listResource.state+ "");
-                //messageCommentModels = listResource.data;
+                messageCommentModels.addAll(listResource.data);
                 initData();
                 fragmentMessageCommentAdapter.notifyDataSetChanged();
             }
         });
-
-
-
     }
     private void initData(){
         MessageCommentModel msgcomm1 = new MessageCommentModel("用户名1","评论内容～","2月30日 19:00");

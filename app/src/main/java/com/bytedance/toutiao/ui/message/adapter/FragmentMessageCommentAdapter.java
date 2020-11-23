@@ -40,8 +40,9 @@ public class FragmentMessageCommentAdapter extends RecyclerView.Adapter<Fragment
     @Override
     public void onBindViewHolder(@NonNull FragmentMessageCommentAdapter.ViewHolder holder, int position) {
         ItemMessageCommentBinding binding = (ItemMessageCommentBinding) holder.getBinding();
-        binding.tvName.setText(messageCommentModels.get(position).getMsgCommentUserName());
-        binding.tvContent.setText(messageCommentModels.get(position).getMsgCommentContent());
+        binding.commName.setText(messageCommentModels.get(position).getMsgCommentUserName());
+        binding.commContent.setText(messageCommentModels.get(position).getMsgCommentContent());
+        binding.commTime.setText(messageCommentModels.get(position).getMsgCommentDate());
     }
 
     @Override

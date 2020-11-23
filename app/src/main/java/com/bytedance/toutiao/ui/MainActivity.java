@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -13,9 +14,10 @@ import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityMainBinding;
 
+import com.bytedance.toutiao.ui.search.SearchActivity;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUser;
 import com.bytedance.toutiao.ui.news.FragmentHome;
-import com.bytedance.toutiao.ui.message.FragmentMessage;
+import com.bytedance.toutiao.ui.message.Fragment.FragmentMessage;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideo;
 
 import java.util.ArrayList;
@@ -65,6 +67,11 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                         break;
                     case R.id.relative_tab_user:
                         switchFragment(R.id.relative_tab_user);
+                        break;
+                    case R.id.icon_message:
+                        Toast.makeText(MainActivity.this, "进入搜索界面", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }

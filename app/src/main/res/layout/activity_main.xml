@@ -128,8 +128,6 @@
                     android:id="@+id/text_message"
                     style="@style/textStyle_tab"
                     android:layout_below="@+id/icon_message"
-                    android:onClick="@{onClickListener}"
-                    android:clickable="true"
                     android:text="消息" />
 
             </RelativeLayout>

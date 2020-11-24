@@ -58,19 +58,15 @@
                 android:id="@+id/pic_atav"
                 android:layout_width="@dimen/dp_50"
                 android:layout_height="@dimen/dp_50"
+                android:layout_marginRight="@dimen/dp_10"
                 android:src="@mipmap/avater"/>
 
-            <RelativeLayout
-                android:layout_width="@dimen/dp_40"
+            <ImageView
+                android:layout_width="@dimen/dp_20"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@mipmap/right"/>
 
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/right"/>
-
-            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -222,7 +218,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/my_user"
+            android:id="@+id/my_introduction"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
             android:orientation="horizontal"
@@ -237,7 +233,7 @@
                 android:gravity="center"/>
 
             <TextView
-                android:id="@+id/text_user"
+                android:id="@+id/text_introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

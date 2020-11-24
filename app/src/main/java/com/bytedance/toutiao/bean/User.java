@@ -20,6 +20,7 @@ public class User {
     private String username;
     private String nickname;
     private String password;
+    private String introduction;
 
     public String getUsername() {
         return username;
@@ -75,5 +76,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getIntroduction(){
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction){
+        this.introduction = introduction;
     }
 }

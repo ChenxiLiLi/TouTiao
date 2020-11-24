@@ -6,6 +6,7 @@ import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,4 +52,19 @@ public interface RetrofitApiService {
     @FormUrlEncoded
     Observable<ResponseModel<List<PostDetailModel>>> getPostsByEventId(@Field("eventId") String eventId);
 
+    //获取草稿箱视频
+    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getDraftsVideos")
+    Observable<ResponseModel<List<VideoModel>>> getDraftsVideos(@Field("id") String id);
+
+    //获取待审批视频
+    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getPreApprovalVideos")
+    Observable<ResponseModel<List<VideoModel>>> getPreApprovalVideos(@Field("id") String id);
+
+    //获取未通过视频
+    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getFailedVideos")
+    Observable<ResponseModel<List<VideoModel>>> getFailedVideos(@Field("id") String id);
+
+    //获取已发布视频
+
+    Observable<ResponseModel<List<VideoModel>>> getPublishedVideos(@Field("id") String id);
 }

@@ -40,5 +40,6 @@ public class FragmentUser extends BaseFragment {
     public void onClick(View v) {
 
     }
-    //djalkfjlasjfl
+
+
 }

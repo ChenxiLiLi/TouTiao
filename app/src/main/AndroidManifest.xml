@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -14,11 +14,8 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme.Base">
-        <activity android:name=".ui.video.activity.PostPublishActivity">
-
-        </activity>
+        <activity android:name=".ui.search.SearchActivity"></activity>
         <activity android:name=".ui.message.Activity.MessageChatActivity"></activity>
-        <activity android:name=".ui.news.activity.NewsDetailActivity"></activity>
         <activity android:name=".ui.video.activity.PostDetailActivity"></activity>
         <activity android:name=".ui.video.activity.TopicSquareActivity"></activity>
         <activity android:name=".ui.event.EventSimilarActivity"></activity>

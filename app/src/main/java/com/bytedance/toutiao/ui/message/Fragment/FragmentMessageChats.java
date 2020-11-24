@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.message.fragment;
+package com.bytedance.toutiao.ui.message.Fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.ui.message.adapter.FragmentMessageFocusAdapter;
+import com.bytedance.toutiao.ui.message.adapter.FragmentMessageChatAdapter;
 
-public class FragmentMessageFocus extends BaseFragment {
+public class FragmentMessageChats extends BaseFragment {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
-    private FragmentMessageFocusAdapter fragmentMessageFocusAdapter;
+    private FragmentMessageChatAdapter fragmentMessageChatAdapter;
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_message_detail;
@@ -22,10 +22,11 @@ public class FragmentMessageFocus extends BaseFragment {
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         recyclerView = mContentView.findViewById(R.id.rv_message_detail);
-        fragmentMessageFocusAdapter = new FragmentMessageFocusAdapter(getContext());
+        fragmentMessageChatAdapter = new FragmentMessageChatAdapter(getContext());
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(fragmentMessageFocusAdapter);
+        recyclerView.setAdapter(fragmentMessageChatAdapter);
+
     }
 
     @Override

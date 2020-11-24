@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_10">
+                <TextView
+                    android:id="@+id/item_ranking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textSize="@dimen/dp_20"
+                    android:textColor="#F44336"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="大学生在校园内被狂风暴雪吹走"
+                android:textSize="@dimen/dp_14"
+                android:textStyle="bold"
+                android:textColor="#aa000000"/>
+            <TextView
+                android:id="@+id/item_read"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_20"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="235666666"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="#22000000"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</layout>

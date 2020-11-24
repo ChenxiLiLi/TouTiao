@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.message.fragment;
+package com.bytedance.toutiao.ui.message.Fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -46,9 +46,9 @@ public class FragmentMessage extends BaseFragment{
         mTabLayout.addTab(mTabLayout.newTab().setText("TAB2"));
         mTabLayout.addTab(mTabLayout.newTab().setText("TAB3"));
         //创建三个fragment
-        FragmentMessageChat fragmentMessageChat = new FragmentMessageChat();
-        FragmentMessageComment fragmentMessageComment = new FragmentMessageComment();
-        FragmentMessageFocus fragmentMessageFocus = new FragmentMessageFocus();
+        FragmentMessageChats fragmentMessageChat = new FragmentMessageChats();
+        FragmentMessageComments fragmentMessageComment = new FragmentMessageComments();
+        FragmentMessageComments fragmentMessageFocus = new FragmentMessageComments();
 
         fragments.add(fragmentMessageChat);
         fragments.add(fragmentMessageComment);

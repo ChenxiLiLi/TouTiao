@@ -120,6 +120,8 @@
                 <ImageView
                     android:id="@+id/icon_message"
                     style="@style/imageStyle_tab"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true"
                     android:src="@drawable/tab_message" />
 
                 <TextView

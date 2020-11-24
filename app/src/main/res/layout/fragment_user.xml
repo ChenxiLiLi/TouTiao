@@ -18,52 +18,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/user_add"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/user_adduser"
-                android:layout_width="@dimen/dp_30"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_height="match_parent"
-                android:src="@mipmap/adduser"
-                
-                android:onClick="@{onClickListener}"
-                android:clickable="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/user_setting"
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/dp_10"
-                android:src="@mipmap/setting"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"/>
-
-        </LinearLayout>
-
         <RelativeLayout
             android:id="@+id/user_thisuser"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_200"
-
             android:gravity="center"
             android:onClick="@{onClickListener}"
             android:clickable="true">
 
             <ImageView
                 android:id="@+id/icon_user_picture"
+                android:layout_height="@dimen/dp_80"
+                android:layout_width="@dimen/dp_80"
                 style="@style/imageStyle_tab"
-                android:src="@mipmap/ic_launcher_round"/>
+                android:src="@mipmap/avater"/>
 
             <TextView
                 android:id="@+id/user_username"
@@ -73,6 +41,19 @@
                 android:textSize="@dimen/sp_20"/>
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/textGrey"/>
 
         <LinearLayout
             android:id="@+id/user_linear_use"
@@ -106,7 +87,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/textGrey"/>
 
             <RelativeLayout
                 android:id="@+id/my_history"
@@ -134,10 +116,11 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/textGrey"/>
 
             <RelativeLayout
-                android:id="@+id/my_tag"
+                android:id="@+id/my_collection"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
                 android:layout_weight="1"
@@ -146,23 +129,24 @@
                 android:clickable="true">
 
                 <ImageView
-                    android:id="@+id/icon_my_tag"
+                    android:id="@+id/icon_my_collection"
                     style="@style/imageStyle_tab"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/tag"/>
+                    android:src="@mipmap/star"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_tag"
+                    android:layout_toRightOf="@id/icon_my_collection"
                     android:textSize="@dimen/sp_20"
-                    android:text="  我的话题圈  "/>
+                    android:text="  我的收藏  "/>
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/textGrey"/>
 
             <RelativeLayout
                 android:id="@+id/my_comment"
@@ -177,7 +161,7 @@
                     android:id="@+id/icon_my_comment"
                     style="@style/imageStyle_tab"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/comment"/>
+                    android:src="@mipmap/my_comment"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -190,7 +174,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/textGrey"/>
 
             <RelativeLayout
                 android:id="@+id/my_help"
@@ -218,7 +203,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/textGrey"/>
 
             <RelativeLayout
                 android:id="@+id/my_"
@@ -244,6 +230,5 @@
 
             </RelativeLayout>
         </LinearLayout>
-
     </LinearLayout>
 </layout>

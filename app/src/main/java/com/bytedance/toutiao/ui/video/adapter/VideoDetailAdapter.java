@@ -2,6 +2,7 @@ package com.bytedance.toutiao.ui.video.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.graphics.Paint;
@@ -28,6 +29,7 @@ import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.ItemVideoDetailBinding;
 import com.bytedance.toutiao.ui.video.activity.TopicSquareActivity;
 import com.bytedance.toutiao.ui.view.CommentDialog;
+import com.bytedance.toutiao.ui.view.ToLoginfragment;
 import com.bytedance.toutiao.ui.view.VideoLoadingProgressbar;
 import com.bytedance.toutiao.ui.view.VideoPlayer;
 import com.bytedance.toutiao.ui.view.media.VideoPlayAdapter;
@@ -65,6 +67,7 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
 
         void refresh(VideoModel videoModel);
 
+        boolean showToLoginFragment();
     }
 
     public void setListener(Listener listener){
@@ -117,8 +120,11 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.btnFocus.setText("已关注");
-                ToastUtils.showToast("关注成功");
+                if(listener.showToLoginFragment()){
+                    binding.btnFocus.setText("已关注");
+                    ToastUtils.showToast("关注成功");
+                }
+
             }
         });
 
@@ -133,15 +139,16 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
         binding.ivLove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isLove){
-                    binding.ivLove.setSelected(false);
-                    isLove = false;
+                if(listener.showToLoginFragment()){
+                    if(isLove){
+                        binding.ivLove.setSelected(false);
+                        isLove = false;
+                    }
+                    else{
+                        binding.ivLove.setSelected(true);
+                        isLove = true;
+                    }
                 }
-                else{
-                    binding.ivLove.setSelected(true);
-                    isLove = true;
-                }
-
             }
         });
 
@@ -151,6 +158,8 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
     public int getItemCount() {
         return videoModels.size();
     }
+
+
 
     @Override
     public void onPageSelected(int itemPosition, View itemView) {

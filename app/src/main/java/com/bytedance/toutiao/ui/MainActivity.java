@@ -58,10 +58,6 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.relative_tab_publish:
-//                        ToLoginfragment toLoginfragment = new ToLoginfragment();
-//                        toLoginfragment.show(getSupportFragmentManager(),"");
-                        break;
                     case R.id.relative_tab_home:
                         switchFragment(R.id.relative_tab_home);
                         break;

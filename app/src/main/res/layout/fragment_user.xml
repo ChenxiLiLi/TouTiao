@@ -207,13 +207,11 @@
                 android:background="@color/textGrey"/>
 
             <RelativeLayout
-                android:id="@+id/my_"
+                android:id="@+id/my_account"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
                 android:layout_weight="1"
-                android:gravity="left|center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+                android:gravity="left|center">
 
                 <ImageView
                     android:id="@+id/icon_my_id"

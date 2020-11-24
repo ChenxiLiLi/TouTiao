@@ -90,7 +90,7 @@
                 android:gravity="center"
                 android:onClick="@{onClickListener}"
                 android:clickable="true"
-                android:tag="0">
+                android:tag="4">
 
 
                 <ImageView

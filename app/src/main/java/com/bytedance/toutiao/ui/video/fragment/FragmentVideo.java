@@ -1,5 +1,7 @@
 package com.bytedance.toutiao.ui.video.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.FragmentVideoBinding;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
+import com.bytedance.toutiao.ui.view.ToLoginfragment;
 import com.bytedance.toutiao.utils.ToastUtils;
 import com.google.android.material.tabs.TabLayout;
 

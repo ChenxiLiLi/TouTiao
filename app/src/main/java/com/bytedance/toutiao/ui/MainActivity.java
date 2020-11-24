@@ -17,6 +17,8 @@ import com.bytedance.toutiao.ui.user.fragment.FragmentUser;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNews;
 import com.bytedance.toutiao.ui.message.fragment.FragmentMessage;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideo;
+import com.bytedance.toutiao.ui.view.PublishDialog;
+import com.bytedance.toutiao.ui.view.ToLoginfragment;
 
 import java.util.ArrayList;
 
@@ -52,8 +54,10 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.framLayout:
-                        Toast.makeText(MainActivity.this, " clicked ", Toast.LENGTH_LONG).show();
+                    case R.id.relative_tab_publish:
+//                        ToLoginfragment toLoginfragment = new ToLoginfragment();
+//                        toLoginfragment.show(getSupportFragmentManager(),"");
+                        break;
                     case R.id.relative_tab_home:
                         switchFragment(R.id.relative_tab_home);
                         break;

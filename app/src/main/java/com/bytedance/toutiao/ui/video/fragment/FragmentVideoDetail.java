@@ -1,6 +1,8 @@
 package com.bytedance.toutiao.ui.video.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +23,7 @@ import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoDetailAdapter;
 import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.view.CommentDialog;
+import com.bytedance.toutiao.ui.view.ToLoginfragment;
 import com.bytedance.toutiao.ui.view.media.VideoPlayRecyclerView;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
@@ -76,6 +79,16 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
                         .getSupportFragmentManager()
                         .findFragmentByTag("android:switcher:"+R.id.video_detail_view_pager+":"+2);
                 fragmentVideoNode.setData(videoModel.getVideoId(), videoModel.getTitle());
+            }
+
+            @Override
+            public boolean showToLoginFragment() {
+                    SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+                    if(null == (sp.getString("username", null))){
+                        ToLoginfragment toLoginfragment = new ToLoginfragment();
+                        toLoginfragment.show(getChildFragmentManager(), "");
+                        return false;
+                    }else return true;
             }
         });
         binding.rvVideoDetail.setAdapter(adapter);

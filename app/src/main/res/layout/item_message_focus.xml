@@ -38,11 +38,11 @@
                     android:text="南昌杀妻案"/>
 
                 <TextView
-                    android:id="@+id/tv_content"
+                    android:id="@+id/tv_read_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/dp_10"
-                    android:text="3阅读"/>
+                    android:text="233333"/>
             </LinearLayout>
             <Button
                 android:id="@+id/iv_btn"

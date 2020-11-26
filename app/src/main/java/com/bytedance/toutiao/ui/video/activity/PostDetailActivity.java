@@ -1,6 +1,7 @@
 package com.bytedance.toutiao.ui.video.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -91,6 +92,17 @@ public class PostDetailActivity extends BaseActivity<MessageCommentViewModel, Ac
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        binding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,binding.tvContent.getText().toString());
+                intent.setType("text/plain");
+                startActivity(intent);
             }
         });
 

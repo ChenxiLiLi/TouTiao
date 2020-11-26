@@ -86,6 +86,17 @@ public class TopicSqaureAdapter extends RecyclerView.Adapter<TopicSqaureAdapter.
             }
         });
 
+        binding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,binding.tvContent.getText().toString());
+                intent.setType("text/plain");
+                context.startActivity(intent);
+            }
+        });
+
     }
 
 

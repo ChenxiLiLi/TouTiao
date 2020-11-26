@@ -81,18 +81,28 @@ public class TopicSquareActivity extends BaseActivity<VideoViewModel, ActivityTo
             @Override
             public void onClick(View view) {
                 if(isFocus){
+                    isFocus = false;
                     binding.btnFocus.setText("关注");
                     ToastUtils.showToast("取消关注成功");
                 }else{
+                    isFocus = true;
                     binding.btnFocus.setText("已关注");
                     ToastUtils.showToast("已关注");
                 }
             }
         });
+
+        binding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,binding.tvTopicName.getText().toString());
+                intent.setType("text/plain");
+                startActivity(intent);
+            }
+        });
     }
 
-    private void init(){
-
-    }
 
 }

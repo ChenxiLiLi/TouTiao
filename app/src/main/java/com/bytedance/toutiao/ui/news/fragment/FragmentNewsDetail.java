@@ -37,7 +37,7 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
 
     private List<NewsModel> newsModels = new ArrayList<>();
     private String newsId;
-    private NewsDetailAdapter newsDetailAdapter;
+    //private NewsDetailAdapter newsDetailAdapter;
 
 
     public FragmentNewsDetail(String newsId){
@@ -79,11 +79,15 @@ public class FragmentNewsDetail extends BaseFragment<NewsViewModel, FragmentNews
                 if (listResource.state == 1) {
                     newsModels.add(listResource.data);
                     binding.wvContent.loadUrl(listResource.data.getNewsUrl());
-                    binding.wvContent.setWebViewClient(new WebViewClient());
 
+                    binding.wvContent.setWebViewClient(new WebViewClient());
+                    binding.wvContent.setWebChromeClient(new WebChromeClient());
                     WebSettings settings = binding.wvContent.getSettings();
+                    //设置缩放
                     settings.setUseWideViewPort(true);
+                    //设置预览模式记载界面
                     settings.setLoadWithOverviewMode(true);
+                    //设置支持屏幕控件或手势进行缩放
                     settings.setSupportZoom(true);
                     settings.setJavaScriptEnabled(true);
                 }

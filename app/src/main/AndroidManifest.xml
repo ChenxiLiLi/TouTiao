@@ -29,6 +29,8 @@
         <activity android:name=".ui.login.RegisterActivity" />
         <activity android:name=".ui.login.LoginActivity">
         </activity>
+        <activity android:name=".ui.user.activity.MyPublishActivity"/>
+        <activity android:name=".ui.user.activity.MyCollectionActivity"/>
         <activity android:name=".ui.video.activity.PostPublishActivity"/>
         <activity android:name=".ui.user.activity.AccountManagementActivity"/>
         <activity android:name=".ui.MainActivity">

@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
 
+import java.util.List;
+
 /**
  * Data : 2020/10/28
  * Time : 16:50
@@ -46,10 +48,11 @@ public class Resource<T> {
         if (data != null) {
             Log.e("data", "no null");
             if (data.isSuccess()) {
-                Log.e("success", "success");
+
                 return new Resource<>(SUCCESS, data.getData(), null);
             }
-            return new Resource<>(FAIL, null, data.getErrorMsg());
+            else
+                return new Resource<>(FAIL, null, data.getErrorMsg());
         }else Log.e("data", " null");
         return new Resource<>(ERROR, null, null);
     }

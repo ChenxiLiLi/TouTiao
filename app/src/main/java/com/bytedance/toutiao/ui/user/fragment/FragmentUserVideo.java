@@ -118,7 +118,7 @@ public class FragmentUserVideo extends BaseFragment<MyViewModel, FragmentUserVid
         mViewModel.getMyVideos(id, state).observe(getActivity(), new Observer<Resource<List<VideoModel>>>() {
             @Override
             public void onChanged(Resource<List<VideoModel>> listResource) {
-                videoModels.addAll(listResource.data);
+                Log.e("userVideo", listResource.state + "");
                 userVideoAdapter.notifyDataSetChanged();
             }
         });

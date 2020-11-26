@@ -42,7 +42,6 @@ public class ResponseModel<T> implements Serializable {
     }
 
     public boolean isSuccess(){
-        Log.e("success",errorCode + "");
         return RESULT_SUCCESS == errorCode;
     }
 }

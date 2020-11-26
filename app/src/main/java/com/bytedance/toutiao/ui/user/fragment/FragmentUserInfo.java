@@ -67,12 +67,13 @@ public class FragmentUserInfo extends BaseFragment<MyViewModel, FragmentUserInfo
         mViewModel.getMyInfos(id, state).observe(getActivity(), new Observer<Resource<List<NewsModel>>>() {
             @Override
             public void onChanged(Resource<List<NewsModel>> listResource) {
-                if (listResource.state != 1) {
-                    Log.e("send: {}",  "请求失败");
-                    return;
+                if(listResource != null){
+                    Log.e("userInfo", listResource.state + "");
+                    Log.e("userInfo", listResource.data.size() + "");
+                    newsModels.addAll(listResource.data);
+                    userInfoAdapter.notifyDataSetChanged();
                 }
-                newsModels.addAll(listResource.data);
-                userInfoAdapter.notifyDataSetChanged();
+
             }
         });
     }

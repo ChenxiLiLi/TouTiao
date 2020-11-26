@@ -22,7 +22,7 @@ public class FragmentMyPublish extends BaseFragment<NormalViewModel, FragmentMyP
     int index;
 
     private ViewPager viewPager;
-    private FragmentEventInfo fragment_info;
+    private FragmentUserInfo fragment_info;
     private FragmentEventVideo fragment_video;
     private HistoryAdapter historyAdapter;
     private List<Fragment> fragmentList = new ArrayList<>();
@@ -44,7 +44,7 @@ public class FragmentMyPublish extends BaseFragment<NormalViewModel, FragmentMyP
         // 添加 tab item
         mTabLayout.addTab(mTabLayout.newTab().setText("资讯"));
         mTabLayout.addTab(mTabLayout.newTab().setText("视频"));
-        fragment_info = new FragmentEventInfo();
+        fragment_info = new FragmentUserInfo();
         fragment_video = new FragmentEventVideo();
         fragmentList.add(fragment_info);
         fragmentList.add(fragment_video);

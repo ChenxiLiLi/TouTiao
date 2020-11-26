@@ -8,6 +8,27 @@ public class MessageCommentModel {
     private String msgCommentContent;
     private String msgCommentDate;
     private String msgCommentNewsType;
+    private String loveNum;
+    private boolean isLove = false;
+
+    public boolean isLove() {
+        return isLove;
+    }
+
+    public void setLove(boolean love) {
+        isLove = love;
+    }
+
+    public String getLoveNum() {
+        return loveNum;
+    }
+
+    public void setLoveNum(String loveNum) {
+        this.loveNum = loveNum;
+    }
+
+    public MessageCommentModel() {
+    }
 
     public MessageCommentModel(String msgCommentId, String msgCommentUserId, String msgCommentUserName, String msgCommentUserAvater, String msgCommentContent, String msgCommentDate, String msgCommentNewsType) {
         this.msgCommentId = msgCommentId;

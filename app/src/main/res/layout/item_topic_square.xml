@@ -93,7 +93,7 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginLeft="@dimen/dp_20"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/empty_heart"/>
+                android:src="@drawable/topic_love"/>
 
             <TextView
                 android:id="@+id/tv_love_num"

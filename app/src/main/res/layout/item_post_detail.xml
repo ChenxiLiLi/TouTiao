@@ -44,7 +44,7 @@
             android:layout_below="@+id/tv_content"
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
-            android:src="@mipmap/like_white"/>
+            android:src="@drawable/topic_detail_like"/>
 
         <TextView
             android:id="@+id/tv_like_num"

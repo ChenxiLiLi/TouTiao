@@ -66,6 +66,37 @@ public class TopicSqaureAdapter extends RecyclerView.Adapter<TopicSqaureAdapter.
                 context.startActivity(toPostDetail);
             }
         });
+
+        binding.ivLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(postDetailModel.isLove()){
+                    postDetailModel.setLove(false);
+                    binding.ivLove.setSelected(false);
+                    Integer num = Integer.valueOf(postDetailModel.getLoveNum());
+                    postDetailModel.setLoveNum((String.valueOf(num - 1)));
+                    binding.tvLoveNum.setText(postDetailModel.getLoveNum());
+                }else{
+                    postDetailModel.setLove(true);
+                    binding.ivLove.setSelected(true);
+                    Integer num = Integer.valueOf(postDetailModel.getLoveNum());
+                    postDetailModel.setLoveNum((String.valueOf(num + 1)));
+                    binding.tvLoveNum.setText(postDetailModel.getLoveNum());
+                }
+            }
+        });
+
+        binding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,binding.tvContent.getText().toString());
+                intent.setType("text/plain");
+                context.startActivity(intent);
+            }
+        });
+
     }
 
 

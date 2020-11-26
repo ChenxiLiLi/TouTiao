@@ -152,6 +152,17 @@ public class VideoDetailAdapter extends VideoPlayAdapter<VideoDetailAdapter.View
             }
         });
 
+        binding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,binding.tvComment.getText().toString());
+                intent.setType("text/plain");
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

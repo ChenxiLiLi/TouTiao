@@ -30,7 +30,7 @@ public class AccountManagementActivity extends BaseActivity<NormalViewModel, Act
             @Override
             public void onClick(View view) {
                 SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
-                sp.edit().clear();
+                sp.edit().clear().apply();
                 ToastUtils.showToast("退出登录成功");
             }
         });

@@ -1,16 +1,24 @@
 package com.bytedance.toutiao.ui.user.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.FragmentUserBinding;
 import com.bytedance.toutiao.ui.user.activity.AccountManagementActivity;
+import com.bytedance.toutiao.ui.user.activity.MyCollectionActivity;
+import com.bytedance.toutiao.ui.user.activity.MyCommentActivity;
+import com.bytedance.toutiao.ui.user.activity.MyHistoryActivity;
+import com.bytedance.toutiao.ui.user.activity.MyPublishActivity;
+import com.bytedance.toutiao.ui.user.activity.UserInformationActivity;
 
 /**
  * Data : 2020/10/28
@@ -34,16 +42,60 @@ public class FragmentUser extends BaseFragment<NormalViewModel, FragmentUserBind
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
+        SharedPreferences sp = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+        CharSequence nickname = sp.getString("nickname",null);
+        if(nickname != null){
+            binding.userUsername.setText(nickname);
+        }
     }
 
     @Override
     protected void setListener() {
-        binding.myAccount.setOnClickListener(new View.OnClickListener() {
+//        binding.myAccount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent toAccountManagement = new Intent(getActivity(), AccountManagementActivity.class);
+//                getActivity().startActivity(toAccountManagement);
+//            }
+//        });
+        binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toAccountManagement = new Intent(getActivity(), AccountManagementActivity.class);
-                getActivity().startActivity(toAccountManagement);
+                Intent intent;
+                switch (view.getId()){
+                    case R.id.my_account:
+                        intent = new Intent(getActivity(), AccountManagementActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.user_thisuser:
+                        intent = new Intent(getActivity(), UserInformationActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_publish:
+                        intent = new Intent(getActivity(), MyPublishActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_collection:
+                        intent = new Intent(getActivity(), MyCollectionActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_history:
+                        intent = new Intent(getActivity(), MyHistoryActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_comment:
+                        intent = new Intent(getActivity(), MyCommentActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_focus:
+                        intent = new Intent(getActivity(), BaseActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_fans:
+                        intent = new Intent(getActivity(), BaseActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
     }

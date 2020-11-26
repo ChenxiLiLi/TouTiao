@@ -73,19 +73,15 @@ public interface RetrofitApiService {
     @FormUrlEncoded
     Observable<ResponseModel<List<PostDetailModel>>> getPostsByEventId(@Field("eventId") String eventId);
 
-    //获取草稿箱视频
-    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getDraftsVideos")
-    Observable<ResponseModel<List<VideoModel>>> getDraftsVideos(@Field("id") String id);
+    //获取视频
+    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getMyVideos")
+    Observable<ResponseModel<List<VideoModel>>> getMyVideos(@Field("id") String id, String state);
 
-    //获取待审批视频
-    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getPreApprovalVideos")
-    Observable<ResponseModel<List<VideoModel>>> getPreApprovalVideos(@Field("id") String id);
+    //获取资讯
+    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getMyInfos")
+    Observable<ResponseModel<List<NewsModel>>> getMyInfos(@Field("id") String id, String state);
 
-    //获取未通过视频
-    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getFailedVideos")
-    Observable<ResponseModel<List<VideoModel>>> getFailedVideos(@Field("id") String id);
-
-    //获取已发布视频
-
-    Observable<ResponseModel<List<VideoModel>>> getPublishedVideos(@Field("id") String id);
+    //修改个人信息
+    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")
+    Observable<ResponseModel<User>> myUpdate(String id, String nickname, String sex, String introduction);
 }

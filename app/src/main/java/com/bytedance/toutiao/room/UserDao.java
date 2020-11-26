@@ -18,7 +18,6 @@ public interface UserDao{
     Single<User> findById(int id);
 
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     List<Long> insertAll(User... students);
 }

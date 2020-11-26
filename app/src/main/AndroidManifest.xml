@@ -22,19 +22,21 @@
         <activity android:name=".ui.event.EventTimelineActivity" />
         <activity android:name=".ui.video.activity.VideoDetailActivity" >
         </activity>
-        <activity android:name=".ui.user.activity.AccountManagementActivity">
+        <activity android:name=".ui.event.PublishVideoActivity" />
+        <activity android:name=".ui.login.RegisterActivity" />
+        <activity android:name=".ui.user.activity.MyPublishActivity">
+        </activity>
+        <activity android:name=".ui.user.activity.MyUpdateActivity">
+        </activity>
+        <activity android:name=".ui.login.LoginActivity">
+
+        </activity>
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ui.event.PublishVideoActivity" />
-        <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name=".ui.login.LoginActivity">
-        </activity>
-        <activity android:name=".ui.user.activity.AccountManagementActivity"/>
-        <activity android:name=".ui.MainActivity">
 
         </activity>
     </application>

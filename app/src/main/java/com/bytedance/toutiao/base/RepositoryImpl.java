@@ -92,5 +92,17 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getPostsByEventId(eventId), liveData);
     }
 
+    //获取视频
+    public MutableLiveData<Resource<List<VideoModel>>> getMyVideos(String id, String state) {
+        MutableLiveData<Resource<List<VideoModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getMyVideos(id, state), liveData);
+    }
+
+    //获取资讯
+    public MutableLiveData<Resource<List<NewsModel>>> getMyInfos(String id, String state) {
+        MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getMyInfos(id, state), liveData);
+    }
+
 
 }

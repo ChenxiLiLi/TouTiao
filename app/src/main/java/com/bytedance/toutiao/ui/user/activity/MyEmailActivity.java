@@ -2,6 +2,8 @@ package com.bytedance.toutiao.ui.user.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.bytedance.toutiao.R;
@@ -18,7 +20,11 @@ public class MyEmailActivity extends BaseActivity<NormalViewModel, ActivityMyEma
 
     @Override
     protected void processLogic() {
-
+        SharedPreferences sp = getSharedPreferences("email", Context.MODE_PRIVATE);
+        String email = sp.getString("email",null);
+        if(email != null){
+            binding.myEmail.setText(email);
+        }
     }
 
     @Override

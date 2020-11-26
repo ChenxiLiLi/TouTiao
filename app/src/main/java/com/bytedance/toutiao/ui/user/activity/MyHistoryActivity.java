@@ -10,12 +10,13 @@ import com.bytedance.toutiao.databinding.ActivityMyHistoryBinding;
 import com.bytedance.toutiao.ui.user.adapter.HistoryAdapter;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUserInfo;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUserVideo;
+import com.bytedance.toutiao.viewmodel.MyViewModel;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyHistoryActivity extends BaseActivity<NormalViewModel, ActivityMyHistoryBinding> {
+public class MyHistoryActivity extends BaseActivity<MyViewModel, ActivityMyHistoryBinding> {
 
     private FragmentUserInfo fragment_info;
     private FragmentUserVideo fragment_video;

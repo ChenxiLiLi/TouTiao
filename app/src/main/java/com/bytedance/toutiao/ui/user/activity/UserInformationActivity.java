@@ -9,25 +9,11 @@ import android.view.View;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
+import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.databinding.ActivityUserInformationBinding;
 import com.bytedance.toutiao.viewmodel.MyViewModel;
 
-public class UserInformationActivity extends BaseActivity<MyViewModel, ActivityUserInformationBinding> implements TextWatcher {
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable editable) {
-
-    }
+public class UserInformationActivity extends BaseActivity<MyViewModel, ActivityUserInformationBinding>{
 
     @Override
     protected int getContentViewId() {
@@ -36,12 +22,16 @@ public class UserInformationActivity extends BaseActivity<MyViewModel, ActivityU
 
     @Override
     protected void processLogic() {
+        binding.setViewModel(mViewModel);
         SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-        if(sp.getString("username",null) == null ){
+//        if(sp.getString("username",null) != null ){
+//            binding.textUsername.setText(sp.getString("nickname",null));
+//            binding.textSex.setText(sp.getString("sex", null));
+//            binding.textTel.setText(sp.getString("phoneNum",null));
+//            binding.textEmail.setText(sp.getString("email",null));
+//            binding.textIntroduction.setText(sp.getString("introduction",null));
 
-        }else{
-
-        }
+//        }
     }
 
     @Override

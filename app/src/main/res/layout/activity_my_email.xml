@@ -23,7 +23,7 @@
             android:gravity="center">
 
             <EditText
-                android:id="@+id/my_tel"
+                android:id="@+id/my_email"
                 android:layout_width="@dimen/dp_350"
                 android:layout_height="@dimen/dp_60"
                 android:hint="绑定邮箱"

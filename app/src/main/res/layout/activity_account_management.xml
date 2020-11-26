@@ -104,7 +104,6 @@
                 android:id="@+id/management_loginout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
-                android:onClick="@{onClickListener}"
                 android:clickable="true">
 
                 <TextView

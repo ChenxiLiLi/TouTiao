@@ -85,8 +85,8 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
 
             @Override
             public boolean showToLoginFragment() {
-                    SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
-                    if(null == (sp.getString("username", null))){
+                SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+                if(sp == null || null == (sp.getString("username", null))){
                         ToLoginfragment toLoginfragment = new ToLoginfragment();
                         toLoginfragment.show(getChildFragmentManager(), "");
                         return false;
@@ -153,6 +153,8 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
     public void onClick(View view) {
 
     }
+
+
 
     @Override
     public void onPause() {

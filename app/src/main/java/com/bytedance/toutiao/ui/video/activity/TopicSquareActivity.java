@@ -19,6 +19,7 @@ import com.bytedance.toutiao.bean.TopicCommentModel;
 import com.bytedance.toutiao.databinding.ActivityTopicSquareBinding;
 import com.bytedance.toutiao.ui.video.adapter.PostPublishAdapter;
 import com.bytedance.toutiao.ui.video.adapter.TopicSqaureAdapter;
+import com.bytedance.toutiao.utils.ToastUtils;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class TopicSquareActivity extends BaseActivity<VideoViewModel, ActivityTo
     private TopicSqaureAdapter topicSqaureAdapter;
     private LinearLayoutManager linearLayoutManager;
     private List<PostDetailModel> postDetailModels = new ArrayList<>();
-
+    private boolean isFocus = false;
 
     @Override
     protected int getContentViewId() {
@@ -72,6 +73,20 @@ public class TopicSquareActivity extends BaseActivity<VideoViewModel, ActivityTo
             public void onClick(View view) {
                 Intent toPublish = new Intent(TopicSquareActivity.this, PostPublishActivity.class);
                 startActivity(toPublish);
+            }
+        });
+
+
+        binding.btnFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isFocus){
+                    binding.btnFocus.setText("关注");
+                    ToastUtils.showToast("取消关注成功");
+                }else{
+                    binding.btnFocus.setText("已关注");
+                    ToastUtils.showToast("已关注");
+                }
             }
         });
     }

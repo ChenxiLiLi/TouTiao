@@ -17,8 +17,6 @@ public interface UserDao{
     @Query("SELECT * FROM user WHERE id = :id")
     Single<User> findById(int id);
 
-
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     List<Long> insertAll(User... students);
 }

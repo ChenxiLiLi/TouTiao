@@ -147,4 +147,12 @@ public class FragmentFocusVideo extends BaseFragment<VideoViewModel, FragmentFoc
             }
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(null == (sp.getString("username", null)))
+            binding.rvToLogin.setVisibility(View.VISIBLE);
+    }
 }

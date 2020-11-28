@@ -16,21 +16,20 @@ import com.bytedance.toutiao.bean.NewsModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.FragmentUserInfoBinding;
 import com.bytedance.toutiao.ui.user.adapter.UserInfoAdapter;
+import com.bytedance.toutiao.viewmodel.LoginViewModel;
 import com.bytedance.toutiao.viewmodel.MyViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentUserInfo extends BaseFragment<MyViewModel, FragmentUserInfoBinding> {
+public class FragmentUserInfo extends BaseFragment<LoginViewModel, FragmentUserInfoBinding> {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private UserInfoAdapter userInfoAdapter;
     private List<NewsModel> newsModels = new ArrayList<>();
-    private String id;
     private String state;
 
-    public FragmentUserInfo(String id, String state) {
-        this.id = id;
+    public FragmentUserInfo(String state) {
         this.state = state;
     }
 
@@ -44,7 +43,7 @@ public class FragmentUserInfo extends BaseFragment<MyViewModel, FragmentUserInfo
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(LoginViewModel.class);
         recyclerView = binding.userRvInfo;
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         userInfoAdapter = new UserInfoAdapter(mContentView.getContext(), newsModels);
@@ -64,7 +63,7 @@ public class FragmentUserInfo extends BaseFragment<MyViewModel, FragmentUserInfo
     }
 
     private void getBaseNews(){
-        mViewModel.getMyInfos(id, state).observe(getActivity(), new Observer<Resource<List<NewsModel>>>() {
+        mViewModel.getMyInfos(state).observe(getActivity(), new Observer<Resource<List<NewsModel>>>() {
             @Override
             public void onChanged(Resource<List<NewsModel>> listResource) {
                 if(listResource != null){

@@ -7,6 +7,7 @@ import com.bytedance.toutiao.bean.SearchCityModel;
 import com.bytedance.toutiao.bean.SearchFriendModel;
 import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.bean.PostDetailModel;
+import com.bytedance.toutiao.bean.TopicModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
@@ -76,12 +77,17 @@ public interface RetrofitApiService {
     //获取视频
     @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getMyVideos")
     @FormUrlEncoded
-    Observable<ResponseModel<List<VideoModel>>> getMyVideos(@Field("id") String id, @Field("state")String state);
+    Observable<ResponseModel<List<VideoModel>>> getMyVideos(@Field("id") int id, @Field("state")String state);
 
     //获取资讯
     @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getMyInfos")
     @FormUrlEncoded
-    Observable<ResponseModel<List<NewsModel>>> getMyInfos(@Field("id") String id, @Field("state")String state);
+    Observable<ResponseModel<List<NewsModel>>> getMyInfos(@Field("id") int id, @Field("state")String state);
+
+    //获取话题
+    @POST("mock/7451/byte/dance/v1.0/base/login")
+    @FormUrlEncoded
+    Observable<ResponseModel<List<TopicModel>>> getMyTopics(@Field("id") int id);
 
     //修改个人信息
     @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")

@@ -17,7 +17,14 @@ public interface UserDao{
     @Query("SELECT * FROM user WHERE id = :id")
     Single<User> findById(int id);
 
+    @Query("SELECT * FROM user WHERE username = :username")
+    Single<User> findByUsername(String username);
 
+    @Query("SELECT * FROM user")
+    Single<User> getUser();
+
+    @Query("SELECT * FROM user")
+    User getUser1();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     List<Long> insertAll(User... students);

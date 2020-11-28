@@ -32,15 +32,8 @@ public class MyUpdateActivity extends BaseActivity<MyViewModel, ActivityMyUpdate
     @Override
     protected void processLogic() {
         binding.setViewModel(mViewModel);
-        SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
-        if(sp.getString("username",null) != null ){
-            binding.textNickname.setText(sp.getString("nickname",null));
-            binding.textIntroduction.setText(sp.getString("introduction",null));
-            if(sp.getString("sex",null).equals("女") ){
-                binding.sexMale.setChecked(false);
-                binding.sexFemale.setChecked(true);
-            }
-        }
+        mViewModel.getUser();
+
     }
 
     @Override

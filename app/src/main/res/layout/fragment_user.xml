@@ -7,6 +7,10 @@
             type="String" />
 
         <variable
+            name="viewModel"
+            type="com.bytedance.toutiao.viewmodel.MyViewModel" />
+
+        <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
 
@@ -35,9 +39,11 @@
 
             <TextView
                 android:id="@+id/user_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/textStyle_tab"
                 android:layout_below="@id/icon_user_picture"
-                android:text="sssss"
+                android:text="@={viewModel.userName}"
                 android:textSize="@dimen/sp_20"/>
 
         </RelativeLayout>
@@ -60,8 +66,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="0"
                     android:textSize="@dimen/sp_20"/>
+                <!--android:text="@={viewModel.focusNum}"-->
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -85,8 +92,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="0"
                     android:textSize="@dimen/sp_20"/>
+                    <!--android:text="@={viewModel.fansNUm}"-->
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -259,6 +267,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
                 android:layout_weight="1"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"
                 android:gravity="left|center">
 
                 <ImageView

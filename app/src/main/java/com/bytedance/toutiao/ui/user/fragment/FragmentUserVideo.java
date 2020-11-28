@@ -20,25 +20,24 @@ import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.FragmentUserVideoBinding;
 import com.bytedance.toutiao.ui.user.adapter.UserVideoAdapter;
+import com.bytedance.toutiao.viewmodel.LoginViewModel;
 import com.bytedance.toutiao.viewmodel.MyViewModel;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentUserVideo extends BaseFragment<MyViewModel, FragmentUserVideoBinding> {
+public class FragmentUserVideo extends BaseFragment<LoginViewModel, FragmentUserVideoBinding> {
     private RecyclerView recyclerView;
     private GridLayoutManager gridLayoutManager;
     private UserVideoAdapter userVideoAdapter;
     private List<VideoModel> videoModels = new ArrayList<>();
-    private String id;
     private String state;
 
     public FragmentUserVideo(){
     }
 
-    public FragmentUserVideo(String id, String state){
-        this.id = id;
+    public FragmentUserVideo(String state){
         this.state = state;
     }
 
@@ -50,7 +49,7 @@ public class FragmentUserVideo extends BaseFragment<MyViewModel, FragmentUserVid
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(LoginViewModel.class);
         initData();
         addHistoryVideos();
         recyclerView = binding.userRvVideo;
@@ -115,7 +114,7 @@ public class FragmentUserVideo extends BaseFragment<MyViewModel, FragmentUserVid
     }
 
     private void addHistoryVideos(){
-        mViewModel.getMyVideos(id, state).observe(getActivity(), new Observer<Resource<List<VideoModel>>>() {
+        mViewModel.getMyVideos(state).observe(getActivity(), new Observer<Resource<List<VideoModel>>>() {
             @Override
             public void onChanged(Resource<List<VideoModel>> listResource) {
                 Log.e("userVideo", listResource.state + "");

@@ -29,23 +29,35 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
         super(application);
     }
 
+    //用户名绑定
+    public final ObservableField<String> userName = new ObservableField<>("");
     //昵称的绑定
     public final ObservableField<String> nickName = new ObservableField<>("");
+    //关注数绑定
+    public final ObservableField<Integer> focusNum = new ObservableField<>(0);
+    //粉丝数绑定
+    public final ObservableField<Integer> fansNUm = new ObservableField<>(0);
+    //性别的绑定
+    public final ObservableField<String> sex = new ObservableField<>("");
+    //手机的绑定
+    public final ObservableField<String> tel = new ObservableField<>("");
+    //邮箱的绑定
+    public final ObservableField<String> email = new ObservableField<>("");
     //简介的绑定
     public final ObservableField<String> introduction = new ObservableField<>("");
 
     //获取视频
-    public LiveData<Resource<List<VideoModel>>> getMyVideos(String id, String state){
+    public LiveData<Resource<List<VideoModel>>> getMyVideos(int id, String state){
         return getRepository().getMyVideos(id, state);
     }
 
     //获取资讯
-    public LiveData<Resource<List<NewsModel>>> getMyInfos(String id, String state){
+    public LiveData<Resource<List<NewsModel>>> getMyInfos(int id, String state){
         return getRepository().getMyInfos(id, state);
     }
 
-    public void getUser(final int id){
-        MyApplication.getDb().userDao().findById(id)
+    public void getUser(){
+        MyApplication.getDb().userDao().getUser()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<User>() {
@@ -56,13 +68,23 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
 
                     @Override
                     public void onSuccess(User user) {
-                        Log.e("userinfo", user.getUsername());
+                        Log.e("ttttest", "获取user");
+                        userName.set(user.getUsername());
+                        Log.e("ttttest", "获取userName==" + userName.get());
+                        nickName.set(user.getNickname());
+                        sex.set(user.getSex());
+                        focusNum.set(user.getFocusNum());
+                        fansNUm.set(user.getFansNum());
+                        tel.set(user.getPhoneNumber());
+                        email.set(user.getEmail());
+                        introduction.set(user.getIntroduction());
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        System.out.println(e);
                     }
                 });
+
     }
 }

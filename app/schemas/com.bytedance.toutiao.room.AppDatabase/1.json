@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b1b899fab057bf3248d1579ff4b4dd3e",
+    "identityHash": "811bceb1c6e6922ee292102701c4edd6",
     "entities": [
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `email` TEXT, `phone_number` TEXT, `sex` TEXT, `username` TEXT, `nickname` TEXT, `password` TEXT, `introduction` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `email` TEXT, `phone_number` TEXT, `sex` TEXT, `username` TEXT, `nickname` TEXT, `password` TEXT, `introduction` TEXT, `focusNum` INTEGER NOT NULL, `fansNum` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -55,6 +55,18 @@
             "columnName": "introduction",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "focusNum",
+            "columnName": "focusNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fansNum",
+            "columnName": "fansNum",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -69,7 +81,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b1b899fab057bf3248d1579ff4b4dd3e\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"811bceb1c6e6922ee292102701c4edd6\")"
     ]
   }
 }

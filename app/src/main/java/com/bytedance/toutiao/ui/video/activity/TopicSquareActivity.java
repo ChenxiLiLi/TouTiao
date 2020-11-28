@@ -41,7 +41,8 @@ public class TopicSquareActivity extends BaseActivity<VideoViewModel, ActivityTo
     @Override
     protected void processLogic() {
         mViewModel = ViewModelProviders.of(this).get(VideoViewModel.class);
-
+        Intent intent = getIntent();
+        String topicId = intent.getStringExtra("topicId");
         topicSqaureAdapter = new TopicSqaureAdapter(postDetailModels, this);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         binding.rvTopicSquare.setLayoutManager(linearLayoutManager);

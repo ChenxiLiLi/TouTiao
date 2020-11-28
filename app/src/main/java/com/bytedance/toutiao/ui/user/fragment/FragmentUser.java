@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
@@ -19,13 +20,16 @@ import com.bytedance.toutiao.ui.user.activity.MyCommentActivity;
 import com.bytedance.toutiao.ui.user.activity.MyHistoryActivity;
 import com.bytedance.toutiao.ui.user.activity.MyPublishActivity;
 import com.bytedance.toutiao.ui.user.activity.UserInformationActivity;
+import com.bytedance.toutiao.utils.ToastUtils;
+import com.bytedance.toutiao.viewmodel.LoginViewModel;
+import com.bytedance.toutiao.viewmodel.MyViewModel;
 
 /**
  * Data : 2020/10/28
  * Time : 15:56
  * Author : 刘朝阳
  */
-public class FragmentUser extends BaseFragment<NormalViewModel, FragmentUserBinding> {
+public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding> {
 
     int index;
 
@@ -42,28 +46,19 @@ public class FragmentUser extends BaseFragment<NormalViewModel, FragmentUserBind
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        SharedPreferences sp = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-        CharSequence nickname = sp.getString("nickname",null);
-        if(nickname != null){
-            binding.userUsername.setText(nickname);
-        }
+        mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        mViewModel.getUser();
     }
 
     @Override
     protected void setListener() {
-//        binding.myAccount.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent toAccountManagement = new Intent(getActivity(), AccountManagementActivity.class);
-//                getActivity().startActivity(toAccountManagement);
-//            }
-//        });
         binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
                 switch (view.getId()){
                     case R.id.my_account:
+                        ToastUtils.showToast("clicked");
                         intent = new Intent(getActivity(), AccountManagementActivity.class);
                         startActivity(intent);
                         break;

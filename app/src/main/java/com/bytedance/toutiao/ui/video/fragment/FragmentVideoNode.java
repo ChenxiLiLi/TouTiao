@@ -9,11 +9,8 @@ import androidx.fragment.app.Fragment;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.databinding.FragmentVideoEventBinding;
 import com.bytedance.toutiao.databinding.FragmentVideoNodeBinding;
-import com.bytedance.toutiao.ui.event.EventSimilarActivity;
-import com.bytedance.toutiao.ui.user.fragment.FragmentUserInfo;
-import com.bytedance.toutiao.ui.user.fragment.FragmentUserVideo;
+import com.bytedance.toutiao.ui.event.activity.EventSimilarActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.bytedance.toutiao.ui.view.NoScrollViewPager;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;

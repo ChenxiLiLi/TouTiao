@@ -90,7 +90,7 @@
                 android:layout_marginLeft="@dimen/dp_14"
                 android:gravity="center_vertical|left"
                 android:singleLine="true"
-                android:text="请输入聊天内容"></EditText>
+                android:hint="请输入聊天内容"></EditText>
         </FrameLayout>
 
         <Button

@@ -48,7 +48,7 @@ public class FragmentMessage extends BaseFragment{
         //创建三个fragment
         FragmentMessageChats fragmentMessageChat = new FragmentMessageChats();
         FragmentMessageComments fragmentMessageComment = new FragmentMessageComments();
-        FragmentMessageComments fragmentMessageFocus = new FragmentMessageComments();
+        FragmentMessageFocus fragmentMessageFocus = new FragmentMessageFocus();
 
         fragments.add(fragmentMessageChat);
         fragments.add(fragmentMessageComment);

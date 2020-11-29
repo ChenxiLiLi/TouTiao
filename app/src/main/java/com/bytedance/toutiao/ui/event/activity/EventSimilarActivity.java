@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.event;
+package com.bytedance.toutiao.ui.event.activity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +12,7 @@ import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.bean.EventOutside;
 import com.bytedance.toutiao.databinding.ActivityEventSimilarBinding;
-import com.bytedance.toutiao.ui.event.event.EventSimilarAdapter;
+import com.bytedance.toutiao.ui.event.adapter.EventSimilarAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

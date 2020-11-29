@@ -19,6 +19,10 @@ public class MessageCommentModel {
         this.msgCommentNewsType = msgCommentNewsType;
     }
 
+    public MessageCommentModel(String msgCommentUserName) {
+        this.msgCommentUserName = msgCommentUserName;
+    }
+
     public MessageCommentModel(String msgCommentUserName, String msgCommentContent, String msgCommentDate) {
         this.msgCommentUserName = msgCommentUserName;
         this.msgCommentContent = msgCommentContent;

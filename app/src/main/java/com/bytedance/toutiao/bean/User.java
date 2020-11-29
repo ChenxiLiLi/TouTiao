@@ -20,6 +20,9 @@ public class User {
     private String username;
     private String nickname;
     private String password;
+    private String introduction;
+    private int focusNum;
+    private int fansNum;
 
     public String getUsername() {
         return username;
@@ -75,5 +78,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getIntroduction(){
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction){
+        this.introduction = introduction;
+    }
+
+    public int getFansNum() {
+        return fansNum;
+    }
+
+    public void setFansNum(int fansNum) {
+        this.fansNum = fansNum;
+    }
+
+    public int getFocusNum() {
+        return focusNum;
+    }
+
+    public void setFocusNum(int focusNum) {
+        this.focusNum = focusNum;
     }
 }

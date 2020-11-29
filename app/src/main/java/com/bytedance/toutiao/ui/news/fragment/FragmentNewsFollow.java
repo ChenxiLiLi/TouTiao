@@ -97,7 +97,7 @@ public class FragmentNewsFollow extends BaseFragment<NewsViewModel, FragmentNews
             @Override
             public void onChanged(Resource<List<NewsModel>> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
+                if (listResource.state == 1) {
                     newsModels.addAll(listResource.data);
                 }
                 newsListAdapter.notifyDataSetChanged();

@@ -78,9 +78,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                                         .putString("username", mViewModel.userName.get())
                                         .putString("password", mViewModel.password.get())
                                         .apply();
-                                Log.e("main", userResource.data.getUsername());
                                 mViewModel.insertUser(userResource.data);
-                                mViewModel.getUser(userResource.data.getId());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }

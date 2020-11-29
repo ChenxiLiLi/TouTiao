@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.databinding.ItemPostDetailBinding;
 import com.bytedance.toutiao.databinding.ItemVideoDetailBinding;
@@ -20,11 +21,11 @@ import java.util.List;
 public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.ViewHolder>  {
 
     private Context context;
-    private List<PostDetailModel> postDetailModels;
+    private List<MessageCommentModel> messageCommentModels;
 
-    public PostDetailAdapter(Context context, List<PostDetailModel> postDetailModels) {
+    public PostDetailAdapter(Context context, List<MessageCommentModel> messageCommentModels) {
         this.context = context;
-        this.postDetailModels = postDetailModels;
+        this.messageCommentModels = messageCommentModels;
     }
 
     public PostDetailAdapter(Context context) {
@@ -43,13 +44,34 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ViewDataBinding binding = (ItemPostDetailBinding) holder.getBinding();
-
+        final ItemPostDetailBinding binding = (ItemPostDetailBinding) holder.getBinding();
+        final MessageCommentModel messageCommentModel = messageCommentModels.get(position);
+        binding.tvContent.setText(messageCommentModel.getMsgCommentContent());
+        binding.tvName.setText(messageCommentModel.getMsgCommentUserName());
+        binding.tvLikeNum.setText(messageCommentModel.getLoveNum());
+        binding.ivLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(messageCommentModel.isLove()){
+                    messageCommentModel.setLove(false);
+                    binding.ivLike.setSelected(false);
+                    Integer num = Integer.valueOf(messageCommentModel.getLoveNum());
+                    messageCommentModel.setLoveNum((String.valueOf(num - 1)));
+                    binding.tvLikeNum.setText(messageCommentModel.getLoveNum());
+                }else{
+                    messageCommentModel.setLove(true);
+                    binding.ivLike.setSelected(true);
+                    Integer num = Integer.valueOf(messageCommentModel.getLoveNum());
+                    messageCommentModel.setLoveNum((String.valueOf(num + 1)));
+                    binding.tvLikeNum.setText(messageCommentModel.getLoveNum());
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return messageCommentModels.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

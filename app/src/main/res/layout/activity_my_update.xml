@@ -5,6 +5,10 @@
         <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.bytedance.toutiao.viewmodel.MyViewModel" />
     </data>
 
     <LinearLayout
@@ -27,6 +31,7 @@
                 android:background="@color/titleGrey"/>
 
             <ImageView
+                android:id="@+id/update_back"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="match_parent"
                 android:src="@mipmap/back"
@@ -51,7 +56,7 @@
                 android:gravity="center"/>
 
             <EditText
-                android:id="@+id/text_username"
+                android:id="@+id/text_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -85,6 +90,7 @@
                     android:layout_width="@dimen/dp_80"
                     android:layout_height="match_parent"
                     android:text="男"
+                    android:checked="true"
                     android:textSize="@dimen/sp_20"/>
 
                 <RadioButton
@@ -98,7 +104,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/my_user"
+            android:id="@+id/my_introduction"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
             android:layout_weight="1"
@@ -115,7 +121,7 @@
                 android:gravity="center"/>
 
             <EditText
-                android:id="@+id/text_user"
+                android:id="@+id/text_introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

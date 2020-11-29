@@ -14,12 +14,9 @@ import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityMainBinding;
 
-import com.bytedance.toutiao.ui.search.SearchActivity;
+import com.bytedance.toutiao.ui.message.fragment.FragmentMessage;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUser;
-//import com.bytedance.toutiao.ui.news.FragmentHome;
-import com.bytedance.toutiao.ui.message.Fragment.FragmentMessage;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNews;
-import com.bytedance.toutiao.ui.message.Fragment.FragmentMessage;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideo;
 
 import java.util.ArrayList;
@@ -56,8 +53,6 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.framLayout:
-                        Toast.makeText(MainActivity.this, " clicked ", Toast.LENGTH_LONG).show();
                     case R.id.relative_tab_home:
                         switchFragment(R.id.relative_tab_home);
                         break;
@@ -69,11 +64,6 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
                         break;
                     case R.id.relative_tab_user:
                         switchFragment(R.id.relative_tab_user);
-                        break;
-                    case R.id.icon_message:
-                        Toast.makeText(MainActivity.this, "进入搜索界面", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                        startActivity(intent);
                         break;
                 }
             }

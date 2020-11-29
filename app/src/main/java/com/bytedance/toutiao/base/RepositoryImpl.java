@@ -12,6 +12,7 @@ import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.SearchCityModel;
 import com.bytedance.toutiao.bean.SearchFriendModel;
 import com.bytedance.toutiao.bean.SearchHotModel;
+import com.bytedance.toutiao.bean.TopicModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 
@@ -90,6 +91,24 @@ public class RepositoryImpl extends BaseModel {
     public MutableLiveData<Resource<List<PostDetailModel>>> getPostByEventId(String eventId) {
         MutableLiveData<Resource<List<PostDetailModel>>> liveData = new MutableLiveData<>();
         return observe(getApiService().getPostsByEventId(eventId), liveData);
+    }
+
+    //获取视频
+    public MutableLiveData<Resource<List<VideoModel>>> getMyVideos(int id, String state) {
+        MutableLiveData<Resource<List<VideoModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getMyVideos(id, state), liveData);
+    }
+
+    //获取资讯
+    public MutableLiveData<Resource<List<NewsModel>>> getMyInfos(int id, String state) {
+        MutableLiveData<Resource<List<NewsModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getMyInfos(id, state), liveData);
+    }
+
+    //获取话题
+    public MutableLiveData<Resource<List<TopicModel>>> getMyTopics(int id) {
+        MutableLiveData<Resource<List<TopicModel>>> liveData = new MutableLiveData<>();
+        return observe(getApiService().getMyTopics(id), liveData);
     }
 
 

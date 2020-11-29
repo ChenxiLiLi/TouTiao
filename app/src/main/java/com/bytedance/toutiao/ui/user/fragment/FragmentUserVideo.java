@@ -1,28 +1,45 @@
 package com.bytedance.toutiao.ui.user.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.FragmentUserVideoBinding;
 import com.bytedance.toutiao.ui.user.adapter.UserVideoAdapter;
+import com.bytedance.toutiao.viewmodel.LoginViewModel;
+import com.bytedance.toutiao.viewmodel.MyViewModel;
+import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentUserVideo extends BaseFragment<NormalViewModel, FragmentUserVideoBinding> {
+public class FragmentUserVideo extends BaseFragment<LoginViewModel, FragmentUserVideoBinding> {
     private RecyclerView recyclerView;
     private GridLayoutManager gridLayoutManager;
     private UserVideoAdapter userVideoAdapter;
     private List<VideoModel> videoModels = new ArrayList<>();
+    private String state;
 
-    public FragmentUserVideo(){ }
+    public FragmentUserVideo(){
+    }
+
+    public FragmentUserVideo(String state){
+        this.state = state;
+    }
 
 
     @Override
@@ -32,7 +49,9 @@ public class FragmentUserVideo extends BaseFragment<NormalViewModel, FragmentUse
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
+        mViewModel = ViewModelProviders.of(getActivity()).get(LoginViewModel.class);
         initData();
+        addHistoryVideos();
         recyclerView = binding.userRvVideo;
         gridLayoutManager = new GridLayoutManager(mContentView.getContext(),2);
         userVideoAdapter = new UserVideoAdapter(mContentView.getContext(), videoModels);
@@ -92,5 +111,15 @@ public class FragmentUserVideo extends BaseFragment<NormalViewModel, FragmentUse
         videoModels.add(videoModel3);
         videoModels.add(videoModel2);
         videoModels.add(videoModel1);
+    }
+
+    private void addHistoryVideos(){
+        mViewModel.getMyVideos(state).observe(getActivity(), new Observer<Resource<List<VideoModel>>>() {
+            @Override
+            public void onChanged(Resource<List<VideoModel>> listResource) {
+                Log.e("userVideo", listResource.state + "");
+                userVideoAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }

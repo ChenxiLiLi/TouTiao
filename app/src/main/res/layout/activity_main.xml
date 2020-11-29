@@ -83,30 +83,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_tab_publish"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"
-                android:tag="0">
-
-
-                <ImageView
-                    android:id="@+id/publish"
-                    style="@style/imageStyle_tab"
-                    android:src="@mipmap/publish" />
-
-                <TextView
-                    style="@style/textStyle_tab"
-                    android:layout_below="@+id/publish"
-                    android:text="发布" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/relative_tab_message"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -120,8 +96,6 @@
                 <ImageView
                     android:id="@+id/icon_message"
                     style="@style/imageStyle_tab"
-                    android:onClick="@{onClickListener}"
-                    android:clickable="true"
                     android:src="@drawable/tab_message" />
 
                 <TextView

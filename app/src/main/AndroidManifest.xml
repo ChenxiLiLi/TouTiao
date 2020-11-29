@@ -2,8 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bytedance.toutiao">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:name=".MyApplication"
@@ -12,26 +18,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.Base"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".ui.person.FansActivity"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme.Base">
         <activity android:name=".ui.person.AuthorActivity" />
-        <activity android:name=".ui.search.SearchActivity" />
-        <activity android:name=".ui.message.Activity.MessageChatActivity" />
-        <activity android:name=".ui.video.activity.PostDetailActivity" />
-        <activity android:name=".ui.video.activity.TopicSquareActivity" />
+        <activity android:name=".ui.search.SearchActivity"></activity>
+        <activity android:name=".ui.message.Activity.MessageChatActivity"></activity>
+        <activity android:name=".ui.video.activity.PostDetailActivity"></activity>
+        <activity android:name=".ui.video.activity.TopicSquareActivity"></activity>
         <activity android:name=".ui.event.activity.EventSimilarActivity" />
         <activity android:name=".ui.event.activity.EventTimelineActivity" />
+        <activity android:name=".ui.news.activity.NewsDetailActivity" />
         <activity android:name=".ui.video.activity.VideoDetailActivity" />
         <activity android:name=".ui.event.activity.PublishVideoActivity" />
         <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.login.LoginActivity">
+        </activity>
+        <activity android:name=".ui.user.activity.MyPublishActivity"/>
+        <activity android:name=".ui.user.activity.MyCollectionActivity"/>
+        <activity android:name=".ui.user.activity.MyHistoryActivity"/>
+        <activity android:name=".ui.user.activity.MyCommentActivity"/>
+        <activity android:name=".ui.user.activity.UserInformationActivity"/>
+        <activity android:name=".ui.video.activity.PostPublishActivity"/>
+        <activity android:name=".ui.user.activity.AccountManagementActivity"/>
         <activity android:name=".ui.MainActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

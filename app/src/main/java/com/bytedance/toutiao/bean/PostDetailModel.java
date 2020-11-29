@@ -13,6 +13,15 @@ public class PostDetailModel {
     private String position;
     private String loveNum;
     private String commentNum;
+    private boolean isLove;
+
+    public boolean isLove() {
+        return isLove;
+    }
+
+    public void setLove(boolean love) {
+        isLove = love;
+    }
 
     public String getPosition() {
         return position;

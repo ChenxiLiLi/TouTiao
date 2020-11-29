@@ -30,6 +30,7 @@
                     android:src="@mipmap/icon_back_white"/>
 
                 <ImageView
+                    android:id="@+id/iv_share"
                     android:layout_marginTop="@dimen/dp_20"
                     android:layout_marginRight="@dimen/dp_10"
                     android:layout_alignParentRight="true"
@@ -65,7 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorAccent"
-                            android:text="233.5w"/>
+                            />
 
                         <TextView
                             android:textColor="@color/colorAccent"
@@ -79,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorAccent"
-                            android:text="16.8w"/>
+                            />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -92,9 +93,11 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_focus"
             android:layout_marginRight="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_80"
             android:layout_alignParentRight="true"
+            android:textColor="@color/colorAccent"
             android:background="@mipmap/btn_login"
             android:layout_width="@dimen/dp_80"
             android:layout_height="@dimen/dp_40"

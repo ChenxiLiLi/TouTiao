@@ -2,6 +2,8 @@ package com.bytedance.toutiao.ui.user.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.bytedance.toutiao.R;
@@ -18,7 +20,11 @@ public class MyTelActivity extends BaseActivity<NormalViewModel, ActivityMyTelBi
 
     @Override
     protected void processLogic() {
-
+        SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        CharSequence tel = sp.getString("phoneNum",null);
+        if(tel != null){
+            binding.myTel.setText(tel);
+        }
     }
 
     @Override

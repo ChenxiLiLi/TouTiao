@@ -30,9 +30,7 @@
             <ImageView
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="match_parent"
-                android:src="@mipmap/back"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"/>
+                android:src="@mipmap/back"/>
         </RelativeLayout>
 
         <com.google.android.material.tabs.TabLayout

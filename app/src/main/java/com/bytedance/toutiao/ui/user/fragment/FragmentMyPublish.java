@@ -11,6 +11,8 @@ import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.FragmentMyPublishBinding;
 import com.bytedance.toutiao.ui.user.adapter.HistoryAdapter;
+import com.bytedance.toutiao.ui.video.fragment.FragmentEventInfo;
+import com.bytedance.toutiao.ui.video.fragment.FragmentEventVideo;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ public class FragmentMyPublish extends BaseFragment<NormalViewModel, FragmentMyP
 
     private ViewPager viewPager;
     private FragmentUserInfo fragment_info;
-    private FragmentUserVideo fragment_video;
+    private FragmentEventVideo fragment_video;
     private HistoryAdapter historyAdapter;
     private List<Fragment> fragmentList = new ArrayList<>();
 
@@ -43,7 +45,7 @@ public class FragmentMyPublish extends BaseFragment<NormalViewModel, FragmentMyP
         mTabLayout.addTab(mTabLayout.newTab().setText("资讯"));
         mTabLayout.addTab(mTabLayout.newTab().setText("视频"));
         fragment_info = new FragmentUserInfo();
-        fragment_video = new FragmentUserVideo();
+        fragment_video = new FragmentEventVideo();
         fragmentList.add(fragment_info);
         fragmentList.add(fragment_video);
         historyAdapter = new HistoryAdapter(getFragmentManager(),0, fragmentList);

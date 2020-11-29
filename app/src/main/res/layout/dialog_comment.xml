@@ -10,17 +10,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_above="@id/sl_comment">
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
 
                 <TextView
-                    android:id="@+id/tv_title"
+                    android:id="@+id/tv_comment_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9221条评论"
                     android:layout_centerInParent="true"/>
 
                 <TextView
@@ -35,27 +34,23 @@
 
         </LinearLayout>
 
-        <ScrollView
-            android:id="@+id/sl_comment"
+
+        <EditText
+            android:id="@+id/et_comment"
+            android:hint="评论"
             android:layout_alignParentBottom="true"
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_width="@dimen/dp_300"
             android:layout_height="wrap_content"
-            android:fillViewport="true">
-            <EditText
-                android:id="@+id/et_comment"
-                android:hint="评论"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_width="@dimen/dp_300"
-                android:layout_height="wrap_content"
-                />
-        </ScrollView>
+            />
         <Button
-            android:layout_toRightOf="@id/sl_comment"
+            android:id="@+id/btn_publish"
+            android:layout_toRightOf="@id/et_comment"
             android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_30"
-            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_10"
             android:background="@color/textBlue"
             android:text="发送"

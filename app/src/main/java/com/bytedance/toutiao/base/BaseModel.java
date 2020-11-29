@@ -59,9 +59,12 @@ public abstract class BaseModel {
                 }, new Consumer() {
                     @Override
                     public void accept(Object throwable) throws Exception {
+                        Throwable throwable1 = (Throwable) throwable;
+                        System.out.println(throwable1);
                         liveData.postValue((T) Resource.error((Throwable) throwable));
                     }
-                });
+                })
+        ;
 
         return liveData;
     }

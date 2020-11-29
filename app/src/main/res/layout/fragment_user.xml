@@ -7,6 +7,10 @@
             type="String" />
 
         <variable
+            name="viewModel"
+            type="com.bytedance.toutiao.viewmodel.MyViewModel" />
+
+        <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
 
@@ -35,19 +39,71 @@
 
             <TextView
                 android:id="@+id/user_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/textStyle_tab"
                 android:layout_below="@id/icon_user_picture"
-                android:text="sssss"
+                android:text="@={viewModel.userName}"
                 android:textSize="@dimen/sp_20"/>
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_100"
+            android:layout_height="@dimen/dp_80"
             android:orientation="horizontal">
 
+            <LinearLayout
+                android:id="@+id/my_focus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/text_focus_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_20"/>
+                <!--android:text="@={viewModel.focusNum}"-->
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|top"
+                    android:text="关注"
+                    android:textSize="@dimen/sp_20"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/my_fans"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_fans_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_20"/>
+                    <!--android:text="@={viewModel.fansNUm}"-->
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|top"
+                    android:text="粉丝"
+                    android:textSize="@dimen/sp_20"/>
+            </LinearLayout>
         </LinearLayout>
 
         <View
@@ -207,13 +263,13 @@
                 android:background="@color/textGrey"/>
 
             <RelativeLayout
-                android:id="@+id/my_"
+                android:id="@+id/my_account"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
                 android:layout_weight="1"
-                android:gravity="left|center"
                 android:onClick="@{onClickListener}"
-                android:clickable="true">
+                android:clickable="true"
+                android:gravity="left|center">
 
                 <ImageView
                     android:id="@+id/icon_my_id"

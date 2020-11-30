@@ -1,7 +1,10 @@
-package com.bytedance.toutiao.ui.message.fragment;
+package com.bytedance.toutiao.ui.message.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.ui.message.adapter.FragmentMessageChatAdapter;
+import com.bytedance.toutiao.ui.person.AuthorActivity;
 
 public class FragmentMessageChats extends BaseFragment {
     private RecyclerView recyclerView;

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical">
+    <data>
+
+        <variable
+            name="text"
+            type="String"/>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener"/>
+    </data>
     <RelativeLayout
         android:id="@+id/item_comment"
         android:layout_width="match_parent"
@@ -13,7 +23,7 @@
             android:layout_alignParentLeft="true">
 
             <ImageView
-                android:id="@+id/comm_avater"
+                android:id="@+id/avater"
                 android:layout_width="@dimen/dp_50"
                 android:layout_height="@dimen/dp_50"
                 android:layout_margin="@dimen/dp_10"
@@ -24,7 +34,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/comm_avater"
+                android:layout_toRightOf="@+id/avater"
                 android:layout_toLeftOf="@+id/comm_event">
 
                 <TextView

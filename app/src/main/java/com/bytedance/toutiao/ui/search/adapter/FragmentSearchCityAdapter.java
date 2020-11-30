@@ -11,17 +11,16 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.bean.SearchCityModel;
+import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.databinding.ItemSearchCityBinding;
-import com.bytedance.toutiao.ui.search.fragment.FragmentSearchCity;
 
 import java.util.List;
 
 public class FragmentSearchCityAdapter extends RecyclerView.Adapter<FragmentSearchCityAdapter.ViewHolder> {
     private Context context;
-    private List<SearchCityModel> searchCityList;
+    private List<SearchHotModel> searchCityList;
 
-    public FragmentSearchCityAdapter(Context context, List<SearchCityModel> searchCityList) {
+    public FragmentSearchCityAdapter(Context context, List<SearchHotModel> searchCityList) {
         this.context = context;
         this.searchCityList = searchCityList;
     }
@@ -40,7 +39,7 @@ public class FragmentSearchCityAdapter extends RecyclerView.Adapter<FragmentSear
         ItemSearchCityBinding binding = (ItemSearchCityBinding) holder.getBinding();
         binding.itemTitle.setText(searchCityList.get(position).getEventTitle());
         binding.itemRead.setText(searchCityList.get(position).getEventReadNum());
-        binding.itemRanking.setText(searchCityList.get(position).getEventCityRanking());
+        binding.itemRanking.setText(searchCityList.get(position).getEventHotRanking());
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.bytedance.toutiao.ui.message.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageChatModel;
 import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.ui.person.AuthorActivity;
 
 import java.util.List;
 
@@ -50,17 +52,20 @@ public class MessageChatAdapt extends RecyclerView.Adapter <MessageChatAdapt.Vie
                 holder.leftmsg.setText(msg.getContent());
                 break;
         }
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.e("MsgCAdaptView", view.getId() +"");
+//                switch (view.getId()) {
+//                    case R.id.chat_left:
+//                        Toast.makeText(context, "进入作者页", Toast.LENGTH_LONG).show();
+//                        Intent intent2 = new Intent(context, AuthorActivity.class);
+//                        context.startActivity(intent2);
+//                        break;
+//                }
+//            }
+//        });
 
-//        if (msg.getType() == MessageChatModel.TYPE_SENT){
-//            holder.rightLayout.setVisibility(View.VISIBLE);
-//            holder.leftLayout.setVisibility(View.GONE);
-//            holder.rightmsg.setText(msg.getContent());
-//        }else
-//            if(msg.getType() == MessageChatModel.TYPE_RECEIVED){
-//            holder.leftLayout.setVisibility(View.VISIBLE);
-//            holder.rightLayout.setVisibility(View.GONE);
-//            holder.leftmsg.setText(msg.getContent());
-//        }
     }
 
     @Override

@@ -66,9 +66,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:text="@={viewModel.focusNum}"
                     android:textSize="@dimen/sp_20"/>
-                <!--android:text="@={viewModel.focusNum}"-->
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -92,9 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:text="@={viewModel.fansNUm}"
                     android:textSize="@dimen/sp_20"/>
-                    <!--android:text="@={viewModel.fansNUm}"-->
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -204,7 +202,7 @@
                 android:layout_height="@dimen/dp_1"
                 android:background="@color/textGrey"/>
 
-            <RelativeLayout
+            <!--RelativeLayout
                 android:id="@+id/my_comment"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
@@ -231,7 +229,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_1"
-                android:background="@color/textGrey"/>
+                android:background="@color/textGrey"/-->
 
             <RelativeLayout
                 android:id="@+id/my_help"

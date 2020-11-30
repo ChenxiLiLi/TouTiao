@@ -85,11 +85,12 @@ public interface RetrofitApiService {
     Observable<ResponseModel<List<NewsModel>>> getMyInfos(@Field("id") int id, @Field("state")String state);
 
     //获取话题
-    @POST("mock/7451/byte/dance/v1.0/base/login")
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getMyTopics")
     @FormUrlEncoded
     Observable<ResponseModel<List<TopicModel>>> getMyTopics(@Field("id") int id);
 
     //修改个人信息
-    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")
-    Observable<ResponseModel<User>> myUpdate(String id, String nickname, String sex, String introduction);
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")
+    @FormUrlEncoded
+    Observable<ResponseModel<String>> myUpdate(@Field("id")int id, @Field("nickname")String nickname, @Field("sex")String sex, @Field("introduction")String introduction);
 }

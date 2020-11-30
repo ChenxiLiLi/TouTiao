@@ -1,9 +1,11 @@
 package com.bytedance.toutiao.room;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.bytedance.toutiao.bean.User;
 
@@ -14,18 +16,15 @@ import io.reactivex.Single;
 @Dao
 public interface UserDao{
 
-    @Query("SELECT * FROM user WHERE id = :id")
-    Single<User> findById(int id);
-
-    @Query("SELECT * FROM user WHERE username = :username")
-    Single<User> findByUsername(String username);
-
     @Query("SELECT * FROM user")
     Single<User> getUser();
 
-    @Query("SELECT * FROM user")
-    User getUser1();
+    @Query("UPDATE user SET nickname = :nickname, sex = :sex, introduction = :introduction WHERE id =:id")
+    int updateUser(int id, String nickname, String sex, String introduction);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     List<Long> insertAll(User... students);
+
+    @Query("DELETE FROM user WHERE id = :id")
+    int deleteUser(int id);
 }

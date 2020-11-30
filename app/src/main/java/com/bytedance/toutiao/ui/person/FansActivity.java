@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.TestViewModel;
@@ -13,6 +16,7 @@ import com.bytedance.toutiao.bean.MessageChatModel;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ActivityEventSimilarBinding;
 import com.bytedance.toutiao.databinding.ActivityFansBinding;
+import com.bytedance.toutiao.ui.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +54,12 @@ public class FansActivity extends BaseActivity<TestViewModel, ActivityFansBindin
 
     @Override
     protected void setListener() {
-
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 }

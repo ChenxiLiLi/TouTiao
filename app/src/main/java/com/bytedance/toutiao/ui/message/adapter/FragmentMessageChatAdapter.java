@@ -2,6 +2,7 @@ package com.bytedance.toutiao.ui.message.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.ui.message.Activity.MessageChatActivity;
+import com.bytedance.toutiao.ui.person.AuthorActivity;
 
 public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMessageChatAdapter.ViewHolder>  {
 
@@ -33,6 +35,7 @@ public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMes
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("MsgCView", view +"");
                 switch (view.getId()) {
                     case R.id.item_detial:
                         Toast.makeText(context, "进入私聊界面", Toast.LENGTH_LONG).show();

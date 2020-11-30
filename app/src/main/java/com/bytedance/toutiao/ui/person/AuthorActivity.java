@@ -3,13 +3,23 @@ package com.bytedance.toutiao.ui.person;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityAuthorBinding;
+import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentEventInfo;
 import com.bytedance.toutiao.ui.video.fragment.FragmentEventVideo;
@@ -53,6 +63,20 @@ public class AuthorActivity extends BaseActivity<NormalViewModel, ActivityAuthor
     @Override
     protected void setListener() {
 
+        binding.fans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AuthorActivity.this, "进入粉丝页", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(AuthorActivity.this, FansActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 }

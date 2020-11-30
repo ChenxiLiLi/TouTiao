@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.message.fragment;
+package com.bytedance.toutiao.ui.message.Fragment;
 
 import android.os.Bundle;
 import android.view.View;

@@ -24,9 +24,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textColor"
             android:textSize="@dimen/sp_17"
-            android:layout_marginTop="@dimen/dp_13"
-            android:maxWidth="@dimen/dp_290"
-            android:minLines="2"
+            android:layout_marginTop="@dimen/dp_10"
+            android:maxWidth="@dimen/dp_300"
+            android:minLines="3"
             android:layout_toRightOf="@id/news"/>
 
         <!--<TextView
@@ -40,15 +40,21 @@
             android:layout_marginRight="@dimen/dp_10"
             android:layout_below="@id/news_title"/>-->
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            android:orientation="horizontal"
+            android:layout_below="@+id/news_title"
+            android:layout_toRightOf="@id/news"
+            >
         <TextView
             android:id="@+id/publish_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/newsColor"
             android:textSize="@dimen/sp_17"
-            android:layout_marginTop="@dimen/dp_14"
-            android:layout_toRightOf="@id/news"
-            android:layout_below="@id/news_title"/>
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/dp_2" />
 
         <TextView
             android:id="@+id/news_read"
@@ -56,10 +62,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/newsColor"
             android:textSize="@dimen/sp_17"
-            android:layout_marginTop="@dimen/dp_14"
-            android:layout_toRightOf="@id/publish_time"
-            android:layout_marginLeft="@dimen/dp_40"
-            android:layout_below="@id/news_title"/>
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/dp_2" />
 
         <TextView
             android:id="@+id/news_like"
@@ -67,15 +71,14 @@
             android:layout_height="wrap_content"
             android:textColor="@color/newsColor"
             android:textSize="@dimen/sp_17"
-            android:layout_marginTop="@dimen/dp_14"
-            android:layout_toRightOf="@id/publish_time"
-            android:layout_marginLeft="@dimen/dp_160"
-            android:layout_below="@id/news_title"/>
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/dp_2"/>
 
+        </LinearLayout>
         <View
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
             android:background="@color/textColorHint"
-            android:layout_below="@id/news_like"
+            android:layout_below="@id/news"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_1"/>
     </RelativeLayout>

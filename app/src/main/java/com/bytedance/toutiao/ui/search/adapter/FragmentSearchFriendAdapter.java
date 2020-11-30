@@ -11,17 +11,16 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.bean.SearchFriendModel;
+import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.databinding.ItemSearchFriendBinding;
-import com.bytedance.toutiao.ui.search.fragment.FragmentSearchFriend;
 
 import java.util.List;
 
 public class FragmentSearchFriendAdapter extends RecyclerView.Adapter<FragmentSearchFriendAdapter.ViewHolder> {
     private Context context;
-    private List<SearchFriendModel> searchFriendList;
+    private List<SearchHotModel> searchFriendList;
 
-    public FragmentSearchFriendAdapter(Context context, List<SearchFriendModel> searchFriendList) {
+    public FragmentSearchFriendAdapter(Context context, List<SearchHotModel> searchFriendList) {
         this.context = context;
         this.searchFriendList = searchFriendList;
     }
@@ -40,7 +39,7 @@ public class FragmentSearchFriendAdapter extends RecyclerView.Adapter<FragmentSe
         ItemSearchFriendBinding binding = (ItemSearchFriendBinding) holder.getBinding();
         binding.itemTitle.setText(searchFriendList.get(position).getEventTitle());
         binding.itemRead.setText(searchFriendList.get(position).getEventReadNum());
-        binding.itemRanking.setText(searchFriendList.get(position).getEventFriendRanking());
+        binding.itemRanking.setText(searchFriendList.get(position).getEventHotRanking());
     }
 
     @Override

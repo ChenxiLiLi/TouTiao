@@ -12,20 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.bean.Resource;
-import com.bytedance.toutiao.bean.SearchFriendModel;
+import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.ui.search.adapter.FragmentSearchFriendAdapter;
-import com.bytedance.toutiao.viewmodel.SearchFriendViewModel;
+import com.bytedance.toutiao.viewmodel.SearchHotViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.bytedance.toutiao.MyApplication.getContext;
 
 public class FragmentSearchFriend extends BaseFragment {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private FragmentSearchFriendAdapter fragmentSearchFriendAdapter;
-    private List<SearchFriendModel> searchFriendList = new ArrayList<SearchFriendModel>();
+    private List<SearchHotModel> searchFriendList = new ArrayList<SearchHotModel>();
 
     @Override
     protected int getContentViewId() {
@@ -40,23 +38,33 @@ public class FragmentSearchFriend extends BaseFragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(fragmentSearchFriendAdapter);
 
-        mViewModel = ViewModelProviders.of(getActivity()).get(SearchFriendViewModel.class);
-        ((SearchFriendViewModel) mViewModel).getSearchFriend().observe(getActivity(), new Observer<Resource<List<SearchFriendModel>>>() {
+        mViewModel = ViewModelProviders.of(getActivity()).get(SearchHotViewModel.class);
+        getSearchEvent();
+
+    }
+
+    private void getSearchEvent() {
+        ((SearchHotViewModel) mViewModel).getSearchHot("3").observe(getActivity(), new Observer<Resource<List<SearchHotModel>>>() {
             @Override
-            public void onChanged(Resource<List<SearchFriendModel>> searchFriendModelResource) {
-                initdata();
-                searchFriendList.addAll(searchFriendModelResource.data);
+            public void onChanged(Resource<List<SearchHotModel>> listResource) {
+                System.out.println("返回的资源对象是"+listResource);
+                if (listResource != null) {
+                    searchFriendList.addAll(listResource.data);
+                    initdata();
+                }
                 fragmentSearchFriendAdapter.notifyDataSetChanged();
             }
         });
+        Log.e("send: {}",  "发送了请求");
+
     }
 
     private void initdata() {
-        SearchFriendModel searchFriend1 = new SearchFriendModel("大学生在校园内被狂风暴雪吹走","34534","1");
+        SearchHotModel searchFriend1 = new SearchHotModel("大学生在校园内被狂风暴雪吹走","34534","5");
         searchFriendList.add(searchFriend1);
-        SearchFriendModel searchFriend2 = new SearchFriendModel("华为出售荣耀","25575","2");
+        SearchHotModel searchFriend2 = new SearchHotModel("华为出售荣耀","25575","6");
         searchFriendList.add(searchFriend2);
-        SearchFriendModel searchFriend3 = new SearchFriendModel("最让人舒服的社交行为TOP1","12213","3");
+        SearchHotModel searchFriend3 = new SearchHotModel("最让人舒服的社交行为TOP1","12213","7");
         searchFriendList.add(searchFriend3);
     }
 

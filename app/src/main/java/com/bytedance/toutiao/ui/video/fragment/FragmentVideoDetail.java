@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -21,6 +21,7 @@ import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.databinding.FragmentVideoDetailBinding;
 import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.ui.person.AuthorActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoDetailAdapter;
 import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.view.CommentDialog;

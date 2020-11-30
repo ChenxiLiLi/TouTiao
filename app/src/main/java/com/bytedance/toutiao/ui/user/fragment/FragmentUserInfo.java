@@ -22,7 +22,7 @@ import com.bytedance.toutiao.viewmodel.MyViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentUserInfo extends BaseFragment<LoginViewModel, FragmentUserInfoBinding> {
+public class FragmentUserInfo extends BaseFragment<MyViewModel, FragmentUserInfoBinding> {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private UserInfoAdapter userInfoAdapter;
@@ -43,7 +43,7 @@ public class FragmentUserInfo extends BaseFragment<LoginViewModel, FragmentUserI
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        mViewModel = ViewModelProviders.of(getActivity()).get(LoginViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         recyclerView = binding.userRvInfo;
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         userInfoAdapter = new UserInfoAdapter(mContentView.getContext(), newsModels);

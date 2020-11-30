@@ -39,6 +39,9 @@
         <activity android:name=".ui.user.activity.MyHistoryActivity"/>
         <activity android:name=".ui.user.activity.MyCommentActivity"/>
         <activity android:name=".ui.user.activity.UserInformationActivity"/>
+        <activity android:name=".ui.user.activity.MyTelActivity"/>
+        <activity android:name=".ui.user.activity.MyEmailActivity"/>
+        <activity android:name=".ui.user.activity.MyUpdateActivity"/>
         <activity android:name=".ui.video.activity.PostPublishActivity"/>
         <activity android:name=".ui.user.activity.AccountManagementActivity"/>
         <activity android:name=".ui.MainActivity">

@@ -43,21 +43,6 @@ public class LoginViewModel extends BaseViewModel<RepositoryImpl> {
     //密码的绑定
     public final ObservableField<String> password = new ObservableField<>("");
     //用户
-    private User loginUser;
-
-    public User getLoginUser() {
-        Log.e("ttttest", "get user");
-        if(loginUser == null){
-            Log.e("tttest", "new user");
-            return  new User();
-        }
-        return loginUser;
-    }
-
-    public void setLoginUser(User loginUser) {
-        Log.e("ttttest", "set user");
-        this.loginUser = loginUser;
-    }
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
@@ -99,68 +84,4 @@ public class LoginViewModel extends BaseViewModel<RepositoryImpl> {
                     }
                 });
     }
-
-//    public void getUser(final int id){
-//        MyApplication.getDb().userDao().findById(id)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new SingleObserver<User>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onSuccess(User user) {
-//                        Log.e(TAG, user.getUsername());
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//                });
-//
-//    }
-
-    public void getUser(final String username){
-        MyApplication.getDb().userDao().getUser()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<User>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(User user) {
-                        Log.e("ttttest", "获取user");
-                        userName.set(user.getUsername());
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        System.out.println(e);
-                    }
-                });
-
-    }
-
-    //获取视频
-    public LiveData<Resource<List<VideoModel>>> getMyVideos(String state){
-        return getRepository().getMyVideos(loginUser.getId(), state);
-    }
-
-    //获取资讯
-    public LiveData<Resource<List<NewsModel>>> getMyInfos(String state){
-        return getRepository().getMyInfos(loginUser.getId(), state);
-    }
-
-    //获取话题
-    public LiveData<Resource<List<TopicModel>>> getMyTopics(){
-        return getRepository().getMyTopics(loginUser.getId());
-    }
-
 }

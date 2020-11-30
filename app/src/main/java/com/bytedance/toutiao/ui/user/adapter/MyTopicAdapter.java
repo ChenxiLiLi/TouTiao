@@ -2,6 +2,7 @@ package com.bytedance.toutiao.ui.user.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,8 @@ public class MyTopicAdapter extends RecyclerView.Adapter<MyTopicAdapter.ViewHold
                 }
             });
             holder.topicTitle.setText(topicModels.get(position).getTopicName());
+            Log.e("TopicName", topicModels.get(position).getTopicName() + "");
+            Log.e("TopicName", holder.topicTitle.getText() + "");
         }
     }
 

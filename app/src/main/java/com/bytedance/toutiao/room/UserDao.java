@@ -20,7 +20,7 @@ public interface UserDao{
     Single<User> getUser();
 
     @Query("UPDATE user SET nickname = :nickname, sex = :sex, introduction = :introduction WHERE id =:id")
-    int updateUser(int id, String nickname, String sex, String introduction);
+    void updateUser(int id, String nickname, String sex, String introduction);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     List<Long> insertAll(User... students);

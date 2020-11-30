@@ -64,6 +64,7 @@ public class MyUpdateActivity extends BaseActivity<MyViewModel, ActivityMyUpdate
                         @Override
                         public void onChanged(Resource<String> stringResource) {
                             Log.e("update", stringResource.state +"");
+                            mViewModel.localUpdate();
                         }
                     });
                         //mViewModel.localUpdate();

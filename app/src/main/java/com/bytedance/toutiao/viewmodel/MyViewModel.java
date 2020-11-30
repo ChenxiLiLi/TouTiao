@@ -1,5 +1,6 @@
 package com.bytedance.toutiao.viewmodel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -108,55 +109,42 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
         return getRepository().myUpdate(getId(), nickName.get(), sex.get(), introduction.get());
     }
 
-/*
+
     public void localUpdate(){
+        new Thread(){
+            @Override
+            public void run() {
+                MyApplication.getDb().userDao().updateUser(id, nickName.get(), sex.get(), introduction.get());
+                Log.e("update", "epdate");
+            }
+        }.start();
 
-        MyApplication.getDb().userDao().updateUser(getId(), nickName.get(), sex.get(), introduction.get())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<Integer>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(Integer update) {
-                        if(update > 0){
-                            Log.e("ttttest", "修改user");
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        System.out.println(e);
-                    }
-                });
 
     }
 
     public void deleteUser(){
-        MyApplication.getDb().userDao().deleteUser(getId())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<Integer>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
+//        MyApplication.getDb().userDao().deleteUser(getId())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new SingleObserver<Integer>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(Integer delete) {
+//                        if(delete > 0){
+//                            Log.e("ttttest", "修改user");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        System.out.println(e);
+//                    }
+//                });
+                }
 
-                    }
 
-                    @Override
-                    public void onSuccess(Integer delete) {
-                        if(delete > 0){
-                            Log.e("ttttest", "修改user");
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        System.out.println(e);
-                    }
-                });    }
-
- */
 }

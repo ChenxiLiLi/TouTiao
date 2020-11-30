@@ -13,10 +13,13 @@ import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivitySearchBinding;
 import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.ui.search.activity.SearchResultActivity;
 import com.bytedance.toutiao.ui.search.adapter.SearchActivityAdapter;
 import com.bytedance.toutiao.ui.search.fragment.FragmentSearchCity;
 import com.bytedance.toutiao.ui.search.fragment.FragmentSearchFriend;
 import com.bytedance.toutiao.ui.search.fragment.FragmentSearchHot;
+import com.bytedance.toutiao.ui.video.fragment.FragmentVideo;
+import com.bytedance.toutiao.ui.video.fragment.FragmentVideoEvent;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -68,6 +71,13 @@ public class SearchActivity extends BaseActivity<NormalViewModel, ActivitySearch
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toResult = new Intent(SearchActivity.this, SearchResultActivity.class);
+                startActivity(toResult);
             }
         });
     }

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -25,6 +26,7 @@ import com.bytedance.toutiao.ui.video.adapter.VideoFragmentAdapter;
 import com.bytedance.toutiao.ui.view.CommentDialog;
 import com.bytedance.toutiao.ui.view.ToLoginfragment;
 import com.bytedance.toutiao.ui.view.media.VideoPlayRecyclerView;
+import com.bytedance.toutiao.utils.ToastUtils;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
 
@@ -37,10 +39,14 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
     private String videoID;
     private List<VideoModel> videoModels = new ArrayList<>();
 
-    public FragmentVideoDetail(String videoID) {
-        this.videoID = videoID;
+    public static FragmentVideoDetail newFragment(String videoID) {
+        FragmentVideoDetail fragmentVideoDetail = new FragmentVideoDetail();
+        fragmentVideoDetail.videoID = videoID;
+        return fragmentVideoDetail;
     }
 
+    public FragmentVideoDetail() {
+    }
 
     @Override
     protected int getContentViewId() {
@@ -101,7 +107,7 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
         binding.rvVideoDetail.setOnScrollListener(new VideoPlayRecyclerView.OnScrollListener() {
             @Override
             public void addMoreVideo() {
-                addMoreVideo();
+                addRecommentVideoToList();
                 adapter.notifyDataSetChanged();
             }
 
@@ -144,7 +150,8 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
             public void onChanged(Resource<List<VideoModel>> listResource) {
                 videoModels.clear();
                 videoModels.addAll(listResource.data);
-
+                ToastUtils.showToast("成功加载");
+                adapter.notifyDataSetChanged();
             }
         });
     }

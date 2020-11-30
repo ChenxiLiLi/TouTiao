@@ -29,8 +29,14 @@ public class FragmentVideoEvent extends BaseFragment<VideoViewModel, FragmentVid
     private List<Fragment> fragments = new ArrayList<>();
     private NoScrollViewPager viewPager;
     private String[] strings  = new String[]{"资讯", "视频"};
-    public FragmentVideoEvent(String eventId) {
-        this.eventId = eventId;
+
+    public FragmentVideoEvent() {
+    }
+
+    public static FragmentVideoEvent newFragment(String eventId) {
+        FragmentVideoEvent fragmentVideoEvent = new FragmentVideoEvent();
+        fragmentVideoEvent.eventId = eventId;
+        return fragmentVideoEvent;
     }
     @Override
     protected int getContentViewId() {

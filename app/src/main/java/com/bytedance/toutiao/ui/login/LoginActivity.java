@@ -33,9 +33,11 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
         binding.setViewModel(mViewModel);
         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
-        if(sp.getString("username", null) == null)
-        mViewModel.userName.set(sp.getString("username", null));
-        mViewModel.password.set(sp.getString("password", null));
+        if(sp.getString("username", null) != null){
+            mViewModel.userName.set(sp.getString("username", null));
+            mViewModel.password.set(sp.getString("password", null));
+        }
+
     }
 
     @Override
@@ -72,7 +74,9 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                     .observe(LoginActivity.this, new Observer<Resource<User>>() {
                         @Override
                         public void onChanged(Resource<User> userResource) {
+                            System.out.println(userResource);
                             if (userResource.state == 1) {
+                                Log.e("login", userResource.data.getUsername());
                                 SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
                                 sp.edit()
                                         .putString("username", mViewModel.userName.get())

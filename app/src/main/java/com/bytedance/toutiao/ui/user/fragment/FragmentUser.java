@@ -47,6 +47,7 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        binding.setViewModel(mViewModel);
         mViewModel.getUser();
     }
 

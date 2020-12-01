@@ -18,8 +18,11 @@ public class MessageCommentViewModel extends BaseViewModel<RepositoryImpl> {
     public MessageCommentViewModel(@NonNull Application application) {
         super(application);
     }
-    public MutableLiveData<Resource<List<MessageCommentModel>>> getMsgComment(){
-        Log.e("message", "getMsgComment");
-        return getRepository().getMsgComments();
+    public MutableLiveData<Resource<List<MessageCommentModel>>> getMsgComment(String type){
+        if (type == null || type.trim().length() == 0) {
+            Log.e("getMsgComment", "type is null || type is ''");
+        }
+        System.out.println("传入的参数为："+type);
+        return getRepository().getMsgComments(type);
     }
 }

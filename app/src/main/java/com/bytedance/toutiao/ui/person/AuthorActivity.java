@@ -2,9 +2,13 @@ package com.bytedance.toutiao.ui.person;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
@@ -18,21 +22,42 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.bean.MessageCommentModel;
+import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityAuthorBinding;
 import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentEventInfo;
 import com.bytedance.toutiao.ui.video.fragment.FragmentEventVideo;
 import com.bytedance.toutiao.ui.view.NoScrollViewPager;
+import com.bytedance.toutiao.utils.ToastUtils;
+import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AuthorActivity extends BaseActivity<NormalViewModel, ActivityAuthorBinding> {
+public class AuthorActivity extends BaseActivity<MessageCommentViewModel, ActivityAuthorBinding> {
+    private Context mContext;
     private List<Fragment> fragments = new ArrayList<>();
     private NoScrollViewPager viewPager;
     private String[] strings  = new String[]{"资讯", "视频"};
+    private Listener listener;
+    FansActivity fansActivity;
+
+    public interface Listener extends View.OnClickListener{
+        @Override
+        void onClick(View view);
+
+        //void refresh(VideoModel videoModel);
+
+        boolean showToLoginFragment();
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
 
     @Override
     protected int getContentViewId() {
@@ -58,7 +83,14 @@ public class AuthorActivity extends BaseActivity<NormalViewModel, ActivityAuthor
         VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getSupportFragmentManager(),0,fragments,strings );
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
+
+        mViewModel = ViewModelProviders.of(this).get(MessageCommentViewModel.class);
+        binding.title.setText(getIntent().getStringExtra("title"));
+        binding.fansNum.setText(getIntent().getStringExtra("fansNum"));
+        binding.focusNum.setText(getIntent().getStringExtra("focusNum"));
+        binding.content.setText(getIntent().getStringExtra("content"));
     }
+
 
     @Override
     protected void setListener() {
@@ -67,7 +99,17 @@ public class AuthorActivity extends BaseActivity<NormalViewModel, ActivityAuthor
             @Override
             public void onClick(View view) {
                 Toast.makeText(AuthorActivity.this, "进入粉丝页", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(AuthorActivity.this, FansActivity.class);
+                Intent intent = new Intent(AuthorActivity.this,FansActivity.class);
+                intent.putExtra("title","粉丝");
+                startActivity(intent);
+            }
+        });
+        binding.focus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AuthorActivity.this, "进入作者页", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(AuthorActivity.this,FansActivity.class);
+                intent.putExtra("title","关注");
                 startActivity(intent);
             }
         });
@@ -75,6 +117,40 @@ public class AuthorActivity extends BaseActivity<NormalViewModel, ActivityAuthor
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        binding.btnFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if(listener.showToLoginFragment()){
+                    binding.btnFocus.setText("已关注");
+                    ToastUtils.showToast("关注成功");
+                //}
+            }
+        });
+        binding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,binding.title.getText().toString());
+                intent.setType("text/plain");
+                AuthorActivity.this.startActivity(intent);
+            }
+        });
+        binding.content.setOnClickListener(new View.OnClickListener() {
+            boolean i = true;
+            @Override
+            public void onClick(View view) {
+                if (i){
+                    binding.content.setMaxLines(10000);
+                    i = false;
+                }
+                else {
+                    binding.content.setMaxLines(1);
+                    i = true;
+                }
+
             }
         });
     }

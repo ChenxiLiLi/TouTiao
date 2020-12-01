@@ -1,6 +1,10 @@
 package com.bytedance.toutiao.ui.message.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.lifecycle.Observer;
@@ -10,54 +14,69 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.bean.MsgFocusModel;
+import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.Resource;
-import com.bytedance.toutiao.databinding.FragmentMessageDetailBinding;
+import com.bytedance.toutiao.databinding.FragmentMessageItemBinding;
+import com.bytedance.toutiao.ui.login.LoginActivity;
 import com.bytedance.toutiao.ui.message.adapter.FragmentMessageFocusAdapter;
-import com.bytedance.toutiao.viewmodel.MsgFocusViewModel;
+import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.bytedance.toutiao.MyApplication.getContext;
-
-public class FragmentMessageFocus extends BaseFragment <MsgFocusViewModel, FragmentMessageDetailBinding>{
+public class FragmentMessageFocus extends BaseFragment <MessageCommentViewModel, FragmentMessageItemBinding>{
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private FragmentMessageFocusAdapter fragmentMessageFocusAdapter;
-    private List<MsgFocusModel> focusModelList = new ArrayList<MsgFocusModel>();
+    private List<MessageCommentModel> focusModelList = new ArrayList<MessageCommentModel>();
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_message_detail;
+        return R.layout.fragment_message_item;
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
         recyclerView = mContentView.findViewById(R.id.rv_message_detail);
         fragmentMessageFocusAdapter = new FragmentMessageFocusAdapter(getContext(),focusModelList);
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(fragmentMessageFocusAdapter);
-        mViewModel = ViewModelProviders.of(getActivity()).get(MsgFocusViewModel.class);
-        mViewModel.getMsgFocus().observe(getActivity(), new Observer<Resource<List<MsgFocusModel>>>() {
+        mViewModel = ViewModelProviders.of(getActivity()).get(MessageCommentViewModel.class);
+        SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(null == (sp.getString("username", null)))
+            binding.rvToLogin.setVisibility(View.VISIBLE);
+        getdata();
+    }
+
+    private void getdata() {
+        mViewModel.getMsgComment("2").observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
-            public void onChanged(Resource<List<MsgFocusModel>> listResource) {
-                focusModelList.addAll(listResource.data);
-                initData();
+            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
+                System.out.println("返回的资源对象是"+listResource);
+                if (listResource != null) {
+                    focusModelList.addAll(listResource.data);
+                    initData();
+                }
                 fragmentMessageFocusAdapter.notifyDataSetChanged();
             }
-
-            private void initData() {
-                MsgFocusModel msgFocusModel1 = new MsgFocusModel("美国大选","2345423");
-                focusModelList.add(msgFocusModel1);
-            }
         });
+        Log.e("send: {}",  "发送了请求");
+    }
+
+    private void initData() {
+        MessageCommentModel msgFocusModel1 = new MessageCommentModel("美国大选","2345423");
+        focusModelList.add(msgFocusModel1);
     }
 
     @Override
     protected void setListener() {
-
+        binding.btnToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toLogin = new Intent(getActivity(), LoginActivity.class);
+                getActivity().startActivity(toLogin);
+            }
+        });
     }
 
     @Override

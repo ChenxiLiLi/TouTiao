@@ -27,7 +27,7 @@ public class FragmentSearchCity extends BaseFragment {
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_message_detail;
+        return R.layout.fragment_item;
     }
 
     @Override

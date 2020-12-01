@@ -48,7 +48,7 @@ public interface RetrofitApiService {
 
     //信息界面评论列表
     @GET("mock/7451/byte/dance/v1.0/message/comment/items")
-    Observable<ResponseModel<List<MessageCommentModel>>> getMsgComments();
+    Observable<ResponseModel<List<MessageCommentModel>>> getMsgComments(@Query("type") String type);
 
     //信息界面关注列表
     @GET("mock/7451/byte/dance/v1.0/message/focus/items")

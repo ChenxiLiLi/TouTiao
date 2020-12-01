@@ -1,31 +1,31 @@
 package com.bytedance.toutiao.ui.person;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.bean.MessageChatModel;
 import com.bytedance.toutiao.bean.MessageCommentModel;
-import com.bytedance.toutiao.databinding.ActivityEventSimilarBinding;
+import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityFansBinding;
-import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FansActivity extends BaseActivity<TestViewModel, ActivityFansBinding> {
+public class FansActivity extends BaseActivity<MessageCommentViewModel, ActivityFansBinding> {
     private List<MessageCommentModel> fans = new ArrayList<MessageCommentModel>();
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private FansActivityAdapter fansActivityAdapter;
+    private String title = "";
+
+
     @Override
     protected int getContentViewId() {
         return R.layout.activity_fans;
@@ -33,12 +33,53 @@ public class FansActivity extends BaseActivity<TestViewModel, ActivityFansBindin
 
     @Override
     protected void processLogic() {
+        this.title = getIntent().getStringExtra("");
         recyclerView = findViewById(R.id.item);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
         fansActivityAdapter = new FansActivityAdapter(this,fans);
         recyclerView.setAdapter(fansActivityAdapter);
-        init();
+        mViewModel = ViewModelProviders.of(this).get(MessageCommentViewModel.class);
+        String title = getIntent().getStringExtra("title");
+        binding.titleName.setText(title);
+        System.out.println(title);
+        if (title.indexOf("粉丝") !=-1){
+            getFansData();
+        }
+        else if (title.indexOf("关注") !=-1){
+            getFocusData();
+        }
+    }
+
+
+    private void getFansData() {
+        mViewModel.getMsgComment("4").observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
+            @Override
+            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
+                System.out.println("返回的资源对象是"+listResource);
+                if (listResource != null) {
+                    fans.addAll(listResource.data);
+                    //init();
+                }
+                fansActivityAdapter.notifyDataSetChanged();
+            }
+        });
+        Log.e("send: {}",  "发送了请求");
+    }
+
+    private void getFocusData() {
+        mViewModel.getMsgComment("5").observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
+            @Override
+            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
+                System.out.println("返回的资源对象是"+listResource);
+                if (listResource != null) {
+                    fans.addAll(listResource.data);
+                    //init();
+                }
+                fansActivityAdapter.notifyDataSetChanged();
+            }
+        });
+        Log.e("send: {}",  "发送了请求");
     }
 
     private void init() {
@@ -61,5 +102,4 @@ public class FansActivity extends BaseActivity<TestViewModel, ActivityFansBindin
             }
         });
     }
-
 }

@@ -1,5 +1,6 @@
 package com.bytedance.toutiao.ui.user.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.util.Log;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
@@ -45,6 +47,14 @@ public class MyCommentActivity extends BaseActivity<MessageCommentViewModel, Act
         myCommentAdapter = new MyCommentAdapter(getContext(), messageCommentModels);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(myCommentAdapter);
+        mViewModel.getMsgComment("1").observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
+            @Override
+            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
+                messageCommentModels.addAll(listResource.data);
+                initData();
+                myCommentAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 
@@ -56,7 +66,7 @@ public class MyCommentActivity extends BaseActivity<MessageCommentViewModel, Act
         MessageCommentModel msgcomm3 = new MessageCommentModel("用户名3","评论内容～","2月30日 19:00");
         messageCommentModels.add(msgcomm3);
 
-        mViewModel.getMsgComment().observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
+        mViewModel.getMsgComment("1").observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 Log.e("userComment", listResource.state + "");

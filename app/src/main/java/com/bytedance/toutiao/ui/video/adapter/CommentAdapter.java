@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemCommentBinding;
-import com.bytedance.toutiao.databinding.ItemMyCommentBinding;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         final MessageCommentModel messageCommentModel = messageCommentModels.get(position);
         binding.tvContent.setText(messageCommentModel.getMsgCommentContent());
         binding.tvLikecount.setText(messageCommentModel.getLoveNum());
-        binding.tvNickname.setText(messageCommentModel.getMsgCommentUserName());
+        binding.tvNickname.setText(messageCommentModel.getMsgCommentName());
         binding.ivIsLove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bytedance.toutiao.R;
@@ -27,6 +28,7 @@ public class MessageChatActivity extends AppCompatActivity {
     @SuppressLint("WrongViewCast")
     private EditText inputText;
     private Button send;
+    private TextView title;
     private RecyclerView msgRecyclerView;
     private MessageChatAdapt adapter;
 
@@ -36,6 +38,7 @@ public class MessageChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_chat);
+        title = (TextView) findViewById(R.id.title);
         inputText = (EditText) findViewById(R.id.message_input);
         send = (Button) findViewById(R.id.message_sent_btn);
         msgRecyclerView = (RecyclerView)findViewById(R.id.message_item);
@@ -44,6 +47,7 @@ public class MessageChatActivity extends AppCompatActivity {
         msgRecyclerView.setLayoutManager(layoutManager);
         adapter = new MessageChatAdapt(msgList,this);
         msgRecyclerView.setAdapter(adapter);
+        title.setText(getIntent().getStringExtra("title"));
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

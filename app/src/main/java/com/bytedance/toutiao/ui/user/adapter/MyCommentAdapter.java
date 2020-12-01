@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
-import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyCommentAdapter extends RecyclerView.Adapter<MyCommentAdapter.ViewHolder> {
@@ -37,7 +35,7 @@ public class MyCommentAdapter extends RecyclerView.Adapter<MyCommentAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MessageCommentModel model = messageCommentModels.get(position);
-        holder.nickname.setText(model.getMsgCommentUserName());
+        holder.nickname.setText(model.getMsgCommentName());
         holder.content.setText(model.getMsgCommentContent());
         holder.time.setText(model.getMsgCommentDate());
     }

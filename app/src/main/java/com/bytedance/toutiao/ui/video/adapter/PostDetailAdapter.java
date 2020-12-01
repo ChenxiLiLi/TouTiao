@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
-import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.databinding.ItemPostDetailBinding;
-import com.bytedance.toutiao.databinding.ItemVideoDetailBinding;
 
 import java.util.List;
 
@@ -47,7 +45,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Vi
         final ItemPostDetailBinding binding = (ItemPostDetailBinding) holder.getBinding();
         final MessageCommentModel messageCommentModel = messageCommentModels.get(position);
         binding.tvContent.setText(messageCommentModel.getMsgCommentContent());
-        binding.tvName.setText(messageCommentModel.getMsgCommentUserName());
+        binding.tvName.setText(messageCommentModel.getMsgCommentName());
         binding.tvLikeNum.setText(messageCommentModel.getLoveNum());
         binding.ivLike.setOnClickListener(new View.OnClickListener() {
             @Override

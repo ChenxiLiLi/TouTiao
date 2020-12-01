@@ -2,7 +2,6 @@ package com.bytedance.toutiao.ui.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,8 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.bean.CommentModel;
-import com.bytedance.toutiao.bean.MessageChatModel;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.ui.video.adapter.CommentAdapter;
@@ -65,7 +61,7 @@ public class CommentDialog extends BaseBottomSheetDialog {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         commentAdapter = new CommentAdapter(getContext(), messageCommentModels);
         recyclerView.setAdapter(commentAdapter);
-        mViewModel.getMsgComment().observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
+        mViewModel.getMsgComment("1").observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 messageCommentModels.addAll(listResource.data);
@@ -81,7 +77,7 @@ public class CommentDialog extends BaseBottomSheetDialog {
                 if(!TextUtils.isEmpty(etComment.getText())){
                     MessageCommentModel messageCommentModel = new MessageCommentModel();
                     SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
-                    messageCommentModel.setMsgCommentUserName(sp.getString("username", null));
+                    messageCommentModel.setMsgCommentName(sp.getString("username", null));
                     messageCommentModel.setMsgCommentContent(etComment.getText().toString());
                     messageCommentModel.setLoveNum("0");
                     etComment.setText("");

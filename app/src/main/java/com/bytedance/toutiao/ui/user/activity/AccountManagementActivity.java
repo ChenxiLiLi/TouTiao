@@ -38,13 +38,25 @@ public class AccountManagementActivity extends BaseActivity<MyViewModel, Activit
                     case R.id.management_loginout:
                         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
                         sp.edit().clear().apply();
-                        //mViewModel.deleteUser();
+                        mViewModel.deleteUser();
                         ToastUtils.showToast("退出登录成功");
                         intent = new Intent(AccountManagementActivity.this, MainActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.my_back:
                         intent = new Intent(AccountManagementActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_tel:
+                        intent = new Intent(AccountManagementActivity.this, MyTelActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_email:
+                        intent = new Intent(AccountManagementActivity.this, MyEmailActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.management_change_password:
+                        intent = new Intent(AccountManagementActivity.this, MyTelActivity.class);
                         startActivity(intent);
                         break;
                 }

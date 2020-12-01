@@ -53,24 +53,26 @@ public class MyUpdateActivity extends BaseActivity<MyViewModel, ActivityMyUpdate
                         startActivity(intent);
                         break;
                     case R.id.my_update_save:
-                        switch (binding.rgSex.getCheckedRadioButtonId()){
-                            case R.id.sex_male:
-                                mViewModel.sex.set("男");
-                                break;
-                            case R.id.sex_female:
-                                mViewModel.sex.set("女");
-                                break;
-                        }mViewModel.myUpdate().observe(MyUpdateActivity.this, new Observer<Resource<String>>() {
-                        @Override
-                        public void onChanged(Resource<String> stringResource) {
-                            Log.e("update", stringResource.state +"");
-                            mViewModel.localUpdate();
-                        }
-                    });
-                        //mViewModel.localUpdate();
-                        intent = new Intent(MyUpdateActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        break;
+                        if(mViewModel.nickName.get() == null){
+                            ToastUtils.showToast("请输入昵称");
+                        }else {
+                            switch (binding.rgSex.getCheckedRadioButtonId()){
+                                case R.id.sex_male:
+                                    mViewModel.sex.set("男");
+                                    break;
+                                case R.id.sex_female:
+                                    mViewModel.sex.set("女");
+                                    break;
+                            }mViewModel.myUpdate().observe(MyUpdateActivity.this, new Observer<Resource<String>>() {
+                                @Override
+                                public void onChanged(Resource<String> stringResource) {
+                                    Log.e("update", stringResource.state +"");
+                                    mViewModel.localUpdate();
+                                }
+                            });
+                            intent = new Intent(MyUpdateActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }break;
                 }
             }
         });

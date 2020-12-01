@@ -14,7 +14,6 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemFansBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapter.ViewHolder>{
@@ -29,7 +28,7 @@ public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapt
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_fans, parent, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_focus, parent, false);
         FansActivityAdapter.ViewHolder myHolder = new FansActivityAdapter.ViewHolder(binding.getRoot());
         myHolder.setBinding(binding);
         return myHolder;

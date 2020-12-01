@@ -22,9 +22,15 @@ public interface UserDao{
     @Query("UPDATE user SET nickname = :nickname, sex = :sex, introduction = :introduction WHERE id =:id")
     void updateUser(int id, String nickname, String sex, String introduction);
 
+    @Query("UPDATE user SET phone_number = :phoneNum WHERE id =:id")
+    void updateTel(int id, String phoneNum);
+
+    @Query("UPDATE user SET email = :email WHERE id =:id")
+    void updateEmail(int id, String email);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     List<Long> insertAll(User... students);
 
     @Query("DELETE FROM user WHERE id = :id")
-    int deleteUser(int id);
+    void deleteUser(int id);
 }

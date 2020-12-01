@@ -3,6 +3,13 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.bytedance.toutiao.viewmodel.MyViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <RelativeLayout
@@ -57,7 +64,9 @@
                 android:background="@mipmap/btn_login"
                 android:text="确定"
                 android:textSize="@dimen/sp_20"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
         </LinearLayout>
 
     </RelativeLayout>

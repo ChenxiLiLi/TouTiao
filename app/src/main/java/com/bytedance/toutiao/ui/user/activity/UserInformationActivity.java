@@ -35,18 +35,8 @@ public class UserInformationActivity extends BaseActivity<MyViewModel, ActivityU
             public void onClick(View view) {
                 Intent intent;
                 switch (view.getId()){
-                    case R.id.my_username:
-                    case R.id.my_sex:
-                    case R.id.my_introduction:
+                    case R.id.my_update:
                         intent = new Intent(UserInformationActivity.this, MyUpdateActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_tel:
-                        intent = new Intent(UserInformationActivity.this, MyTelActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_email:
-                        intent = new Intent(UserInformationActivity.this, MyEmailActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.my_back:

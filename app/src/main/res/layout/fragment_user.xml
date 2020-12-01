@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 style="@style/textStyle_tab"
                 android:layout_below="@id/icon_user_picture"
-                android:text="@={viewModel.userName}"
+                android:text="@={viewModel.nickName}"
                 android:textSize="@dimen/sp_20"/>
 
         </RelativeLayout>
@@ -58,7 +58,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
 
                 <TextView
                     android:id="@+id/text_focus_num"
@@ -83,7 +85,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
 
                 <TextView
                     android:id="@+id/text_fans_num"
@@ -202,7 +206,7 @@
                 android:layout_height="@dimen/dp_1"
                 android:background="@color/textGrey"/>
 
-            <!--RelativeLayout
+            <RelativeLayout
                 android:id="@+id/my_comment"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
@@ -229,7 +233,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_1"
-                android:background="@color/textGrey"/-->
+                android:background="@color/textGrey"/>
 
             <RelativeLayout
                 android:id="@+id/my_help"
@@ -281,7 +285,6 @@
                     android:layout_toRightOf="@id/icon_my_id"
                     android:textSize="@dimen/sp_20"
                     android:text="  帐号管理  "/>
-
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

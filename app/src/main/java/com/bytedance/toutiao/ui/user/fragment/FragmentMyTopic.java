@@ -37,12 +37,12 @@ public class FragmentMyTopic extends BaseFragment<MyViewModel, FragmentMyTopicBi
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        binding.setViewModel(mViewModel);
         recyclerView = binding.userRvTopic;
-        myTopicAdapter = new MyTopicAdapter(getContext(), topicModels);
+        myTopicAdapter = new MyTopicAdapter(mContentView.getContext(), topicModels);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(myTopicAdapter);
-        initTopic();
         getBaseTopic();
     }
 
@@ -56,20 +56,6 @@ public class FragmentMyTopic extends BaseFragment<MyViewModel, FragmentMyTopicBi
 
     }
 
-    public void initTopic(){
-        TopicModel topic1 = new TopicModel();
-        TopicModel topic2 = new TopicModel();
-        TopicModel topic3 = new TopicModel();
-        TopicModel topic4 = new TopicModel();
-        topic1.setTopicName("特朗普称要离开白宫");
-        topic2.setTopicName("外交部呼吁彻查澳军虐杀暴行");
-        topic3.setTopicName("兰州规定不得要求家长代批作业");
-        topic4.setTopicName("外卖小哥火海中救人获评见义勇为");
-        topicModels.add(topic1);
-        topicModels.add(topic2);
-        topicModels.add(topic3);
-        topicModels.add(topic4);
-    }
 
     public void getBaseTopic(){
         mViewModel.getMyTopics().observe(getActivity(), new Observer<Resource<List<TopicModel>>>() {

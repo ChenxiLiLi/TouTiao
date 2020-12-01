@@ -14,6 +14,7 @@ import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.FragmentUserBinding;
+import com.bytedance.toutiao.ui.person.FansActivity;
 import com.bytedance.toutiao.ui.user.activity.AccountManagementActivity;
 import com.bytedance.toutiao.ui.user.activity.MyCollectionActivity;
 import com.bytedance.toutiao.ui.user.activity.MyCommentActivity;
@@ -79,16 +80,16 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
                         intent = new Intent(getActivity(), MyHistoryActivity.class);
                         startActivity(intent);
                         break;
-//                    case R.id.my_comment:
-//                        intent = new Intent(getActivity(), MyCommentActivity.class);
-//                        startActivity(intent);
-//                        break;
+                    case R.id.my_comment:
+                        intent = new Intent(getActivity(), MyCommentActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.my_focus:
                         intent = new Intent(getActivity(), BaseActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.my_fans:
-                        intent = new Intent(getActivity(), BaseActivity.class);
+                        intent = new Intent(getActivity(), FansActivity.class);
                         startActivity(intent);
                         break;
                 }

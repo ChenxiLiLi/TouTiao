@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -51,7 +52,7 @@ public class CommentDialog extends BaseBottomSheetDialog {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.dialog_comment, container);
         mViewModel = ViewModelProviders.of(getActivity()).get(MessageCommentViewModel.class);
-
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         recyclerView = view.findViewById(R.id.rv_comment);
         tvTitle = view.findViewById(R.id.tv_comment_title);
         etComment = view.findViewById(R.id.et_comment);
@@ -90,16 +91,6 @@ public class CommentDialog extends BaseBottomSheetDialog {
             }
         });
 
-//        etComment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-//        Rect outRect = new Rect();
-//        getActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
-//        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
-//        params.height = outRect.bottom - outRect.top;
         return view;
     }
 

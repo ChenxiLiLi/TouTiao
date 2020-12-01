@@ -94,5 +94,9 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getMyTopics(id), liveData);
     }
 
-
+    //修改个人信息
+    public MutableLiveData<Resource<String>> myUpdate(int id, String nickname, String sex, String introduction){
+        MutableLiveData<Resource<String>> liveData = new MutableLiveData<>();
+        return observe(getApiService().myUpdate(id, nickname, sex, introduction), liveData);
+    }
 }

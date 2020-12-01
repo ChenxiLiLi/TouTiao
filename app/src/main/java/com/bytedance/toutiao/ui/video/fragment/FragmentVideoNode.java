@@ -25,9 +25,16 @@ public class FragmentVideoNode extends BaseFragment<VideoViewModel, FragmentVide
     private List<Fragment> fragments = new ArrayList<>();
     private NoScrollViewPager viewPager;
     private String[] strings  = new String[]{"资讯", "视频"};
-    public FragmentVideoNode(String eventId) {
-        this.eventId = eventId;
+
+    public FragmentVideoNode() {
     }
+
+    public static FragmentVideoNode newFragment(String eventId){
+        FragmentVideoNode fragmentVideoNode = new FragmentVideoNode();
+        fragmentVideoNode.eventId = eventId;
+        return fragmentVideoNode;
+    }
+
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_video_node;

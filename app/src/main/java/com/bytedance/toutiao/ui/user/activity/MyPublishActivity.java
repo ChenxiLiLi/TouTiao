@@ -1,5 +1,6 @@
 package com.bytedance.toutiao.ui.user.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.ActivityMyPublishBinding;
+import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.ui.user.fragment.FragmentMyPublish;
 
 import java.util.ArrayList;
@@ -54,6 +56,10 @@ public class MyPublishActivity extends BaseActivity<NormalViewModel, ActivityMyP
                     break;
                 case R.id.mypub_tab_3:
                     switchFragment(R.id.mypub_tab_3);
+                    break;
+                case R.id.my_back:
+                    Intent intent = new Intent(MyPublishActivity.this, MainActivity.class);
+                    startActivity(intent);
                     break;
             }
             }

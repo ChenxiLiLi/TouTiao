@@ -1,12 +1,16 @@
 package com.bytedance.toutiao.ui.user.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -15,14 +19,13 @@ import android.widget.Toast;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.NormalViewModel;
+import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityMyUpdateBinding;
 import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.utils.ToastUtils;
 import com.bytedance.toutiao.viewmodel.MyViewModel;
 
 public class MyUpdateActivity extends BaseActivity<MyViewModel, ActivityMyUpdateBinding> {
-
-    private RadioGroup radioGroup;
-    private RadioButton male, female;
 
     @Override
     protected int getContentViewId() {
@@ -33,7 +36,9 @@ public class MyUpdateActivity extends BaseActivity<MyViewModel, ActivityMyUpdate
     protected void processLogic() {
         binding.setViewModel(mViewModel);
         mViewModel.getUser();
-
+        if(mViewModel.sex.equals("女")){
+            binding.sexFemale.setChecked(true);
+        }
     }
 
     @Override
@@ -41,33 +46,33 @@ public class MyUpdateActivity extends BaseActivity<MyViewModel, ActivityMyUpdate
         binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nickname, sex, introduction;
-                int sexbt;
-                if(view.getId() == R.id.update_back){
-                    Intent intent = new Intent(MyUpdateActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }if(view.getId() == R.id.my_update_save){
-                    sexbt = radioGroup.getCheckedRadioButtonId();
-                    switch (sexbt){
-                        case R.id.sex_male:
-                            sex = "男";
-                            break;
-                        case R.id.sex_female:
-                            sex = "女";
-                            break;
-                    }nickname = mViewModel.nickName.get();
-                    introduction = mViewModel.introduction.get();
+                Intent intent;
+                switch (view.getId()){
+                    case R.id.update_back:
+                        intent = new Intent(MyUpdateActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.my_update_save:
+                        switch (binding.rgSex.getCheckedRadioButtonId()){
+                            case R.id.sex_male:
+                                mViewModel.sex.set("男");
+                                break;
+                            case R.id.sex_female:
+                                mViewModel.sex.set("女");
+                                break;
+                        }mViewModel.myUpdate().observe(MyUpdateActivity.this, new Observer<Resource<String>>() {
+                        @Override
+                        public void onChanged(Resource<String> stringResource) {
+                            Log.e("update", stringResource.state +"");
+                            mViewModel.localUpdate();
+                        }
+                    });
+                        //mViewModel.localUpdate();
+                        intent = new Intent(MyUpdateActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_update);
-        radioGroup = binding.rgSex;
-        male = binding.sexMale;
-        female = binding.sexFemale;
     }
 }

@@ -27,10 +27,6 @@ public class FragmentEventVideo extends BaseFragment<VideoViewModel, FragmentUse
     private List<VideoModel> videoModels = new ArrayList<>();
     private String eventId;
 
-    public FragmentEventVideo(String eventId) {
-        this.eventId = eventId;
-    }
-
     public FragmentEventVideo(){ }
 
 

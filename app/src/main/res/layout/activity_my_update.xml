@@ -3,19 +3,18 @@
 
     <data>
         <variable
-            name="onClickListener"
-            type="android.view.View.OnClickListener" />
-
-        <variable
             name="viewModel"
             type="com.bytedance.toutiao.viewmodel.MyViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/user_infomation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/theme_info"
@@ -44,9 +43,8 @@
             android:id="@+id/my_username"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:layout_below="@+id/theme_info"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="@dimen/dp_100"
@@ -60,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="sssss"
+                android:text="@={viewModel.nickName}"
                 android:textSize="@dimen/sp_20"/>
         </LinearLayout>
 
@@ -68,9 +66,8 @@
             android:id="@+id/my_sex"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:layout_below="@+id/my_username"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="@dimen/dp_100"
@@ -107,11 +104,8 @@
             android:id="@+id/my_introduction"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
-            android:layout_weight="1"
-            android:gravity="top"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:layout_below="@+id/my_sex"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="@dimen/dp_100"
@@ -125,7 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="**********"
+                android:text="@={viewModel.introduction}"
                 android:textSize="@dimen/sp_20"
                 android:gravity="top"
                 android:minLines="4"
@@ -138,9 +132,10 @@
             android:layout_height="@dimen/dp_60"
             android:background="@color/titleGrey"
             android:gravity="center"
+            android:layout_alignParentBottom="true"
             android:text="保存"
             android:textSize="@dimen/sp_20"
             android:onClick="@{onClickListener}"
             android:clickable="true"/>
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

@@ -30,9 +30,6 @@ public class FragmentEventInfo extends BaseFragment<NewsViewModel, FragmentVideo
     private List<NewsModel> newsModels = new ArrayList<>();
     private String eventId;
 
-    public FragmentEventInfo(String eventId) {
-        this.eventId = eventId;
-    }
 
     public FragmentEventInfo() {
     }

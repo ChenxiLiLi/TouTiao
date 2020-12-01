@@ -1,6 +1,7 @@
 package com.bytedance.toutiao.ui.user.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class MyCommentAdapter extends RecyclerView.Adapter<MyCommentAdapter.View
 
     @Override
     public int getItemCount() {
+        Log.e("CommentCount", String.valueOf(messageCommentModels.size()));
         return messageCommentModels.size();
     }
 
@@ -52,9 +54,9 @@ public class MyCommentAdapter extends RecyclerView.Adapter<MyCommentAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nickname = itemView.findViewById(R.id.tv_name);
-            content = itemView.findViewById(R.id.tv_content);
-            time = itemView.findViewById(R.id.tv_time);
+            nickname = itemView.findViewById(R.id.my_comment_name);
+            content = itemView.findViewById(R.id.my_comment_content);
+            time = itemView.findViewById(R.id.my_comment_time);
         }
     }
 }

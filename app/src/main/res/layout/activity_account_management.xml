@@ -5,6 +5,10 @@
         <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.bytedance.toutiao.viewmodel.MyViewModel" />
     </data>
 
     <LinearLayout
@@ -29,7 +33,7 @@
                 android:text="帐号管理"/>
 
             <ImageView
-                android:id="@+id/icon_management_return"
+                android:id="@+id/my_back"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="match_parent"
                 android:src="@mipmap/back"
@@ -54,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="sssss"
+                    android:text="@={viewModel.userName}"
                     android:textSize="@dimen/sp_20"/>
             </RelativeLayout>
 
@@ -104,6 +108,7 @@
                 android:id="@+id/management_loginout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
+                android:onClick="@{onClickListener}"
                 android:clickable="true">
 
                 <TextView

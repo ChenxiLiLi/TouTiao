@@ -34,6 +34,7 @@
                 android:layout_width="@dimen/dp_350"
                 android:layout_height="@dimen/dp_60"
                 android:hint="绑定邮箱"
+                android:text="@={viewModel.email}"
                 android:textSize="@dimen/sp_20"/>
 
             <LinearLayout
@@ -48,6 +49,7 @@
                     android:layout_width="@dimen/dp_200"
                     android:layout_height="match_parent"
                     android:hint="请输入验证码"
+                    android:text="@={viewModel.code}"
                     android:textSize="@dimen/sp_20"/>
 
                 <Button

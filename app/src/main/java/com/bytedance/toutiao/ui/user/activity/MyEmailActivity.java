@@ -1,6 +1,5 @@
 package com.bytedance.toutiao.ui.user.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
 import android.content.Context;
@@ -12,10 +11,8 @@ import android.view.View;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityMyEmailBinding;
-import com.bytedance.toutiao.ui.MainActivity;
 import com.bytedance.toutiao.utils.ToastUtils;
 import com.bytedance.toutiao.viewmodel.MyViewModel;
 
@@ -61,11 +58,5 @@ public class MyEmailActivity extends BaseActivity<MyViewModel, ActivityMyEmailBi
                 }
             }
         });
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_email);
     }
 }

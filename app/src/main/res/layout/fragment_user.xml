@@ -17,275 +17,328 @@
     </data>
 
     <LinearLayout
-        android:id="@+id/userpage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <RelativeLayout
-            android:id="@+id/user_thisuser"
+            android:id="@+id/rv_to_login"
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_200"
-            android:gravity="center"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:layout_height="match_parent"
+            android:background="@color/white">
 
             <ImageView
-                android:id="@+id/icon_user_picture"
-                android:layout_height="@dimen/dp_80"
-                android:layout_width="@dimen/dp_80"
-                style="@style/imageStyle_tab"
-                android:src="@mipmap/avater"/>
-
-            <TextView
-                android:id="@+id/user_username"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/textStyle_tab"
-                android:layout_below="@id/icon_user_picture"
-                android:text="@={viewModel.nickName}"
-                android:textSize="@dimen/sp_20"/>
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/login_back"
+                android:scaleType="fitXY" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_120"
+                    android:layout_height="@dimen/dp_120"
+                    android:src="@mipmap/logo" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@mipmap/btn_login"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_6">
+
+                    <Button
+                        android:id="@+id/btn_to_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_60"
+                        android:background="?selectableItemBackground"
+                        android:text="去登录"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_18" />
+                </LinearLayout>
+            </LinearLayout>
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_80"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/my_focus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:id="@+id/text_focus_num"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@={viewModel.focusNum}"
-                    android:textSize="@dimen/sp_20"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center|top"
-                    android:text="关注"
-                    android:textSize="@dimen/sp_20"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/my_fans"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:id="@+id/text_fans_num"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@={viewModel.fansNUm}"
-                    android:textSize="@dimen/sp_20"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center|top"
-                    android:text="粉丝"
-                    android:textSize="@dimen/sp_20"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_1"
-            android:background="@color/textGrey"/>
 
         <LinearLayout
-            android:id="@+id/user_linear_use"
+            android:id="@+id/userpage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/my_publish"
+                android:id="@+id/user_thisuser"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:layout_weight="1"
-                android:gravity="left|center"
+                android:layout_height="@dimen/dp_200"
+                android:gravity="center"
                 android:onClick="@{onClickListener}"
                 android:clickable="true">
 
                 <ImageView
-                    android:id="@+id/icon_my_publish"
+                    android:id="@+id/icon_user_picture"
+                    android:layout_height="@dimen/dp_80"
+                    android:layout_width="@dimen/dp_80"
                     style="@style/imageStyle_tab"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/fabu"/>
+                    android:src="@mipmap/avater"/>
 
                 <TextView
+                    android:id="@+id/user_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_publish"
-                    android:textSize="@dimen/sp_20"
-                    android:text="  我的发布  "/>
+                    style="@style/textStyle_tab"
+                    android:layout_below="@id/icon_user_picture"
+                    android:text="@={viewModel.nickName}"
+                    android:textSize="@dimen/sp_20"/>
 
             </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_80"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/my_focus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/text_focus_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@={viewModel.focusNum}"
+                        android:textSize="@dimen/sp_20"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="关注"
+                        android:textSize="@dimen/sp_20"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/my_fans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/text_fans_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@={viewModel.fansNUm}"
+                        android:textSize="@dimen/sp_20"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="粉丝"
+                        android:textSize="@dimen/sp_20"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_1"
                 android:background="@color/textGrey"/>
 
-            <RelativeLayout
-                android:id="@+id/my_history"
+            <LinearLayout
+                android:id="@+id/user_linear_use"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:layout_weight="1"
-                android:gravity="left|center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/icon_my_history"
-                    style="@style/imageStyle_tab"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/history"/>
+                <RelativeLayout
+                    android:id="@+id/my_publish"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_history"
-                    android:textSize="@dimen/sp_20"
-                    android:text="  浏览历史  "/>
+                    <ImageView
+                        android:id="@+id/icon_my_publish"
+                        style="@style/imageStyle_tab"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:src="@mipmap/fabu"/>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/icon_my_publish"
+                        android:textSize="@dimen/sp_20"
+                        android:text="  我的发布  "/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"
-                android:background="@color/textGrey"/>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/my_collection"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:layout_weight="1"
-                android:gravity="left|center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/textGrey"/>
 
-                <ImageView
-                    android:id="@+id/icon_my_collection"
-                    style="@style/imageStyle_tab"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/star"/>
+                <RelativeLayout
+                    android:id="@+id/my_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_collection"
-                    android:textSize="@dimen/sp_20"
-                    android:text="  我的收藏  "/>
+                    <ImageView
+                        android:id="@+id/icon_my_history"
+                        style="@style/imageStyle_tab"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:src="@mipmap/history"/>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/icon_my_history"
+                        android:textSize="@dimen/sp_20"
+                        android:text="  浏览历史  "/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"
-                android:background="@color/textGrey"/>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/my_comment"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:layout_weight="1"
-                android:gravity="left|center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/textGrey"/>
 
-                <ImageView
-                    android:id="@+id/icon_my_comment"
-                    style="@style/imageStyle_tab"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/my_comment"/>
+                <RelativeLayout
+                    android:id="@+id/my_collection"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_comment"
-                    android:textSize="@dimen/sp_20"
-                    android:text="  我的评论  "/>
+                    <ImageView
+                        android:id="@+id/icon_my_collection"
+                        style="@style/imageStyle_tab"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:src="@mipmap/star"/>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/icon_my_collection"
+                        android:textSize="@dimen/sp_20"
+                        android:text="  我的收藏  "/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"
-                android:background="@color/textGrey"/>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/my_help"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:layout_weight="1"
-                android:gravity="left|center"
-                android:onClick="@{onClickListener}"
-                android:clickable="true">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/textGrey"/>
 
-                <ImageView
-                    android:id="@+id/icon_my_help"
-                    style="@style/imageStyle_tab"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:src="@mipmap/question"/>
+                <RelativeLayout
+                    android:id="@+id/my_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_help"
-                    android:textSize="@dimen/sp_20"
-                    android:text="  反馈与帮助  "/>
+                    <ImageView
+                        android:id="@+id/icon_my_comment"
+                        style="@style/imageStyle_tab"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:src="@mipmap/my_comment"/>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/icon_my_comment"
+                        android:textSize="@dimen/sp_20"
+                        android:text="  我的评论  "/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"
-                android:background="@color/textGrey"/>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/my_account"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_60"
-                android:layout_weight="1"
-                android:onClick="@{onClickListener}"
-                android:clickable="true"
-                android:gravity="left|center">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/textGrey"/>
 
-                <ImageView
-                    android:id="@+id/icon_my_id"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    style="@style/imageStyle_tab"
-                    android:src="@mipmap/lock"/>
+                <RelativeLayout
+                    android:id="@+id/my_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_my_id"
-                    android:textSize="@dimen/sp_20"
-                    android:text="  帐号管理  "/>
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/icon_my_help"
+                        style="@style/imageStyle_tab"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:src="@mipmap/question"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/icon_my_help"
+                        android:textSize="@dimen/sp_20"
+                        android:text="  反馈与帮助  "/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/textGrey"/>
+
+                <RelativeLayout
+                    android:id="@+id/my_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_weight="1"
+                    android:onClick="@{onClickListener}"
+                    android:clickable="true"
+                    android:gravity="left|center">
+
+                    <ImageView
+                        android:id="@+id/icon_my_id"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        style="@style/imageStyle_tab"
+                        android:src="@mipmap/lock"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/icon_my_id"
+                        android:textSize="@dimen/sp_20"
+                        android:text="  帐号管理  "/>
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </layout>

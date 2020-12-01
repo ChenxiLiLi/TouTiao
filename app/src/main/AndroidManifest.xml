@@ -20,7 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Base"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.person.FocusActivity"></activity>
+        <activity android:name=".ui.user.activity.ChangePasswordActivity"></activity>
+        <activity android:name=".ui.person.FocusActivity" />
         <activity android:name=".ui.search.activity.SearchResultActivity" />
         <activity android:name=".ui.person.AuthorActivity" />
         <activity android:name=".ui.person.FansActivity" />

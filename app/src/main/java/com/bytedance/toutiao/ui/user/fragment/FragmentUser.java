@@ -49,7 +49,12 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         binding.setViewModel(mViewModel);
-        mViewModel.getUser();
+        SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(null == (sp.getString("username", null))){
+            binding.rvToLogin.setVisibility(View.VISIBLE);
+        }else {
+            mViewModel.getUser();
+        }
     }
 
     @Override

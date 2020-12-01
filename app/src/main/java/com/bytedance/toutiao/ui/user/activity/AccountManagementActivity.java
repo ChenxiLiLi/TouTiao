@@ -56,7 +56,7 @@ public class AccountManagementActivity extends BaseActivity<MyViewModel, Activit
                         startActivity(intent);
                         break;
                     case R.id.management_change_password:
-                        intent = new Intent(AccountManagementActivity.this, MyTelActivity.class);
+                        intent = new Intent(AccountManagementActivity.this, ChangePasswordActivity.class);
                         startActivity(intent);
                         break;
                 }

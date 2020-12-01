@@ -57,19 +57,6 @@ public class FocusActivity extends BaseActivity<NormalViewModel, ActivityFocusBi
         focus.add(focus1);
         focus.add(focus2);
         focus.add(focus3);
-
-
-//        mViewModel.getMyTopics().observe(getActivity(), new Observer<Resource<List<TopicModel>>>() {
-//            @Override
-//            public void onChanged(Resource<List<TopicModel>> listResource) {
-//                if(listResource != null){
-//                    Log.e("userTopic", listResource.state + "");
-//                    Log.e("userTopic", listResource.data.size() + "");
-//                    topicModels.addAll(listResource.data);
-//                    myTopicAdapter.notifyDataSetChanged();
-//                }
-//            }
-//        });
     }
 
     @Override

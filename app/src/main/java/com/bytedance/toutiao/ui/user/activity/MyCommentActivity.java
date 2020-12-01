@@ -1,18 +1,21 @@
 package com.bytedance.toutiao.ui.user.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityMyCommentBinding;
+import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.ui.message.adapter.FragmentMessageCommentAdapter;
 import com.bytedance.toutiao.ui.user.adapter.MyCommentAdapter;
 import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
 
@@ -26,7 +29,7 @@ public class MyCommentActivity extends BaseActivity<MessageCommentViewModel, Act
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private MyCommentAdapter myCommentAdapter;
-    private List<MessageCommentModel> messageCommentModels = new ArrayList<MessageCommentModel>();
+    private List<MessageCommentModel> messageCommentModels = new ArrayList<>();
 
     @Override
     protected int getContentViewId() {
@@ -35,20 +38,13 @@ public class MyCommentActivity extends BaseActivity<MessageCommentViewModel, Act
 
     @Override
     protected void processLogic() {
+        initData();
         binding.setViewModel(mViewModel);
         recyclerView = binding.rvMyComment;
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         myCommentAdapter = new MyCommentAdapter(getContext(), messageCommentModels);
-        recyclerView.setAdapter(myCommentAdapter);
         recyclerView.setLayoutManager(layoutManager);
-        mViewModel.getMsgComment().observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
-            @Override
-            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
-                messageCommentModels.addAll(listResource.data);
-                initData();
-                myCommentAdapter.notifyDataSetChanged();
-            }
-        });
+        recyclerView.setAdapter(myCommentAdapter);
 
     }
 
@@ -59,11 +55,32 @@ public class MyCommentActivity extends BaseActivity<MessageCommentViewModel, Act
         messageCommentModels.add(msgcomm2);
         MessageCommentModel msgcomm3 = new MessageCommentModel("用户名3","评论内容～","2月30日 19:00");
         messageCommentModels.add(msgcomm3);
+
+        mViewModel.getMsgComment().observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
+            @Override
+            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
+                Log.e("userComment", listResource.state + "");
+                Log.e("userComment", listResource.data.size() + "");
+                messageCommentModels.addAll(listResource.data);
+                myCommentAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
     protected void setListener() {
-
+        binding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                switch (view.getId()){
+                    case R.id.my_back:
+                        intent = new Intent(MyCommentActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
     }
 
     @Override

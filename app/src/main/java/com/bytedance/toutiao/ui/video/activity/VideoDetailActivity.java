@@ -36,9 +36,9 @@ public class VideoDetailActivity extends BaseActivity<NormalViewModel, ActivityV
     protected void processLogic() {
         Intent intent = getIntent();
         String videoID = intent.getStringExtra("videoID");
-        fragmentVideoEvent = new FragmentVideoEvent(videoID);
-        fragmentVideoDetail = new FragmentVideoDetail(videoID);
-        fragmentVideoNode = new FragmentVideoNode(videoID);
+        fragmentVideoEvent = FragmentVideoEvent.newFragment(videoID);
+        fragmentVideoDetail = FragmentVideoDetail.newFragment(videoID);
+        fragmentVideoNode = FragmentVideoNode.newFragment(videoID);
 
         fragments.add(fragmentVideoEvent);
         fragments.add(fragmentVideoDetail);

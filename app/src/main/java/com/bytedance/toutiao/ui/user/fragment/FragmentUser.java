@@ -47,6 +47,7 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        binding.setViewModel(mViewModel);
         mViewModel.getUser();
     }
 
@@ -78,10 +79,10 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
                         intent = new Intent(getActivity(), MyHistoryActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.my_comment:
-                        intent = new Intent(getActivity(), MyCommentActivity.class);
-                        startActivity(intent);
-                        break;
+//                    case R.id.my_comment:
+//                        intent = new Intent(getActivity(), MyCommentActivity.class);
+//                        startActivity(intent);
+//                        break;
                     case R.id.my_focus:
                         intent = new Intent(getActivity(), BaseActivity.class);
                         startActivity(intent);

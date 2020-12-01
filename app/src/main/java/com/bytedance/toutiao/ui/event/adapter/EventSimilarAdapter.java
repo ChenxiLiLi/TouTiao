@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.event.event;
+package com.bytedance.toutiao.ui.event.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,14 +15,12 @@ import com.bytedance.toutiao.bean.EventOutside;
 
 import java.util.List;
 
-public class EventTimelineAdapter extends RecyclerView.Adapter<EventTimelineAdapter.ViewHolder> {
-    private List<EventOutside> eventOutsides;
+public class EventSimilarAdapter extends RecyclerView.Adapter<EventSimilarAdapter.ViewHolder> {
+    private List<EventOutside> eventSimilarOutsides;
     private Context context;
 
-
-
-    public EventTimelineAdapter(List<EventOutside> eventOutsides, Context context) {
-        this.eventOutsides = eventOutsides;
+    public EventSimilarAdapter(List<EventOutside> eventSimilarOutsides, Context context) {
+        this.eventSimilarOutsides = eventSimilarOutsides;
         this.context = context;
     }
 
@@ -35,7 +33,7 @@ public class EventTimelineAdapter extends RecyclerView.Adapter<EventTimelineAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        EventOutside eventOutside = eventOutsides.get(position);
+        EventOutside eventOutside = eventSimilarOutsides.get(position);
         holder.titleView.setText(eventOutside.getTitle());
         holder.dateaView.setText(eventOutside.getDate());
         holder.entericView.setOnClickListener(new View.OnClickListener() {
@@ -47,14 +45,14 @@ public class EventTimelineAdapter extends RecyclerView.Adapter<EventTimelineAdap
 
     @Override
     public int getItemCount() {
-        return eventOutsides.size();
+        return eventSimilarOutsides.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView titleView;
         private TextView dateaView;
         private ImageView entericView;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.event_title);
@@ -62,5 +60,6 @@ public class EventTimelineAdapter extends RecyclerView.Adapter<EventTimelineAdap
             entericView = itemView.findViewById(R.id.event_enteric);
         }
     }
+
 
 }

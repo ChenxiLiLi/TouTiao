@@ -9,11 +9,8 @@ import androidx.fragment.app.Fragment;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.databinding.FragmentVideoEventBinding;
 import com.bytedance.toutiao.databinding.FragmentVideoNodeBinding;
-import com.bytedance.toutiao.ui.event.EventSimilarActivity;
-import com.bytedance.toutiao.ui.user.fragment.FragmentUserInfo;
-import com.bytedance.toutiao.ui.user.fragment.FragmentUserVideo;
+import com.bytedance.toutiao.ui.event.activity.EventSimilarActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.bytedance.toutiao.ui.view.NoScrollViewPager;
 import com.bytedance.toutiao.viewmodel.VideoViewModel;
@@ -28,9 +25,16 @@ public class FragmentVideoNode extends BaseFragment<VideoViewModel, FragmentVide
     private List<Fragment> fragments = new ArrayList<>();
     private NoScrollViewPager viewPager;
     private String[] strings  = new String[]{"资讯", "视频"};
-    public FragmentVideoNode(String eventId) {
-        this.eventId = eventId;
+
+    public FragmentVideoNode() {
     }
+
+    public static FragmentVideoNode newFragment(String eventId){
+        FragmentVideoNode fragmentVideoNode = new FragmentVideoNode();
+        fragmentVideoNode.eventId = eventId;
+        return fragmentVideoNode;
+    }
+
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_video_node;

@@ -1,4 +1,4 @@
-package com.bytedance.toutiao.ui.event;
+package com.bytedance.toutiao.ui.event.activity;
 
 import android.text.Editable;
 import android.text.TextWatcher;

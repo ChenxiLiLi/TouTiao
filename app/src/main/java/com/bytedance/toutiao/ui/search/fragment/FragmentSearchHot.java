@@ -41,24 +41,34 @@ public class FragmentSearchHot extends BaseFragment {
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(fragmentSearchHotAdapter);
+
         mViewModel = ViewModelProviders.of(getActivity()).get(SearchHotViewModel.class);
-        ((SearchHotViewModel) mViewModel).getSearchHot().observe(getActivity(), new Observer<Resource<List<SearchHotModel>>>() {
-            @Override
-            public void onChanged(Resource<List<SearchHotModel>> searchHotModelResource) {
-                initdata();
-                searchHotList.addAll(searchHotModelResource.data);
-                fragmentSearchHotAdapter.notifyDataSetChanged();
-            }
-        });
+        getSearchEvent();
+
 
     }
 
+    private void getSearchEvent() {
+        ((SearchHotViewModel) mViewModel).getSearchHot("1").observe(getActivity(), new Observer<Resource<List<SearchHotModel>>>() {
+            @Override
+            public void onChanged(Resource<List<SearchHotModel>> listResource) {
+                System.out.println("返回的资源对象是"+listResource);
+                if (listResource != null) {
+                    searchHotList.addAll(listResource.data);
+                    initdata();
+                }
+                fragmentSearchHotAdapter.notifyDataSetChanged();
+            }
+        });
+        Log.e("send: {}",  "发送了请求");
+    }
+
     private void initdata() {
-        SearchHotModel searchHot1 = new SearchHotModel("特朗普政府官员悄悄接触拜登团队","4356767","1");
+        SearchHotModel searchHot1 = new SearchHotModel("特朗普政府官员悄悄接触拜登团队","4356767","5");
         searchHotList.add(searchHot1);
-        SearchHotModel searchHot2 = new SearchHotModel("近2500名中学生贪吃蛇式跑操","234242","2");
+        SearchHotModel searchHot2 = new SearchHotModel("近2500名中学生贪吃蛇式跑操","234242","6");
         searchHotList.add(searchHot2);
-        SearchHotModel searchHot3 = new SearchHotModel("周星驰被前女友追讨7000万案开审","23433","3");
+        SearchHotModel searchHot3 = new SearchHotModel("周星驰被前女友追讨7000万案开审","23433","7");
         searchHotList.add(searchHot3);
     }
 

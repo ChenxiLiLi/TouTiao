@@ -18,7 +18,9 @@
         <RelativeLayout
             android:id="@+id/chat_left"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
             <ImageView
                 android:id="@+id/message_left_avater"
                 android:layout_width="@dimen/dp_50"
@@ -72,9 +74,10 @@
                 android:layout_height="@dimen/dp_40"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/dp_10"
-                android:src="@mipmap/avater" />
-
+                android:layout_margin="@dimen/dp_10"
+                android:src="@mipmap/avater"
+                android:onClick="@{onClickListener}"
+                android:clickable="true" />
         <View
             android:id="@+id/chat_right_brand"
             android:layout_width="@dimen/dp_70"

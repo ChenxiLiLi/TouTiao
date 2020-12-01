@@ -3,15 +3,12 @@ package com.bytedance.toutiao.retrofit;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.MsgFocusModel;
 import com.bytedance.toutiao.bean.NewsModel;
-import com.bytedance.toutiao.bean.SearchCityModel;
-import com.bytedance.toutiao.bean.SearchFriendModel;
 import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.TopicModel;
 import com.bytedance.toutiao.bean.User;
 import com.bytedance.toutiao.bean.VideoModel;
 import com.bytedance.toutiao.bean.basebean.ResponseModel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -57,17 +54,9 @@ public interface RetrofitApiService {
     @GET("mock/7451/byte/dance/v1.0/message/focus/items")
     Observable<ResponseModel<List<MsgFocusModel>>> getMsgFocus();
 
-    //搜索界面热搜榜列表
+    //搜索界面列表
     @GET("mock/7451/byte/dance/v1.0/search/hot/items")
-    Observable<ResponseModel<List<SearchHotModel>>> getSearchHot();
-
-    //搜索界面同城榜列表
-    @GET("mock/7451/byte/dance/v1.0/search/city/items")
-    Observable<ResponseModel<List<SearchCityModel>>> getSearchCity();
-
-    //搜索界面好友榜列表
-    @GET("mock/7451/byte/dance/v1.0/search/friend/items")
-    Observable<ResponseModel<List<SearchFriendModel>>> getSearchFriend();
+    Observable<ResponseModel<List<SearchHotModel>>> getSearchHot(@Query("type") String type);
 
     //获取话题广场帖子
     @POST("mock/7451/byte/dance/v1.0/getPostDetailByEventId")
@@ -85,11 +74,12 @@ public interface RetrofitApiService {
     Observable<ResponseModel<List<NewsModel>>> getMyInfos(@Field("id") int id, @Field("state")String state);
 
     //获取话题
-    @POST("mock/7451/byte/dance/v1.0/base/login")
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/getMyTopics")
     @FormUrlEncoded
     Observable<ResponseModel<List<TopicModel>>> getMyTopics(@Field("id") int id);
 
     //修改个人信息
-    @GET("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")
-    Observable<ResponseModel<User>> myUpdate(String id, String nickname, String sex, String introduction);
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")
+    @FormUrlEncoded
+    Observable<ResponseModel<String>> myUpdate(@Field("id")int id, @Field("nickname")String nickname, @Field("sex")String sex, @Field("introduction")String introduction);
 }

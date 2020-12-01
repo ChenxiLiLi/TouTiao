@@ -37,9 +37,9 @@ public class NewsDetailActivity extends BaseActivity<NewsViewModel, ActivityNews
     protected void processLogic() {
         Intent intent = getIntent();
         String newsId = intent.getStringExtra("newsId");
-        fragmentVideoEvent = new FragmentVideoEvent("1");
+        fragmentVideoEvent = FragmentVideoEvent.newFragment("1");
         fragmentNewsDetail = new FragmentNewsDetail(newsId);
-        fragmentNewNode = new FragmentVideoNode("1");
+        fragmentNewNode = FragmentVideoNode.newFragment("1");
 
         fragments.add(fragmentVideoEvent);
         fragments.add(fragmentNewsDetail);

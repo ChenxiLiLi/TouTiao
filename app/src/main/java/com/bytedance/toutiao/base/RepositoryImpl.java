@@ -1,7 +1,5 @@
 package com.bytedance.toutiao.base;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 
 import com.bytedance.toutiao.bean.MessageCommentModel;
@@ -9,8 +7,6 @@ import com.bytedance.toutiao.bean.MsgFocusModel;
 import com.bytedance.toutiao.bean.NewsModel;
 import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.Resource;
-import com.bytedance.toutiao.bean.SearchCityModel;
-import com.bytedance.toutiao.bean.SearchFriendModel;
 import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.bean.TopicModel;
 import com.bytedance.toutiao.bean.User;
@@ -68,24 +64,11 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getMsgComments(), liveData);
     }
 
-    //获取搜索模块热搜榜列表
-    public MutableLiveData<Resource<List<SearchHotModel>>> getSearchHot() {
+    //获取搜索模块列表
+    public MutableLiveData<Resource<List<SearchHotModel>>> getSearchHot(String type) {
         MutableLiveData<Resource<List<SearchHotModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().getSearchHot(), liveData);
+        return observe(getApiService().getSearchHot(type), liveData);
     }
-
-    //获取搜索模块同城榜列表
-    public MutableLiveData<Resource<List<SearchCityModel>>> getSearchCity() {
-        MutableLiveData<Resource<List<SearchCityModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().getSearchCity(), liveData);
-    }
-
-    //获取搜索模块好友榜列表
-    public MutableLiveData<Resource<List<SearchFriendModel>>> getSearchFriend() {
-        MutableLiveData<Resource<List<SearchFriendModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().getSearchFriend(), liveData);
-    }
-
 
     //获取帖子
     public MutableLiveData<Resource<List<PostDetailModel>>> getPostByEventId(String eventId) {
@@ -111,5 +94,9 @@ public class RepositoryImpl extends BaseModel {
         return observe(getApiService().getMyTopics(id), liveData);
     }
 
-
+    //修改个人信息
+    public MutableLiveData<Resource<String>> myUpdate(int id, String nickname, String sex, String introduction){
+        MutableLiveData<Resource<String>> liveData = new MutableLiveData<>();
+        return observe(getApiService().myUpdate(id, nickname, sex, introduction), liveData);
+    }
 }

@@ -32,9 +32,12 @@
                 android:background="#EFEFEF"/>
 
             <ImageView
+                android:id="@+id/my_back"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="match_parent"
-                android:src="@mipmap/back"/>
+                android:src="@mipmap/back"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
         </RelativeLayout>
 
         <LinearLayout

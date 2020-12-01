@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,7 +16,11 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="#F5FF6F00"
+            app:tabIndicatorHeight="@dimen/dp_2"
+            app:tabIndicatorFullWidth="false"
+            app:tabSelectedTextColor="#000000"/>
 
 
         <androidx.viewpager.widget.ViewPager

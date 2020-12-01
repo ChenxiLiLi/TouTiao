@@ -14,7 +14,7 @@ import com.bytedance.toutiao.TestViewModel;
 import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.databinding.ActivityMainBinding;
 
-import com.bytedance.toutiao.ui.message.fragment.FragmentMessage;
+import com.bytedance.toutiao.ui.message.Fragment.FragmentMessage;
 import com.bytedance.toutiao.ui.user.fragment.FragmentUser;
 import com.bytedance.toutiao.ui.news.fragment.FragmentNews;
 import com.bytedance.toutiao.ui.video.fragment.FragmentVideo;

@@ -27,7 +27,7 @@ import com.bytedance.toutiao.viewmodel.VideoViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentUserVideo extends BaseFragment<LoginViewModel, FragmentUserVideoBinding> {
+public class FragmentUserVideo extends BaseFragment<MyViewModel, FragmentUserVideoBinding> {
     private RecyclerView recyclerView;
     private GridLayoutManager gridLayoutManager;
     private UserVideoAdapter userVideoAdapter;
@@ -49,7 +49,7 @@ public class FragmentUserVideo extends BaseFragment<LoginViewModel, FragmentUser
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        mViewModel = ViewModelProviders.of(getActivity()).get(LoginViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         initData();
         addHistoryVideos();
         recyclerView = binding.userRvVideo;

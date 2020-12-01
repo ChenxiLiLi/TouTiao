@@ -44,6 +44,9 @@ public class FragmentVideo extends BaseFragment<NormalViewModel, FragmentVideoBi
         return fragmentVideo;
     }
 
+    public FragmentVideo() {
+    }
+
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_video;

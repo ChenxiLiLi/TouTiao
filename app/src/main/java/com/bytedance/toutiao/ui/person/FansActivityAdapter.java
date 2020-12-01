@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemFansBinding;
+import com.bytedance.toutiao.utils.ToastUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapter.ViewHolder>{
@@ -37,8 +37,17 @@ public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ItemFansBinding binding = (ItemFansBinding) holder.getBinding();
-        binding.tvName.setText(fans.get(position).getMsgCommentUserName());
+        final ItemFansBinding binding = (ItemFansBinding) holder.getBinding();
+        binding.tvName.setText(fans.get(position).getMsgCommentName());
+        binding.btnFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if(listener.showToLoginFragment()){
+                binding.btnFocus.setText("已关注");
+                ToastUtils.showToast("关注成功");
+                //}
+            }
+        });
     }
 
 

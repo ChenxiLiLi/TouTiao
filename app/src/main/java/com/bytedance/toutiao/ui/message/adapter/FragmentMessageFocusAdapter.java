@@ -11,16 +11,17 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
-import com.bytedance.toutiao.bean.MsgFocusModel;
+import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemMessageFocusBinding;
+import com.bytedance.toutiao.utils.ToastUtils;
 
 import java.util.List;
 
 public class FragmentMessageFocusAdapter extends RecyclerView.Adapter<FragmentMessageFocusAdapter.ViewHolder> {
     private Context context;
-    private List<MsgFocusModel> msgFocusList;
+    private List<MessageCommentModel> msgFocusList;
 
-    public FragmentMessageFocusAdapter(Context context, List<MsgFocusModel> msgFocusList) {
+    public FragmentMessageFocusAdapter(Context context, List<MessageCommentModel> msgFocusList) {
         this.context = context;
         this.msgFocusList = msgFocusList;
     }
@@ -36,9 +37,29 @@ public class FragmentMessageFocusAdapter extends RecyclerView.Adapter<FragmentMe
 
     @Override
     public void onBindViewHolder(@NonNull FragmentMessageFocusAdapter.ViewHolder holder, int position) {
-        ItemMessageFocusBinding binding = (ItemMessageFocusBinding) holder.getBinding();
-        binding.tvName.setText(msgFocusList.get(position).getMsgFocusEventName());
-        binding.tvReadNum.setText(msgFocusList.get(position).getMsgFocusReadNum());
+        final ItemMessageFocusBinding binding = (ItemMessageFocusBinding) holder.getBinding();
+        binding.tvName.setText(msgFocusList.get(position).getMsgCommentName());
+        binding.tvReadNum.setText(msgFocusList.get(position).getNum());
+        binding.btnFocus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //if(listener.showToLoginFragment()){
+                if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
+                    binding.btnFocus.setText("关注");
+                    binding.btnFocus.setTextColor(context.getResources().getColor(R.color.colorAccent));
+                    binding.btnFocus.setBackgroundResource(R.mipmap.btn_all_blue);
+                    ToastUtils.showToast("已取消关注");
+                }else if (binding.btnFocus.getText().toString().indexOf("关注") != -1){
+                    binding.btnFocus.setText("已关注");
+                    binding.btnFocus.setTextColor(0xcc000000);
+                    binding.btnFocus.setBackgroundResource(R.mipmap.btn_grey);
+                    ToastUtils.showToast("关注成功");
+                }
+
+                //}
+            }
+        });
     }
 
     @Override

@@ -26,6 +26,7 @@
             android:src="@mipmap/left_arrow" />
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
@@ -67,9 +68,6 @@
                 android:id="@+id/message_keyboard"
                 style="@style/imageStyle_tab"
                 android:layout_gravity="center"
-
-                android:clickable="true"
-                android:onClick="@{onClickListener}"
                 android:src="@mipmap/keyboard" />
         </FrameLayout>
 
@@ -112,8 +110,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/dp_1"
-                android:clickable="true"
-                android:onClick="@{onClickListener}"
                 android:src="@mipmap/message_emoji" />
         </FrameLayout>
 
@@ -130,8 +126,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/dp_3"
-                android:clickable="true"
-                android:onClick="@{onClickListener}"
                 android:src="@mipmap/message_add" />
         </FrameLayout>
     </LinearLayout>

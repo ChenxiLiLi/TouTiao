@@ -20,7 +20,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/message_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_55"
             android:background="#02000000"
@@ -38,6 +37,7 @@
                 android:src="@mipmap/left_arrow" />
 
             <TextView
+                android:id="@+id/title_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="6"
@@ -51,7 +51,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:clickable="true"
                 android:gravity="center"/>
         </LinearLayout>
 

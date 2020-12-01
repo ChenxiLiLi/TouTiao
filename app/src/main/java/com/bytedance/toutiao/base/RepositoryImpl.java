@@ -59,9 +59,9 @@ public class RepositoryImpl extends BaseModel {
     }
 
     //获取信息模块评论列表
-    public MutableLiveData<Resource<List<MessageCommentModel>>> getMsgComments() {
+    public MutableLiveData<Resource<List<MessageCommentModel>>> getMsgComments(String type) {
         MutableLiveData<Resource<List<MessageCommentModel>>> liveData = new MutableLiveData<>();
-        return observe(getApiService().getMsgComments(), liveData);
+        return observe(getApiService().getMsgComments(type), liveData);
     }
 
     //获取搜索模块列表

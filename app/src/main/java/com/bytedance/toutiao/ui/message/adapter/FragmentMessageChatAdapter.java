@@ -9,30 +9,42 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.bean.MessageCommentModel;
+import com.bytedance.toutiao.databinding.ItemMessageChatBinding;
+import com.bytedance.toutiao.databinding.ItemMessageDetailBinding;
 import com.bytedance.toutiao.ui.message.Activity.MessageChatActivity;
 import com.bytedance.toutiao.ui.person.AuthorActivity;
+
+import java.util.List;
 
 public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMessageChatAdapter.ViewHolder>  {
 
     private Context context;
-
-    public FragmentMessageChatAdapter(Context context) {
+    private List<MessageCommentModel> messageChatModels ;
+    public FragmentMessageChatAdapter(Context context, List<MessageCommentModel> messageChatModels) {
         this.context = context;
+        this.messageChatModels = messageChatModels;
     }
-
     @NonNull
     @Override
     public FragmentMessageChatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_message_detail, parent, false);
-        return new FragmentMessageChatAdapter.ViewHolder(view);
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_message_detail, parent, false);
+        FragmentMessageChatAdapter.ViewHolder myHolder = new FragmentMessageChatAdapter.ViewHolder(binding.getRoot());
+        myHolder.setBinding(binding);
+        return myHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FragmentMessageChatAdapter.ViewHolder holder, int position) {
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(@NonNull FragmentMessageChatAdapter.ViewHolder holder, final int position) {
+        ItemMessageDetailBinding binding = (ItemMessageDetailBinding) holder.getBinding();
+        binding.name.setText(messageChatModels.get(position).getMsgCommentName());
+        binding.content.setText(messageChatModels.get(position).getMsgCommentContent());
+        binding.itemDetial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.e("MsgCView", view +"");
@@ -40,6 +52,7 @@ public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMes
                     case R.id.item_detial:
                         Toast.makeText(context, "进入私聊界面", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(context, MessageChatActivity.class);
+                        intent.putExtra("title", messageChatModels.get(position).getMsgCommentName());
                         context.startActivity(intent);
                         break;
                 }
@@ -49,11 +62,18 @@ public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMes
 
     @Override
     public int getItemCount() {
-        return 6;
+        return messageChatModels.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
+        ViewDataBinding binding;
+        public ViewDataBinding getBinding(){
+            return binding;
+        }
 
+        public void setBinding(ViewDataBinding binding){
+            this.binding = binding;
+        }
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

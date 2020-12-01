@@ -3,13 +3,21 @@ package com.bytedance.toutiao.bean;
 public class MessageCommentModel {
     private String msgCommentId;
     private String msgCommentUserId;
-    private String msgCommentUserName;
+    private String msgCommentName;
     private String msgCommentUserAvater;
     private String msgCommentContent;
     private String msgCommentDate;
     private String msgCommentNewsType;
     private String loveNum;
+    private String num;
+    private String eventAvater;
+    private String introduction;
     private boolean isLove = false;
+
+    public MessageCommentModel(String msgCommentName, String num) {
+        this.msgCommentName = msgCommentName;
+        this.num = num;
+    }
 
     public boolean isLove() {
         return isLove;
@@ -30,22 +38,36 @@ public class MessageCommentModel {
     public MessageCommentModel() {
     }
 
-    public MessageCommentModel(String msgCommentId, String msgCommentUserId, String msgCommentUserName, String msgCommentUserAvater, String msgCommentContent, String msgCommentDate, String msgCommentNewsType) {
+    public MessageCommentModel(String msgCommentId, String msgCommentUserId, String msgCommentName, String msgCommentUserAvater, String msgCommentContent, String msgCommentDate, String msgCommentNewsType, String loveNum, String num, String eventAvater, boolean isLove) {
         this.msgCommentId = msgCommentId;
         this.msgCommentUserId = msgCommentUserId;
-        this.msgCommentUserName = msgCommentUserName;
+        this.msgCommentName = msgCommentName;
+        this.msgCommentUserAvater = msgCommentUserAvater;
+        this.msgCommentContent = msgCommentContent;
+        this.msgCommentDate = msgCommentDate;
+        this.msgCommentNewsType = msgCommentNewsType;
+        this.loveNum = loveNum;
+        this.num = num;
+        this.eventAvater = eventAvater;
+        this.isLove = isLove;
+    }
+
+    public MessageCommentModel(String msgCommentId, String msgCommentUserId, String msgCommentName, String msgCommentUserAvater, String msgCommentContent, String msgCommentDate, String msgCommentNewsType) {
+        this.msgCommentId = msgCommentId;
+        this.msgCommentUserId = msgCommentUserId;
+        this.msgCommentName = msgCommentName;
         this.msgCommentUserAvater = msgCommentUserAvater;
         this.msgCommentContent = msgCommentContent;
         this.msgCommentDate = msgCommentDate;
         this.msgCommentNewsType = msgCommentNewsType;
     }
 
-    public MessageCommentModel(String msgCommentUserName) {
-        this.msgCommentUserName = msgCommentUserName;
+    public MessageCommentModel(String msgCommentName) {
+        this.msgCommentName = msgCommentName;
     }
 
-    public MessageCommentModel(String msgCommentUserName, String msgCommentContent, String msgCommentDate) {
-        this.msgCommentUserName = msgCommentUserName;
+    public MessageCommentModel(String msgCommentName, String msgCommentContent, String msgCommentDate) {
+        this.msgCommentName = msgCommentName;
         this.msgCommentContent = msgCommentContent;
         this.msgCommentDate = msgCommentDate;
     }
@@ -66,12 +88,12 @@ public class MessageCommentModel {
         this.msgCommentUserId = msgCommentUserId;
     }
 
-    public String getMsgCommentUserName() {
-        return msgCommentUserName;
+    public String getMsgCommentName() {
+        return msgCommentName;
     }
 
-    public void setMsgCommentUserName(String msgCommentUserName) {
-        this.msgCommentUserName = msgCommentUserName;
+    public void setMsgCommentName(String msgCommentName) {
+        this.msgCommentName = msgCommentName;
     }
 
     public String getMsgCommentUserAvater() {
@@ -104,5 +126,29 @@ public class MessageCommentModel {
 
     public void setMsgCommentNewsType(String msgCommentNewsType) {
         this.msgCommentNewsType = msgCommentNewsType;
+    }
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getEventAvater() {
+        return eventAvater;
+    }
+
+    public void setEventAvater(String eventAvater) {
+        this.eventAvater = eventAvater;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 }

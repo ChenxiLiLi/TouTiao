@@ -11,17 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
-import com.bytedance.toutiao.bean.MsgFocusModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.bean.SearchHotModel;
 import com.bytedance.toutiao.ui.search.adapter.FragmentSearchHotAdapter;
-import com.bytedance.toutiao.viewmodel.MsgFocusViewModel;
 import com.bytedance.toutiao.viewmodel.SearchHotViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.bytedance.toutiao.MyApplication.getContext;
 
 public class FragmentSearchHot extends BaseFragment {
     private RecyclerView recyclerView;
@@ -31,7 +27,7 @@ public class FragmentSearchHot extends BaseFragment {
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_message_detail;
+        return R.layout.fragment_item;
     }
 
     @Override

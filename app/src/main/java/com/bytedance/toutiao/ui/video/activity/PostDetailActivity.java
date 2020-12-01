@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 
 import androidx.lifecycle.Observer;
@@ -15,21 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
-import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.ParcablePostData;
-import com.bytedance.toutiao.bean.PostDetailModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityPostDetailBinding;
 import com.bytedance.toutiao.ui.video.adapter.PostDetailAdapter;
 import com.bytedance.toutiao.utils.ToastUtils;
 import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
-import com.bytedance.toutiao.viewmodel.VideoViewModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PostDetailActivity extends BaseActivity<MessageCommentViewModel, ActivityPostDetailBinding> {
 
@@ -56,7 +50,7 @@ public class PostDetailActivity extends BaseActivity<MessageCommentViewModel, Ac
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(postDetailAdapter);
-        mViewModel.getMsgComment().observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
+        mViewModel.getMsgComment("1").observe(this, new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 messageCommentModels.addAll(listResource.data);
@@ -75,7 +69,7 @@ public class PostDetailActivity extends BaseActivity<MessageCommentViewModel, Ac
                 if(!TextUtils.isEmpty(binding.etComment.getText())){
                     MessageCommentModel messageCommentModel = new MessageCommentModel();
                     SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
-                    messageCommentModel.setMsgCommentUserName(sp.getString("username", null));
+                    messageCommentModel.setMsgCommentName(sp.getString("username", null));
                     messageCommentModel.setMsgCommentContent(binding.etComment.getText().toString());
                     messageCommentModel.setLoveNum("0");
                     binding.etComment.setText("");

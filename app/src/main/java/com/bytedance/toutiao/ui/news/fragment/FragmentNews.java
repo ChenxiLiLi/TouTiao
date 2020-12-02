@@ -32,6 +32,8 @@ public class FragmentNews extends BaseFragment {
         return fragmentNews;
     }
 
+    public FragmentNews() {}
+
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_news;

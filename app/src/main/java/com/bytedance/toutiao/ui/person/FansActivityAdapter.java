@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
-import com.bytedance.toutiao.databinding.ItemFansBinding;
+import com.bytedance.toutiao.databinding.ItemFocusBinding;
 import com.bytedance.toutiao.utils.ToastUtils;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ItemFansBinding binding = (ItemFansBinding) holder.getBinding();
+        final ItemFocusBinding binding = (ItemFocusBinding) holder.getBinding();
         binding.tvName.setText(fans.get(position).getMsgCommentName());
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override

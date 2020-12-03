@@ -2,7 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.bytedance.toutiao.viewmodel.MyViewModel" />
 
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <RelativeLayout
@@ -27,6 +33,7 @@
                 android:layout_width="@dimen/dp_350"
                 android:layout_height="@dimen/dp_60"
                 android:hint="绑定手机"
+                android:text="@={viewModel.tel}"
                 android:textSize="@dimen/sp_20"/>
 
             <LinearLayout
@@ -41,6 +48,7 @@
                     android:layout_width="@dimen/dp_200"
                     android:layout_height="match_parent"
                     android:hint="请输入验证码"
+                    android:text="@={viewModel.code}"
                     android:textSize="@dimen/sp_20"/>
 
                 <Button
@@ -51,13 +59,16 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/tel_save"
                 android:layout_width="@dimen/dp_350"
                 android:layout_height="@dimen/dp_60"
                 android:layout_marginTop="@dimen/dp_20"
                 android:background="@mipmap/btn_login"
                 android:text="确定"
                 android:textSize="@dimen/sp_20"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:onClick="@{onClickListener}"
+                android:clickable="true"/>
         </LinearLayout>
 
     </RelativeLayout>

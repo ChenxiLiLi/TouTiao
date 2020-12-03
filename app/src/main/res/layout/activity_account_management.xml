@@ -48,76 +48,120 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/my_tel"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
-                android:gravity="center">
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
 
                 <TextView
-                    android:id="@+id/management_username"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/dp_100"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@={viewModel.userName}"
-                    android:textSize="@dimen/sp_20"/>
-            </RelativeLayout>
+                    android:layout_weight="1"
+                    android:text="绑定手机"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@={viewModel.tel}"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:src="@mipmap/right"/>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/titleGrey"/>
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/my_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:orientation="horizontal"
+                android:onClick="@{onClickListener}"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="绑定邮箱"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/text_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@={viewModel.email}"
+                    android:textSize="@dimen/sp_20"
+                    android:gravity="right|center"/>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:src="@mipmap/right"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"
+                android:background="@color/titleGrey"/>
+
+            <TextView
                 android:id="@+id/management_change_password"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text="修改密码"
                 android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="@dimen/sp_20"
-                    android:text="修改密码"/>
-            </RelativeLayout>
+                android:clickable="true"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_10"
+                android:background="@color/titleGrey"/>
 
-            <RelativeLayout
+            <TextView
                 android:id="@+id/management_change_user"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text="切换账号"
                 android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="@dimen/sp_20"
-                    android:text="切换账号"/>
-            </RelativeLayout>
+                android:clickable="true"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"/>
+                android:layout_height="@dimen/dp_1"
+                android:background="@color/titleGrey"/>
 
-            <RelativeLayout
+            <TextView
                 android:id="@+id/management_loginout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_60"
+                android:gravity="center"
+                android:textColor="@color/loginOut"
+                android:textSize="@dimen/sp_20"
+                android:text="退出登录"
                 android:onClick="@{onClickListener}"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="@dimen/sp_20"
-                    android:text="退出登录"/>
-            </RelativeLayout>
+                android:clickable="true"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

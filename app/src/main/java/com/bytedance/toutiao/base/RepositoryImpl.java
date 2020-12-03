@@ -99,4 +99,22 @@ public class RepositoryImpl extends BaseModel {
         MutableLiveData<Resource<String>> liveData = new MutableLiveData<>();
         return observe(getApiService().myUpdate(id, nickname, sex, introduction), liveData);
     }
+
+    //修改绑定手机
+    public MutableLiveData<Resource<String>> myTel(int id, String tel, String code){
+        MutableLiveData<Resource<String>> liveData = new MutableLiveData<>();
+        return observe(getApiService().myTel(id, tel, code), liveData);
+    }
+
+    //修改绑定邮箱
+    public MutableLiveData<Resource<String>> myEmail(int id, String email, String code){
+        MutableLiveData<Resource<String>> liveData = new MutableLiveData<>();
+        return observe(getApiService().myEmail(id, email, code), liveData);
+    }
+
+    //修改密码
+    public MutableLiveData<Resource<String>> updatePassword(int id, String password){
+        MutableLiveData<Resource<String>> liveData = new MutableLiveData<>();
+        return observe(getApiService().updatePassword(id, password), liveData);
+    }
 }

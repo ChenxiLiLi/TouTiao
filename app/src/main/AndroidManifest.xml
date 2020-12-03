@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bytedance.toutiao">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:name=".MyApplication"
@@ -21,7 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Base"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.search.activity.SearchResultActivity"></activity>
+        <activity android:name=".ui.user.activity.ChangePasswordActivity"></activity>
+        <activity android:name=".ui.person.FocusActivity" />
+        <activity android:name=".ui.search.activity.SearchResultActivity" />
         <activity android:name=".ui.person.AuthorActivity" />
         <activity android:name=".ui.person.FansActivity" />
         <activity android:name=".ui.search.activity.SearchActivity" />
@@ -34,20 +35,21 @@
         <activity android:name=".ui.video.activity.VideoDetailActivity" />
         <activity android:name=".ui.event.activity.PublishVideoActivity" />
         <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name=".ui.login.LoginActivity"></activity>
-        <activity android:name=".ui.user.activity.MyPublishActivity"/>
-        <activity android:name=".ui.user.activity.MyCollectionActivity"/>
-        <activity android:name=".ui.user.activity.MyHistoryActivity"/>
-        <activity android:name=".ui.user.activity.MyCommentActivity"/>
-        <activity android:name=".ui.user.activity.UserInformationActivity"/>
-        <activity android:name=".ui.user.activity.MyTelActivity"/>
-        <activity android:name=".ui.user.activity.MyEmailActivity"/>
-        <activity android:name=".ui.user.activity.MyUpdateActivity"/>
-        <activity android:name=".ui.video.activity.PostPublishActivity"/>
-        <activity android:name=".ui.user.activity.AccountManagementActivity"/>
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.user.activity.MyPublishActivity" />
+        <activity android:name=".ui.user.activity.MyCollectionActivity" />
+        <activity android:name=".ui.user.activity.MyHistoryActivity" />
+        <activity android:name=".ui.user.activity.MyCommentActivity" />
+        <activity android:name=".ui.user.activity.UserInformationActivity" />
+        <activity android:name=".ui.user.activity.MyTelActivity" />
+        <activity android:name=".ui.user.activity.MyEmailActivity" />
+        <activity android:name=".ui.user.activity.MyUpdateActivity" />
+        <activity android:name=".ui.video.activity.PostPublishActivity" />
+        <activity android:name=".ui.user.activity.AccountManagementActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

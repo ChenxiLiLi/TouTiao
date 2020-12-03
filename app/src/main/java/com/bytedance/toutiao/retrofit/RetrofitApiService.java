@@ -82,4 +82,20 @@ public interface RetrofitApiService {
     @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myUpdate")
     @FormUrlEncoded
     Observable<ResponseModel<String>> myUpdate(@Field("id")int id, @Field("nickname")String nickname, @Field("sex")String sex, @Field("introduction")String introduction);
+
+    //修改绑定手机
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myTel")
+    @FormUrlEncoded
+    Observable<ResponseModel<String>> myTel(@Field("id")int id, @Field("phoneNum")String phoneNum, @Field("code")String code);
+
+    //修改绑定手机
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/myEmail")
+    @FormUrlEncoded
+    Observable<ResponseModel<String>> myEmail(@Field("id")int id, @Field("email")String email, @Field("code")String code);
+
+    //修改密码
+    @POST("mock/7451/byte/dance/v1.0/byte/dance/v1.0/my/updatePassword")
+    @FormUrlEncoded
+    Observable<ResponseModel<String>> updatePassword(@Field("id")int id, @Field("password")String password);
 }
+

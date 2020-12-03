@@ -14,6 +14,9 @@ import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.base.NormalViewModel;
 import com.bytedance.toutiao.databinding.FragmentUserBinding;
+import com.bytedance.toutiao.ui.login.LoginActivity;
+import com.bytedance.toutiao.ui.person.FansActivity;
+import com.bytedance.toutiao.ui.person.FocusActivity;
 import com.bytedance.toutiao.ui.user.activity.AccountManagementActivity;
 import com.bytedance.toutiao.ui.user.activity.MyCollectionActivity;
 import com.bytedance.toutiao.ui.user.activity.MyCommentActivity;
@@ -48,7 +51,12 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         binding.setViewModel(mViewModel);
-        mViewModel.getUser();
+        SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(null == (sp.getString("username", null))){
+            binding.rvToLogin.setVisibility(View.VISIBLE);
+        }else {
+            mViewModel.getUser();
+        }
     }
 
     @Override
@@ -58,6 +66,10 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
             public void onClick(View view) {
                 Intent intent;
                 switch (view.getId()){
+                    case R.id.btn_to_login:
+                        intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.my_account:
                         ToastUtils.showToast("clicked");
                         intent = new Intent(getActivity(), AccountManagementActivity.class);
@@ -79,16 +91,17 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
                         intent = new Intent(getActivity(), MyHistoryActivity.class);
                         startActivity(intent);
                         break;
-//                    case R.id.my_comment:
-//                        intent = new Intent(getActivity(), MyCommentActivity.class);
-//                        startActivity(intent);
-//                        break;
+                    case R.id.my_comment:
+                        intent = new Intent(getActivity(), MyCommentActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.my_focus:
-                        intent = new Intent(getActivity(), BaseActivity.class);
+                        intent = new Intent(getActivity(), FocusActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.my_fans:
-                        intent = new Intent(getActivity(), BaseActivity.class);
+                        intent = new Intent(getActivity(), FansActivity.class);
+                        intent.putExtra("title","粉丝");
                         startActivity(intent);
                         break;
                 }

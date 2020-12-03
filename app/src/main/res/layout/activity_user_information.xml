@@ -41,6 +41,33 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/my_username"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:orientation="horizontal"
+            android:onClick="@{onClickListener}"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:text="用户名"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
+                android:text="@={viewModel.userName}"
+                android:textSize="@dimen/sp_20"
+                android:gravity="right|center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/ava"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
@@ -75,13 +102,16 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_10"
+            android:background="@color/titleGrey"/>
+
         <LinearLayout
-            android:id="@+id/my_username"
+            android:id="@+id/my_nickname"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="@dimen/dp_100"
@@ -91,34 +121,22 @@
                 android:gravity="center"/>
 
             <TextView
-                android:id="@+id/text_username"
+                android:id="@+id/text_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
                 android:text="@={viewModel.nickName}"
                 android:textSize="@dimen/sp_20"
                 android:gravity="right|center"/>
 
-            <RelativeLayout
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/right"/>
-
-            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/my_sex"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="@dimen/dp_100"
@@ -132,131 +150,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_10"
                 android:text="@={viewModel.sex}"
                 android:textSize="@dimen/sp_20"
                 android:gravity="right|center"/>
 
-            <RelativeLayout
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/right"/>
-
-            </RelativeLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/my_tel"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
-
-            <TextView
-                android:layout_width="@dimen/dp_100"
-                android:layout_height="match_parent"
-                android:text="绑定手机"
-                android:textSize="@dimen/sp_20"
-                android:gravity="center"/>
-
-            <TextView
-                android:id="@+id/text_tel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@={viewModel.tel}"
-                android:textSize="@dimen/sp_20"
-                android:gravity="right|center"/>
-
-            <RelativeLayout
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/right"/>
-
-            </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/my_email"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
-
-            <TextView
-                android:layout_width="@dimen/dp_100"
-                android:layout_height="match_parent"
-                android:text="绑定邮箱"
-                android:textSize="@dimen/sp_20"
-                android:gravity="center"/>
-
-            <TextView
-                android:id="@+id/text_email"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@={viewModel.email}"
-                android:textSize="@dimen/sp_20"
-                android:gravity="right|center"/>
-
-            <RelativeLayout
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/right"/>
-
-            </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/my_introduction"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal"
-            android:onClick="@{onClickListener}"
-            android:clickable="true">
+            android:layout_height="@dimen/dp_180">
 
             <TextView
+                android:id="@+id/introduction"
                 android:layout_width="@dimen/dp_100"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dp_60"
                 android:text="简介"
                 android:textSize="@dimen/sp_20"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:layout_gravity="top"/>
 
             <TextView
                 android:id="@+id/text_introduction"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_toRightOf="@+id/introduction"
+                android:layout_marginRight="@dimen/dp_10"
                 android:text="@={viewModel.introduction}"
                 android:textSize="@dimen/sp_20"
-                android:gravity="right|center"/>
+                android:gravity="right|top"/>
+        </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="@dimen/dp_40"
-                android:layout_height="match_parent"
-                android:gravity="center">
+        <TextView
+            android:id="@+id/my_update"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:background="@color/titleGrey"
+            android:text="编辑"
+            android:textSize="@dimen/sp_20"
+            android:gravity="center"
+            android:onClick="@{onClickListener}"
+            android:clickable="true"/>
 
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/right"/>
-            </RelativeLayout>
-        </LinearLayout>
     </LinearLayout>
 </layout>

@@ -49,6 +49,12 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
     public final ObservableField<String> email = new ObservableField<>("");
     //简介的绑定
     public final ObservableField<String> introduction = new ObservableField<>("");
+    //验证码
+    public final ObservableField<String> code = new ObservableField<>("");
+    //密码
+    public final ObservableField<String> password = new ObservableField<>("");
+    //确认密码
+    public final ObservableField<String> confirmPassword = new ObservableField<>("");
 
     public void setId(int id) {
         this.id = id;
@@ -109,7 +115,6 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
         return getRepository().myUpdate(getId(), nickName.get(), sex.get(), introduction.get());
     }
 
-
     public void localUpdate(){
         new Thread(){
             @Override
@@ -118,33 +123,50 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
                 Log.e("update", "epdate");
             }
         }.start();
-
-
     }
 
     public void deleteUser(){
-//        MyApplication.getDb().userDao().deleteUser(getId())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new SingleObserver<Integer>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onSuccess(Integer delete) {
-//                        if(delete > 0){
-//                            Log.e("ttttest", "修改user");
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        System.out.println(e);
-//                    }
-//                });
-                }
+        new Thread(){
+            @Override
+            public void run() {
+                MyApplication.getDb().userDao().deleteUser(id);
+                Log.e("update", "epdate");
+            }
+        }.start();
+    }
 
+    //修改绑定手机
+    public LiveData<Resource<String>> myTel(){
+        return getRepository().myTel(getId(), tel.get(), code.get());
+    }
 
+    public void updateTel(){
+        new Thread(){
+            @Override
+            public void run() {
+                MyApplication.getDb().userDao().updateTel(id, tel.get());
+                Log.e("update", "tel");
+            }
+        }.start();
+    }
+
+    //修改绑定邮箱
+    public LiveData<Resource<String>> myEmail() {
+        return getRepository().myEmail(getId(), email.get(), code.get());
+    }
+
+    public void updateEmail(){
+        new Thread(){
+            @Override
+            public void run() {
+                MyApplication.getDb().userDao().updateEmail(id, email.get());
+                Log.e("update", "email");
+            }
+        }.start();
+    }
+
+    //修改密码
+    public LiveData<Resource<String>> updatePassword() {
+        return getRepository().updatePassword(getId(), password.get());
+    }
 }

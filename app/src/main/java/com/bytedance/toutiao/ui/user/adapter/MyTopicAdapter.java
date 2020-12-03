@@ -32,14 +32,14 @@ public class MyTopicAdapter extends RecyclerView.Adapter<MyTopicAdapter.ViewHold
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyTopicAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_my_topic, parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        if(topicModels != null && topicModels.isEmpty()){
+    public void onBindViewHolder(@NonNull MyTopicAdapter.ViewHolder holder, final int position) {
+        if(topicModels != null && !topicModels.isEmpty()){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -24,7 +24,7 @@
         <activity android:name=".ui.search.activity.SearchResultActivity"></activity>
         <activity android:name=".ui.person.AuthorActivity" />
         <activity android:name=".ui.person.FansActivity" />
-        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.search.activity.SearchActivity" />
         <activity android:name=".ui.message.Activity.MessageChatActivity" />
         <activity android:name=".ui.video.activity.PostDetailActivity" />
         <activity android:name=".ui.video.activity.TopicSquareActivity" />

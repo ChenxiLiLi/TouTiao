@@ -1,6 +1,7 @@
 package com.bytedance.toutiao.ui.message.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemMessageFocusBinding;
+import com.bytedance.toutiao.ui.video.activity.TopicSquareActivity;
 import com.bytedance.toutiao.utils.ToastUtils;
 
 import java.util.List;
@@ -41,23 +43,24 @@ public class FragmentMessageFocusAdapter extends RecyclerView.Adapter<FragmentMe
         binding.tvName.setText(msgFocusList.get(position).getMsgCommentName());
         binding.tvReadNum.setText(msgFocusList.get(position).getNum());
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                //if(listener.showToLoginFragment()){
                 if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
                     binding.btnFocus.setText("关注");
                     binding.btnFocus.setTextColor(context.getResources().getColor(R.color.colorAccent));
                     binding.btnFocus.setBackgroundResource(R.mipmap.btn_all_blue);
-                    ToastUtils.showToast("已取消关注");
                 }else if (binding.btnFocus.getText().toString().indexOf("关注") != -1){
                     binding.btnFocus.setText("已关注");
                     binding.btnFocus.setTextColor(0xcc000000);
                     binding.btnFocus.setBackgroundResource(R.mipmap.btn_grey);
-                    ToastUtils.showToast("关注成功");
                 }
-
-                //}
+            }
+        });
+        binding.itemFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, TopicSquareActivity.class);
+                context.startActivity(intent);
             }
         });
     }

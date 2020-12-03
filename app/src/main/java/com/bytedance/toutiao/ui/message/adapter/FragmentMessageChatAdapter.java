@@ -43,14 +43,12 @@ public class FragmentMessageChatAdapter extends RecyclerView.Adapter<FragmentMes
     public void onBindViewHolder(@NonNull FragmentMessageChatAdapter.ViewHolder holder, final int position) {
         ItemMessageDetailBinding binding = (ItemMessageDetailBinding) holder.getBinding();
         binding.name.setText(messageChatModels.get(position).getMsgCommentName());
-        binding.content.setText(messageChatModels.get(position).getMsgCommentContent());
         binding.itemDetial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.e("MsgCView", view +"");
                 switch (view.getId()) {
                     case R.id.item_detial:
-                        Toast.makeText(context, "进入私聊界面", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(context, MessageChatActivity.class);
                         intent.putExtra("title", messageChatModels.get(position).getMsgCommentName());
                         context.startActivity(intent);

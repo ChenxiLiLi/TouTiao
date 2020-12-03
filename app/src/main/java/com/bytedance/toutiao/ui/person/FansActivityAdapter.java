@@ -1,9 +1,11 @@
 package com.bytedance.toutiao.ui.person;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -36,16 +38,26 @@ public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapt
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         final ItemFansBinding binding = (ItemFansBinding) holder.getBinding();
         binding.tvName.setText(fans.get(position).getMsgCommentName());
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if(listener.showToLoginFragment()){
-                binding.btnFocus.setText("已关注");
-                ToastUtils.showToast("关注成功");
-                //}
+                if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
+                    binding.btnFocus.setText("已关注");
+                }
+                else if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
+                    binding.btnFocus.setText("关注");
+                }
+            }
+        });
+        binding.avater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AuthorActivity.class);
+                intent.putExtra("title", fans.get(position).getMsgCommentName());
+                context.startActivity(intent);
             }
         });
     }

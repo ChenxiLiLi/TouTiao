@@ -49,7 +49,7 @@ public class FragmentSearchCity extends BaseFragment {
                 System.out.println("返回的资源对象是"+listResource);
                 if (listResource != null) {
                     searchCityList.addAll(listResource.data);
-                    initdata();
+                    //initdata();
                 }
                 fragmentSearchCityAdapter.notifyDataSetChanged();
             }

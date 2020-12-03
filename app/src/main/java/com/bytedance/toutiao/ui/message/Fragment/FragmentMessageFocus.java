@@ -55,7 +55,7 @@ public class FragmentMessageFocus extends BaseFragment <MessageCommentViewModel,
                 System.out.println("返回的资源对象是"+listResource);
                 if (listResource != null) {
                     focusModelList.addAll(listResource.data);
-                    initData();
+                    //initData();
                 }
                 fragmentMessageFocusAdapter.notifyDataSetChanged();
             }

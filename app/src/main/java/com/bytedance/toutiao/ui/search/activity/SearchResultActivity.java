@@ -49,6 +49,7 @@ public class SearchResultActivity extends BaseActivity<NormalViewModel, Activity
         VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getSupportFragmentManager(),0,fragments,strings );
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
+        binding.tvTitle.setText("\""+getIntent().getStringExtra("seatchContext")+"\""+"的搜索结果");
     }
 
     @Override

@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_40"
                 android:layout_marginRight="@dimen/dp_40"
-                android:text="滑板鞋******新闻社实习生。"
+                android:text="滑板鞋******新闻社实习生。我们不生产新闻，我们只是新闻的搬运工。"
                 android:maxLines="1"
                 android:ellipsize="end"/>
         </LinearLayout>

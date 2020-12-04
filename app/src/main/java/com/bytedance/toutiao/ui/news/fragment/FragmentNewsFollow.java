@@ -1,5 +1,8 @@
 package com.bytedance.toutiao.ui.news.fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +15,7 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.NewsModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.FragmentNewsBaseBinding;
+import com.bytedance.toutiao.ui.login.LoginActivity;
 import com.bytedance.toutiao.ui.news.adapter.NewsListAdapter;
 import com.bytedance.toutiao.viewmodel.NewsViewModel;
 import com.bytedance.toutiao.base.BaseFragment;
@@ -39,19 +43,35 @@ public class FragmentNewsFollow extends BaseFragment<NewsViewModel, FragmentNews
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         mViewModel = ViewModelProviders.of(getActivity()).get(NewsViewModel.class);
-        getFollowNews();
-        binding.setViewModel(mViewModel);
+
         linearLayoutManager = new LinearLayoutManager(getActivity());
         //设置RecyclerView的布局
         binding.newsBase.setLayoutManager(linearLayoutManager);
         //设置资讯列表数据
         newsListAdapter = new NewsListAdapter(getActivity(), newsModels);
         binding.newsBase.setAdapter(newsListAdapter);
+
+        SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(null == (sp.getString("username", null))) {
+            binding.rvToLogin.setVisibility(View.VISIBLE);
+        }
+
+        getFollowNews();
     }
 
 
     @Override
     protected void setListener() {
+
+        //点击去登录
+        binding.btnToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toLogin = new Intent(getActivity(), LoginActivity.class);
+                getActivity().startActivity(toLogin);
+            }
+        });
+
         binding.swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

@@ -37,19 +37,22 @@ public class FragmentNewsNew extends BaseFragment<NewsViewModel, FragmentNewsBas
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
+
         mViewModel = ViewModelProviders.of(getActivity()).get(NewsViewModel.class);
-        getBaseNews();
-        binding.setViewModel(mViewModel);
+
         linearLayoutManager = new LinearLayoutManager(getActivity());
         //设置RecyclerView的布局
         binding.newsBase.setLayoutManager(linearLayoutManager);
         //设置资讯列表数据
         newsListAdapter = new NewsListAdapter(getActivity(), newsModels);
         binding.newsBase.setAdapter(newsListAdapter);
+        //获取资讯数据
+        getBaseNews();
     }
 
     @Override
     protected void setListener() {
+
         binding.swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

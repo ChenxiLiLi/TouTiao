@@ -1,5 +1,7 @@
 package com.bytedance.toutiao.ui.news.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,15 +40,21 @@ public class FragmentNewsSameCity extends BaseFragment<NewsViewModel, FragmentNe
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        mViewModel = ViewModelProviders.of(getActivity()).get(NewsViewModel.class);
-        getSameCityNews();
-        binding.setViewModel(mViewModel);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         //设置RecyclerView的布局
         binding.newsBase.setLayoutManager(linearLayoutManager);
         //设置资讯列表数据
         newsListAdapter = new NewsListAdapter(getActivity(), newsModels);
         binding.newsBase.setAdapter(newsListAdapter);
+
+        mViewModel = ViewModelProviders.of(getActivity()).get(NewsViewModel.class);
+
+
+        //应该要请求用户获取当前位置，否则就随机展示一个地区的数据
+
+
+        //获取同城资讯
+        getSameCityNews();
     }
 
 

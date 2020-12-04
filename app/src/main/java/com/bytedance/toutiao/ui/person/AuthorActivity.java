@@ -48,10 +48,6 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
     public interface Listener extends View.OnClickListener{
         @Override
         void onClick(View view);
-
-        //void refresh(VideoModel videoModel);
-
-        boolean showToLoginFragment();
     }
 
     public void setListener(Listener listener) {
@@ -86,9 +82,6 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
 
         mViewModel = ViewModelProviders.of(this).get(MessageCommentViewModel.class);
         binding.title.setText(getIntent().getStringExtra("title"));
-        binding.fansNum.setText(getIntent().getStringExtra("fansNum"));
-        binding.focusNum.setText(getIntent().getStringExtra("focusNum"));
-        binding.content.setText(getIntent().getStringExtra("content"));
     }
 
 
@@ -98,7 +91,6 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
         binding.fans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AuthorActivity.this, "进入粉丝页", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AuthorActivity.this,FansActivity.class);
                 intent.putExtra("title","粉丝");
                 startActivity(intent);
@@ -107,7 +99,6 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
         binding.focus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AuthorActivity.this, "进入作者页", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AuthorActivity.this,FansActivity.class);
                 intent.putExtra("title","关注");
                 startActivity(intent);
@@ -122,10 +113,12 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if(listener.showToLoginFragment()){
+                if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
                     binding.btnFocus.setText("已关注");
-                    ToastUtils.showToast("关注成功");
-                //}
+                }
+                else if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
+                    binding.btnFocus.setText("关注");
+                }
             }
         });
         binding.ivShare.setOnClickListener(new View.OnClickListener() {

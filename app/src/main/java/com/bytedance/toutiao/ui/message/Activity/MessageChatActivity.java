@@ -1,78 +1,72 @@
 package com.bytedance.toutiao.ui.message.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bytedance.toutiao.R;
+import com.bytedance.toutiao.base.BaseActivity;
 import com.bytedance.toutiao.bean.MessageChatModel;
+import com.bytedance.toutiao.databinding.ActivityMessageChatBinding;
 import com.bytedance.toutiao.ui.message.adapter.MessageChatAdapt;
-import com.bytedance.toutiao.ui.person.AuthorActivity;
+import com.bytedance.toutiao.viewmodel.MessageCommentViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageChatActivity extends AppCompatActivity {
-
+public class MessageChatActivity extends BaseActivity<MessageCommentViewModel, ActivityMessageChatBinding> {
+    private Context context;
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
     private List<MessageChatModel> msgList = new ArrayList<>();
-    @SuppressLint("WrongViewCast")
-    private EditText inputText;
-    private Button send;
-    private TextView title;
-    private RecyclerView msgRecyclerView;
-    private MessageChatAdapt adapter;
+    private MessageChatAdapt messageChatAdapt;
+    private String name;
 
-
-    @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_chat);
-        title = (TextView) findViewById(R.id.title);
-        inputText = (EditText) findViewById(R.id.message_input);
-        send = (Button) findViewById(R.id.message_sent_btn);
-        msgRecyclerView = (RecyclerView)findViewById(R.id.message_item);
+    protected int getContentViewId() {
+        return R.layout.activity_message_chat;
+    }
+
+    @Override
+    protected void processLogic() {
         initMsgs();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        msgRecyclerView.setLayoutManager(layoutManager);
-        adapter = new MessageChatAdapt(msgList,this);
-        msgRecyclerView.setAdapter(adapter);
-        title.setText(getIntent().getStringExtra("title"));
-        send.setOnClickListener(new View.OnClickListener() {
+        name = getIntent().getStringExtra("title");
+        recyclerView = findViewById(R.id.message_item);
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        messageChatAdapt = new MessageChatAdapt(msgList,this,name);
+        recyclerView.setAdapter(messageChatAdapt);
+        mViewModel = ViewModelProviders.of(this).get(MessageCommentViewModel.class);
+        binding.title.setText(name);
+
+    }
+
+    @Override
+    protected void setListener() {
+        binding.messageSentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String content = inputText.getText().toString();
+                String content = binding.messageInput.getText().toString();
                 //判断输入框内容非空
                 if (!"".equals(content)){
                     MessageChatModel msg = new MessageChatModel(content,MessageChatModel.TYPE_SENT);
                     msgList.add(msg);
-                    adapter.notifyItemInserted(msgList.size()-1);//当有新消息时，刷新listView中的显示
-                    msgRecyclerView.scrollToPosition(msgList.size()-1);//将LIstView定位到最后一行
-                    inputText.setText("");//清空输入框中的内容
+                    messageChatAdapt.notifyItemInserted(msgList.size()-1);//当有新消息时，刷新listView中的显示
+                    recyclerView.scrollToPosition(msgList.size()-1);//将LIstView定位到最后一行
+                    binding.messageInput.setText("");//清空输入框中的内容
                 }
             }
         });
-        ImageView view = (ImageView) findViewById(R.id.back);
-        view.setOnClickListener(new View.OnClickListener() {
+        binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
-
-
     }
+
 
     private void initMsgs() {
         MessageChatModel msg1 = new MessageChatModel("Hello，我的第一条信息",MessageChatModel.TYPE_RECEIVED);

@@ -47,15 +47,6 @@ public class FragmentMessageComments extends BaseFragment<MessageCommentViewMode
         recyclerView.setAdapter(fragmentMessageCommentAdapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         getdata();
-
-//        mViewModel.getMsgComment("1").observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
-//            @Override
-//            public void onChanged(Resource<List<MessageCommentModel>> listResource) {
-//                messageCommentModels.addAll(listResource.data);
-//                initData();
-//                fragmentMessageCommentAdapter.notifyDataSetChanged();
-//            }
-//        });
     }
 
     private void getdata() {
@@ -65,7 +56,7 @@ public class FragmentMessageComments extends BaseFragment<MessageCommentViewMode
                 System.out.println("返回的资源对象是"+listResource);
                 if (listResource != null) {
                     messageCommentModels.addAll(listResource.data);
-                    initData();
+                    //initData();
                 }
                 fragmentMessageCommentAdapter.notifyDataSetChanged();
             }

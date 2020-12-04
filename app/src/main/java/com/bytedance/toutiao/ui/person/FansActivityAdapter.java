@@ -1,9 +1,11 @@
 package com.bytedance.toutiao.ui.person;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -12,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
-import com.bytedance.toutiao.databinding.ItemFocusBinding;
+import com.bytedance.toutiao.databinding.ItemFansBinding;
 import com.bytedance.toutiao.utils.ToastUtils;
 
 import java.util.List;
@@ -29,23 +31,33 @@ public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapt
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_focus, parent, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_fans, parent, false);
         FansActivityAdapter.ViewHolder myHolder = new FansActivityAdapter.ViewHolder(binding.getRoot());
         myHolder.setBinding(binding);
         return myHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ItemFocusBinding binding = (ItemFocusBinding) holder.getBinding();
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        final ItemFansBinding binding = (ItemFansBinding) holder.getBinding();
         binding.tvName.setText(fans.get(position).getMsgCommentName());
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if(listener.showToLoginFragment()){
-                binding.btnFocus.setText("已关注");
-                ToastUtils.showToast("关注成功");
-                //}
+                if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
+                    binding.btnFocus.setText("已关注");
+                }
+                else if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
+                    binding.btnFocus.setText("关注");
+                }
+            }
+        });
+        binding.avater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AuthorActivity.class);
+                intent.putExtra("title", fans.get(position).getMsgCommentName());
+                context.startActivity(intent);
             }
         });
     }

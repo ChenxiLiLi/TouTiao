@@ -16,6 +16,7 @@ import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemMessageCommentBinding;
 import com.bytedance.toutiao.ui.person.AuthorActivity;
+import com.bytedance.toutiao.ui.video.activity.TopicSquareActivity;
 
 import java.util.List;
 
@@ -46,12 +47,15 @@ public class FragmentMessageCommentAdapter extends RecyclerView.Adapter<Fragment
         binding.avater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "进入作者页", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, AuthorActivity.class);
                 intent.putExtra("title", messageCommentModels.get(position).getMsgCommentName());
-                intent.putExtra("fansNum", messageCommentModels.get(position).getLoveNum());
-                intent.putExtra("focusNum", messageCommentModels.get(position).getNum());
-                intent.putExtra("content", messageCommentModels.get(position).getIntroduction());
+                context.startActivity(intent);
+            }
+        });
+        binding.itemComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, TopicSquareActivity.class);
                 context.startActivity(intent);
             }
         });

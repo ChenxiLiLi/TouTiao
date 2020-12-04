@@ -50,7 +50,7 @@ public class FragmentSearchFriend extends BaseFragment {
                 System.out.println("返回的资源对象是"+listResource);
                 if (listResource != null) {
                     searchFriendList.addAll(listResource.data);
-                    initdata();
+                    //initdata();
                 }
                 fragmentSearchFriendAdapter.notifyDataSetChanged();
             }

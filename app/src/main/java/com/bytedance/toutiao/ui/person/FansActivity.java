@@ -23,7 +23,6 @@ public class FansActivity extends BaseActivity<MessageCommentViewModel, Activity
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private FansActivityAdapter fansActivityAdapter;
-    private String title = "";
 
 
     @Override
@@ -33,7 +32,6 @@ public class FansActivity extends BaseActivity<MessageCommentViewModel, Activity
 
     @Override
     protected void processLogic() {
-        this.title = getIntent().getStringExtra("");
         recyclerView = findViewById(R.id.item);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);

@@ -51,7 +51,7 @@ public class FragmentSearchHot extends BaseFragment {
                 System.out.println("返回的资源对象是"+listResource);
                 if (listResource != null) {
                     searchHotList.addAll(listResource.data);
-                    initdata();
+                    //initdata();
                 }
                 fragmentSearchHotAdapter.notifyDataSetChanged();
             }

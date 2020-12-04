@@ -82,11 +82,9 @@ public class MyCommentActivity extends BaseActivity<MessageCommentViewModel, Act
         binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
                 switch (view.getId()){
                     case R.id.my_back:
-                        intent = new Intent(MyCommentActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        finish();
                         break;
                 }
             }

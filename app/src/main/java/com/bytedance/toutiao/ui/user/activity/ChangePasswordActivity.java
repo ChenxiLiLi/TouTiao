@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseActivity;
@@ -45,6 +46,8 @@ public class ChangePasswordActivity extends BaseActivity<MyViewModel, ActivityCh
                                 @Override
                                 public void onChanged(Resource<String> stringResource) {
                                     Log.e("update password", stringResource.state +"");
+                                    ToastUtils.showToast("修改成功");
+                                    finish();
                                 }
                             });
                         }break;

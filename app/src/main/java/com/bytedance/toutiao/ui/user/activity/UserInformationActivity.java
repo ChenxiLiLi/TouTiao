@@ -40,8 +40,7 @@ public class UserInformationActivity extends BaseActivity<MyViewModel, ActivityU
                         startActivity(intent);
                         break;
                     case R.id.my_back:
-                        intent = new Intent(UserInformationActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        finish();
                         break;
                 }
             }

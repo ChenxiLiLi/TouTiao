@@ -26,11 +26,7 @@ public class MyEmailActivity extends BaseActivity<MyViewModel, ActivityMyEmailBi
     @Override
     protected void processLogic() {
         binding.setViewModel(mViewModel);
-        SharedPreferences sp = getSharedPreferences("email", Context.MODE_PRIVATE);
-        String email = sp.getString("email",null);
-        if(email != null){
-            binding.myEmail.setText(email);
-        }
+        mViewModel.getUser();
     }
 
     @Override

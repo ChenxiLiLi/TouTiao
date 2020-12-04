@@ -84,6 +84,8 @@ public class MyViewModel extends BaseViewModel<RepositoryImpl> {
                         focusNum.set(String.valueOf(user.getFocusNum()));
                         fansNUm.set(String.valueOf(user.getFansNum()));
                         tel.set(user.getPhoneNumber());
+                        Log.e("tel", user.getPhoneNumber()+"");
+                        Log.e("tel", tel.get()+"");
                         email.set(user.getEmail());
                         introduction.set(user.getIntroduction());
                     }

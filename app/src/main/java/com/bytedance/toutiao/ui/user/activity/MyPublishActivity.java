@@ -58,8 +58,7 @@ public class MyPublishActivity extends BaseActivity<NormalViewModel, ActivityMyP
                     switchFragment(R.id.mypub_tab_3);
                     break;
                 case R.id.my_back:
-                    Intent intent = new Intent(MyPublishActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    finish();
                     break;
             }
             }

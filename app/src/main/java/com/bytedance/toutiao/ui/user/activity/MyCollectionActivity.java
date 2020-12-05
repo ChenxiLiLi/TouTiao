@@ -60,11 +60,9 @@ public class MyCollectionActivity extends BaseActivity<NormalViewModel, Activity
         binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
                 switch (view.getId()){
                     case R.id.my_back:
-                        intent = new Intent(MyCollectionActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        finish();
                         break;
                 }
             }

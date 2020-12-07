@@ -26,6 +26,7 @@ import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.bean.Resource;
 import com.bytedance.toutiao.databinding.ActivityAuthorBinding;
 import com.bytedance.toutiao.ui.MainActivity;
+import com.bytedance.toutiao.ui.message.Activity.MessageChatActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.bytedance.toutiao.ui.video.fragment.FragmentEventInfo;
 import com.bytedance.toutiao.ui.video.fragment.FragmentEventVideo;
@@ -38,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorActivity extends BaseActivity<MessageCommentViewModel, ActivityAuthorBinding> {
-    private Context mContext;
+    private Context context;
     private List<Fragment> fragments = new ArrayList<>();
     private NoScrollViewPager viewPager;
     private String[] strings  = new String[]{"资讯", "视频"};
@@ -119,6 +120,14 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
                 else if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
                     binding.btnFocus.setText("关注");
                 }
+            }
+        });
+        binding.btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AuthorActivity.this, MessageChatActivity.class);
+                intent.putExtra("title", binding.title.getText().toString());
+                startActivity(intent);
             }
         });
         binding.ivShare.setOnClickListener(new View.OnClickListener() {

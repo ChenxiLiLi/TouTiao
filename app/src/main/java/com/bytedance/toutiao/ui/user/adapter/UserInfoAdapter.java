@@ -70,7 +70,6 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.ViewHo
             publishTime = itemView.findViewById(R.id.publish_time);
             likeNum = itemView.findViewById(R.id.news_like);
             readNum = itemView.findViewById(R.id.news_read);
-
         }
     }
 }

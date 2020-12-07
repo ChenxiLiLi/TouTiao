@@ -55,11 +55,9 @@ public class MyHistoryActivity extends BaseActivity<MyViewModel, ActivityMyHisto
         binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
                 switch (view.getId()){
                     case R.id.my_back:
-                        intent = new Intent(MyHistoryActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        finish();
                         break;
                 }
             }

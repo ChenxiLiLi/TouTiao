@@ -65,45 +65,54 @@ public class FragmentUser extends BaseFragment<MyViewModel, FragmentUserBinding>
             @Override
             public void onClick(View view) {
                 Intent intent;
-                switch (view.getId()){
-                    case R.id.btn_to_login:
-                        intent = new Intent(getActivity(), LoginActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_account:
-                        ToastUtils.showToast("clicked");
-                        intent = new Intent(getActivity(), AccountManagementActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.user_thisuser:
-                        intent = new Intent(getActivity(), UserInformationActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_publish:
-                        intent = new Intent(getActivity(), MyPublishActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_collection:
-                        intent = new Intent(getActivity(), MyCollectionActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_history:
-                        intent = new Intent(getActivity(), MyHistoryActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_comment:
-                        intent = new Intent(getActivity(), MyCommentActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_focus:
-                        intent = new Intent(getActivity(), FocusActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.my_fans:
-                        intent = new Intent(getActivity(), FansActivity.class);
-                        intent.putExtra("title","粉丝");
-                        startActivity(intent);
-                        break;
+                SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+                if(null == (sp.getString("username", null))){
+                    switch (view.getId()){
+                        case R.id.btn_to_login:
+                            intent = new Intent(getActivity(), LoginActivity.class);
+                            startActivity(intent);
+                            break;
+                        default:
+                            ToastUtils.showToast("请先登录");
+                    }
+                }else{
+                    switch (view.getId()){
+                        case R.id.my_account:
+                            ToastUtils.showToast("clicked");
+                            intent = new Intent(getActivity(), AccountManagementActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.user_thisuser:
+                            intent = new Intent(getActivity(), UserInformationActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.my_publish:
+                            intent = new Intent(getActivity(), MyPublishActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.my_collection:
+                            intent = new Intent(getActivity(), MyCollectionActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.my_history:
+                            intent = new Intent(getActivity(), MyHistoryActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.my_comment:
+                            intent = new Intent(getActivity(), MyCommentActivity.class);
+                            startActivity(intent);
+                            break;
+                        case R.id.my_focus:
+                            intent = new Intent(getActivity(), FansActivity.class);
+                            intent.putExtra("title","关注");
+                            startActivity(intent);
+                            break;
+                        case R.id.my_fans:
+                            intent = new Intent(getActivity(), FansActivity.class);
+                            intent.putExtra("title","粉丝");
+                            startActivity(intent);
+                            break;
+                    }
                 }
             }
         });

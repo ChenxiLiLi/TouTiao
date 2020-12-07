@@ -44,8 +44,7 @@ public class AccountManagementActivity extends BaseActivity<MyViewModel, Activit
                         startActivity(intent);
                         break;
                     case R.id.my_back:
-                        intent = new Intent(AccountManagementActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        finish();
                         break;
                     case R.id.my_tel:
                         intent = new Intent(AccountManagementActivity.this, MyTelActivity.class);

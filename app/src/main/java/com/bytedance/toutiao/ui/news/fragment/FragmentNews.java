@@ -1,7 +1,10 @@
 package com.bytedance.toutiao.ui.news.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -9,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.ui.news.adapter.NewsListFragmentAdapter;
+import com.bytedance.toutiao.ui.search.SearchActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.google.android.material.tabs.TabLayout;
 
@@ -68,7 +72,15 @@ public class FragmentNews extends BaseFragment {
 
     @Override
     protected void setListener() {
-
+        ImageView imageView = mContentView.findViewById(R.id.news_search);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "进入搜索界面", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

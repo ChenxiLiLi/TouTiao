@@ -70,24 +70,42 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
         else if(mViewModel.password.get() == null || "".equals(mViewModel.password.get()))
             ToastUtils.showToast("请输入密码");
         else {
-            mViewModel.login()
-                    .observe(LoginActivity.this, new Observer<Resource<User>>() {
-                        @Override
-                        public void onChanged(Resource<User> userResource) {
-                            System.out.println(userResource);
-                            if (userResource.state == 1) {
-                                Log.e("login", userResource.data.getUsername());
-                                SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
-                                sp.edit()
-                                        .putString("username", mViewModel.userName.get())
-                                        .putString("password", mViewModel.password.get())
-                                        .apply();
-                                mViewModel.insertUser(userResource.data);
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                            }
-                        }
-                    });
+            User user = new User();
+            user.setNickname("吃瓜群众");
+            user.setId(1);
+            user.setSex("男");
+            user.setEmail("234234234@qq.com");
+            user.setUsername(mViewModel.userName.get());
+            user.setPhoneNumber("23423432");
+            user.setFocusNum(23);
+            user.setFansNum(234);
+            user.setIntroduction("你爱我是谁");
+            SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+            sp.edit()
+                    .putString("username", user.getUsername())
+                    .putString("password", user.getPassword())
+                    .apply();
+            mViewModel.insertUser(user);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+//            mViewModel.login()
+//                    .observe(LoginActivity.this, new Observer<Resource<User>>() {
+//                        @Override
+//                        public void onChanged(Resource<User> userResource) {
+//                            System.out.println(userResource);
+//                            if (userResource.state == 1) {
+//                                Log.e("login", userResource.data.getUsername());
+//                                SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+//                                sp.edit()
+//                                        .putString("username", mViewModel.userName.get())
+//                                        .putString("password", mViewModel.password.get())
+//                                        .apply();
+//                                mViewModel.insertUser(userResource.data);
+//                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                                startActivity(intent);
+//                            }
+//                        }
+//                    });
         }
     }
 

@@ -48,22 +48,29 @@ public class FragmentMessageChats extends BaseFragment<MessageCommentViewModel, 
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(fragmentMessageChatAdapter);
         getdata();
-
-
     }
-
     private void getdata() {
         mViewModel.getMsgComment("5").observe(getActivity(), new Observer<Resource<List<MessageCommentModel>>>() {
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
+                if (listResource != null & listResource.state==1) {
                     messageChatModels.addAll(listResource.data);
                 }
+                initData();
                 fragmentMessageChatAdapter.notifyDataSetChanged();
             }
         });
         Log.e("send: {}",  "发送了请求");
+    }
+
+    private void initData(){
+        MessageCommentModel msgcomm1 = new MessageCommentModel("叮当猫");
+        messageChatModels.add(msgcomm1);
+        MessageCommentModel msgcomm2 = new MessageCommentModel("灭霸");
+        messageChatModels.add(msgcomm2);
+        MessageCommentModel msgcomm3 = new MessageCommentModel("派大星");
+        messageChatModels.add(msgcomm3);
     }
 
     @Override

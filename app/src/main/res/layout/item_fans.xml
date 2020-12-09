@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginHorizontal="@dimen/dp_15"
-            android:src="@mipmap/avater"/>
+            android:src="@mipmap/avater_girl" />
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="@dimen/dp_0"

@@ -67,20 +67,16 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
         // 添加 tab item
         mTabLayout.addTab(mTabLayout.newTab().setText("TAB1"));
         mTabLayout.addTab(mTabLayout.newTab().setText("TAB2"));
-
         FragmentEventInfo fragmentEventInfo = new FragmentEventInfo();
         FragmentEventVideo fragmentEventVideo = new FragmentEventVideo();
-
         fragments.add(fragmentEventInfo);
         fragments.add(fragmentEventVideo);
-
         //获取viewpager
         viewPager = findViewById(R.id.view_pager);
         //创建适配器
         VideoListFragmentAdapter myAdapter = new VideoListFragmentAdapter(getSupportFragmentManager(),0,fragments,strings );
         viewPager.setAdapter(myAdapter);
         mTabLayout.setupWithViewPager(viewPager);
-
         mViewModel = ViewModelProviders.of(this).get(MessageCommentViewModel.class);
         binding.title.setText(getIntent().getStringExtra("title"));
     }
@@ -114,11 +110,12 @@ public class AuthorActivity extends BaseActivity<MessageCommentViewModel, Activi
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
-                    binding.btnFocus.setText("已关注");
-                }
-                else if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
+
+                if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
                     binding.btnFocus.setText("关注");
+                }
+                else if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
+                    binding.btnFocus.setText("已关注");
                 }
             }
         });

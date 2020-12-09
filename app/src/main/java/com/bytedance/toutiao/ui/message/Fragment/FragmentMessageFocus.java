@@ -53,10 +53,10 @@ public class FragmentMessageFocus extends BaseFragment <MessageCommentViewModel,
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
+                if (listResource != null & listResource.state==1) {
                     focusModelList.addAll(listResource.data);
-                    //initData();
                 }
+                initData();
                 fragmentMessageFocusAdapter.notifyDataSetChanged();
             }
         });
@@ -66,6 +66,14 @@ public class FragmentMessageFocus extends BaseFragment <MessageCommentViewModel,
     private void initData() {
         MessageCommentModel msgFocusModel1 = new MessageCommentModel("美国大选","2345423");
         focusModelList.add(msgFocusModel1);
+        MessageCommentModel msgFocusModel2 = new MessageCommentModel("家里那些事儿","67664");
+        focusModelList.add(msgFocusModel2);
+        MessageCommentModel msgFocusModel3 = new MessageCommentModel("娱乐八卦阵","3452345");
+        focusModelList.add(msgFocusModel3);
+        MessageCommentModel msgFocusModel4 = new MessageCommentModel("互联网金融","787892");
+        focusModelList.add(msgFocusModel4);
+        MessageCommentModel msgFocusModel5 = new MessageCommentModel("手机行业精选","56357");
+        focusModelList.add(msgFocusModel5);
     }
 
     @Override

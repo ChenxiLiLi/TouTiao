@@ -23,7 +23,7 @@
             android:id="@+id/author_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_55"
-            android:background="#02000000"
+            android:background="#05000000"
             android:orientation="horizontal">
 
             <ImageView
@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:src="@mipmap/avater"/>
+                    android:src="@mipmap/avater_girl"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/fans"

@@ -23,7 +23,7 @@
         <activity android:name=".ui.user.activity.ChangePasswordActivity"></activity>
         <activity android:name=".ui.person.FocusActivity" />
         <activity android:name=".ui.search.activity.SearchResultActivity" />
-        <activity android:name=".ui.person.AuthorActivity" />
+        <activity android:name=".ui.person.AuthorActivity"></activity>
         <activity android:name=".ui.person.FansActivity" />
         <activity android:name=".ui.search.activity.SearchActivity" />
         <activity android:name=".ui.message.Activity.MessageChatActivity" />

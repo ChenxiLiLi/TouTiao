@@ -39,7 +39,7 @@ public class FragmentEventVideo extends BaseFragment<VideoViewModel, FragmentUse
     protected void processLogic(Bundle savedInstanceState) {
         initData();
         mViewModel = ViewModelProviders.of(getActivity()).get(VideoViewModel.class);
-        addVideoToList();
+        //addVideoToList();
         recyclerView = binding.userRvVideo;
         gridLayoutManager = new GridLayoutManager(mContentView.getContext(),2);
         videoListAdapter = new VideoListAdapter(mContentView.getContext(), videoModels);

@@ -28,7 +28,7 @@
                 android:layout_height="@dimen/dp_50"
                 android:layout_margin="@dimen/dp_10"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/avater"/>
+                android:src="@mipmap/avater_girl"/>
 
             <LinearLayout
                 android:orientation="vertical"

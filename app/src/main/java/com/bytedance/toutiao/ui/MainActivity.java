@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity<TestViewModel, ActivityMainBindin
         list_fragment.add(fragment_two);
         list_fragment.add(fragment_three);
         list_fragment.add(fragment_four);
-        switchFragment(R.id.relative_tab_home);
+        switchFragment(R.id.relative_tab_message);
     }
 
 

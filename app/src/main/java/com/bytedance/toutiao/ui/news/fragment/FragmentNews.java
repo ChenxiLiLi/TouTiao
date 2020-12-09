@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bytedance.toutiao.R;
 import com.bytedance.toutiao.base.BaseFragment;
 import com.bytedance.toutiao.ui.news.adapter.NewsListFragmentAdapter;
-import com.bytedance.toutiao.ui.search.SearchActivity;
+import com.bytedance.toutiao.ui.search.activity.SearchActivity;
 import com.bytedance.toutiao.ui.video.adapter.VideoListFragmentAdapter;
 import com.google.android.material.tabs.TabLayout;
 

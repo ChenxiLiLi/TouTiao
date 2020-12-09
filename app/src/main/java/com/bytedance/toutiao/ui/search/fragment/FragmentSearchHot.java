@@ -49,10 +49,10 @@ public class FragmentSearchHot extends BaseFragment {
             @Override
             public void onChanged(Resource<List<SearchHotModel>> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
+                if (listResource != null & listResource.state==1) {
                     searchHotList.addAll(listResource.data);
-                    //initdata();
                 }
+                initdata();
                 fragmentSearchHotAdapter.notifyDataSetChanged();
             }
         });

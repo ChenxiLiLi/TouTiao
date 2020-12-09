@@ -163,7 +163,6 @@ public class FragmentVideoDetail extends BaseFragment<VideoViewModel, FragmentVi
     }
 
 
-
     @Override
     public void onPause() {
         super.onPause();

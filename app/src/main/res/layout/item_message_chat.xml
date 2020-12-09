@@ -26,7 +26,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_margin="@dimen/dp_10"
-                android:src="@mipmap/avater"/>
+                android:src="@mipmap/avater_cat"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_margin="@dimen/dp_10"
-                android:src="@mipmap/avater"/>
+                android:src="@mipmap/avater_girl"/>
         <View
             android:id="@+id/chat_right_brand"
             android:layout_width="@dimen/dp_70"

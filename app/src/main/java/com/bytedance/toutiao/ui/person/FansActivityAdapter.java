@@ -38,17 +38,17 @@ public class FansActivityAdapter  extends RecyclerView.Adapter<FansActivityAdapt
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull FansActivityAdapter.ViewHolder holder, final int position) {
         final ItemFansBinding binding = (ItemFansBinding) holder.getBinding();
         binding.tvName.setText(fans.get(position).getMsgCommentName());
         binding.btnFocus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
-                    binding.btnFocus.setText("已关注");
-                }
-                else if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
+                if (binding.btnFocus.getText().toString().indexOf("已关注") != -1 ){
                     binding.btnFocus.setText("关注");
+                }
+                else if (binding.btnFocus.getText().toString().indexOf("关注") != -1 ){
+                    binding.btnFocus.setText("已关注");
                 }
             }
         });

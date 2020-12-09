@@ -17,6 +17,7 @@ import com.bytedance.toutiao.bean.MessageCommentModel;
 import com.bytedance.toutiao.databinding.ItemMessageCommentBinding;
 import com.bytedance.toutiao.ui.person.AuthorActivity;
 import com.bytedance.toutiao.ui.video.activity.TopicSquareActivity;
+import com.bytedance.toutiao.ui.video.activity.VideoDetailActivity;
 
 import java.util.List;
 
@@ -55,7 +56,8 @@ public class FragmentMessageCommentAdapter extends RecyclerView.Adapter<Fragment
         binding.itemComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, TopicSquareActivity.class);
+                Intent intent = new Intent(context, VideoDetailActivity.class);
+                intent.putExtra("videoID", "南昌杀妻案");
                 context.startActivity(intent);
             }
         });

@@ -25,7 +25,7 @@
                 android:id="@+id/icon_home"
                 android:layout_width="@dimen/dp_60"
                 android:layout_height="@dimen/dp_60"
-                android:src="@mipmap/message_photo01" />
+                android:src="@mipmap/avater_girl" />
 
             </RelativeLayout>
 
@@ -93,7 +93,7 @@
                 android:id="@+id/icon_home"
                 android:layout_width="@dimen/dp_60"
                 android:layout_height="@dimen/dp_60"
-                android:src="@mipmap/message_photo01" />
+                android:src="@mipmap/avater_girl" />
 
         </RelativeLayout>
 

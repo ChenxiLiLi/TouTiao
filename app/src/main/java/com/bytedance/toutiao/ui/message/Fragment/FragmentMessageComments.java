@@ -54,10 +54,10 @@ public class FragmentMessageComments extends BaseFragment<MessageCommentViewMode
             @Override
             public void onChanged(Resource<List<MessageCommentModel>> listResource) {
                 System.out.println("返回的资源对象是"+listResource);
-                if (listResource != null) {
+                if (listResource != null & listResource.state==1) {
                     messageCommentModels.addAll(listResource.data);
-                    //initData();
                 }
+                initData();
                 fragmentMessageCommentAdapter.notifyDataSetChanged();
             }
         });
@@ -65,11 +65,11 @@ public class FragmentMessageComments extends BaseFragment<MessageCommentViewMode
     }
 
     private void initData(){
-        MessageCommentModel msgcomm1 = new MessageCommentModel("用户名1","评论内容～","2月30日 19:00");
+        MessageCommentModel msgcomm1 = new MessageCommentModel("小哪吒","评论内容～","2月30日 19:00");
         messageCommentModels.add(msgcomm1);
-        MessageCommentModel msgcomm2 = new MessageCommentModel("用户名2","评论内容～","2月30日 19:00");
+        MessageCommentModel msgcomm2 = new MessageCommentModel("葫芦娃","评论内容～","2月30日 19:00");
         messageCommentModels.add(msgcomm2);
-        MessageCommentModel msgcomm3 = new MessageCommentModel("用户名3","评论内容～","2月30日 19:00");
+        MessageCommentModel msgcomm3 = new MessageCommentModel("黑猫警长","评论内容～","2月30日 19:00");
         messageCommentModels.add(msgcomm3);
     }
 

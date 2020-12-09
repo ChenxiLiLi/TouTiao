@@ -40,9 +40,7 @@ public class MessageChatActivity extends BaseActivity<MessageCommentViewModel, A
         recyclerView.setAdapter(messageChatAdapt);
         mViewModel = ViewModelProviders.of(this).get(MessageCommentViewModel.class);
         binding.title.setText(name);
-
     }
-
     @Override
     protected void setListener() {
         binding.messageSentBtn.setOnClickListener(new View.OnClickListener() {
